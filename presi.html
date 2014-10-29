@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Title</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <style type="text/css">
+      @import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# Projekt - EMM
+
+## Gravitron
+
+Robert Kasseck (543583), Richard Remus(542820), Lukas Hodel(545881)
+---
+
+# Ziel
+Implementierung eines Mehrspieler-Weltraum-Shooters (Gravitron) in C++.
+
+---
+
+# Basic Features
+- Objekte verfügen über eine Gravitation relativ zu ihrer Masse.
+- Das Spiel soll über das Netzwerk im Multiplayer spielbar sein, wobei ein spieler der Host ist.
+- Es soll eine KI mit 3 Schwierigkeitsstufen beinhalten.
+- Für jeden Spieler wird eine lokale Spielstatistik erstellt.
+
+---
+
+# Gameplay
+
+## Spielfeld
+Das Spielfeld ist die Oberfläche einer Kugel (Sonnensystem). Jeder Spieler steuert sein eigenes Schiff und bewegt sich __auf__ der Kugel. 
+
+---
+
+# Gameplay
+
+## Spielmodus
+Es handelt sich um ein klassisches Deathmatch, d.h. jeder Spieler erzielt Punkte durch das abschiessen gegnerischer Schiffe.
+Wer auf diese Weise eine vorher definierte Punktzahl erreicht, gewinnt und das Spiel wird beendet. 
+
+---
+
+# Gameplay
+## Gravitationssystem
+Alle im Spielfeld befindlichen Objekte (Raumschiffe, Planeten, Schwarze Löcher...) besitzen eine Gravitation relativ zu ihrer Masse. Diese beeinflusst die Flugbahn von Geschossen und Schiffen.
+
+Die Nicht-Spieler-Objekte sollen sich zunächst nicht gegenseitig beeinflussen.
+
+---
+
+# Gameplay
+## Nicht-Spieler-Objekte
+- Planeten
+- Schwarze Löcher
+- Schrott
+- Asteroiden
+
+---
+
+# Gameplay
+## Kollisionen
+Es wird für alle möglichen Kollisionen eine eine spezifische Behandlung
+definiert. 
+
+Beispielsweise führt die Kollision mit einem Planeten zur zerstörung des Schiffes, das Rammen eines Asteroiden jedoch nur zur Beschädigung des Schiffes.
+
+---
+
+# Gameplay
+## PowerUps
+Das Raumschiff eines abgeschossenen Spielers wird zu einem PowerUp, welches von allen Spielern aufgesammelt werden kann. Je nach Stärke des abgeschossenen Spielers wird die Effizienz des PowerUps bestimmt. Die Art wird zufällig bestimmt.
+
+### Mögliche Arten von PowerUps:
+- Waffen
+- Rüstung
+- Effekte (Unsichbarkeit, Masse eines Schiffes erhöhen, Steuerung invertieren)
+
+---
+
+# Plattformen
+- Windows
+- Linux
+- OSX
+- Android
+
+---
+
+class: center, middle
+
+#Cheers!
+
+
+
+
+    </textarea>
+    <script src="http://gnab.github.io/remark/downloads/remark-latest.min.js" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
