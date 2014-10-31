@@ -12,7 +12,6 @@ Rectangle {
         width: parent.width
         height: parent.height
         source: "../../assets/img/background.jpg"
-
     }
 
     Image {
@@ -23,7 +22,6 @@ Rectangle {
         transformOrigin: Item.Center
         source: ""
     }
-
 
 
     ListView {
@@ -45,7 +43,6 @@ Rectangle {
                 Rectangle {
                     width: 40
                     height: 40
-                    color: colorCode
                 }
 
                 Text {
