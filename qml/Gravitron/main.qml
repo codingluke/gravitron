@@ -23,7 +23,6 @@ Rectangle {
         source: ""
     }
 
-
     ListView {
         id: liv_menu
         width: 600
@@ -69,8 +68,4 @@ Rectangle {
             }
         }
     }
-
-
-
-
 }
