@@ -2,6 +2,11 @@ TEMPLATE = app
 
 QT += qml quick #network?
 
+DESTDIR = ../build
+OBJECTS_DIR = ../build
+MOC_DIR = ../build
+RCC_DIR = ../build
+
 HEADERS += src/headers
 
 SOURCES += src/main.cpp
