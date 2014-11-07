@@ -9,6 +9,13 @@ Window {
     width: Screen.width
     height: Screen.height
 
+    Image {
+        id: img_backgrond
+        source: "qrc:/img/comet-family-1920.jpg"
+        height: parent.height
+        width: parent.width
+    }
+
     Audio {
        id:audioPlayer
        source: "qrc:/audio/218772__zagi2__strings-loop-3.wav"
