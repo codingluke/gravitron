@@ -2,11 +2,13 @@ TEMPLATE = app
 
 QT += qml quick #network?
 
-HEADERS += src/headers
+HEADERS += src/headers \
+    src/qmlfilereader.h
 
-SOURCES += src/main.cpp
+SOURCES += src/main.cpp \
+    src/qmlfilereader.cpp
 
-RESOURCES += assets/img/img.qrc assets/audio/audio.qrc qml/qml.qrc
+RESOURCES += assets/img/img.qrc assets/audio/audio.qrc qml/qml.qrc translations/translations.qrc assets/text/text.qrc
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH =

@@ -1,5 +1,9 @@
 <RCC>
     <qresource prefix="/qml">
         <file>main.qml</file>
+        <file>Button.qml</file>
+        <file>newGameSubMenu.qml</file>
+        <file>creditsSubMenu.qml</file>
+        <file>settingsSubMenu.qml</file>
     </qresource>
 </RCC>

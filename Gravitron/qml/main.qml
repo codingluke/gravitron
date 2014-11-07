@@ -1,20 +1,136 @@
 import QtQuick 2.3
 import QtQuick.Window 2.2
+import QtMultimedia 5.0
+
 
 Window {
+    id: win_startWindow
     visible: true
-    width: 360
-    height: 360
+    width: Screen.width
+    height: Screen.height
 
-    MouseArea {
-        anchors.fill: parent
-        onClicked: {
-            Qt.quit();
+    Audio {
+       id:audioPlayer
+       source: "qrc:/audio/218772__zagi2__strings-loop-3.wav"
+       autoLoad: true
+       autoPlay: true
+    }
+
+    Column {
+        id: lvw_mainMenu
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.left: parent.left
+        anchors.leftMargin: 10
+        spacing: 10
+
+
+        Button {
+            id: btn_newGame
+            color: "#000000"
+            radius: 0
+            label: "New Game"
+            focus: true
+            KeyNavigation.up: btn_exit
+            KeyNavigation.down: btn_settings
+            onButtonClick: {
+                hideAllSubMenus()
+                if (newGameSubMenu.visible) {
+                    newGameSubMenu.visible = false;
+                } else {
+                    newGameSubMenu.visible = true
+                }
+            }
+        }
+
+        Button {
+            id: btn_settings
+            color: "#000000"
+            radius: 0
+            label: "Settings"
+            KeyNavigation.up: btn_newGame
+            KeyNavigation.down: btn_credits
+            onButtonClick: {
+                hideAllSubMenus()
+                if (settingsSubMenu.visible) {
+                    settingsSubMenu.visible = false;
+                } else {
+                    settingsSubMenu.visible = true
+                }
+            }
+        }
+
+
+
+        Button {
+            id: btn_credits
+            color: "#000000"
+            radius: 0
+            label: "Credits"
+            KeyNavigation.up: btn_settings
+            KeyNavigation.down: btn_exit
+            onButtonClick: {
+                hideAllSubMenus()
+                if (creditsSubMenu.visible) {
+                    creditsSubMenu.visible = false;
+                } else {
+                    creditsSubMenu.visible = true
+                }
+            }
+        }
+
+        Button {
+            id: btn_exit
+            color: "#000000"
+            radius: 0
+            label: "Exit"
+            KeyNavigation.up: btn_credits
+            KeyNavigation.down: btn_newGame
+
+            onButtonClick: Qt.quit()
         }
     }
 
-    Text {
-        text: qsTr("Hello World")
-        anchors.centerIn: parent
+    Loader {
+        width: 150
+        height: 160
+        anchors.top: parent.top
+        anchors.topMargin: 363
+        anchors.left: parent.left
+        anchors.leftMargin: 170
+        visible: false
+        id: newGameSubMenu
+        source: "newGameSubMenu.qml"
     }
+
+    Loader {
+        width: 150
+        height: 160
+        anchors.top: parent.top
+        anchors.topMargin: 363
+        anchors.left: parent.left
+        anchors.leftMargin: 170
+        visible: false
+        id: creditsSubMenu
+        source: "creditsSubMenu.qml"
+    }
+
+    Loader {
+        width: 150
+        height: 160
+        anchors.top: parent.top
+        anchors.topMargin: 363
+        anchors.left: parent.left
+        anchors.leftMargin: 170
+        visible: false
+        id: settingsSubMenu
+        source: "settingsSubMenu.qml"
+    }
+
+    function hideAllSubMenus() {
+        newGameSubMenu.visible = false;
+        settingsSubMenu.visible = false;
+        creditsSubMenu.visible = false;
+    }
+
 }
+

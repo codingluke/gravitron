@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/text">
+                <file>credits.html</file>
+    </qresource>
+</RCC>
