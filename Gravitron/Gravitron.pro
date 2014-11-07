@@ -2,8 +2,17 @@ TEMPLATE = app
 
 QT += qml quick #network?
 
+<<<<<<< HEAD
 HEADERS += src/headers \
     src/qmlfilereader.h
+=======
+DESTDIR = ../build
+OBJECTS_DIR = ../build
+MOC_DIR = ../build
+RCC_DIR = ../build
+
+HEADERS += src/headers
+>>>>>>> 138e3539115b42111657d6f13c49830f3faa6ddc
 
 SOURCES += src/main.cpp \
     src/qmlfilereader.cpp

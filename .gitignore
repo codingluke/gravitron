@@ -1,4 +1,5 @@
-Gravitron.pro.user
+**/Gravitron.pro.*
+**/Makefile
 src/*.o
 *.o
 build/
