@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/img">
+                <file>comet-family-1920.jpg</file>
+    </qresource>
+</RCC>

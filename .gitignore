@@ -1,0 +1,5 @@
+**/Gravitron.pro.*
+**/Makefile
+src/*.o
+*.o
+build/
