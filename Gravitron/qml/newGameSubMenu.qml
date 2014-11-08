@@ -1,4 +1,5 @@
 import QtQuick 2.0
+import Game 1.0
 
 Column {
     width: 100
@@ -13,6 +14,9 @@ Column {
         label: "Einzel Spieler"
         KeyNavigation.up: btn_multiPlayer
         KeyNavigation.down: btn_multiPlayer
+        onButtonClick: {
+            myGame.stop();
+        }
     }
 
     Button {
@@ -22,5 +26,12 @@ Column {
         label: "Mehr Spieler"
         KeyNavigation.up: btn_singelPlayer
         KeyNavigation.down: btn_singelPlayer
+        onButtonClick: {
+            myGame.start();
+        }
+    }
+
+    Game {
+        id: myGame
     }
 }

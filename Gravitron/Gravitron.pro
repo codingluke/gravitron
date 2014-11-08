@@ -1,10 +1,13 @@
 TEMPLATE = app
 
+CONFIG += debug
+
 QT += qml quick #network?
 
-HEADERS += src/headers \
+HEADERS += \
     src/qmlfilereader.h \
-    src/game_loop.h
+    src/game_loop.h \
+    src/game.h
 
 DESTDIR = ../build
 OBJECTS_DIR = ../build
@@ -13,9 +16,12 @@ RCC_DIR = ../build
 
 HEADERS += src/headers
 
-SOURCES += src/main.cpp \
+SOURCES += \
+    src/main.cpp \
     src/qmlfilereader.cpp \
-    src/game_loop.cpp
+    src/game_loop.cpp \
+    src/game.cpp
+
 
 RESOURCES += assets/img/img.qrc assets/audio/audio.qrc qml/qml.qrc translations/translations.qrc assets/text/text.qrc
 

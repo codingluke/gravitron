@@ -2,16 +2,21 @@
 #define GAME_LOOP_H
 
 #include <QThread>
+#include <string>
 
-class GameLoop : public QThread
+using namespace std;
+
+class GameLoop : public QObject
 {
     Q_OBJECT
+    QThread workerThread;
 
     private:
         bool running;
+        double ms_per_update;
 
-    public:
-        void run();
+    public slots:
+        void doWork();
         void stop();
 
     private:
@@ -21,7 +26,7 @@ class GameLoop : public QThread
         double getCurrentTime();
 
     signals:
-        void my_signal();
+        void ping(const string &result);
 };
 
 #endif

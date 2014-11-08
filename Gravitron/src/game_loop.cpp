@@ -5,58 +5,56 @@
 
 using namespace std;
 
-void GameLoop::run()
+void GameLoop::doWork()
 {
-  double MS_PER_UPDATE = 60.0;
-  running = true;
-  double start = getCurrentTime();
-  double previous = getCurrentTime();
-  double lag = 0.0;
+    ms_per_update = 60.0;
+    running = true;
+    double previous = getCurrentTime();
+    double lag = 0.0;
 
-  while (running)
-  {
-    double current = getCurrentTime();
-
-    if ((current - start) > 999999)
-      running = false;
-
-    double elapsed = current - previous;
-    previous = current;
-    lag += elapsed;
-
-    processInput();
-
-    while (lag >= MS_PER_UPDATE)
+    emit ping("start");
+    while (running)
     {
-      update();
-      lag -= MS_PER_UPDATE;
-    }
+        double current = getCurrentTime();
+        double elapsed = current - previous;
+        previous = current;
+        lag += elapsed;
 
-    render();
-  }
+        processInput();
+
+        while (lag >= ms_per_update)
+        {
+          update();
+          lag -= ms_per_update;
+        }
+
+        render();
+    }
+    emit ping("fertig");
 }
 
 void GameLoop::stop()
 {
-  running = false;
+    running = false;
+    emit ping("stop");
 }
 
 void GameLoop::processInput()
 {
-  //cout << "processInput!";
+    //cout << "processInput!";
 }
 
 void GameLoop::update()
 {
-  cerr << "update!";
+    emit ping("update!");
 }
 
 void GameLoop::render()
 {
-  //cout << "render!";
+    //cout << "render!";
 }
 
 double GameLoop::getCurrentTime()
 {
-  return QTime::currentTime().msec();
+    return QTime::currentTime().msec();
 }
