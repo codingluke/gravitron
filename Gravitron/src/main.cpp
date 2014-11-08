@@ -2,6 +2,7 @@
 #include <QQmlApplicationEngine>
 #include <QtQml>
 #include "qmlfilereader.h"
+#include "game_loop.h"
 
 
 int main(int argc, char *argv[])
@@ -12,6 +13,9 @@ int main(int argc, char *argv[])
 
     QQmlApplicationEngine engine;
     engine.load(QUrl(QStringLiteral("qrc:/qml/main.qml")));
+
+    GameLoop g;
+    g.run();
 
     return app.exec();
 }
