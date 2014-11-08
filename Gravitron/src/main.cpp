@@ -14,8 +14,10 @@ int main(int argc, char *argv[])
     QQmlApplicationEngine engine;
     engine.load(QUrl(QStringLiteral("qrc:/qml/main.qml")));
 
+
     GameLoop g;
-    g.run();
+    g.start();
+    //g.run();
 
     return app.exec();
 }

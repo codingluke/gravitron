@@ -1,22 +1,27 @@
 #ifndef GAME_LOOP_H
 #define GAME_LOOP_H
 
-class GameLoop
+#include <QThread>
+
+class GameLoop : public QThread
 {
-  private:
-    bool running;
+    Q_OBJECT
 
-  public:
-    GameLoop();
+    private:
+        bool running;
 
-    void run();
-    void stop();
+    public:
+        void run();
+        void stop();
 
-  private:
-    void processInput();
-    void update();
-    void render();
-    double getCurrentTime();
+    private:
+        void processInput();
+        void update();
+        void render();
+        double getCurrentTime();
+
+    signals:
+        void my_signal();
 };
 
 #endif

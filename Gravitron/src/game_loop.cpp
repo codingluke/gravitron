@@ -5,11 +5,6 @@
 
 using namespace std;
 
-GameLoop::GameLoop()
-{
-  running = false;
-}
-
 void GameLoop::run()
 {
   double MS_PER_UPDATE = 60.0;
@@ -22,7 +17,7 @@ void GameLoop::run()
   {
     double current = getCurrentTime();
 
-    if ((current - start) > 250)
+    if ((current - start) > 999999)
       running = false;
 
     double elapsed = current - previous;
@@ -53,7 +48,7 @@ void GameLoop::processInput()
 
 void GameLoop::update()
 {
-  cout << "update!";
+  cerr << "update!";
 }
 
 void GameLoop::render()
