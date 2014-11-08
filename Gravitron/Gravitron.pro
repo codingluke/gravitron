@@ -3,7 +3,9 @@ TEMPLATE = app
 QT += qml quick #network?
 
 HEADERS += src/headers \
-    src/qmlfilereader.h
+    src/qmlfilereader.h \
+    src/GameActor.h \
+    src/Vec3f.h
 
 DESTDIR = ../build
 OBJECTS_DIR = ../build
@@ -13,7 +15,9 @@ RCC_DIR = ../build
 HEADERS += src/headers
 
 SOURCES += src/main.cpp \
-    src/qmlfilereader.cpp
+    src/qmlfilereader.cpp \
+    src/GameActor.cpp \
+    src/Vec3f.cpp
 
 RESOURCES += assets/img/img.qrc assets/audio/audio.qrc qml/qml.qrc translations/translations.qrc assets/text/text.qrc
 
