@@ -37,6 +37,7 @@ public:
 
 	void applyForce(Vec3f force);
 	void update();
+	void update(double radius);
 
 	bool operator== (GameActor& right);
   GameActor &operator= (const GameActor &right);

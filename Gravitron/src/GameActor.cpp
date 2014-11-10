@@ -49,6 +49,18 @@ void GameActor::update()
 	position += velocity;
 }
 
+/**
+ * Updates the GameActor and adjusts its distance from
+ * the origin (0,0,0) to place it on the surface of a sphere
+ * of the given radius.
+ * @param radius the radius of the sphere
+ */
+void GameActor::update(double radius)
+{
+	update();
+	position = position.normalize() * radius;
+}
+
 bool GameActor::operator== (GameActor& right)
 {
 	bool equals = true;
