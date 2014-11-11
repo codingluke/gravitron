@@ -1,6 +1,5 @@
-#include "game.h"
+#include "headers/Game.h"
 #include <iostream>
-#include "game_loop.h"
 
 using namespace std;
 

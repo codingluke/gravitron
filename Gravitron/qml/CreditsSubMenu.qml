@@ -18,7 +18,7 @@ Rectangle {
 
     QMLFileReader {
         id: myFile
-        source: ":/text/credits.html"
+        source: ":/text/creditsText"
     }
 
     Component.onCompleted: {

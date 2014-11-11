@@ -11,14 +11,14 @@ Window {
 
     Image {
         id: img_backgrond
-        source: "qrc:/img/comet-family-1920.jpg"
+        source: "qrc:/img/menuBackgroundImage"
         height: parent.height
         width: parent.width
     }
 
     Audio {
        id:audioPlayer
-       source: "qrc:/audio/218772__zagi2__strings-loop-3.wav"
+       source: "qrc:/audio/menuBackgroundMusic"
        autoLoad: true
        autoPlay: true
     }
@@ -106,7 +106,7 @@ Window {
         anchors.leftMargin: 170
         visible: false
         id: newGameSubMenu
-        source: "newGameSubMenu.qml"
+        source: "NewGameSubMenu.qml"
     }
 
     Loader {
@@ -118,7 +118,7 @@ Window {
         anchors.leftMargin: 170
         visible: false
         id: creditsSubMenu
-        source: "creditsSubMenu.qml"
+        source: "CreditsSubMenu.qml"
     }
 
     Loader {
@@ -130,7 +130,7 @@ Window {
         anchors.leftMargin: 170
         visible: false
         id: settingsSubMenu
-        source: "settingsSubMenu.qml"
+        source: "SettingsSubMenu.qml"
     }
 
     function hideAllSubMenus() {

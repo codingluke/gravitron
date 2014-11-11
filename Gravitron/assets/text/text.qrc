@@ -1,5 +1,5 @@
 <RCC>
     <qresource prefix="/text">
-                <file>credits.html</file>
+        <file alias="creditsText">credits.html</file>
     </qresource>
 </RCC>

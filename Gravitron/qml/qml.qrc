@@ -2,8 +2,8 @@
     <qresource prefix="/qml">
         <file>main.qml</file>
         <file>Button.qml</file>
-        <file>newGameSubMenu.qml</file>
-        <file>creditsSubMenu.qml</file>
-        <file>settingsSubMenu.qml</file>
+        <file>NewGameSubMenu.qml</file>
+        <file>CreditsSubMenu.qml</file>
+        <file>SettingsSubMenu.qml</file>
     </qresource>
 </RCC>

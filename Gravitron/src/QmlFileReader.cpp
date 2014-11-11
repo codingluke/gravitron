@@ -1,4 +1,4 @@
-#include "qmlfilereader.h"
+#include "headers/QmlFileReader.h"
 #include <QFile>
 #include <QTextStream>
 

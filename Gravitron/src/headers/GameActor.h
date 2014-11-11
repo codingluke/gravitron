@@ -1,6 +1,7 @@
 #ifndef GAMEACTOR_HEADER
 #define GAMEACTOR_HEADER
-#include "./Vec3f.h"
+#include "Vec3f.h"
+
 /**
  * This represents all objects within the game area. An ArrayList of
  * all GameActors will be handled by the main loop; adding, deleting

@@ -1,6 +1,5 @@
-#include "./GameActor.h"
+#include "headers/GameActor.h"
 #include <sstream>
-#include "./Vec3f.h"
 
 void GameActor::initialize(Vec3f position, double mass)
 {

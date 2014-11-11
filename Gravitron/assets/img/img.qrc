@@ -1,5 +1,5 @@
 <RCC>
     <qresource prefix="/img">
-                <file>comet-family-1920.jpg</file>
+        <file alias="menuBackgroundImage">comet-family-1920.jpg</file>
     </qresource>
 </RCC>

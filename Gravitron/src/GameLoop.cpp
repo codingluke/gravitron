@@ -1,7 +1,7 @@
-#include "game_loop.h"
 #include <iostream>
 #include <iomanip>
 #include <QTime>
+#include "headers/GameLoop.h"
 
 using namespace std;
 

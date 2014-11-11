@@ -3,7 +3,7 @@
 
 #include <QObject>
 #include <string>
-#include "game_loop.h"
+#include "GameLoop.h"
 
 using namespace std;
 
