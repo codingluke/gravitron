@@ -16,7 +16,7 @@ Rectangle {
         font.pointSize: 15
     }
 
-    GroupBox {
+    /*GroupBox {
         id: group_difficulty
         x: 8
         y: 29
@@ -62,31 +62,99 @@ Rectangle {
         onDifficultyChanged: {
             console.log(difficulty);
         }
+    } */
+
+    Button {
+        id: btn_difficulty
+        x: 8
+        y: 33
+        width: 286
+        height: 27
+        text: "Schwierigkeit: " + Settings.difficulty
+        onClicked: {
+            var difficulty = Settings.difficulty;
+            difficulty++;
+            if (difficulty > 3) {
+                difficulty = 1;
+            }
+            Settings.setDifficulty(difficulty);
+        }
     }
 
-    GroupBox {
-        id: group_difficulty1
+    Button {
+        id: btn_fullScreen
         x: 8
-        y: 107
-        width: 314
-        height: 62
-        ExclusiveGroup {
-            id: difficultyGroup1
+        y: 66
+        width: 286
+        height: 27
+        text: "Vollbild: " + Settings.fullScreen
+        onClicked: {
+            Settings.setFullScreen(!Settings.fullScreen);
         }
-
-        SpinBox {
-            id: spinBox1
-            x: 0
-            y: 0
-            width: 298
-            height: 25
-        }
-        title: qsTr("Auflösung")
     }
 
     Slider {
-        id: sliderHorizontal1
-        x: 101
-        y: 193
+        id: slide_musicSoundVolume
+        x: 8
+        y: 114
+        width: 286
+        height: 28
+        tickmarksEnabled: false
+        stepSize: 1
+        activeFocusOnPress: true
+        minimumValue: 0
+        value: Settings.musicSoundVolume
+        maximumValue: 100
+        onValueChanged: {
+            Settings.setMusicSoundVolume(slide_musicSoundVolume.value)
+        }
     }
+
+    Text {
+        id: text1
+        x: 16
+        y: 99
+        width: 270
+        height: 22
+        text: qsTr("Lautstärke")
+        font.pixelSize: 12
+    }
+
+    CheckBox {
+        id: chk_playMusic
+        x: 8
+        y: 148
+        text: qsTr("Musik")
+        checked: Settings.playMusic
+        onCheckedChanged: {
+            Settings.setPlayMusic(chk_playMusic.checked)
+        }
+    }
+
+    CheckBox {
+        id: chk_playSounds
+        x: 172
+        y: 148
+        text: qsTr("Sounds")
+        checked: Settings.playSounds()
+        onCheckedChanged: {
+            Settings.setPlaySounds(chk_playSounds.checked)
+        }
+    }
+
+    TextField {
+        id: txt_playerName
+        x: 9
+        y: 176
+        width: 285
+        height: 25
+        placeholderText: qsTr("Name")
+        text: Settings.playerName
+        onTextChanged: {
+            Settings.setPlayerName(txt_playerName.text)
+        }
+    }
+
+
+
 }

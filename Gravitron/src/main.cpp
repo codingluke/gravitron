@@ -19,7 +19,12 @@ int main(int argc, char *argv[])
 
     QQmlApplicationEngine engine;
     GravitronSettings settings;
-    engine.rootContext()->setContextProperty("GravitronSettings", &settings);
+    settings.setFullScreen(true);
+    settings.setPlayMusic(true);
+    settings.setPlaySounds(true);
+    settings.setMusicSoundVolume(78);
+    settings.setPlayerName("RobNoFlop");
+    engine.rootContext()->setContextProperty("Settings", &settings);
 
     engine.load(QUrl(QStringLiteral("qrc:/qml/main.qml")));
 
