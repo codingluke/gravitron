@@ -22,13 +22,14 @@ void GameLoop::doWork()
 
         processInput();
 
-        while (lag >= ms_per_update)
+        while (running && lag >= ms_per_update)
         {
-          update();
-          lag -= ms_per_update;
+            update();
+            lag -= ms_per_update;
         }
-
         render();
+        emit ping("run");
+        QThread::msleep(200);
     }
     emit ping("fertig");
 }
@@ -46,7 +47,7 @@ void GameLoop::processInput()
 
 void GameLoop::update()
 {
-    emit ping("update!");
+    //emit ping("update!");
 }
 
 void GameLoop::render()

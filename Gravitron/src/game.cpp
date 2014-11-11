@@ -31,4 +31,5 @@ Game::~Game()
 void Game::handleResults(const string &result)
 {
     cout << result << "\n";
+    cout.flush();
 }
