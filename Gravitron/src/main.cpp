@@ -2,9 +2,13 @@
 #include <QQmlApplicationEngine>
 #include <QtQml>
 #include "qmlfilereader.h"
+<<<<<<< HEAD
 #include "gravitronsettings.h"
 #include "game.h"
 #include <string>
+=======
+#include "point.h"
+>>>>>>> 5f98fd7e01a353fa4497525e2f9606037cbae50d
 
 using namespace std;
 
@@ -18,6 +22,8 @@ int main(int argc, char *argv[])
     qmlRegisterType<Game, 1>("Game", 1, 0, "Game");
 
     QQmlApplicationEngine engine;
+    Point p;
+    engine.rootContext()->setContextProperty("point", &p);
     engine.load(QUrl(QStringLiteral("qrc:/qml/main.qml")));
 
     return app.exec();
