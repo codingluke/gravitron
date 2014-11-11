@@ -7,7 +7,7 @@ QT += qml quick #network?
 HEADERS += \
     src/qmlfilereader.h \
     src/game_loop.h \
-    src/game.h
+    src/game.h \
     src/GameActor.h \
     src/Vec3f.h
 
@@ -22,7 +22,7 @@ SOURCES += \
     src/main.cpp \
     src/qmlfilereader.cpp \
     src/game_loop.cpp \
-    src/game.cpp
+    src/game.cpp \
     src/GameActor.cpp \
     src/Vec3f.cpp
 
