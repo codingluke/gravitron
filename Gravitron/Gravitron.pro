@@ -1,10 +1,16 @@
 TEMPLATE = app
 
+CONFIG += debug
+
 QT += qml quick #network?
 
 HEADERS += src/headers \
+    src/gravitronsettings.h \
     src/qmlfilereader.h \
-    src/gravitronsettings.h
+    src/game_loop.h \
+    src/game.h \
+    src/GameActor.h \
+    src/Vec3f.h
 
 DESTDIR = ../build
 OBJECTS_DIR = ../build
@@ -13,7 +19,11 @@ RCC_DIR = ../build
 
 SOURCES += src/main.cpp \
     src/qmlfilereader.cpp \
-    src/gravitronsettings.cpp
+    src/gravitronsettings.cpp \
+    src/game_loop.cpp \
+    src/game.cpp \
+    src/GameActor.cpp \
+    src/Vec3f.cpp
 
 RESOURCES += assets/img/img.qrc assets/audio/audio.qrc qml/qml.qrc translations/translations.qrc assets/text/text.qrc
 

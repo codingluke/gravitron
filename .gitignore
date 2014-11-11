@@ -1,4 +1,4 @@
-**/Gravitron.pro.*
+Gravitron.pro.*
 **/Makefile
 src/*.o
 *.o
