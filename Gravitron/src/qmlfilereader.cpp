@@ -10,30 +10,31 @@ QMLFileReader::QMLFileReader(QObject *parent) :
 
 QString QMLFileReader::read()
 {
+    QString fileContent;
     if (mSource.isEmpty()){
         emit error("source is empty");
-        return QString();
-    }
-
-    QFile file(mSource);
-    QString fileContent;
-    if ( file.open(QIODevice::ReadOnly) ) {
-        QString line;
-        QTextStream t( &file );
-        do {
-            line = t.readLine();
-            fileContent += line;
-         } while (!line.isNull());
-
-        file.close();
+        fileContent = QString();
     } else {
-        emit error("Unable to open the file");
-        return QString();
+        QFile file(mSource);
+
+        if ( file.open(QIODevice::ReadOnly) ) {
+            QString line;
+            QTextStream t( &file );
+            do {
+                line = t.readLine();
+                fileContent += line;
+             } while (!line.isNull());
+
+            file.close();
+        } else {
+            emit error("Unable to open the file");
+            fileContent = QString();
+        }
     }
     return fileContent;
 }
 
-bool QMLFileReader::write(const QString& data)
+/*bool QMLFileReader::write(const QString& data)
 {
     if (mSource.isEmpty())
         return false;
@@ -48,4 +49,4 @@ bool QMLFileReader::write(const QString& data)
     file.close();
 
     return true;
-}
+}*/

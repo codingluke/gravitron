@@ -15,7 +15,7 @@ class QMLFileReader : public QObject
         explicit QMLFileReader(QObject *parent = 0);
 
         Q_INVOKABLE QString read();
-        Q_INVOKABLE bool write(const QString& data);
+        //Q_INVOKABLE bool write(const QString& data);
 
         QString source() { return mSource; };
 
@@ -30,4 +30,4 @@ class QMLFileReader : public QObject
         QString mSource;
 };
 
-#endif // QMLFILEREADER_H
+#endif //QMLFILEREADER_H

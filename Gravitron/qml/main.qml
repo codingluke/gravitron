@@ -98,8 +98,8 @@ Window {
     }
 
     Loader {
-        width: 150
-        height: 160
+        width: 1024
+        height: 256
         anchors.top: parent.top
         anchors.topMargin: 363
         anchors.left: parent.left
@@ -110,8 +110,8 @@ Window {
     }
 
     Loader {
-        width: 150
-        height: 160
+        width: 1024
+        height: 256
         anchors.top: parent.top
         anchors.topMargin: 363
         anchors.left: parent.left
@@ -122,8 +122,8 @@ Window {
     }
 
     Loader {
-        width: 150
-        height: 160
+        width: 1024
+        height: 256
         anchors.top: parent.top
         anchors.topMargin: 363
         anchors.left: parent.left
