@@ -1,4 +1,5 @@
 import QtQuick 2.3
+import QtQuick.Controls 1.2
 import QtQuick.Window 2.2
 import QtMultimedia 5.0
 
@@ -33,13 +34,11 @@ Window {
 
         Button {
             id: btn_newGame
-            color: "#000000"
-            radius: 0
-            label: "New Game"
+            text: "New Game"
             focus: true
             KeyNavigation.up: btn_exit
             KeyNavigation.down: btn_settings
-            onButtonClick: {
+            onClicked: {
                 hideAllSubMenus()
                 if (newGameSubMenu.visible) {
                     newGameSubMenu.visible = false;
@@ -51,12 +50,10 @@ Window {
 
         Button {
             id: btn_settings
-            color: "#000000"
-            radius: 0
-            label: "Settings"
+            text: "Settings"
             KeyNavigation.up: btn_newGame
             KeyNavigation.down: btn_credits
-            onButtonClick: {
+            onClicked: {
                 hideAllSubMenus()
                 if (settingsSubMenu.visible) {
                     settingsSubMenu.visible = false;
@@ -70,12 +67,10 @@ Window {
 
         Button {
             id: btn_credits
-            color: "#000000"
-            radius: 0
-            label: "Credits"
+            text: "Credits"
             KeyNavigation.up: btn_settings
             KeyNavigation.down: btn_exit
-            onButtonClick: {
+            onClicked: {
                 hideAllSubMenus()
                 if (creditsSubMenu.visible) {
                     creditsSubMenu.visible = false;
@@ -87,13 +82,11 @@ Window {
 
         Button {
             id: btn_exit
-            color: "#000000"
-            radius: 0
-            label: "Exit"
+            text: "Exit"
             KeyNavigation.up: btn_credits
             KeyNavigation.down: btn_newGame
 
-            onButtonClick: Qt.quit()
+            onClicked: Qt.quit()
         }
     }
 

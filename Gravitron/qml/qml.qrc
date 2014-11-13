@@ -1,7 +1,6 @@
 <RCC>
     <qresource prefix="/qml">
         <file>main.qml</file>
-        <file>Button.qml</file>
         <file>NewGameSubMenu.qml</file>
         <file>CreditsSubMenu.qml</file>
         <file>SettingsSubMenu.qml</file>
