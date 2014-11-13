@@ -40,11 +40,12 @@ GameActor::~GameActor()
 
 void GameActor::applyForce(Vec3f force)
 {
-	velocity += force;
+	acceleration += force;
 }
 
 void GameActor::update()
 {
+	velocity += acceleration;
 	position += velocity;
 }
 
