@@ -7,18 +7,17 @@ using namespace std;
 
 void GameLoop::doWork()
 {
-    ms_per_update = 60.0;
+    ms_per_update = 60;
     running = true;
-    double previous = getCurrentTime();
-    double lag = 0.0;
+    QTime t;
+    int lag = 0;
 
     emit ping("start");
+    t.start();
     while (running)
     {
-        double current = getCurrentTime();
-        double elapsed = current - previous;
-        previous = current;
-        lag += elapsed;
+        lag += t.elapsed();
+        t.restart();
 
         processInput();
 
@@ -26,10 +25,10 @@ void GameLoop::doWork()
         {
             update();
             lag -= ms_per_update;
+            cout << lag << "\n";
         }
         render();
-        emit ping("run");
-        QThread::msleep(200);
+        emit ping("round finished");
     }
     emit ping("fertig");
 }
@@ -52,10 +51,11 @@ void GameLoop::update()
 
 void GameLoop::render()
 {
+    QThread::msleep(100);
     //cout << "render!";
 }
 
-double GameLoop::getCurrentTime()
+int GameLoop::getCurrentTime()
 {
     return QTime::currentTime().msec();
 }
