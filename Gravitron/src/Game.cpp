@@ -8,12 +8,17 @@ Game::Game(QObject *parent) : QObject(parent)
   init();
 }
 
+void Game::setEngine(const QQmlApplicationEngine &theEngine)
+{
+    engine = &theEngine;
+}
+
 void Game::init()
 {
-    GameLoop *worker = new GameLoop;
+    GameLoop *worker = new GameLoop();
     worker->moveToThread(&workerThread);
     connect(this, SIGNAL(start(void)),
-            worker, SLOT(doWork(void)));
+            worker, SLOT(run(void)));
     connect(this, SIGNAL(stop(void)),
             worker, SLOT(stop(void)), Qt::DirectConnection);
     connect(worker, SIGNAL(ping(string)),

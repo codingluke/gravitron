@@ -12,9 +12,14 @@ class Game: public QObject
     Q_OBJECT
     QThread workerThread;
 
+    private:
+        QQmlApplicationEngine const *engine;
+
     public:
         Game(QObject *parent = 0);
         ~Game();
+
+        void setEngine(const QQmlApplicationEngine &theEngine);
 
     public slots:
         void handleResults(const string &result);

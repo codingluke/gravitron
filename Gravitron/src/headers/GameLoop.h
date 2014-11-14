@@ -3,6 +3,7 @@
 
 #include <QThread>
 #include <string>
+#include <QQmlApplicationEngine>
 
 using namespace std;
 
@@ -16,14 +17,13 @@ class GameLoop : public QObject
         int ms_per_update;
 
     public slots:
-        void doWork();
+        void run();
         void stop();
 
     private:
         void processInput();
         void update();
         void render();
-        int getCurrentTime();
 
     signals:
         void ping(const string &result);

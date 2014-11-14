@@ -1,6 +1,5 @@
 import QtQuick 2.0
 import QtQuick.Controls 1.2
-import Game 1.0
 
 Column {
     width: 100
@@ -14,7 +13,7 @@ Column {
         KeyNavigation.up: btn_multiPlayer
         KeyNavigation.down: btn_multiPlayer
         onClicked: {
-            myGame.stop();
+            Game.stop();
         }
     }
 
@@ -24,11 +23,7 @@ Column {
         KeyNavigation.up: btn_singelPlayer
         KeyNavigation.down: btn_singelPlayer
         onClicked: {
-            myGame.start();
+            Game.start();
         }
-    }
-
-    Game {
-        id: myGame
     }
 }

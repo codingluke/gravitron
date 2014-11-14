@@ -7,8 +7,10 @@ import QtMultimedia 5.0
 Window {
     id: win_startWindow
     visible: true
-    width: Screen.width
-    height: Screen.height
+    width: 500
+    height: 500
+    //width: Screen.width
+    //height: Screen.height
 
     Image {
         id: img_backgrond

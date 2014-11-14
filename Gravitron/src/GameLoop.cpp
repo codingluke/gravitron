@@ -5,7 +5,7 @@
 
 using namespace std;
 
-void GameLoop::doWork()
+void GameLoop::run()
 {
     ms_per_update = 60;
     running = true;
@@ -53,9 +53,4 @@ void GameLoop::render()
 {
     QThread::msleep(100);
     //cout << "render!";
-}
-
-int GameLoop::getCurrentTime()
-{
-    return QTime::currentTime().msec();
 }
