@@ -3,6 +3,10 @@ import QtQuick.Controls 1.2
 import QtQuick.Window 2.2
 import QtMultimedia 5.0
 
+import "constants.js" as Global
+import "functions.js" as Functions
+
+
 
 Window {
     id: win_startWindow
@@ -25,112 +29,96 @@ Window {
     }
 
     Column {
-        id: lvw_mainMenu
+        id: col_mainMenu
         anchors.verticalCenter: parent.verticalCenter
-        anchors.left: parent.left
-        anchors.leftMargin: 10
+        anchors.horizontalCenter: parent.horizontalCenter
         spacing: 10
 
 
         Button {
             id: btn_newGame
+            width: Global.buttonWidth
+            height: Global.buttonHeight
             text: "New Game"
+            activeFocusOnPress: false
+            enabled: true
             focus: true
             KeyNavigation.up: btn_exit
             KeyNavigation.down: btn_settings
-            onClicked: {
-                hideAllSubMenus()
-                if (newGameSubMenu.visible) {
-                    newGameSubMenu.visible = false;
-                } else {
-                    newGameSubMenu.visible = true
-                }
-            }
+            onClicked: Functions.btn_newGameClicked()
         }
 
         Button {
             id: btn_settings
+            width: Global.buttonWidth
+            height: Global.buttonHeight
             text: "Settings"
             KeyNavigation.up: btn_newGame
             KeyNavigation.down: btn_credits
-            onClicked: {
-                hideAllSubMenus()
-                if (settingsSubMenu.visible) {
-                    settingsSubMenu.visible = false;
-                } else {
-                    settingsSubMenu.visible = true
-                }
-            }
+            onClicked: Functions.btn_settingsClicked()
         }
-
-
 
         Button {
             id: btn_credits
+            width: Global.buttonWidth
+            height: Global.buttonHeight
             text: "Credits"
             KeyNavigation.up: btn_settings
+            KeyNavigation.down: btn_stats
+            onClicked: Functions.btn_creditsClicked()
+        }
+
+        Button {
+            id: btn_stats
+            width: Global.buttonWidth
+            height: Global.buttonHeight
+            text: "Statistik"
+            KeyNavigation.up: btn_credits
             KeyNavigation.down: btn_exit
-            onClicked: {
-                hideAllSubMenus()
-                if (creditsSubMenu.visible) {
-                    creditsSubMenu.visible = false;
-                } else {
-                    creditsSubMenu.visible = true
-                }
-            }
+            onClicked: Functions.btn_statsClicked()
         }
 
         Button {
             id: btn_exit
+            width: Global.buttonWidth
+            height: Global.buttonHeight
             text: "Exit"
             KeyNavigation.up: btn_credits
             KeyNavigation.down: btn_newGame
-
             onClicked: Qt.quit()
         }
     }
 
     Loader {
-        width: 1024
-        height: 256
-        anchors.top: parent.top
-        anchors.topMargin: 363
-        anchors.left: parent.left
-        anchors.leftMargin: 170
+        width: Screen.width
+        height: Screen.height
         visible: false
         id: newGameSubMenu
         source: "NewGameSubMenu.qml"
     }
 
     Loader {
-        width: 1024
-        height: 256
-        anchors.top: parent.top
-        anchors.topMargin: 363
-        anchors.left: parent.left
-        anchors.leftMargin: 170
+        width: Screen.width
+        height: Screen.height
         visible: false
         id: creditsSubMenu
         source: "CreditsSubMenu.qml"
     }
 
     Loader {
-        width: 1024
-        height: 256
-        anchors.top: parent.top
-        anchors.topMargin: 363
-        anchors.left: parent.left
-        anchors.leftMargin: 170
+        width: Screen.width
+        height: Screen.height
         visible: false
         id: settingsSubMenu
-        source: "SettingsSubMenu.qml"
+        source: "GlobalSettingsSubMenu.qml"
     }
 
-    function hideAllSubMenus() {
-        newGameSubMenu.visible = false;
-        settingsSubMenu.visible = false;
-        creditsSubMenu.visible = false;
+    Loader {
+        width: Screen.width
+        height: Screen.height
+        visible: false
+        id: statsSubMenu
+        source: "StatsSubMenu.qml"
     }
-
 }
 

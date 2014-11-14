@@ -1,34 +1,65 @@
 import QtQuick 2.0
 import QtQuick.Controls 1.2
+import QtQuick.Window 2.0
 import Game 1.0
 
-Column {
-    width: 100
-    height: 160
-    spacing: 10
-    anchors.verticalCenter: parent.verticalCenter
+import "constants.js" as Global
+import "functions.js" as Functions
 
-    Button {
-        id: btn_singelPlayer
-        text: "Einzel Spieler"
-        KeyNavigation.up: btn_multiPlayer
-        KeyNavigation.down: btn_multiPlayer
-        onClicked: {
-            myGame.stop();
+Rectangle {
+    id: rec_newGameSubMenu
+    width: parent.width
+    height: parent.height
+    color: "#bbffffff"
+
+    Column {
+        id: col_newGameSubMenu
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.verticalCenter: parent.verticalCenter
+        spacing: 10
+
+        Button {
+            id: btn_back
+            width: Global.buttonWidth
+            height: Global.buttonHeight
+            text: "Zurück"
+            onClicked: Functions.btn_backClicked()
+        }
+
+        Button {
+            id: btn_singelPlayer
+            width: Global.buttonWidth
+            height: Global.buttonHeight
+            text: "Einzel Spieler"
+            KeyNavigation.up: btn_multiPlayer
+            KeyNavigation.down: btn_multiPlayer
+            onClicked: Functions.btn_singelPlayerClicked()
+        }
+
+        Button {
+            id: btn_multiPlayer
+            width: Global.buttonWidth
+            height: Global.buttonHeight
+            text: "Mehr Spieler"
+            KeyNavigation.up: btn_singelPlayer
+            KeyNavigation.down: btn_singelPlayer
+            onClicked: Functions.btn_multiPlayerClicked()
         }
     }
 
-    Button {
-        id: btn_multiPlayer
-        text: "Mehr Spieler"
-        KeyNavigation.up: btn_singelPlayer
-        KeyNavigation.down: btn_singelPlayer
-        onClicked: {
-            myGame.start();
-        }
+    Loader {
+        width: Screen.width
+        height: Screen.height
+        visible: false
+        id: singlePlayerSubMenu
+        source: "SinglePlayerSubMenu.qml"
     }
 
-    Game {
-        id: myGame
+    Loader {
+        width: Screen.width
+        height: Screen.height
+        visible: false
+        id: multiPlayerSubMenu
+        source: "MultiPlayerSubMenu.qml"
     }
 }

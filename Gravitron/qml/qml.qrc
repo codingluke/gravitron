@@ -3,6 +3,13 @@
         <file>main.qml</file>
         <file>NewGameSubMenu.qml</file>
         <file>CreditsSubMenu.qml</file>
-        <file>SettingsSubMenu.qml</file>
+        <file>GlobalSettingsSubMenu.qml</file>
+        <file>constants.js</file>
+        <file>SinglePlayerSubMenu.qml</file>
+        <file>MultiPlayerSubMenu.qml</file>
+        <file>StatsSubMenu.qml</file>
+        <file>functions.js</file>
+        <file>GlobalSettingsActions.js</file>
+        <file>GameSettingsSubMenu.qml</file>
     </qresource>
 </RCC>
