@@ -13,7 +13,7 @@ class GameLoop : public QObject
 
     private:
         bool running;
-        double ms_per_update;
+        int ms_per_update;
 
     public slots:
         void doWork();
@@ -23,7 +23,7 @@ class GameLoop : public QObject
         void processInput();
         void update();
         void render();
-        double getCurrentTime();
+        int getCurrentTime();
 
     signals:
         void ping(const string &result);
