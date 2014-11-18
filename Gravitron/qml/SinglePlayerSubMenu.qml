@@ -9,8 +9,8 @@ import "functions.js" as Functions
 
 Rectangle {
     id: rec_singlePlayerSubMenu
-    width: 500
-    height: 500
+    width: parent.height
+    height: parent.width
     color: "#bbffffff"
 
 
@@ -30,7 +30,6 @@ Rectangle {
         }
 
         GameSettingsSubMenu {
-            height: 500
             id: gameSettings
         }
 
@@ -39,6 +38,7 @@ Rectangle {
             width: Global.buttonWidth
             height: Global.buttonHeight
             text: qsTr("Starten")
+            onClicked: MListener.startSinglePlayerGame();
         }
     }
 }

@@ -4,8 +4,14 @@ import QtQuick.Controls.Styles 1.2
 
 import "constants.js" as Global
 
-Rectangle {   
+Rectangle {
+    property int settingsHeight: col_GameSettings.height
+    property int settingsWidth: col_GameSettings.width
+
+    height: settingsHeight
+    width: settingsWidth
     Column {
+        id:col_GameSettings
         spacing: 10
 
         Text {

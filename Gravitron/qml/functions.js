@@ -1,53 +1,45 @@
-function hideAllSubMenus() {
-    newGameSubMenu.visible = false;
-    settingsSubMenu.visible = false;
-    creditsSubMenu.visible = false;
-    statsSubMenu.visible = false;
-    col_mainMenu.visible = false;
-}
-
-function hideAllNewGameSubMenus() {
-    singlePlayerSubMenu.visible = false;
-    multiPlayerSubMenu.visible = false;
-    col_newGameSubMenu.visible = false;
-}
-
 function btn_newGameClicked(){
-    hideAllSubMenus();
-    newGameSubMenu.visible = true;
+    showSubMenu("NewGameSubMenu.qml");
 }
 
 function btn_settingsClicked() {
-    hideAllSubMenus();
-    settingsSubMenu.visible = true
+    showSubMenu("GlobalSettingsSubMenu.qml");
 }
 
 function btn_creditsClicked() {
-    hideAllSubMenus()
-    creditsSubMenu.visible = true
+    showSubMenu("CreditsSubMenu.qml");
 }
 
 function btn_statsClicked() {
-    hideAllSubMenus()
-    statsSubMenu.visible = true
+    showSubMenu("StatsSubMenu.qml");
+}
+
+function showSubMenu(name) {
+    col_mainMenu.visible = false;
+    load_subMenu.source = name;
+    load_subMenu.visible = true;
 }
 
 function btn_backClicked() {
-    hideAllSubMenus();
+    load_subMenu.visible = false;
     col_mainMenu.visible = true;
 }
 
 function btn_backToNewGameClicked() {
-    hideAllNewGameSubMenus();
+    load_singlePlayerSubMenu.visible = false;
     col_newGameSubMenu.visible = true;
 }
 
 function btn_singelPlayerClicked() {
-    hideAllNewGameSubMenus();
-    singlePlayerSubMenu.visible = true;
+    showNewGameSubMenu("SinglePlayerSubMenu.qml")
 }
 
 function btn_multiPlayerClicked(){
-    hideAllNewGameSubMenus();
-    multiPlayerSubMenu.visible = true;
+    showNewGameSubMenu("MultiPlayerSubMenu.qml")
+}
+
+function showNewGameSubMenu(name) {
+    col_newGameSubMenu.visible = false;
+    load_singlePlayerSubMenu.source = name;
+    load_singlePlayerSubMenu.visible = true;
 }

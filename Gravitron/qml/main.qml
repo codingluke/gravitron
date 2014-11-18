@@ -26,6 +26,7 @@ Window {
        source: "qrc:/audio/menuBackgroundMusic"
        autoLoad: true
        autoPlay: true
+       loops: Audio.Infinite
     }
 
     Column {
@@ -93,32 +94,7 @@ Window {
         width: Screen.width
         height: Screen.height
         visible: false
-        id: newGameSubMenu
-        source: "NewGameSubMenu.qml"
-    }
-
-    Loader {
-        width: Screen.width
-        height: Screen.height
-        visible: false
-        id: creditsSubMenu
-        source: "CreditsSubMenu.qml"
-    }
-
-    Loader {
-        width: Screen.width
-        height: Screen.height
-        visible: false
-        id: settingsSubMenu
-        source: "GlobalSettingsSubMenu.qml"
-    }
-
-    Loader {
-        width: Screen.width
-        height: Screen.height
-        visible: false
-        id: statsSubMenu
-        source: "StatsSubMenu.qml"
+        id: load_subMenu
     }
 }
 

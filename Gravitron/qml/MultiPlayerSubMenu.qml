@@ -29,5 +29,35 @@ Rectangle {
             text: "Zurück"
             onClicked: Functions.btn_backToNewGameClicked()
         }
+
+        Button {
+            id: btn_createGame
+            width: Global.buttonWidth
+            height: Global.buttonHeight
+            text: "Spiel erstellen"
+        }
+
+        Button {
+            id: btn_joinGame
+            width: Global.buttonWidth
+            height: Global.buttonHeight
+            text: "Spiel beitreten"
+        }
+
+        MultiplayerJoin {
+
+        }
+
+        GameSettingsSubMenu {
+            id: gameSettings
+        }
+
+        Button {
+            id: btn_startSinglePlayer
+            width: Global.buttonWidth
+            height: Global.buttonHeight
+            text: qsTr("Starten")
+        }
+
     }
 }

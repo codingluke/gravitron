@@ -51,15 +51,6 @@ Rectangle {
         width: Screen.width
         height: Screen.height
         visible: false
-        id: singlePlayerSubMenu
-        source: "SinglePlayerSubMenu.qml"
-    }
-
-    Loader {
-        width: Screen.width
-        height: Screen.height
-        visible: false
-        id: multiPlayerSubMenu
-        source: "MultiPlayerSubMenu.qml"
+        id: load_singlePlayerSubMenu
     }
 }
