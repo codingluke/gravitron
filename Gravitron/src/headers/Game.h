@@ -6,6 +6,7 @@
 #include "GameLoop.h"
 #include <QtQml>
 #include <QQuickItem>
+#include "GameActorView.h"
 
 using namespace std;
 
@@ -27,6 +28,7 @@ class Game: public QObject
 
     public slots:
         void handleResults(const string &result);
+        void render(vector<GameActorView*> *views);
 
     signals:
         Q_INVOKABLE void start();

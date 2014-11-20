@@ -30,6 +30,8 @@ void Game::init()
             worker, SLOT(stop(void)), Qt::DirectConnection);
     connect(worker, SIGNAL(ping(string)),
             this, SLOT(handleResults(string)));
+    connect(worker, SIGNAL(renderObject(vector<GameActorView*>*)),
+            this, SLOT(render(vector<GameActorView*>*)));
     workerThread.start();
 }
 
@@ -44,6 +46,12 @@ void Game::handleResults(const string &result)
     string t = result;
     qDebug() << engine;
 
-    GameActorView view;
-    view.render(engine, qmlParent);
+    //GameActorView view;
+    //view.render(engine, qmlParent);
+}
+
+void Game::render(vector<GameActorView*> *views)
+{
+    //qDebug() << views;
+    views->at(0)->render(engine, qmlParent);
 }

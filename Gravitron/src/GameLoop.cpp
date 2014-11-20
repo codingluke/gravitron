@@ -52,6 +52,10 @@ void GameLoop::update()
 
 void GameLoop::render()
 {
+    vector<GameActorView*> *viewlist = new vector<GameActorView*>;
+    GameActorView *view = new GameActorView();
+    viewlist->push_back(view);
+    emit renderObject(viewlist);
     QThread::msleep(100);
     //cout << "render!";
 }

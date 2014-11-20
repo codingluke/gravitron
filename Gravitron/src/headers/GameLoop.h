@@ -4,6 +4,7 @@
 #include <QThread>
 #include <string>
 #include <QQmlApplicationEngine>
+#include "GameActorView.h"
 
 using namespace std;
 
@@ -32,6 +33,7 @@ class GameLoop : public QObject
 
     signals:
         void ping(const string &result);
+        void renderObject(vector<GameActorView*> *views);
 };
 
 #endif
