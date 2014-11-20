@@ -9,7 +9,8 @@ HEADERS += src/headers/GameActor.h \
     src/headers/QmlFileReader.h \
     src/headers/GravitronSettings.h \
     src/headers/GameLoop.h \
-    src/headers/Game.h
+    src/headers/Game.h \
+    src/headers/GameActorView.h
 
 DESTDIR = ../build
 OBJECTS_DIR = ../build
@@ -22,7 +23,8 @@ SOURCES += src/main.cpp \
     src/Game.cpp \
     src/GameLoop.cpp \
     src/GravitronSettings.cpp \
-    src/QmlFileReader.cpp
+    src/QmlFileReader.cpp \
+    src/GameActorView.cpp
 
 RESOURCES += assets/img/img.qrc \
         assets/audio/audio.qrc \

@@ -5,6 +5,7 @@
 #include "headers/GravitronSettings.h"
 #include "headers/Game.h"
 #include <string>
+#include <QDebug>
 
 using namespace std;
 
@@ -25,12 +26,14 @@ int main(int argc, char *argv[])
     settings.setPlayerName("RobNoFlop");
     engine.rootContext()->setContextProperty("Settings", &settings);
 
+
     // Add Game
-    Game game;
-    game.setEngine(&engine);
+    Game game(&engine);
+    //game.setEngine(&engine);
     engine.rootContext()->setContextProperty("Game", &game);
 
-    engine.load(QUrl(QStringLiteral("qrc:/qml/main.qml")));
+    //engine.load(QUrl(QStringLiteral("qrc:/qml/main.qml")));
+    engine.load(QUrl(QStringLiteral("qrc:/qml/main2.qml")));
 
     return app.exec();
 }

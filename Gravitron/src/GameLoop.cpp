@@ -1,9 +1,12 @@
-#include <iostream>
-#include <iomanip>
 #include <QTime>
 #include "headers/GameLoop.h"
+#include <QDebug>
 
 using namespace std;
+
+GameLoop::GameLoop()
+{
+}
 
 void GameLoop::run()
 {
@@ -25,18 +28,15 @@ void GameLoop::run()
         {
             update();
             lag -= ms_per_update;
-            cout << lag << "\n";
         }
         render();
-        emit ping("round finished");
     }
-    emit ping("fertig");
 }
 
 void GameLoop::stop()
 {
     running = false;
-    emit ping("stop");
+    //emit ping("stop");
 }
 
 void GameLoop::processInput()
@@ -47,6 +47,7 @@ void GameLoop::processInput()
 void GameLoop::update()
 {
     //emit ping("update!");
+    //qDebug() << game;
 }
 
 void GameLoop::render()

@@ -3,14 +3,11 @@ import QtQuick.Controls 1.2
 import QtQuick.Window 2.2
 import QtMultimedia 5.0
 
-
 Window {
     id: win_startWindow
     visible: true
     width: 500
     height: 500
-    //width: Screen.width
-    //height: Screen.height
 
     Image {
         id: img_backgrond
@@ -32,7 +29,6 @@ Window {
         anchors.left: parent.left
         anchors.leftMargin: 10
         spacing: 10
-
 
         Button {
             id: btn_newGame
@@ -64,8 +60,6 @@ Window {
                 }
             }
         }
-
-
 
         Button {
             id: btn_credits
@@ -133,6 +127,5 @@ Window {
         settingsSubMenu.visible = false;
         creditsSubMenu.visible = false;
     }
-
 }
 

@@ -15,6 +15,11 @@ class GameLoop : public QObject
     private:
         bool running;
         int ms_per_update;
+        QObject *game;
+        QQmlApplicationEngine *engine;
+
+    public:
+        GameLoop();
 
     public slots:
         void run();

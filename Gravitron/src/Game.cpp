@@ -1,5 +1,6 @@
 #include "headers/Game.h"
-#include <iostream>
+#include "headers/GameActorView.h"
+#include <QDebug>
 
 using namespace std;
 
@@ -8,9 +9,15 @@ Game::Game(QObject *parent) : QObject(parent)
   init();
 }
 
-void Game::setEngine(const QQmlApplicationEngine &theEngine)
+Game::Game(QQmlApplicationEngine *theEngine)
 {
-    engine = &theEngine;
+  engine = theEngine;
+  init();
+}
+
+void Game::setQmlParent(QQuickItem *theQmlParent)
+{
+    qmlParent = theQmlParent;
 }
 
 void Game::init()
@@ -34,6 +41,9 @@ Game::~Game()
 
 void Game::handleResults(const string &result)
 {
-    cout << result << "\n";
-    cout.flush();
+    string t = result;
+    qDebug() << engine;
+
+    GameActorView view;
+    view.render(engine, qmlParent);
 }

@@ -1,6 +1,8 @@
 <RCC>
     <qresource prefix="/qml">
         <file>main.qml</file>
+        <file>main2.qml</file>
+        <file>Game.qml</file>
         <file>NewGameSubMenu.qml</file>
         <file>CreditsSubMenu.qml</file>
         <file>SettingsSubMenu.qml</file>
