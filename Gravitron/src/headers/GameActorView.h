@@ -1,22 +1,23 @@
 #ifndef GAMEACTORVIEW_H
 #define GAMEACTORVIEW_H
 
-#include <QObject>
-#include <QQmlApplicationEngine>
-#include <QQuickItem>
 #include <string>
+#include <map>
 
 using namespace std;
 
-class GameActorView: public QObject
+class GameActorView
 {
     private:
       string qmlPath;
+      map<string, string> properties;
 
     public:
         GameActorView(string theQmlPath);
 
         string getQmlPath() const;
+        void setProperty(string key, string value);
+        map<string, string> getProperties() const;
 };
 
 #endif

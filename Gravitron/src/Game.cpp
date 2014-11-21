@@ -1,6 +1,7 @@
 #include "headers/Game.h"
 #include "headers/GameActorView.h"
 #include <QDebug>
+#include <iostream>
 
 using namespace std;
 
@@ -52,10 +53,20 @@ void Game::render(vector<GameActorView*> *views)
     vector<GameActorView*>::iterator it;
     for (it = views->begin(); it < views->end(); it++)
     {
+        // Create Object from QML
         QString path = QString::fromStdString((*it)->getQmlPath());
         QQmlComponent component(engine, QUrl(path));
         QQuickItem *childItem = qobject_cast<QQuickItem*>(component.create());
+
+        // Map the GameScene as parent
         childItem->setParentItem(qmlParent);
+
+        // Map the properties
+        map<string, string> props = (*it)->getProperties();
+        map<string, string>::iterator pit;
+        for(pit = props.begin(); pit != props.end(); pit++) {
+            childItem->setProperty(pit->first.c_str(), pit->second.c_str());
+        }
         delete (*it);
     }
     delete views;

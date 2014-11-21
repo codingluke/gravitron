@@ -36,7 +36,7 @@ void GameLoop::run()
 void GameLoop::stop()
 {
     running = false;
-    //emit ping("stop");
+    emit ping("stop");
 }
 
 void GameLoop::processInput()
@@ -54,10 +54,15 @@ void GameLoop::render()
 {
     vector<GameActorView*> *viewlist = new vector<GameActorView*>;
     GameActorView *view = new GameActorView("qrc:/qml/actor");
-    GameActorView *view2 = new GameActorView("qrc:/qml/NewGameSubMenu.qml");
+    view->setProperty("color", "blue");
+    view->setProperty("x", "100");
+
+    GameActorView *view2 = new GameActorView("qrc:/qml/actor");
+    view2->setProperty("y", "40");
+    view2->setProperty("color", "white");
+    view2->setProperty("width", "100");
     viewlist->push_back(view);
     viewlist->push_back(view2);
     emit renderObject(viewlist);
     QThread::msleep(100);
-    //cout << "render!";
 }
