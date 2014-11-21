@@ -59,3 +59,57 @@ void GravitronSettings::setPlayerName(const QString& source){
     mPlayerName = source;
     playerNameChanged(source);
 }
+
+int GravitronSettings::playingFieldSize() const{
+    return mPlayingFieldSize;
+}
+
+void GravitronSettings::setPlayingFieldSize(const int& source) {
+    mPlayingFieldSize = source;
+    playingFieldSizeChanged(source);
+}
+
+int GravitronSettings::botsCount() const {
+    return mBotsCount;
+}
+
+void GravitronSettings::setBotsCount(const int& source) {
+    mBotsCount = source;
+    botsCountChanged(source);
+}
+
+int GravitronSettings::planetCount() const {
+    return mPlanetCount;
+}
+
+void GravitronSettings::setPlanetCount(const int& source) {
+    mPlanetCount = source;
+    planetCountChanged(source);
+}
+
+int GravitronSettings::astroidCount() const {
+    return mAstroidCount;
+}
+
+void GravitronSettings::setAstroidCount(const int& source) {
+    mAstroidCount = source;
+    astroidCountChanged(source);
+}
+
+int GravitronSettings::frag() const {
+    return mFrag;
+}
+
+void GravitronSettings::setFrag(const int& source) {
+    mFrag = source;
+    fragChanged(source);
+}
+
+int GravitronSettings::respawTime() const {
+    return mRespawTime;
+}
+
+void GravitronSettings::setRespawTime(const int& source) {
+    mRespawTime = source;
+    respawTimeChanged(source);
+}

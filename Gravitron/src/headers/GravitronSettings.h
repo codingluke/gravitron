@@ -39,6 +39,36 @@ class GravitronSettings : public QObject
                WRITE setPlayerName
                NOTIFY playerNameChanged)
 
+        Q_PROPERTY(int playingFieldSize
+               READ playingFieldSize
+               WRITE setPlayingFieldSize
+               NOTIFY playingFieldSizeChanged)
+
+        Q_PROPERTY(int botsCount
+           READ botsCount
+           WRITE setBotsCount
+           NOTIFY botsCountChanged)
+
+        Q_PROPERTY(int planetCount
+           READ planetCount
+           WRITE setPlanetCount
+           NOTIFY planetCountChanged)
+
+        Q_PROPERTY(int astroidCount
+           READ astroidCount
+           WRITE setAstroidCount
+           NOTIFY astroidCountChanged)
+
+        Q_PROPERTY(int frag
+           READ frag
+           WRITE setFrag
+           NOTIFY fragChanged)
+
+        Q_PROPERTY(int respawTime
+           READ respawTime
+           WRITE setRespawTime
+           NOTIFY respawTimeChanged)
+
         explicit GravitronSettings(QObject *parent = 0);
 
     public slots:
@@ -54,6 +84,18 @@ class GravitronSettings : public QObject
         void setPlaySounds(const bool& source);
         QString playerName() const;
         void setPlayerName(const QString& source);
+        int playingFieldSize() const;
+        void setPlayingFieldSize(const int& source);
+        int botsCount() const;
+        void setBotsCount(const int& source);
+        int planetCount() const;
+        void setPlanetCount(const int& source);
+        int astroidCount() const;
+        void setAstroidCount(const int& source);
+        int frag() const;
+        void setFrag(const int& source);
+        int respawTime() const;
+        void setRespawTime(const int& source);
 
     signals:
         void difficultyChanged(const int& source);
@@ -62,6 +104,12 @@ class GravitronSettings : public QObject
         void playMusicChanged(const bool& source);
         void playSoundsChanged(const bool& source);
         void playerNameChanged(const QString& source);
+        void playingFieldSizeChanged(const int& source);
+        void botsCountChanged(const int& source);
+        void planetCountChanged(const int& source);
+        void astroidCountChanged(const int& source);
+        void fragChanged(const int& source);
+        void respawTimeChanged(const int& source);
 
         void error(const QString& msg);
 
@@ -72,6 +120,12 @@ class GravitronSettings : public QObject
         bool mPlayMusic;
         bool mPlaySounds;
         QString mPlayerName;
+        int mPlayingFieldSize;
+        int mBotsCount;
+        int mPlanetCount;
+        int mAstroidCount;
+        int mFrag;
+        int mRespawTime;
 };
 
 
