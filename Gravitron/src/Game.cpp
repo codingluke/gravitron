@@ -43,21 +43,20 @@ Game::~Game()
 
 void Game::handleResults(const string &result)
 {
-    string t = result;
-    qDebug() << engine;
-
-    //GameActorView view;
-    //view.render(engine, qmlParent);
+    qDebug() << QString::fromStdString(result);
 }
 
 void Game::render(vector<GameActorView*> *views)
 {
-    //qDebug() << views;
-    //views->at(0)->render(engine, qmlParent);
-    //QQmlComponent component(engine, QUrl(QStringLiteral("qrc:/qml/CreditsSubMenu.qml")));
-    QString path = QString::fromStdString(views->at(0)->getQmlPath());
-    QQmlComponent component(engine, QUrl(path));
-    QQuickItem *childItem = qobject_cast<QQuickItem*>(component.create());
-    childItem->setParentItem(qmlParent);
-    //return childItem;
+    // Renders all the views and deletes them out of the vector
+    vector<GameActorView*>::iterator it;
+    for (it = views->begin(); it < views->end(); it++)
+    {
+        QString path = QString::fromStdString((*it)->getQmlPath());
+        QQmlComponent component(engine, QUrl(path));
+        QQuickItem *childItem = qobject_cast<QQuickItem*>(component.create());
+        childItem->setParentItem(qmlParent);
+        delete (*it);
+    }
+    delete views;
 }
