@@ -47,8 +47,8 @@ void Game::handleResults(const string &result)
     qDebug() << QString::fromStdString(result);
 }
 
-void Game::render(vector<GameActorView*> *views)
-{
+  void Game::render(vector<GameActorView*> *views)
+  {
     // Renders all the views and deletes them out of the vector
     vector<GameActorView*>::iterator it;
     for (it = views->begin(); it < views->end(); it++)

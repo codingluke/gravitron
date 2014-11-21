@@ -15,6 +15,7 @@ Window {
         onClicked: {
             var component = Qt.createComponent("Game.qml");
             var obj = component.createObject(win_startWindow);
+            console.log(obj);
             Game.setQmlParent(obj);
             Game.start();
         }

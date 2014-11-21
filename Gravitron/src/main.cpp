@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
     engine.rootContext()->setContextProperty("MListener", &mListener);
 
     // Add Game
-    Game game;
+    Game game(&engine);
     engine.rootContext()->setContextProperty("Game", &game);
 
     engine.load(QUrl(QStringLiteral("qrc:/qml/main.qml")));

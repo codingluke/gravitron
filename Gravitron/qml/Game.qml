@@ -1,6 +1,8 @@
 import QtQuick 2.3
 import QtQuick.Controls 1.2
 
+import "functions.js" as Functions
+
 Rectangle {
     id: game_scene
     width: parent.width
@@ -13,7 +15,7 @@ Rectangle {
         focus: true
         onClicked: {
             Game.stop();
-            game_scene.destroy();
+            Functions.btn_backClicked();
         }
     }
 }
