@@ -11,6 +11,7 @@ HEADERS += src/headers/GameActor.h \
     src/headers/GameLoop.h \
     src/headers/Game.h \
     src/headers/GameActorView.h
+    src/headers/MenuListener.h
 
 DESTDIR = ../build
 OBJECTS_DIR = ../build
@@ -25,6 +26,7 @@ SOURCES += src/main.cpp \
     src/GravitronSettings.cpp \
     src/QmlFileReader.cpp \
     src/GameActorView.cpp
+    src/MenuListener.cpp
 
 RESOURCES += assets/img/img.qrc \
         assets/audio/audio.qrc \

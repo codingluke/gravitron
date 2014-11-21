@@ -4,6 +4,7 @@
 #include "headers/QmlFileReader.h"
 #include "headers/GravitronSettings.h"
 #include "headers/Game.h"
+#include "headers/MenuListener.h"
 #include <string>
 #include <QDebug>
 
@@ -19,12 +20,9 @@ int main(int argc, char *argv[])
 
     QQmlApplicationEngine engine;
     GravitronSettings settings;
-    settings.setFullScreen(true);
-    settings.setPlayMusic(true);
-    settings.setPlaySounds(true);
-    settings.setMusicSoundVolume(78);
-    settings.setPlayerName("RobNoFlop");
+    MenuListener mListener(&settings); // = MenuListener(&settings);
     engine.rootContext()->setContextProperty("Settings", &settings);
+    engine.rootContext()->setContextProperty("MListener", &mListener);
 
 
     // Add Game

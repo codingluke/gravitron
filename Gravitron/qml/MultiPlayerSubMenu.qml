@@ -1,55 +1,63 @@
 import QtQuick 2.0
 import QtQuick.Controls 1.2
-import QtQuick.Window 2.0
+import QtPositioning 5.3
+import QtQuick.Layouts 1.0
+import GravitronSettings 1.0
 
 import "constants.js" as Global
 import "functions.js" as Functions
 
 Rectangle {
-    id: rec_newGameSubMenu
+    id: rec_multiPlayerSubMenu
     width: parent.width
     height: parent.height
     color: "#bbffffff"
 
+
     Column {
-        id: col_newGameSubMenu
+        id: col_multiPlayerSubMenu
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter
         spacing: 10
+        width: 300
+
 
         Button {
             id: btn_back
             width: Global.buttonWidth
             height: Global.buttonHeight
             text: "Zurück"
-            onClicked: Functions.btn_backClicked()
+            onClicked: Functions.btn_backToNewGameClicked()
         }
 
         Button {
-            id: btn_singelPlayer
+            id: btn_createGame
             width: Global.buttonWidth
             height: Global.buttonHeight
-            text: "Einzel Spieler"
-            KeyNavigation.up: btn_multiPlayer
-            KeyNavigation.down: btn_multiPlayer
-            onClicked: Functions.btn_singelPlayerClicked()
+            text: "Spiel erstellen"
         }
 
         Button {
-            id: btn_multiPlayer
+            id: btn_joinGame
             width: Global.buttonWidth
             height: Global.buttonHeight
-            text: "Mehr Spieler"
-            KeyNavigation.up: btn_singelPlayer
-            KeyNavigation.down: btn_singelPlayer
-            onClicked: Functions.btn_multiPlayerClicked()
+            text: "Spiel beitreten"
         }
-    }
 
-    Loader {
-        width: Screen.width
-        height: Screen.height
-        visible: false
-        id: load_singlePlayerSubMenu
+        MultiplayerJoin {
+
+        }
+
+        GameSettingsSubMenu {
+            id: gameSettings
+        }
+
+        Button {
+            id: btn_startSinglePlayer
+            width: Global.buttonWidth
+            height: Global.buttonHeight
+            text: qsTr("Starten")
+        }
+
     }
 }
