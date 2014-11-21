@@ -6,5 +6,6 @@
         <file>NewGameSubMenu.qml</file>
         <file>CreditsSubMenu.qml</file>
         <file>SettingsSubMenu.qml</file>
+        <file alias="actor">actors/Actor.qml</file>
     </qresource>
 </RCC>
