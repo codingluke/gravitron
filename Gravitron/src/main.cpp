@@ -6,7 +6,6 @@
 #include "headers/Game.h"
 #include "headers/MenuListener.h"
 #include <string>
-#include <QDebug>
 
 using namespace std;
 
@@ -24,14 +23,11 @@ int main(int argc, char *argv[])
     engine.rootContext()->setContextProperty("Settings", &settings);
     engine.rootContext()->setContextProperty("MListener", &mListener);
 
-
     // Add Game
-    Game game(&engine);
-    //game.setEngine(&engine);
+    Game game;
     engine.rootContext()->setContextProperty("Game", &game);
 
-    //engine.load(QUrl(QStringLiteral("qrc:/qml/main.qml")));
-    engine.load(QUrl(QStringLiteral("qrc:/qml/main2.qml")));
+    engine.load(QUrl(QStringLiteral("qrc:/qml/main.qml")));
 
     return app.exec();
 }

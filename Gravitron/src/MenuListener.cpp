@@ -11,9 +11,9 @@ MenuListener::MenuListener(GravitronSettings *settings, QObject *parent) :
     this->settings = settings;
 }
 
-void MenuListener::startSinglePlayerGame() {
+void MenuListener::startSinglePlayerGame()
+{
 
     //GravitronSettings *s = settings;
     //int wait = 0;
-
 }
