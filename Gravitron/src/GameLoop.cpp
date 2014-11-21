@@ -53,7 +53,7 @@ void GameLoop::update()
 void GameLoop::render()
 {
     vector<GameActorView*> *viewlist = new vector<GameActorView*>;
-    GameActorView *view = new GameActorView();
+    GameActorView *view = new GameActorView("qrc:/qml/CreditsSubMenu.qml");
     viewlist->push_back(view);
     emit renderObject(viewlist);
     QThread::msleep(100);

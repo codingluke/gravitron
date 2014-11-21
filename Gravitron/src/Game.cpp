@@ -53,5 +53,11 @@ void Game::handleResults(const string &result)
 void Game::render(vector<GameActorView*> *views)
 {
     //qDebug() << views;
-    views->at(0)->render(engine, qmlParent);
+    //views->at(0)->render(engine, qmlParent);
+    //QQmlComponent component(engine, QUrl(QStringLiteral("qrc:/qml/CreditsSubMenu.qml")));
+    QString path = QString::fromStdString(views->at(0)->getQmlPath());
+    QQmlComponent component(engine, QUrl(path));
+    QQuickItem *childItem = qobject_cast<QQuickItem*>(component.create());
+    childItem->setParentItem(qmlParent);
+    //return childItem;
 }

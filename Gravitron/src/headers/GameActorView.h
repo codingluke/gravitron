@@ -10,15 +10,13 @@ using namespace std;
 
 class GameActorView: public QObject
 {
-    Q_OBJECT
-
     private:
-      string qml_resource;
+      string qmlPath;
 
     public:
-        GameActorView(QObject *parent = 0);
+        GameActorView(string theQmlPath);
 
-        QQuickItem* render(QQmlApplicationEngine *engine, QQuickItem *qmlParent);
+        string getQmlPath() const;
 };
 
 #endif
