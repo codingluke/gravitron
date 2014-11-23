@@ -21,7 +21,8 @@ Rectangle {
             id: btn_back
             width: Global.buttonWidth
             height: Global.buttonHeight
-            text: "Zurück"
+            //: Button bach to the mainmenu
+            text: qsTr("back")
             onClicked: Functions.btn_backClicked()
         }
 
@@ -29,7 +30,8 @@ Rectangle {
             id: btn_singelPlayer
             width: Global.buttonWidth
             height: Global.buttonHeight
-            text: "Einzel Spieler"
+            //: Button to the singel player settings
+            text: qsTr("singelPlayer")
             KeyNavigation.up: btn_multiPlayer
             KeyNavigation.down: btn_multiPlayer
             onClicked: Functions.btn_singelPlayerClicked()
@@ -39,7 +41,8 @@ Rectangle {
             id: btn_multiPlayer
             width: Global.buttonWidth
             height: Global.buttonHeight
-            text: "Mehr Spieler"
+            //: Button to the multi player settings
+            text: qsTr("multiPlayer")
             KeyNavigation.up: btn_singelPlayer
             KeyNavigation.down: btn_singelPlayer
             onClicked: Functions.btn_multiPlayerClicked()

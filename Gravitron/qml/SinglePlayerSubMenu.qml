@@ -25,7 +25,8 @@ Rectangle {
             id: btn_backToNewGame
             width: Global.buttonWidth
             height: Global.buttonHeight
-            text: "Zurück"
+            //: Button bach to the new game menu
+            text: qsTr("back")
             onClicked: Functions.btn_backToNewGameClicked()
         }
 
@@ -37,7 +38,8 @@ Rectangle {
             id: btn_startSinglePlayer
             width: Global.buttonWidth
             height: Global.buttonHeight
-            text: qsTr("Starten")
+            //: Button to start a singel palyer game
+            text: qsTr("start")
             onClicked: MListener.startSinglePlayerGame();
         }
     }

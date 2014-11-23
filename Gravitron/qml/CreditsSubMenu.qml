@@ -20,7 +20,8 @@ Rectangle {
             id: btn_back
             width: Global.buttonWidth
             height: Global.buttonHeight
-            text: "Zurück"
+            //: The back to the main menu
+            text: qsTr("back")
             onClicked: Functions.btn_backClicked()
         }
 

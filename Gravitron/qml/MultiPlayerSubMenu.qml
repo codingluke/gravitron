@@ -26,7 +26,8 @@ Rectangle {
             id: btn_back
             width: Global.buttonWidth
             height: Global.buttonHeight
-            text: "Zurück"
+            //: Button bach to the new game menu
+            text: qsTr("back")
             onClicked: Functions.btn_backToNewGameClicked()
         }
 
@@ -34,14 +35,16 @@ Rectangle {
             id: btn_createGame
             width: Global.buttonWidth
             height: Global.buttonHeight
-            text: "Spiel erstellen"
+            //: Button to create a multiplayergame
+            text: qsTr("createMultiPlayerGame")
         }
 
         Button {
             id: btn_joinGame
             width: Global.buttonWidth
             height: Global.buttonHeight
-            text: "Spiel beitreten"
+            //: Button to join a multiplayergame
+            text: qsTr("joinMultiPlayerGame")
         }
 
         MultiplayerJoin {
@@ -56,7 +59,8 @@ Rectangle {
             id: btn_startSinglePlayer
             width: Global.buttonWidth
             height: Global.buttonHeight
-            text: qsTr("Starten")
+            //: Button to start a multiplayergame
+            text: qsTr("startMultiPlayerGame")
         }
 
     }

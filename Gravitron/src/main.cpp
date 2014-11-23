@@ -1,6 +1,8 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QtQml>
+#include <QTranslator>
+#include <QLocale>
 #include "headers/QmlFileReader.h"
 #include "headers/GravitronSettings.h"
 #include "headers/Game.h"
@@ -25,7 +27,18 @@ int main(int argc, char *argv[])
 
     // Add Game
     Game game(&engine);
+
     engine.rootContext()->setContextProperty("Game", &game);
+
+    QString locale = QLocale::system().name();
+    QTranslator translator;
+    if(translator.load("gravitron_" + locale, ":/translations")) {
+        app.installTranslator(&translator);
+    } else {
+        qWarning() << "No languare for your loaction.";
+        translator.load("gravitron_en_GB", ":/translations");
+        app.installTranslator(&translator);
+    }
 
     engine.load(QUrl(QStringLiteral("qrc:/qml/main.qml")));
 

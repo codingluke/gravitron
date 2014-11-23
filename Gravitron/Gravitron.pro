@@ -32,8 +32,15 @@ RESOURCES += assets/img/img.qrc \
         assets/audio/audio.qrc \
         assets/text/text.qrc \
         qml/qml.qrc \
-        translations/translations.qrc
+        translations.qrc
 
+TRANSLATIONS = gravitron_de.ts \
+               gravitron_en.ts
+
+lupdate_only {
+    SOURCES = qml/*.qml \
+              qml/*.js
+}
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH =

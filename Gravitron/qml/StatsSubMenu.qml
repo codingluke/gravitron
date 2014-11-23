@@ -26,13 +26,15 @@ Rectangle {
             id: btn_back
             width: Global.buttonWidth
             height: Global.buttonHeight
-            text: "Zurück"
+            //: Button bach to the mainmenu
+            text: qsTr("back")
             onClicked: Functions.btn_backClicked()
         }
 
         Text {
             id: txt_statsHeadline
-            text: "Statistik"
+            //: Label for the stats
+            text: qsTr("stats")
         }
     }
 }

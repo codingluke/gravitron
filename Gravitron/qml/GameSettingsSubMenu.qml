@@ -17,13 +17,15 @@ Rectangle {
         Text {
             height: Global.textHeight
             width: Global.textWidth
-            text: qsTr("Spiel Eintellungen")
+            //: Lable for the game settings
+            text: qsTr("gameSettings")
         }
 
         Text {
             height: Global.textHeight
             width: Global.textWidth
-            text: qsTr("Spielfeld Größe")
+            //: Label for the palying field size slider
+            text: qsTr("playingFieldSize")
         }
 
         Slider {
@@ -35,7 +37,8 @@ Rectangle {
         Text {
             height: Global.textHeight
             width: Global.textWidth
-            text: qsTr("Gegner Anzahl")
+            //: Label for the number of enemies slider
+            text: qsTr("numberEnemies")
         }
 
         Slider {
@@ -47,7 +50,8 @@ Rectangle {
         Text {
             height: Global.textHeight
             width: Global.textWidth
-            text: qsTr("Palnetendichte")
+            //: Label for the amount of planets slider
+            text: qsTr("planetAmount")
         }
 
         Slider {
@@ -59,7 +63,8 @@ Rectangle {
         Text {
             height: Global.textHeight
             width: Global.textWidth
-            text: qsTr("Asteroiedendichte")
+            //: Label for the amount of astorieds slider
+            text: qsTr("astroidAmount")
         }
 
         Slider {
@@ -71,7 +76,8 @@ Rectangle {
         Text {
             height: Global.textHeight
             width: Global.textWidth
-            text: qsTr("Abschusslimit")
+            //: Label for the frag limit slider
+            text: qsTr("fragLimit")
         }
 
         Slider {
@@ -83,7 +89,8 @@ Rectangle {
         Text {
             height: Global.textHeight
             width: Global.textWidth
-            text: qsTr("Respawn Zeit")
+            //: Label for the respawn time slider
+            text: qsTr("rRespawnTime")
         }
 
         Slider {
@@ -95,7 +102,8 @@ Rectangle {
         Text {
             height: Global.textHeight
             width: Global.textWidth
-            text: qsTr("PowerUp Einstellungen")
+            //:Label for the PowerUp settings
+            text: qsTr("powerUpSettings")
         }
 
     }

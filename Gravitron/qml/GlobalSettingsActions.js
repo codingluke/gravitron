@@ -1,9 +1,14 @@
 function getBtnDifficultyText() {
-    var text = "Schwierigkeit: ";
+
+    //: Text of the difficulty button
+    var text = qsTr("difficulty") + ": ";
     switch(Settings.difficulty) {
-        case 1: text += "Leicht"; break;
-        case 2: text += "Mittel"; break;
-        case 3: text += "Schwer"; break;
+        //: difficulty easy
+        case 1: text += qsTr("easy"); break;
+        //: difficulty middel
+        case 2: text += qsTr("middel"); break;
+        //: difficulty hard
+        case 3: text += qsTr("hard"); break;
     }
     return text;
 }
@@ -18,8 +23,15 @@ function btn_difficultyClicked() {
 }
 
 function getBtnFullScreenText() {
-    var text = "Vollbild: ";
-    text += Settings.fullScreen === true ? "an" : "aus";
+    //: Text of the fullscreen button
+    var text = qsTr("fullscreen") + ": ";
+    if(Settings.fullScreen === true) {
+        //: fullscreen on
+        text += qsTr("on")
+    } else {
+        //: fullscreen off
+        text += qsTr("off");
+    }
     return text;
 }
 
@@ -28,8 +40,15 @@ function btn_fullScreenClicked() {
 }
 
 function getBtnPlayMusicText() {
-    var text = "Musik: ";
-    text += Settings.playMusic === true ? "an" : "aus";
+    //: Text of the music button
+    var text = qsTr("music") + ": ";
+    if(Settings.playMusic === true) {
+        //: music on
+        text += qsTr("on")
+    } else {
+        //: music off
+        text += qsTr("off");
+    }
     return text;
 }
 
@@ -46,8 +65,15 @@ function slide_musicSoundVolumeChanged() {
 }
 
 function getBtnPlaySoundsText() {
-    var text = "Sounds: ";
-    text += Settings.playSounds === true ? "an" : "aus";
+    //: Text of the sounds button
+    var text = qsTr("sounds") + ": ";
+    if(Settings.playSounds === true) {
+        //: sound on
+        text += qsTr("on")
+    } else {
+        //: sound off
+        text += qsTr("off");
+    }
     return text;
 }
 

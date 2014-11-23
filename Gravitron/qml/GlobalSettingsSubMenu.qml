@@ -28,13 +28,15 @@ Rectangle {
             id: btn_back
             width: Global.buttonWidth
             height: Global.buttonHeight
-            text: "Zurück"
+            //: Button bach to the mainmenu
+            text: qsTr("back")
             onClicked: Functions.btn_backClicked()
         }
 
         Text {
             id: txt_settingsHeadline
-            text: "Einstellungen"
+            //: Label for the settings menu
+            text: qsTr("settings")
         }
 
         Button {
@@ -57,7 +59,8 @@ Rectangle {
             id: lbl_volume
             height: Global.textHeight
             width: Global.textWidth
-            text: qsTr("Lautstärke")
+            //: Label for the music and sounds volume slider
+            text: qsTr("volume")
             font.pixelSize: 12
         }
 
@@ -94,7 +97,8 @@ Rectangle {
             id: txt_playerName
             height: Global.textFieldHeight
             width: Global.textFieldWidth
-            placeholderText: qsTr("Name")
+            //: Placeholder for the playername input
+            placeholderText: qsTr("name")
             text: SettingsFunctions.getTxtPlayerNameText()
             onTextChanged: SettingsFunctions.txt_playerNameChanged()
         }
