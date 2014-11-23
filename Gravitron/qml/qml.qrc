@@ -11,7 +11,6 @@
         <file>functions.js</file>
         <file>GlobalSettingsActions.js</file>
         <file>GameSettingsSubMenu.qml</file>
-        <file>Button.qml</file>
         <file>GameSettingsActions.js</file>
         <file>MultiplayerJoin.qml</file>
     </qresource>

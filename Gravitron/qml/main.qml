@@ -35,7 +35,6 @@ Window {
         anchors.horizontalCenter: parent.horizontalCenter
         spacing: 10
 
-
         Button {
             id: btn_newGame
             width: Global.buttonWidth
