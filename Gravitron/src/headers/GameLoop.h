@@ -3,6 +3,8 @@
 
 #include <QThread>
 #include <string>
+#include <QQmlApplicationEngine>
+#include "GameActorView.h"
 
 using namespace std;
 
@@ -14,19 +16,24 @@ class GameLoop : public QObject
     private:
         bool running;
         int ms_per_update;
+        QObject *game;
+        QQmlApplicationEngine *engine;
+
+    public:
+        GameLoop();
 
     public slots:
-        void doWork();
+        void run();
         void stop();
 
     private:
         void processInput();
         void update();
         void render();
-        int getCurrentTime();
 
     signals:
         void ping(const string &result);
+        void renderObject(vector<GameActorView*> *views);
 };
 
 #endif

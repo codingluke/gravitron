@@ -7,12 +7,11 @@ import "constants.js" as Global
 import "functions.js" as Functions
 
 
-
 Window {
     id: win_startWindow
     visible: true
-    width: Screen.width
-    height: Screen.height
+    width: 500
+    height: 500
 
     Image {
         id: img_backgrond

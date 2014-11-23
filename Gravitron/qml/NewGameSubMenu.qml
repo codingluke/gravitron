@@ -1,7 +1,6 @@
 import QtQuick 2.0
 import QtQuick.Controls 1.2
 import QtQuick.Window 2.0
-import Game 1.0
 
 import "constants.js" as Global
 import "functions.js" as Functions

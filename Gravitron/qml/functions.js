@@ -1,5 +1,8 @@
 function btn_newGameClicked(){
-    showSubMenu("NewGameSubMenu.qml");
+    //showSubMenu("NewGameSubMenu.qml");
+    showSubMenu("Game.qml");
+    Game.setQmlParent(load_subMenu.item);
+    Game.start();
 }
 
 function btn_settingsClicked() {

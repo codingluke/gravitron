@@ -16,13 +16,16 @@ int main(int argc, char *argv[])
     qRegisterMetaType<string>("string");
     qmlRegisterType<QMLFileReader, 1>("QMLFileReader", 1, 0, "QMLFileReader");
     qmlRegisterType<GravitronSettings, 1>("GravitronSettings", 1, 0, "GravitronSettings");
-    qmlRegisterType<Game, 1>("Game", 1, 0, "Game");
 
     QQmlApplicationEngine engine;
     GravitronSettings settings;
     MenuListener mListener(&settings); // = MenuListener(&settings);
     engine.rootContext()->setContextProperty("Settings", &settings);
     engine.rootContext()->setContextProperty("MListener", &mListener);
+
+    // Add Game
+    Game game(&engine);
+    engine.rootContext()->setContextProperty("Game", &game);
 
     engine.load(QUrl(QStringLiteral("qrc:/qml/main.qml")));
 

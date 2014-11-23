@@ -1,8 +1,11 @@
 <RCC>
     <qresource prefix="/qml">
         <file>main.qml</file>
+        <file>main2.qml</file>
+        <file>Game.qml</file>
         <file>NewGameSubMenu.qml</file>
         <file>CreditsSubMenu.qml</file>
+        <file alias="actor">actors/Actor.qml</file>
         <file>GlobalSettingsSubMenu.qml</file>
         <file>constants.js</file>
         <file>SinglePlayerSubMenu.qml</file>

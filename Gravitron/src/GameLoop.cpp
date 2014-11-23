@@ -1,11 +1,14 @@
-#include <iostream>
-#include <iomanip>
 #include <QTime>
 #include "headers/GameLoop.h"
+#include <QDebug>
 
 using namespace std;
 
-void GameLoop::doWork()
+GameLoop::GameLoop()
+{
+}
+
+void GameLoop::run()
 {
     ms_per_update = 60;
     running = true;
@@ -25,12 +28,9 @@ void GameLoop::doWork()
         {
             update();
             lag -= ms_per_update;
-            cout << lag << "\n";
         }
         render();
-        emit ping("round finished");
     }
-    emit ping("fertig");
 }
 
 void GameLoop::stop()
@@ -47,15 +47,22 @@ void GameLoop::processInput()
 void GameLoop::update()
 {
     //emit ping("update!");
+    //qDebug() << game;
 }
 
 void GameLoop::render()
 {
-    QThread::msleep(100);
-    //cout << "render!";
-}
+    vector<GameActorView*> *viewlist = new vector<GameActorView*>;
+    GameActorView *view = new GameActorView("qrc:/qml/actor");
+    view->setProperty("color", "blue");
+    view->setProperty("x", "100");
 
-int GameLoop::getCurrentTime()
-{
-    return QTime::currentTime().msec();
+    GameActorView *view2 = new GameActorView("qrc:/qml/actor");
+    view2->setProperty("y", "40");
+    view2->setProperty("color", "white");
+    view2->setProperty("width", "100");
+    viewlist->push_back(view);
+    viewlist->push_back(view2);
+    emit renderObject(viewlist);
+    QThread::msleep(100);
 }
