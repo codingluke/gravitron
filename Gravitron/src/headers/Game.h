@@ -36,6 +36,7 @@ class Game: public QObject
 
     private:
         void init();
+        void clearScene();
 };
 
 #endif

@@ -47,8 +47,22 @@ void Game::handleResults(const string &result)
     qDebug() << QString::fromStdString(result);
 }
 
-  void Game::render(vector<GameActorView*> *views)
-  {
+void Game::clearScene()
+{
+    QList<QQuickItem*> children = qmlParent->childItems();
+    QListIterator<QQuickItem*> itc(children);
+    while (itc.hasNext()) {
+        QQuickItem *itm = itc.next();
+        if (itm->property("identifier").isValid()) {
+          delete itm;
+        }
+    }
+}
+
+void Game::render(vector<GameActorView*> *views)
+{
+    clearScene();
+
     // Renders all the views and deletes them out of the vector
     vector<GameActorView*>::iterator it;
     for (it = views->begin(); it < views->end(); it++)

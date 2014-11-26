@@ -17,6 +17,7 @@ void GameLoop::run()
 
     emit ping("start");
     t.start();
+
     while (running)
     {
         lag += t.elapsed();
@@ -54,10 +55,12 @@ void GameLoop::render()
 {
     vector<GameActorView*> *viewlist = new vector<GameActorView*>;
     GameActorView *view = new GameActorView("qrc:/qml/actor");
+    view->setProperty("identifier", "1");
     view->setProperty("color", "blue");
     view->setProperty("x", "100");
 
     GameActorView *view2 = new GameActorView("qrc:/qml/actor");
+    view2->setProperty("identifier", "2");
     view2->setProperty("y", "40");
     view2->setProperty("color", "white");
     view2->setProperty("width", "100");
