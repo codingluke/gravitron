@@ -47,23 +47,34 @@ void Game::handleResults(const string &result)
     qDebug() << QString::fromStdString(result);
 }
 
+/**
+ * Deletes all the child items of qmlParent with a valid "identifier" property.
+ * The "identifier" property is a self defined property to identify
+ * self created QQuickItems.
+ */
 void Game::clearScene()
 {
     QList<QQuickItem*> children = qmlParent->childItems();
     QListIterator<QQuickItem*> itc(children);
-    while (itc.hasNext()) {
+    while (itc.hasNext())
+    {
         QQuickItem *itm = itc.next();
-        if (itm->property("identifier").isValid()) {
+        if (itm->property("identifier").isValid())
           delete itm;
-        }
     }
 }
 
+/**
+ * Creates a QQuickItem for each element in the views list and
+ * adds their special properties.
+ *
+ * IMPORTANT! The list and its content gets deleted from the heap!
+ *
+ * @param views pointer to a vector of pointers to GameActorView's
+ */
 void Game::render(vector<GameActorView*> *views)
 {
     clearScene();
-
-    // Renders all the views and deletes them out of the vector
     vector<GameActorView*>::iterator it;
     for (it = views->begin(); it < views->end(); it++)
     {
