@@ -38,6 +38,13 @@ GameActor::~GameActor()
 {
 }
 
+/**
+ * This method will be used, to apply any kind of force to the GameActor.
+ * Such would be gravitation, the trajectory analog to the user input, etc.
+ * After appliyng all forces for the current frame, update(radius) should 
+ * be called.
+ * @param force the force to apply to this GameActor
+ */
 void GameActor::applyForce(Vec3f force)
 {
 	acceleration += force;

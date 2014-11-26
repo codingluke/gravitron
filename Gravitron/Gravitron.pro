@@ -6,12 +6,14 @@ QT += qml quick #network?
 
 HEADERS += src/headers/GameActor.h \
     src/headers/Vec3f.h \
+    src/headers/Vec2f.h \
     src/headers/QmlFileReader.h \
     src/headers/GravitronSettings.h \
     src/headers/GameLoop.h \
     src/headers/Game.h \
     src/headers/GameActorView.h \
-    src/headers/MenuListener.h
+    src/headers/MenuListener.h \ 
+    src/headers/GameProjection.h
 
 DESTDIR = ../build
 OBJECTS_DIR = ../build
@@ -21,12 +23,14 @@ RCC_DIR = ../build
 SOURCES += src/main.cpp \
     src/GameActor.cpp \
     src/Vec3f.cpp \
+    src/Vec2f.cpp \
     src/Game.cpp \
     src/GameLoop.cpp \
     src/GravitronSettings.cpp \
     src/QmlFileReader.cpp \
     src/GameActorView.cpp \
-    src/MenuListener.cpp
+    src/MenuListener.cpp \
+    src/GameProjection.cpp
 
 RESOURCES += assets/img/img.qrc \
         assets/audio/audio.qrc \
