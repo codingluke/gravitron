@@ -1,6 +1,8 @@
 #include <QTime>
 #include "headers/GameLoop.h"
 #include <QDebug>
+#include <math.h>
+#include <string>
 
 using namespace std;
 
@@ -53,11 +55,17 @@ void GameLoop::update()
 
 void GameLoop::render()
 {
+
+    // Change color by time :)
+    //QTime::current_time()
+    float time = (float) QTime::currentTime().msec();
+    QString x = QString::number(time);
+
     vector<GameActorView*> *viewlist = new vector<GameActorView*>;
     GameActorView *view = new GameActorView("qrc:/qml/actor");
     view->setProperty("identifier", "1");
     view->setProperty("color", "blue");
-    view->setProperty("x", "100");
+    view->setProperty("x", x.toStdString());
 
     GameActorView *view2 = new GameActorView("qrc:/qml/actor");
     view2->setProperty("identifier", "2");

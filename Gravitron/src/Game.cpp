@@ -16,11 +16,19 @@ Game::Game(QQmlApplicationEngine *theEngine)
   init();
 }
 
+/**
+ * Setter for the QQuickItem which acts as the same scene.
+ *
+ * @param theQmlParent
+ */
 void Game::setQmlParent(QQuickItem *theQmlParent)
 {
     qmlParent = theQmlParent;
 }
 
+/**
+ * Initializes the GameLoop in a own thread and connects the singnals/slots.
+ */
 void Game::init()
 {
     GameLoop *worker = new GameLoop();
@@ -78,14 +86,11 @@ void Game::render(vector<GameActorView*> *views)
     vector<GameActorView*>::iterator it;
     for (it = views->begin(); it < views->end(); it++)
     {
-        // Create Object from QML
+        // Create Object from QML and set its parent
         QString path = QString::fromStdString((*it)->getQmlPath());
         QQmlComponent component(engine, QUrl(path));
         QQuickItem *childItem = qobject_cast<QQuickItem*>(component.create());
-
-        // Map the GameScene as parent
         childItem->setParentItem(qmlParent);
-
         // Map the properties
         map<string, string> props = (*it)->getProperties();
         map<string, string>::iterator pit;
