@@ -41,7 +41,7 @@ GameActor::~GameActor()
 /**
  * This method will be used, to apply any kind of force to the GameActor.
  * Such would be gravitation, the trajectory analog to the user input, etc.
- * After appliyng all forces for the current frame, update(radius) should 
+ * After appliyng all forces for the current frame, update(radius) should
  * be called.
  * @param force the force to apply to this GameActor
  */
@@ -106,6 +106,19 @@ Vec3f GameActor::getPosition() const
 double GameActor::getMass() const
 {
 	return mass;
+}
+
+GameActorView* GameActor::getView() const
+{
+	std::ostringstream x;
+	std::ostringstream y;
+	x << position[0];
+	y << position[1];
+	GameActorView *view = new GameActorView("qrc:/qml/actor");
+	view->setProperty("identifier", "1");
+	view->setProperty("x", x.str());
+	view->setProperty("y", x.str());
+	return view;
 }
 
 std::string GameActor::toString() const

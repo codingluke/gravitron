@@ -1,6 +1,7 @@
 #ifndef GAMEACTOR_HEADER
 #define GAMEACTOR_HEADER
 #include "Vec3f.h"
+#include "GameActorView.h"
 
 /**
  * This represents all objects within the game area. An ArrayList of
@@ -47,6 +48,7 @@ public:
 	Vec3f getAcceleration() const;
 	Vec3f getVelocity() const;
 	double getMass() const;
+	GameActorView* getView() const;
 
 	std::string toString() const;
 
