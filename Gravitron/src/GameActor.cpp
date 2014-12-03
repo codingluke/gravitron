@@ -1,12 +1,12 @@
 #include "headers/GameActor.h"
 #include <sstream>
+#include <iostream>
 
 void GameActor::initialize(Vec3f position, double mass)
 {
-	position = Vec3f();
 	velocity = Vec3f();
 	acceleration = Vec3f();
-	this->position += position;
+	this->position = position;
 	this->mass = mass;
 }
 
@@ -29,7 +29,7 @@ GameActor::GameActor(Vec3f position, double mass)
 	initialize(position, mass);
 }
 
-GameActor::GameActor(GameActor &actor)
+GameActor::GameActor(const GameActor &actor)
 {
 	initialize(actor);
 }
@@ -115,9 +115,10 @@ GameActorView* GameActor::getView() const
 	x << position[0];
 	y << position[1];
 	GameActorView *view = new GameActorView("qrc:/qml/actor");
-	view->setProperty("identifier", "1");
+	view->setProperty("identifier", "10");
 	view->setProperty("x", x.str());
-	view->setProperty("y", x.str());
+	view->setProperty("y", y.str());
+	view->setProperty("color", "yellow");
 	return view;
 }
 

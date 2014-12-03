@@ -34,7 +34,7 @@ private:
 public:
 	GameActor();
 	GameActor(Vec3f position, double mass);
-	GameActor(GameActor &actor);
+	GameActor(const GameActor &actor);
 	~GameActor();
 
 	void applyForce(Vec3f force);

@@ -4,6 +4,7 @@
 #include <QThread>
 #include <string>
 #include <QQmlApplicationEngine>
+#include "GameActor.h"
 #include "GameActorView.h"
 
 using namespace std;
@@ -18,6 +19,7 @@ class GameLoop : public QObject
         int ms_per_update;
         QObject *game;
         QQmlApplicationEngine *engine;
+        vector<GameActor> actors;
 
     public:
         GameLoop();
