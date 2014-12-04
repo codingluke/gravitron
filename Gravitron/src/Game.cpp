@@ -38,7 +38,7 @@ void Game::init()
 {
     gameLoop = new GameLoop();
     connect(this, SIGNAL(stop(void)),
-            gameLoop, SLOT(stop(void)), Qt::QueuedConnection);
+            gameLoop, SLOT(stop(void)));
     connect(gameLoop, SIGNAL(ping(string)),
             this, SLOT(handleResults(string)));
     connect(gameLoop, SIGNAL(renderObject(vector<GameActorView*>*)),

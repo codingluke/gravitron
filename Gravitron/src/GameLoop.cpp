@@ -58,28 +58,33 @@ void GameLoop::stop()
 
 void GameLoop::processInput()
 {
+    QAbstractEventDispatcher::instance(this)->processEvents(QEventLoop::ExcludeSocketNotifiers);
+    if (inputs == "16777234") {
+        // left
+        actors[0].applyForce(Vec3f(-0.01,0.,0.));
+    } else if (inputs == "16777235") {
+        // up
+        actors[0].applyForce(Vec3f(0.,-0.01,0.));
+    } else if (inputs == "16777236") {
+        // right
+        actors[0].applyForce(Vec3f(0.01,0.,0.));
+    } else if (inputs == "16777237") {
+        // down
+        actors[0].applyForce(Vec3f(0.,0.01,0.));
+    }
+    inputs = "";
 }
 
 void GameLoop::update()
 {
-    if (inputs == "16777234") {
-        actors[0].applyForce(Vec3f(-0.01,0.,0.));
-    } else if (inputs == "16777235") {
-        actors[0].applyForce(Vec3f(0.,-0.01,0.));
-    } else if (inputs == "16777236") {
-        actors[0].applyForce(Vec3f(0.01,0.,0.));
-    } else if (inputs == "16777237") {
-        actors[0].applyForce(Vec3f(0.,0.01,0.));
-    }
-    inputs = "";
+    actors[0].update();
 }
 
 void GameLoop::render()
 {
     vector<GameActorView*> *viewlist = new vector<GameActorView*>;
     GameActorView *view = actors[0].getView();
-    actors[0].update();
     viewlist->push_back(view);
     emit renderObject(viewlist);
-    QThread::msleep(20);
+    QThread::msleep(5);
 }
