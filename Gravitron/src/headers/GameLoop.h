@@ -7,6 +7,7 @@
 #include <QQmlApplicationEngine>
 #include "GameActor.h"
 #include "GameActorView.h"
+#include <QKeyEvent>
 
 using namespace std;
 
@@ -21,7 +22,10 @@ class GameLoop : public QThread
         QObject *game;
         QQmlApplicationEngine *engine;
         vector<GameActor> actors;
-        QString inputs;
+        int inputs;
+
+    protected:
+        bool eventFilter(QObject *obj, QEvent *event);
 
     public:
         GameLoop();
@@ -29,7 +33,7 @@ class GameLoop : public QThread
     public slots:
         void run();
         void stop();
-        void inputEvents(const QString &key);
+        void inputEvents(int code);
 
     private:
         void processInput();

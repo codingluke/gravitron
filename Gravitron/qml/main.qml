@@ -13,13 +13,6 @@ Window {
     width: 500
     height: 500
     
-    Item {
-        focus: true
-        Keys.onPressed: {
-            Game.inputEvents(event.key);
-        }
-    }
-    
     Image {
         id: img_backgrond
         source: "qrc:/img/menuBackgroundImage"

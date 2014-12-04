@@ -34,7 +34,7 @@ class Game: public QObject
 
     signals:
         Q_INVOKABLE void stop();
-        Q_INVOKABLE void inputEvents(const QString &key);
+        Q_INVOKABLE void inputEvents(int code);
 
     private:
         void init();

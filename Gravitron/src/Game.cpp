@@ -37,6 +37,7 @@ void Game::start()
 void Game::init()
 {
     gameLoop = new GameLoop();
+    QCoreApplication::instance()->installEventFilter(gameLoop);
     connect(this, SIGNAL(stop(void)),
             gameLoop, SLOT(stop(void)));
     connect(gameLoop, SIGNAL(ping(string)),

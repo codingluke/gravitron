@@ -45,9 +45,21 @@ void GameLoop::run()
     }
 }
 
-void GameLoop::inputEvents(const QString &key)
+void GameLoop::inputEvents(int code)
 {
-    inputs = key;
+    qDebug() << code;
+    inputs = code;
+}
+
+bool GameLoop::eventFilter(QObject *obj, QEvent *event)
+{
+  if (event->type() == QEvent::KeyPress)
+  {
+    QKeyEvent *keyEvent = (QKeyEvent*)event;
+    inputs = keyEvent->key();
+    qDebug() << inputs;
+  }
+  return false;
 }
 
 void GameLoop::stop()
@@ -58,21 +70,20 @@ void GameLoop::stop()
 
 void GameLoop::processInput()
 {
-    QAbstractEventDispatcher::instance(this)->processEvents(QEventLoop::ExcludeSocketNotifiers);
-    if (inputs == "16777234") {
+    if (inputs == 16777234) {
         // left
         actors[0].applyForce(Vec3f(-0.01,0.,0.));
-    } else if (inputs == "16777235") {
+    } else if (inputs == 16777235) {
         // up
         actors[0].applyForce(Vec3f(0.,-0.01,0.));
-    } else if (inputs == "16777236") {
+    } else if (inputs == 16777236) {
         // right
         actors[0].applyForce(Vec3f(0.01,0.,0.));
-    } else if (inputs == "16777237") {
+    } else if (inputs == 16777237) {
         // down
         actors[0].applyForce(Vec3f(0.,0.01,0.));
     }
-    inputs = "";
+    inputs = 0;
 }
 
 void GameLoop::update()

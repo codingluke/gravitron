@@ -25,8 +25,10 @@ int main(int argc, char *argv[])
     engine.rootContext()->setContextProperty("Settings", &settings);
     engine.rootContext()->setContextProperty("MListener", &mListener);
 
+
     // Add Game
     Game game(&engine);
+    //QCoreApplication::instance()->installEventFilter(&game);
 
     engine.rootContext()->setContextProperty("Game", &game);
 
