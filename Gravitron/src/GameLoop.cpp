@@ -63,13 +63,13 @@ void GameLoop::processInput()
 void GameLoop::update()
 {
     if (inputs == "16777234") {
-        actors[0].applyForce(Vec3f(-0.1,0.,0.));
+        actors[0].applyForce(Vec3f(-0.01,0.,0.));
     } else if (inputs == "16777235") {
-        actors[0].applyForce(Vec3f(0.,-0.1,0.));
+        actors[0].applyForce(Vec3f(0.,-0.01,0.));
     } else if (inputs == "16777236") {
-        actors[0].applyForce(Vec3f(0.1,0.,0.));
+        actors[0].applyForce(Vec3f(0.01,0.,0.));
     } else if (inputs == "16777237") {
-        actors[0].applyForce(Vec3f(0.,0.1,0.));
+        actors[0].applyForce(Vec3f(0.,0.01,0.));
     }
     inputs = "";
 }
