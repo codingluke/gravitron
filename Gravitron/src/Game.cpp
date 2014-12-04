@@ -44,8 +44,6 @@ void Game::init()
             this, SLOT(handleResults(string)));
     connect(gameLoop, SIGNAL(renderObject(vector<GameActorView*>*)),
             this, SLOT(render(vector<GameActorView*>*)));
-    connect(this, SIGNAL(inputEvents(QString)),
-            gameLoop, SLOT(inputEvents(QString)));
 }
 
 Game::~Game()

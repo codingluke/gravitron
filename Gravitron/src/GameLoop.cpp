@@ -53,7 +53,7 @@ void GameLoop::inputEvents(int code)
 
 bool GameLoop::eventFilter(QObject *obj, QEvent *event)
 {
-  if (event->type() == QEvent::KeyPress)
+  if (event->type() == QEvent::KeyPress && obj)
   {
     QKeyEvent *keyEvent = (QKeyEvent*)event;
     inputs = keyEvent->key();
