@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <string>
+#include <QString>
 #include "GameLoop.h"
 #include <QtQml>
 #include <QQuickItem>
@@ -33,6 +34,7 @@ class Game: public QObject
 
     signals:
         Q_INVOKABLE void stop();
+        Q_INVOKABLE void inputEvents(const QString &key);
 
     private:
         void init();

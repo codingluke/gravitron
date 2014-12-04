@@ -3,6 +3,7 @@
 
 #include <QThread>
 #include <string>
+#include <QString>
 #include <QQmlApplicationEngine>
 #include "GameActor.h"
 #include "GameActorView.h"
@@ -20,6 +21,7 @@ class GameLoop : public QThread
         QObject *game;
         QQmlApplicationEngine *engine;
         vector<GameActor> actors;
+        QString inputs;
 
     public:
         GameLoop();
@@ -27,7 +29,7 @@ class GameLoop : public QThread
     public slots:
         void run();
         void stop();
-        //void keypress(const string &key);
+        void inputEvents(const QString &key);
 
     private:
         void processInput();

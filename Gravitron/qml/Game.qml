@@ -11,7 +11,6 @@ Rectangle {
 
     Button {
         id: btn_stop
-        //: Button to stop the running game
         text: qsTr("stopGame")
         focus: true
         onClicked: {
@@ -19,4 +18,5 @@ Rectangle {
             Functions.btn_backClicked();
         }
     }
+    
 }

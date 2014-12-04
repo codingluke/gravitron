@@ -38,11 +38,13 @@ void Game::init()
 {
     gameLoop = new GameLoop();
     connect(this, SIGNAL(stop(void)),
-            gameLoop, SLOT(stop(void)), Qt::DirectConnection);
+            gameLoop, SLOT(stop(void)), Qt::QueuedConnection);
     connect(gameLoop, SIGNAL(ping(string)),
             this, SLOT(handleResults(string)));
     connect(gameLoop, SIGNAL(renderObject(vector<GameActorView*>*)),
             this, SLOT(render(vector<GameActorView*>*)));
+    connect(this, SIGNAL(inputEvents(QString)),
+            gameLoop, SLOT(inputEvents(QString)));
 }
 
 Game::~Game()
