@@ -13,7 +13,7 @@ HEADERS += src/headers/GameActor.h \
     src/headers/Game.h \
     src/headers/GameActorView.h \
     src/headers/MenuListener.h \ 
-    src/headers/GameProjection.h 
+    src/headers/GameProjection.h \
     #src/headers/Plane.h \
     src/headers/Locater.h \
     src/headers/Physics.h
@@ -33,7 +33,7 @@ SOURCES += src/main.cpp \
     src/QmlFileReader.cpp \
     src/GameActorView.cpp \
     src/MenuListener.cpp \
-    src/GameProjection.cpp 
+    src/GameProjection.cpp \
     #src/Plane.cpp \
     src/Locator.cpp \
     src/Physics.cpp
