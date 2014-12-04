@@ -58,36 +58,24 @@ void GameLoop::stop()
 
 void GameLoop::processInput()
 {
+}
+
+void GameLoop::update()
+{
     if (inputs == "16777234") {
-        qDebug() << "left";
         actors[0].applyForce(Vec3f(-0.1,0.,0.));
     } else if (inputs == "16777235") {
-        qDebug() << "up";
         actors[0].applyForce(Vec3f(0.,-0.1,0.));
     } else if (inputs == "16777236") {
-        qDebug() << "right";
         actors[0].applyForce(Vec3f(0.1,0.,0.));
     } else if (inputs == "16777237") {
-        qDebug() << "down";
         actors[0].applyForce(Vec3f(0.,0.1,0.));
     }
     inputs = "";
 }
 
-void GameLoop::update()
-{
-    //emit ping("update!");
-    //qDebug() << game;
-}
-
 void GameLoop::render()
 {
-
-    // Change color by time :)
-    //QTime::current_time()
-    //float time = (float) QTime::currentTime().msec();
-    //QString x = QString::number(time);
-
     vector<GameActorView*> *viewlist = new vector<GameActorView*>;
     GameActorView *view = actors[0].getView();
     actors[0].update();
