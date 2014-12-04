@@ -88,3 +88,25 @@ function getTxtPlayerNameText() {
 function txt_playerNameChanged() {
    Settings.setPlayerName(txt_playerName.text)
 }
+
+
+var currentLanguare;
+function getLanguare() {
+    var languare = Settings.languare;
+    currentLanguare = languare;
+    var lang = 0;
+    if(languare == "de") {
+        lang = qsTr("langGerman");
+    } else if (languare == "en") {
+        lang = qsTr("langEnglish");
+    }
+    return lang;
+}
+
+function btn_languareClicked() {
+   if(currentLanguare == "de") {
+        Settings.setLanguare("en");
+   } else if (currentLanguare == "en") {
+        Settings.setLanguare("de");
+   }
+}

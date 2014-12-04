@@ -1,4 +1,7 @@
 #include "headers/GravitronSettings.h"
+#include <QFile>
+#include <QDataStream>
+#include <iostream>
 
 GravitronSettings::GravitronSettings(QObject *parent) :
     QObject(parent)
@@ -6,12 +9,47 @@ GravitronSettings::GravitronSettings(QObject *parent) :
     mDifficulty = 1;
 }
 
+void GravitronSettings::saveToFile() {
+    QFile file("gravitronSettings");
+    if (!file.open(QIODevice::WriteOnly)) {
+        return;
+    }
+    QDataStream out(&file);
+    out.setVersion(QDataStream::Qt_5_3);
+    std::cout << this;
+    out << this;
+}
+
+std::ostream& operator<< (std::ostream& stream, const GravitronSettings& settings)
+{
+    stream << settings.difficulty() << std::endl;
+    stream << settings.fullScreen() << std::endl;
+    stream << settings.musicSoundVolume() << std::endl;
+    stream << settings.playMusic() << std::endl;
+    stream << settings.playSounds() << std::endl;
+    stream << settings.playerName().toStdString() << std::endl;
+    stream << settings.playingFieldSize() << std::endl;
+    stream << settings.botsCount() << std::endl;
+    stream << settings.planetCount() << std::endl;
+    stream << settings.astroidCount() << std::endl;
+    stream << settings.frag() << std::endl;
+    stream << settings.respawTime() << std::endl;
+    stream << settings.languare().toStdString() << std::endl;
+    return stream;
+}
+
+void GravitronSettings::loadFromFile() {
+
+}
+
+
 int GravitronSettings::difficulty() const {
     return mDifficulty;
 }
 
 void GravitronSettings::setDifficulty(const int &source) {
     mDifficulty = source;
+    this->saveToFile();
     difficultyChanged(source);
 }
 
@@ -112,4 +150,13 @@ int GravitronSettings::respawTime() const {
 void GravitronSettings::setRespawTime(const int& source) {
     mRespawTime = source;
     respawTimeChanged(source);
+}
+
+QString GravitronSettings::languare() const {
+    return mLanguare;
+}
+
+void GravitronSettings::setLanguare(const QString& source) {
+    mLanguare = source;
+    emit languareChanged(source);
 }

@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QString>
+#include <iostream>
 
 class GravitronSettings : public QObject
 {
@@ -69,6 +70,11 @@ class GravitronSettings : public QObject
            WRITE setRespawTime
            NOTIFY respawTimeChanged)
 
+        Q_PROPERTY(QString languare
+           READ languare
+           WRITE setLanguare
+           NOTIFY languareChanged)
+
         explicit GravitronSettings(QObject *parent = 0);
 
     public slots:
@@ -96,22 +102,29 @@ class GravitronSettings : public QObject
         void setFrag(const int& source);
         int respawTime() const;
         void setRespawTime(const int& source);
+        QString languare() const;
+        void setLanguare(const QString& source);
+
+        void saveToFile();
+        void loadFromFile();
+        friend std::ostream& operator<< (std::ostream& stream, const GravitronSettings& settings);
+
 
     signals:
-        void difficultyChanged(const int& source);
-        void fullScreenChanged(const bool& source);
-        void musicSoundVolumeChanged(const int& source);
-        void playMusicChanged(const bool& source);
-        void playSoundsChanged(const bool& source);
-        void playerNameChanged(const QString& source);
-        void playingFieldSizeChanged(const int& source);
-        void botsCountChanged(const int& source);
-        void planetCountChanged(const int& source);
-        void astroidCountChanged(const int& source);
-        void fragChanged(const int& source);
-        void respawTimeChanged(const int& source);
-
-        void error(const QString& msg);
+        Q_INVOKABLE void difficultyChanged(const int& source);
+        Q_INVOKABLE void fullScreenChanged(const bool& source);
+        Q_INVOKABLE void musicSoundVolumeChanged(const int& source);
+        Q_INVOKABLE void playMusicChanged(const bool& source);
+        Q_INVOKABLE void playSoundsChanged(const bool& source);
+        Q_INVOKABLE void playerNameChanged(const QString& source);
+        Q_INVOKABLE void playingFieldSizeChanged(const int& source);
+        Q_INVOKABLE void botsCountChanged(const int& source);
+        Q_INVOKABLE void planetCountChanged(const int& source);
+        Q_INVOKABLE void astroidCountChanged(const int& source);
+        Q_INVOKABLE void fragChanged(const int& source);
+        Q_INVOKABLE void respawTimeChanged(const int& source);
+        Q_INVOKABLE void languareChanged(const QString& source);
+        Q_INVOKABLE void error(const QString& msg);
 
     private:
         int mDifficulty;
@@ -126,6 +139,7 @@ class GravitronSettings : public QObject
         int mAstroidCount;
         int mFrag;
         int mRespawTime;
+        QString mLanguare;
 };
 
 

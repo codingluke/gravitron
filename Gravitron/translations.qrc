@@ -1,8 +1,8 @@
 <RCC>
     <qresource prefix="/translations">
-        <file>gravitron_en_GB.ts</file>
-        <file>gravitron_de_DE.ts</file>
-        <file>gravitron_de_DE.qm</file>
-        <file>gravitron_en_GB.qm</file>
+        <file>gravitron_en.ts</file>
+        <file>gravitron_de.ts</file>
+        <file>gravitron_de.qm</file>
+        <file>gravitron_en.qm</file>
     </qresource>
 </RCC>

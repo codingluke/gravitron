@@ -29,7 +29,14 @@ private:
 	 * The mass of the GameActor, but actually a factor in relation to
 	 * a preset normal mass.
 	 */
-	float mass;
+    float mass;
+
+    float gravitationRange;
+
+    /**
+     * The gravitation acceleration.
+     */
+    float g;
 
 public:
 	GameActor();
@@ -42,12 +49,14 @@ public:
 	void update(double radius);
 
 	bool operator== (GameActor& right);
-  GameActor &operator= (const GameActor &right);
+    GameActor &operator= (const GameActor &right);
 
 	Vec3f getPosition() const;
 	Vec3f getAcceleration() const;
 	Vec3f getVelocity() const;
-	double getMass() const;
+    float getMass() const;
+    float getGravitationRange() const;
+    float getG() const;
 	GameActorView* getView() const;
 
 	std::string toString() const;

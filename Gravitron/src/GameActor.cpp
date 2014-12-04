@@ -68,6 +68,9 @@ void GameActor::update(double radius)
 	position = position.normalize() * radius;
 }
 
+
+
+
 bool GameActor::operator== (GameActor& right)
 {
 	bool equals = true;
@@ -103,9 +106,18 @@ Vec3f GameActor::getPosition() const
 	return position;
 }
 
-double GameActor::getMass() const
+float GameActor::getMass() const
 {
 	return mass;
+}
+
+float GameActor::getGravitationRange() const
+{
+    return gravitationRange;
+}
+
+float GameActor::getG() const {
+    return g;
 }
 
 GameActorView* GameActor::getView() const

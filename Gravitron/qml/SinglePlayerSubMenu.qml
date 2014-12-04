@@ -11,7 +11,6 @@ Rectangle {
     id: rec_singlePlayerSubMenu
     width: parent.height
     height: parent.width
-    color: "#bbffffff"
 
 
     Column {

@@ -9,7 +9,6 @@ Rectangle {
     id: rec_creditsSubMenu
     width: parent.width
     height: parent.height
-    color: "#bbffffff"
 
     Column {
         id: col_creditsSubMenu

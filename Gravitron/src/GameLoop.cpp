@@ -99,3 +99,13 @@ void GameLoop::render()
     emit renderObject(viewlist);
     QThread::msleep(5);
 }
+
+void GameLoop::applyGravitationToAllActor() {
+    std::vector<GameActor>::iterator itOuter = actors.begin();
+    for (itOuter ; itOuter != actors.end(); ++itOuter) {
+        std::vector<GameActor>::iterator itInner = actors.begin();
+        for (itInner ; itInner != actors.end(); ++itInner) {
+            (*itInner).applyForce(Physics::calculateGravitationForce((*itOuter),(*itInner)));
+        }
+    }
+}

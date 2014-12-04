@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="en_US">
+<TS version="2.0" language="de_DE">
 <context>
     <name>CreditsSubMenu</name>
     <message>
         <source>back</source>
         <extracomment>The back to the main menu</extracomment>
-        <translation>Back</translation>
+        <translation>Zurück</translation>
     </message>
 </context>
 <context>
@@ -14,7 +14,7 @@
     <message>
         <source>stopGame</source>
         <extracomment>Button to stop the running game</extracomment>
-        <translation>Exit game</translation>
+        <translation>Spiel beenden</translation>
     </message>
 </context>
 <context>
@@ -22,41 +22,41 @@
     <message>
         <source>gameSettings</source>
         <extracomment>Lable for the game settings</extracomment>
-        <translation>Game settings</translation>
+        <translation>Spiel Einstellungen</translation>
     </message>
     <message>
         <source>playingFieldSize</source>
         <extracomment>Label for the palying field size slider</extracomment>
-        <translation>Playingfield size</translation>
+        <translation>Spielfeld größe</translation>
     </message>
     <message>
         <source>numberEnemies</source>
         <extracomment>Label for the number of enemies slider</extracomment>
-        <translation>Number of enemies</translation>
+        <translation>Anzahl an Feinden</translation>
     </message>
     <message>
         <source>planetAmount</source>
         <extracomment>Label for the amount of planets slider</extracomment>
-        <translation>Amount of planets</translation>
+        <translation>Planetendichte</translation>
     </message>
     <message>
         <source>astroidAmount</source>
         <extracomment>Label for the amount of astorieds slider</extracomment>
-        <translation>Amount of astorieds</translation>
+        <translation>Asteroiedendichte</translation>
     </message>
     <message>
         <source>fragLimit</source>
         <extracomment>Label for the frag limit slider</extracomment>
-        <translation>Frag Limit</translation>
+        <translation>Abschusslimit</translation>
     </message>
     <message>
         <source>rRespawnTime</source>
         <extracomment>Label for the respawn time slider</extracomment>
-        <translation>Respawn time </translation>
+        <translation>Respawn Zeit</translation>
     </message>
     <message>
         <source>powerUpSettings</source>
-        <translation>PowerUp settings</translation>
+        <translation>PowerUp Einstellungen</translation>
     </message>
 </context>
 <context>
@@ -64,27 +64,27 @@
     <message>
         <source>difficulty</source>
         <extracomment>Text of the difficulty button</extracomment>
-        <translation>Difficulty</translation>
+        <translation>Schwierigkeit</translation>
     </message>
     <message>
         <source>easy</source>
         <extracomment>difficulty easy</extracomment>
-        <translation>easy</translation>
+        <translation>einfach</translation>
     </message>
     <message>
         <source>middel</source>
         <extracomment>difficulty middel</extracomment>
-        <translation>middel</translation>
+        <translation>mittel</translation>
     </message>
     <message>
         <source>hard</source>
         <extracomment>difficulty hard</extracomment>
-        <translation>hard</translation>
+        <translation>schwer</translation>
     </message>
     <message>
         <source>fullscreen</source>
         <extracomment>Text of the fullscreen button</extracomment>
-        <translation>Fullscreen</translation>
+        <translation>Vollbild</translation>
     </message>
     <message>
         <source>on</source>
@@ -93,7 +93,7 @@
 music on
 ----------
 sound on</extracomment>
-        <translation>on</translation>
+        <translation>an</translation>
     </message>
     <message>
         <source>off</source>
@@ -107,12 +107,20 @@ sound off</extracomment>
     <message>
         <source>music</source>
         <extracomment>Text of the music button</extracomment>
-        <translation>Music</translation>
+        <translation>Musik</translation>
     </message>
     <message>
         <source>sounds</source>
         <extracomment>Text of the sounds button</extracomment>
         <translation>Sounds</translation>
+    </message>
+    <message>
+        <source>langGerman</source>
+        <translation>Deutsch</translation>
+    </message>
+    <message>
+        <source>langEnglish</source>
+        <translation>Englisch</translation>
     </message>
 </context>
 <context>
@@ -120,17 +128,17 @@ sound off</extracomment>
     <message>
         <source>back</source>
         <extracomment>Button bach to the mainmenu</extracomment>
-        <translation>Back</translation>
+        <translation>Zurük</translation>
     </message>
     <message>
         <source>settings</source>
         <extracomment>Label for the settings menu</extracomment>
-        <translation>Settings</translation>
+        <translation>Einstellungen</translation>
     </message>
     <message>
         <source>volume</source>
         <extracomment>Label for the music and sounds volume slider</extracomment>
-        <translation>Volume</translation>
+        <translation>Lautstärke</translation>
     </message>
     <message>
         <source>name</source>
@@ -143,22 +151,22 @@ sound off</extracomment>
     <message>
         <source>back</source>
         <extracomment>Button bach to the new game menu</extracomment>
-        <translation>Back</translation>
+        <translation>Zurück</translation>
     </message>
     <message>
         <source>createMultiPlayerGame</source>
         <extracomment>Button to create a multiplayergame</extracomment>
-        <translation>Create Multiplayergame</translation>
+        <translation>Mehrspielerspiel erstellen</translation>
     </message>
     <message>
         <source>joinMultiPlayerGame</source>
         <extracomment>Button to join a multiplayergame</extracomment>
-        <translation>Join multiplayergame</translation>
+        <translation>Mehrspielerspiel betreten</translation>
     </message>
     <message>
         <source>startMultiPlayerGame</source>
         <extracomment>Button to start a multiplayergame</extracomment>
-        <translation>Start game</translation>
+        <translation>Spiel starten</translation>
     </message>
 </context>
 <context>
@@ -166,17 +174,17 @@ sound off</extracomment>
     <message>
         <source>back</source>
         <extracomment>Button bach to the mainmenu</extracomment>
-        <translation>Back</translation>
+        <translation>Zurück</translation>
     </message>
     <message>
         <source>singelPlayer</source>
         <extracomment>Button to the singel player settings</extracomment>
-        <translation>Singelplayer</translation>
+        <translation>Einzelspieler</translation>
     </message>
     <message>
         <source>multiPlayer</source>
         <extracomment>Button to the multi player settings</extracomment>
-        <translation>Multiplayer</translation>
+        <translation>Mehrspieler</translation>
     </message>
 </context>
 <context>
@@ -184,12 +192,12 @@ sound off</extracomment>
     <message>
         <source>back</source>
         <extracomment>Button bach to the new game menu</extracomment>
-        <translation>Back</translation>
+        <translation>Zurück</translation>
     </message>
     <message>
         <source>start</source>
         <extracomment>Button to start a singel palyer game</extracomment>
-        <translation>Start</translation>
+        <translation>Starten</translation>
     </message>
 </context>
 <context>
@@ -197,12 +205,12 @@ sound off</extracomment>
     <message>
         <source>back</source>
         <extracomment>Button bach to the mainmenu</extracomment>
-        <translation>Back</translation>
+        <translation>Zurück</translation>
     </message>
     <message>
         <source>stats</source>
         <extracomment>Label for the stats</extracomment>
-        <translation>Statistics</translation>
+        <translation>Statistiken</translation>
     </message>
 </context>
 <context>
@@ -210,12 +218,12 @@ sound off</extracomment>
     <message>
         <source>newGame</source>
         <extracomment>Button to the new game menu</extracomment>
-        <translation>New Game</translation>
+        <translation>Neues Spiel</translation>
     </message>
     <message>
         <source>settings</source>
         <extracomment>Button to the settings menu</extracomment>
-        <translation>Settings</translation>
+        <translation>Einstellungen</translation>
     </message>
     <message>
         <source>credits</source>
@@ -225,11 +233,11 @@ sound off</extracomment>
     <message>
         <source>statics</source>
         <extracomment>Button to the statics menu</extracomment>
-        <translation>Statistics</translation>
+        <translation>Statistiken</translation>
     </message>
     <message>
         <source>exit</source>
-        <translation>Exit</translation>
+        <translation>Beenden</translation>
     </message>
 </context>
 </TS>

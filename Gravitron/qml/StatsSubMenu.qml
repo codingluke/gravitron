@@ -11,7 +11,6 @@ Rectangle {
     id: rec_statsSubMenu
     width: parent.width
     height: parent.height
-    color: "#bbffffff"
 
 
     Column {

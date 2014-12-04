@@ -11,7 +11,6 @@ Rectangle {
     id: rec_multiPlayerSubMenu
     width: parent.width
     height: parent.height
-    color: "#bbffffff"
 
 
     Column {

@@ -7,9 +7,11 @@
 #include "headers/GravitronSettings.h"
 #include "headers/Game.h"
 #include "headers/MenuListener.h"
+#include "headers/Locater.h"
 #include <string>
 
 using namespace std;
+
 
 int main(int argc, char *argv[])
 {
@@ -21,26 +23,20 @@ int main(int argc, char *argv[])
 
     QQmlApplicationEngine engine;
     GravitronSettings settings;
+    QString languare = "en";
+    settings.setLanguare(languare);
     MenuListener mListener(&settings); // = MenuListener(&settings);
     engine.rootContext()->setContextProperty("Settings", &settings);
     engine.rootContext()->setContextProperty("MListener", &mListener);
 
-
     // Add Game
     Game game(&engine);
-    //QCoreApplication::instance()->installEventFilter(&game);
 
     engine.rootContext()->setContextProperty("Game", &game);
 
-    QString locale = QLocale::system().name();
-    QTranslator translator;
-    if(translator.load("gravitron_" + locale, ":/translations")) {
-        app.installTranslator(&translator);
-    } else {
-        qWarning() << "No languare for your loaction.";
-        translator.load("gravitron_en_GB", ":/translations");
-        app.installTranslator(&translator);
-    }
+    Locater l(settings, app);
+    l.loadLanguare(settings.languare());
+
 
     engine.load(QUrl(QStringLiteral("qrc:/qml/main.qml")));
 

@@ -7,14 +7,13 @@ import GravitronSettings 1.0
 import "constants.js" as Global
 import "functions.js" as Functions
 import "GlobalSettingsActions.js" as SettingsFunctions
+import QtQuick.LocalStorage 2.0
 
 
 Rectangle {
     id: rec_settingsSubMenu
     width: parent.width
     height: parent.height
-    color: "#bbffffff"
-
 
     Column {
         id: col_settingsSubMenu
@@ -22,7 +21,6 @@ Rectangle {
         anchors.verticalCenter: parent.verticalCenter
         spacing: 10
         width: 300
-
 
         Button {
             id: btn_back
@@ -102,5 +100,15 @@ Rectangle {
             text: SettingsFunctions.getTxtPlayerNameText()
             onTextChanged: SettingsFunctions.txt_playerNameChanged()
         }
+
+        Button {
+            id: btn_languare
+            text: SettingsFunctions.getLanguare()
+            width: Global.buttonWidth
+            height: Global.buttonHeight
+            onClicked: SettingsFunctions.btn_languareClicked()
+        }
+
+
     }
 }

@@ -9,7 +9,6 @@ Rectangle {
     id: rec_newGameSubMenu
     width: parent.width
     height: parent.height
-    color: "#bbffffff"
 
     Column {
         id: col_newGameSubMenu
@@ -50,8 +49,8 @@ Rectangle {
     }
 
     Loader {
-        width: Screen.width
-        height: Screen.height
+        width: parent.width
+        height: parent.height
         visible: false
         id: load_singlePlayerSubMenu
     }
