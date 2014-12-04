@@ -29,25 +29,27 @@ void Game::setQmlParent(QQuickItem *theQmlParent)
 /**
  * Initializes the GameLoop in a own thread and connects the singnals/slots.
  */
+void Game::start()
+{
+    gameLoop->start();
+}
+
 void Game::init()
 {
-    GameLoop *worker = new GameLoop();
-    worker->moveToThread(&workerThread);
-    connect(this, SIGNAL(start(void)),
-            worker, SLOT(run(void)));
+    gameLoop = new GameLoop();
     connect(this, SIGNAL(stop(void)),
-            worker, SLOT(stop(void)), Qt::DirectConnection);
-    connect(worker, SIGNAL(ping(string)),
+            gameLoop, SLOT(stop(void)), Qt::DirectConnection);
+    connect(gameLoop, SIGNAL(ping(string)),
             this, SLOT(handleResults(string)));
-    connect(worker, SIGNAL(renderObject(vector<GameActorView*>*)),
+    connect(gameLoop, SIGNAL(renderObject(vector<GameActorView*>*)),
             this, SLOT(render(vector<GameActorView*>*)));
-    workerThread.start();
 }
 
 Game::~Game()
 {
-    workerThread.quit();
-    workerThread.wait();
+    gameLoop->quit();
+    gameLoop->wait();
+    delete gameLoop;
 }
 
 void Game::handleResults(const string &result)

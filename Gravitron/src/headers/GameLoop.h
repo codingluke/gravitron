@@ -9,10 +9,10 @@
 
 using namespace std;
 
-class GameLoop : public QObject
+//class GameLoop : public QObject
+class GameLoop : public QThread
 {
     Q_OBJECT
-    QThread workerThread;
 
     private:
         bool running;
@@ -27,6 +27,7 @@ class GameLoop : public QObject
     public slots:
         void run();
         void stop();
+        //void keypress(const string &key);
 
     private:
         void processInput();
