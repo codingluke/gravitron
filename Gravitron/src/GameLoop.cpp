@@ -6,18 +6,21 @@
 #include <string>
 #include <iostream>
 #include <QAbstractEventDispatcher>
+#include <cstdlib>
 
 using namespace std;
 
 
 GameLoop::GameLoop()
 {
-    Vec3f position(1.,1.,1.);
-    //Vec3f force(0.5,0.5,0.5);
-    double mass = 1.3;
-    GameActor actor1(position, mass);
-    //actor1.applyForce(force);
-    actors.push_back(actor1);
+    for (int i = 0; i < 20; i++) {
+        Vec3f position(rand() % 400,rand() % 400,rand() % 400);
+        float mass = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
+        float gravitationRange =  rand() % 200 + 1;
+        float g = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
+        GameActor actor1(position, mass, gravitationRange, g);
+        actors.push_back(actor1);
+    }
 }
 
 void GameLoop::run()
@@ -89,24 +92,37 @@ void GameLoop::processInput()
 
 void GameLoop::update()
 {
-    actors[0].update();
+    applyGravitationToAllActor();
+    updateAllActors();
 }
 
 void GameLoop::render()
 {
-    vector<GameActorView*> *viewlist = new vector<GameActorView*>;
-    GameActorView *view = actors[0].getView();
-    viewlist->push_back(view);
-    emit renderObject(viewlist);
-    QThread::msleep(5);
+    if(actors.size() > 0) { //wenn actors leer sind > speicherzugriffsfehler im vector
+        vector<GameActorView*> *viewlist = new vector<GameActorView*>;
+        for (unsigned int i = 0; i < actors.size(); i++) {
+            GameActorView *view = actors[i].getView();
+            viewlist->push_back(view);
+        }
+        emit renderObject(viewlist);
+        QThread::msleep(5);
+    } else {
+        stop();
+    }
 }
 
 void GameLoop::applyGravitationToAllActor() {
-    std::vector<GameActor>::iterator itOuter = actors.begin();
-    for (itOuter ; itOuter != actors.end(); ++itOuter) {
-        std::vector<GameActor>::iterator itInner = actors.begin();
-        for (itInner ; itInner != actors.end(); ++itInner) {
-            (*itInner).applyForce(Physics::calculateGravitationForce((*itOuter),(*itInner)));
+    for (unsigned int i = 0 ;i < actors.size(); i++) {
+        for (unsigned int j = 0; j < actors.size(); j++) {
+            if (i != j) {
+                actors[j].applyForce(Physics::calculateGravitationForce(actors[i],actors[j]));
+            }
         }
+    }
+}
+
+void GameLoop::updateAllActors() {
+    for (unsigned int i = 0; i < actors.size(); i++) {
+        actors[i].update();
     }
 }

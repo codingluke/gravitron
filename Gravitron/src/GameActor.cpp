@@ -2,12 +2,14 @@
 #include <sstream>
 #include <iostream>
 
-void GameActor::initialize(Vec3f position, double mass)
+void GameActor::initialize(Vec3f position, double mass, float gravitationRange, float g)
 {
 	velocity = Vec3f();
 	acceleration = Vec3f();
-	this->position = position;
+    this->position = position;
 	this->mass = mass;
+    this->gravitationRange = gravitationRange;
+    this->g = g;
 }
 
 void GameActor::initialize(const GameActor &actor)
@@ -16,17 +18,19 @@ void GameActor::initialize(const GameActor &actor)
 	acceleration = actor.getAcceleration();
 	velocity = actor.getVelocity();
 	mass = actor.getMass();
+    gravitationRange = actor.gravitationRange;
+    g = actor.g;
 }
 
 GameActor::GameActor()
 {
 	Vec3f in = Vec3f();
-	initialize(in, 1.);
+    initialize(in, 1., 1., 1.);
 }
 
-GameActor::GameActor(Vec3f position, double mass)
+GameActor::GameActor(Vec3f position, double mass, float gravitationRange, float g)
 {
-	initialize(position, mass);
+    initialize(position, mass, gravitationRange, g);
 }
 
 GameActor::GameActor(const GameActor &actor)
@@ -53,6 +57,7 @@ void GameActor::applyForce(Vec3f force)
 void GameActor::update()
 {
 	velocity += acceleration;
+    //add velocity limitation
 	position += velocity;
 }
 

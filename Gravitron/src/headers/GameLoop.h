@@ -40,6 +40,7 @@ class GameLoop : public QThread
         void update();
         void render();
         void applyGravitationToAllActor();
+        void updateAllActors();
 
     signals:
         void ping(const string &result);

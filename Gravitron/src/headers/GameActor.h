@@ -40,7 +40,7 @@ private:
 
 public:
 	GameActor();
-	GameActor(Vec3f position, double mass);
+    GameActor(Vec3f position, double mass, float gravitationRange, float g);
 	GameActor(const GameActor &actor);
 	~GameActor();
 
@@ -62,7 +62,7 @@ public:
 	std::string toString() const;
 
 private:
-	void initialize(Vec3f position, double mass);
+    void initialize(Vec3f position, double mass, float gravitationRange, float g);
 	void initialize(const GameActor &actor);
 };
 
