@@ -2,6 +2,7 @@
 #define GAMEACTOR_HEADER
 #include "Vec3f.h"
 #include "GameActorView.h"
+#include <vector>
 
 /**
  * This represents all objects within the game area. An ArrayList of
@@ -46,6 +47,7 @@ public:
 
 	void applyForce(Vec3f force);
 	void update();
+	virtual void update(vector<GameActor> *actors);
 	void update(double radius);
 
 	bool operator== (GameActor& right);

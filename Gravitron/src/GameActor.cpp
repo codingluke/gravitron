@@ -1,6 +1,7 @@
 #include "headers/GameActor.h"
 #include <sstream>
 #include <iostream>
+#include "headers/Physics.h"
 
 void GameActor::initialize(Vec3f position, double mass, float gravitationRange, float g)
 {
@@ -59,6 +60,15 @@ void GameActor::update()
 	velocity += acceleration;
     //add velocity limitation
 	position += velocity;
+}
+
+void GameActor::update(vector<GameActor> *actors)
+{
+    for (unsigned int i = 0; i < actors->size(); i++) {
+	Vec3f f = Physics::calculateGravitationForce(this, &actors->at(i));
+        actors->at(i).applyForce(f);
+    }
+    update();
 }
 
 /**
