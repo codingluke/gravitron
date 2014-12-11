@@ -1,5 +1,6 @@
 #include "headers/GameLoop.h"
 #include "headers/Spacecraft.h"
+#include "headers/Projectile.h"
 #include <QTime>
 #include <QDebug>
 #include <math.h>
