@@ -33,6 +33,7 @@ protected:
     float mass;
 
     float gravitationRange;
+    bool killed;
 
     /**
      * The gravitation acceleration.
@@ -60,6 +61,8 @@ public:
     float getGravitationRange() const;
     float getG() const;
     virtual GameActorView* getView() const;
+
+    void kill();
 
     virtual std::string toString() const;
 

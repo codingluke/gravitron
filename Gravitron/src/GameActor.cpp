@@ -5,6 +5,7 @@
 
 void GameActor::initialize(Vec3f position, double mass, float gravitationRange, float g)
 {
+    killed = false;
 	velocity = Vec3f();
 	acceleration = Vec3f();
     this->position = position;
@@ -15,6 +16,7 @@ void GameActor::initialize(Vec3f position, double mass, float gravitationRange, 
 
 void GameActor::initialize(const GameActor &actor)
 {
+    killed = false;
 	position = actor.getPosition();
 	acceleration = actor.getAcceleration();
 	velocity = actor.getVelocity();
@@ -67,11 +69,25 @@ void GameActor::update(vector<GameActor*> actors)
     for (unsigned int i = 0; i < actors.size(); i++) {
 	if (actors.at(i) != this)
 	{
+	    // Collition Detection
+	    bool collision = Physics::collisionDetection(position, 20.0f,
+				      actors.at(i)->getPosition(), 20.0f);
+	    if (collision) {
+		kill();
+		actors.at(i)->kill();
+	    }
+
+	    // Update Gravitation
 	    Vec3f f = Physics::calculateGravitationForce(this, actors.at(i));
 	    actors.at(i)->applyForce(f);
 	}
     }
     update();
+}
+
+void GameActor::kill()
+{
+    killed = true;
 }
 
 /**
@@ -140,22 +156,25 @@ float GameActor::getG() const {
 
 GameActorView* GameActor::getView() const
 {
-    std::cout << "gamesctor" << std::endl;
-	std::ostringstream x;
-	std::ostringstream y;
-	x << position[0];
-	y << position[1];
-	GameActorView *view = new GameActorView("qrc:/qml/actor");
-	view->setProperty("identifier", "10");
-	view->setProperty("x", x.str());
-	view->setProperty("y", y.str());
+    std::ostringstream x;
+    std::ostringstream y;
+    x << position[0];
+    y << position[1];
+    GameActorView *view = new GameActorView("qrc:/qml/actor");
+    view->setProperty("identifier", "10");
+    view->setProperty("x", x.str());
+    view->setProperty("y", y.str());
+    if (killed) {
+	view->setProperty("color", "red");
+    } else {
 	view->setProperty("color", "yellow");
-	return view;
+    }
+    return view;
 }
 
 std::string GameActor::toString() const
 {
-	std::ostringstream os;
+    std::ostringstream os;
     os << "pos:(" << (double) position[0] << ", " << (double) position[1] << ", " << (double) position[2] << ")";
     os << std::endl;
     os << "vel:(" << (double) velocity[0] << ", " << (double) velocity[1] << ", " << (double) velocity[2] << ")";
