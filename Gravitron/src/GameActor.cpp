@@ -137,6 +137,7 @@ float GameActor::getG() const {
 
 GameActorView* GameActor::getView() const
 {
+    std::cout << "gamesctor" << std::endl;
 	std::ostringstream x;
 	std::ostringstream y;
 	x << position[0];

@@ -11,7 +11,7 @@
  */
 class GameActor
 {
-private:
+protected:
 	/**
 	 * Velocity is the actual direction and speed for this GameActor.
 	 */
@@ -43,10 +43,10 @@ public:
 	GameActor();
     GameActor(Vec3f position, double mass, float gravitationRange, float g);
 	GameActor(const GameActor &actor);
-	~GameActor();
+    virtual ~GameActor();
 
-	void applyForce(Vec3f force);
-	void update();
+	virtual void applyForce(Vec3f force);
+	virtual void update();
 	virtual void update(vector<GameActor> *actors);
 	void update(double radius);
 
@@ -59,9 +59,9 @@ public:
     float getMass() const;
     float getGravitationRange() const;
     float getG() const;
-	GameActorView* getView() const;
+    virtual GameActorView* getView() const;
 
-	std::string toString() const;
+    virtual std::string toString() const;
 
 private:
     void initialize(Vec3f position, double mass, float gravitationRange, float g);

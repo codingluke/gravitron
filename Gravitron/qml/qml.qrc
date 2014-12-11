@@ -6,6 +6,7 @@
         <file>NewGameSubMenu.qml</file>
         <file>CreditsSubMenu.qml</file>
         <file alias="actor">actors/Actor.qml</file>
+        <file alias="spacecraft">actors/Spacecraft.qml</file>
         <file>GlobalSettingsSubMenu.qml</file>
         <file>constants.js</file>
         <file>SinglePlayerSubMenu.qml</file>

@@ -16,7 +16,8 @@ HEADERS += src/headers/GameActor.h \
     src/headers/GameProjection.h \
     #src/headers/Plane.h \
     src/headers/Locater.h \
-    src/headers/Physics.h
+    src/headers/Physics.h \
+    src/headers/Spacecraft.h
 
 DESTDIR = ../build
 OBJECTS_DIR = ../build
@@ -36,7 +37,8 @@ SOURCES += src/main.cpp \
     src/GameProjection.cpp \
     #src/Plane.cpp \
     src/Locator.cpp \
-    src/Physics.cpp
+    src/Physics.cpp \
+    src/Spacecraft.cpp
 
 RESOURCES += assets/img/img.qrc \
         assets/audio/audio.qrc \
