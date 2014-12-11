@@ -8,6 +8,7 @@
 #include "GameActor.h"
 #include "GameActorView.h"
 #include <QKeyEvent>
+#include <QMutex>
 
 using namespace std;
 
@@ -23,6 +24,7 @@ class GameLoop : public QThread
         QQmlApplicationEngine *engine;
         vector<GameActor*> actors;
         int inputs;
+        QMutex mutex;
 
     protected:
         bool eventFilter(QObject *obj, QEvent *event);

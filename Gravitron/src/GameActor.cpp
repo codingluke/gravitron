@@ -66,15 +66,17 @@ void GameActor::update()
 
 void GameActor::update(vector<GameActor*> actors)
 {
+    GameActor *other;
     for (unsigned int i = 0; i < actors.size(); i++) {
-	if (actors.at(i) != this)
+	other = actors.at(i);
+	if (other != this)
 	{
 	    // Collition Detection
 	    bool collision = Physics::collisionDetection(position, 20.0f,
-				      actors.at(i)->getPosition(), 20.0f);
+				      other->getPosition(), 20.0f);
 	    if (collision) {
 		kill();
-		actors.at(i)->kill();
+		other->kill();
 	    }
 
 	    // Update Gravitation

@@ -71,8 +71,9 @@ bool GameLoop::eventFilter(QObject *obj, QEvent *event)
   if (event->type() == QEvent::KeyPress && obj)
   {
     QKeyEvent *keyEvent = (QKeyEvent*)event;
+    mutex.lock();
     inputs = keyEvent->key();
-    qDebug() << inputs;
+    mutex.unlock();
   }
   return false;
 }
@@ -103,8 +104,9 @@ void GameLoop::processInput()
 
 void GameLoop::update()
 {
-    //applyGravitationToAllActor();
-    updateAllActors();
+    for (unsigned int i = 0; i < actors.size(); i++) {
+        actors[i]->update(actors);
+    }
 }
 
 void GameLoop::render()
@@ -119,11 +121,5 @@ void GameLoop::render()
         QThread::msleep(5);
     } else {
         stop();
-    }
-}
-
-void GameLoop::updateAllActors() {
-    for (unsigned int i = 0; i < actors.size(); i++) {
-        actors[i]->update(actors);
     }
 }
