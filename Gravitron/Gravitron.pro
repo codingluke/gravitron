@@ -1,6 +1,7 @@
 TEMPLATE = app
 
 CONFIG += debug
+CONFIG += c++11
 
 QT += qml quick #network?
 

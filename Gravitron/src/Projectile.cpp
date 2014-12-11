@@ -5,7 +5,8 @@
 
 /**
  * Projectile will be the SuperClass of all kinds of weapon projectiles, 
- * space Debris and temporary area effects.
+ * space Debris and temporary area effects. To avoid a cluttering of the
+ * game area, most projectiles should have a limited timeToLive. 
  */
 Projectile::Projectile() : GameActor()
 {
@@ -14,7 +15,7 @@ Projectile::Projectile() : GameActor()
 }
 
 Projectile::Projectile(Vec3f position, double mass, float gravitationRange, float g, int timeToLive) : 
-  GameActor(position, mass, gravitationRangegit, g)
+  GameActor(position, mass, gravitationRange, g)
   {
     this->timeToLive = timeToLive;
     g = 0;
