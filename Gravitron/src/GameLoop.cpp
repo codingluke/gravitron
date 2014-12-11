@@ -1,5 +1,4 @@
 #include "headers/GameLoop.h"
-#include "headers/Physics.h"
 #include "headers/Spacecraft.h"
 #include <QTime>
 #include <QDebug>
@@ -104,7 +103,7 @@ void GameLoop::processInput()
 
 void GameLoop::update()
 {
-    applyGravitationToAllActor();
+    //applyGravitationToAllActor();
     updateAllActors();
 }
 
@@ -123,18 +122,8 @@ void GameLoop::render()
     }
 }
 
-void GameLoop::applyGravitationToAllActor() {
-    for (unsigned int i = 0 ;i < actors.size(); i++) {
-        for (unsigned int j = 0; j < actors.size(); j++) {
-            if (i != j) {
-                actors[j]->applyForce(Physics::calculateGravitationForce(actors[i],actors[j]));
-            }
-        }
-    }
-}
-
 void GameLoop::updateAllActors() {
     for (unsigned int i = 0; i < actors.size(); i++) {
-        actors[i]->update();
+        actors[i]->update(actors);
     }
 }

@@ -47,7 +47,7 @@ public:
 
 	virtual void applyForce(Vec3f force);
 	virtual void update();
-	virtual void update(vector<GameActor> *actors);
+	virtual void update(vector<GameActor*> actors);
 	void update(double radius);
 
 	bool operator== (GameActor& right);

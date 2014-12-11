@@ -62,11 +62,14 @@ void GameActor::update()
 	position += velocity;
 }
 
-void GameActor::update(vector<GameActor> *actors)
+void GameActor::update(vector<GameActor*> actors)
 {
-    for (unsigned int i = 0; i < actors->size(); i++) {
-	Vec3f f = Physics::calculateGravitationForce(this, &actors->at(i));
-        actors->at(i).applyForce(f);
+    for (unsigned int i = 0; i < actors.size(); i++) {
+	if (actors.at(i) != this)
+	{
+	    Vec3f f = Physics::calculateGravitationForce(this, actors.at(i));
+	    actors.at(i)->applyForce(f);
+	}
     }
     update();
 }
