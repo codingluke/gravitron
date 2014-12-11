@@ -9,7 +9,7 @@ class Physics
         Physics();
 
     public:
-        static Vec3f calculateGravitationForce(GameActor from, GameActor to);
+        static Vec3f calculateGravitationForce(GameActor *from, GameActor *to);
 };
 
 #endif // PHYSICS_H

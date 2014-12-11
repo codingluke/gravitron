@@ -1,5 +1,6 @@
 #include "headers/GameLoop.h"
 #include "headers/Physics.h"
+#include "headers/Spacecraft.h"
 #include <QTime>
 #include <QDebug>
 #include <math.h>
@@ -18,8 +19,19 @@ GameLoop::GameLoop()
         float mass = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
         float gravitationRange =  rand() % 200 + 1;
         float g = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
-        GameActor actor1(position, mass, gravitationRange, g);
-        actors.push_back(actor1);
+        GameActor* actor = new GameActor(position, mass, gravitationRange, g);
+        actors.push_back(actor);
+    }
+    Vec3f position(rand() % 400,rand() % 400,rand() % 400);
+    float mass = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
+    actors.push_back(new Spacecraft(position, mass, 0, 0));
+}
+
+GameLoop::~GameLoop() {
+    vector<GameActor*>::iterator it;
+    for (it = actors.begin(); it < actors.end(); it++)
+    {
+        delete (*it);
     }
 }
 
@@ -76,16 +88,16 @@ void GameLoop::processInput()
 {
     if (inputs == 16777234) {
         // left
-        actors[0].applyForce(Vec3f(-0.01,0.,0.));
+        actors[actors.size() - 1]->applyForce(Vec3f(-0.01,0.,0.));
     } else if (inputs == 16777235) {
         // up
-        actors[0].applyForce(Vec3f(0.,-0.01,0.));
+        actors[actors.size() - 1]->applyForce(Vec3f(0.,-0.01,0.));
     } else if (inputs == 16777236) {
         // right
-        actors[0].applyForce(Vec3f(0.01,0.,0.));
+        actors[actors.size() - 1]->applyForce(Vec3f(0.01,0.,0.));
     } else if (inputs == 16777237) {
         // down
-        actors[0].applyForce(Vec3f(0.,0.01,0.));
+        actors[actors.size() - 1]->applyForce(Vec3f(0.,0.01,0.));
     }
     inputs = 0;
 }
@@ -101,7 +113,7 @@ void GameLoop::render()
     if(actors.size() > 0) { //wenn actors leer sind > speicherzugriffsfehler im vector
         vector<GameActorView*> *viewlist = new vector<GameActorView*>;
         for (unsigned int i = 0; i < actors.size(); i++) {
-            GameActorView *view = actors[i].getView();
+            GameActorView *view = actors[i]->getView();
             viewlist->push_back(view);
         }
         emit renderObject(viewlist);
@@ -115,7 +127,7 @@ void GameLoop::applyGravitationToAllActor() {
     for (unsigned int i = 0 ;i < actors.size(); i++) {
         for (unsigned int j = 0; j < actors.size(); j++) {
             if (i != j) {
-                actors[j].applyForce(Physics::calculateGravitationForce(actors[i],actors[j]));
+                actors[j]->applyForce(Physics::calculateGravitationForce(actors[i],actors[j]));
             }
         }
     }
@@ -123,6 +135,6 @@ void GameLoop::applyGravitationToAllActor() {
 
 void GameLoop::updateAllActors() {
     for (unsigned int i = 0; i < actors.size(); i++) {
-        actors[i].update();
+        actors[i]->update();
     }
 }

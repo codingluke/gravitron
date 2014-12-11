@@ -21,7 +21,7 @@ class GameLoop : public QThread
         int ms_per_update;
         QObject *game;
         QQmlApplicationEngine *engine;
-        vector<GameActor> actors;
+        vector<GameActor*> actors;
         int inputs;
 
     protected:
@@ -29,6 +29,7 @@ class GameLoop : public QThread
 
     public:
         GameLoop();
+        virtual ~GameLoop();
 
     public slots:
         void run();
