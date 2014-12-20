@@ -65,6 +65,14 @@ void GameActor::update()
 	velocity += acceleration;
     //add velocity limitation
 	position += velocity;
+    if (position.v[0] > field->getWidth())
+        position.v[0] = position.v[0] - field->getWidth();
+    if (position.v[0] < 0)
+        position.v[0] = field->getWidth() - position.v[0];
+    if (position.v[1] > field->getHeight())
+        position.v[1] = position.v[1] - field->getHeight();
+    if (position.v[1] < 0)
+        position.v[1] = field->getHeight() - position.v[1];
 }
 
 void GameActor::update(vector<GameActor*> actors)
