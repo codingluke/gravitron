@@ -3,7 +3,7 @@
 #include <iostream>
 #include "headers/Physics.h"
 
-void GameActor::initialize(Vec3f position, double mass, float gravitationRange, float g)
+void GameActor::initialize(Vec3f position, double mass, float gravitationRange, float g, GameField &field)
 {
     killed = false;
 	velocity = Vec3f();
@@ -12,6 +12,7 @@ void GameActor::initialize(Vec3f position, double mass, float gravitationRange, 
 	this->mass = mass;
     this->gravitationRange = gravitationRange;
     this->g = g;
+    this->field = &field; 
 }
 
 void GameActor::initialize(const GameActor &actor)
@@ -23,17 +24,19 @@ void GameActor::initialize(const GameActor &actor)
 	mass = actor.getMass();
     gravitationRange = actor.gravitationRange;
     g = actor.g;
+    field = actor.getField();
 }
 
 GameActor::GameActor()
 {
 	Vec3f in = Vec3f();
-    initialize(in, 1., 1., 1.);
+    GameField *f = new GameField();
+    initialize(in, 1., 1., 1., *f);
 }
 
-GameActor::GameActor(Vec3f position, double mass, float gravitationRange, float g)
+GameActor::GameActor(Vec3f position, double mass, float gravitationRange, float g, GameField &field)
 {
-    initialize(position, mass, gravitationRange, g);
+    initialize(position, mass, gravitationRange, g, field);
 }
 
 GameActor::GameActor(const GameActor &actor)
@@ -170,6 +173,11 @@ GameActorView* GameActor::getView() const
 	view->setProperty("color", "yellow");
     }
     return view;
+}
+
+GameField* GameActor::getField() const
+{
+    return field;
 }
 
 std::string GameActor::toString() const

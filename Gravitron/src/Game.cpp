@@ -68,7 +68,7 @@ void Game::clearScene()
     {
         QQuickItem *itm = itc.next();
         if (itm->property("identifier").isValid())
-          delete itm;
+            delete itm;
     }
 }
 

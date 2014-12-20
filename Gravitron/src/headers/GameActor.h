@@ -3,6 +3,7 @@
 #include "Vec3f.h"
 #include "GameActorView.h"
 #include <vector>
+#include "GameField.h"
 
 /**
  * This represents all objects within the game area. An ArrayList of
@@ -40,9 +41,11 @@ protected:
      */
     float g;
 
+    GameField *field;
+
 public:
 	GameActor();
-    GameActor(Vec3f position, double mass, float gravitationRange, float g);
+    GameActor(Vec3f position, double mass, float gravitationRange, float g, GameField &field);
 	GameActor(const GameActor &actor);
     virtual ~GameActor();
 
@@ -61,13 +64,14 @@ public:
     float getGravitationRange() const;
     float getG() const;
     virtual GameActorView* getView() const;
+    GameField* getField() const;
 
     void kill();
 
     virtual std::string toString() const;
 
 private:
-    void initialize(Vec3f position, double mass, float gravitationRange, float g);
+    void initialize(Vec3f position, double mass, float gravitationRange, float g, GameField &field);
 	void initialize(const GameActor &actor);
 };
 

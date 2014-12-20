@@ -10,16 +10,16 @@
  */
 Projectile::Projectile() : GameActor()
 {
-  this->timeToLive = -1;
-  g = 0;
+    this->timeToLive = -1;
+    g = 0;
 }
 
-Projectile::Projectile(Vec3f position, double mass, float gravitationRange, float g, int timeToLive) : 
-  GameActor(position, mass, gravitationRange, g)
-  {
-    this->timeToLive = timeToLive;
-    g = 0;
-  }
+Projectile::Projectile(Vec3f position, double mass, float gravitationRange, float g, int timeToLive, GameField &field) : 
+    GameActor(position, mass, gravitationRange, g, field)
+    {
+        this->timeToLive = timeToLive;
+        g = 0;
+    }
 
 Projectile::Projectile(const Projectile &projectile) : GameActor(projectile)
 {
@@ -33,7 +33,7 @@ Projectile::~Projectile() {
 
 int Projectile::getTimeToLive() const 
 {
-  return timeToLive;
+    return timeToLive;
 }
 
 /**
@@ -43,9 +43,9 @@ int Projectile::getTimeToLive() const
  */
 void Projectile::update()
 {
-  GameActor::update();
-  if (timeToLive == 0)
-    kill();
-  else if (timeToLive != -1)
-    timeToLive--;
+    GameActor::update();
+    if (timeToLive == 0)
+        kill();
+    else if (timeToLive != -1)
+        timeToLive--;
 }

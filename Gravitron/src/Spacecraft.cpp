@@ -7,8 +7,8 @@ Spacecraft::Spacecraft() : GameActor()
     g = 0;
 }
 
-Spacecraft::Spacecraft(Vec3f position, double mass, float gravitationRange, float g) :
-    GameActor(position, mass, gravitationRange, g)
+Spacecraft::Spacecraft(Vec3f position, double mass, float gravitationRange, float g, GameField &field) :
+    GameActor(position, mass, gravitationRange, g, field)
 {
     g = 0;
 }

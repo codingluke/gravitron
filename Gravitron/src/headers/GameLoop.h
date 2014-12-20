@@ -8,6 +8,7 @@
 #include "GameActor.h"
 #include "GameActorView.h"
 #include <QKeyEvent>
+#include "GameField.h"
 
 using namespace std;
 
@@ -23,6 +24,7 @@ class GameLoop : public QThread
         QQmlApplicationEngine *engine;
         vector<GameActor*> actors;
         int inputs;
+        GameField *field;
 
     protected:
         bool eventFilter(QObject *obj, QEvent *event);
