@@ -34,6 +34,7 @@ GameLoop::~GameLoop() {
     {
         delete (*it);
     }
+    delete field;
 }
 
 void GameLoop::run()
