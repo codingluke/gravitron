@@ -1,6 +1,7 @@
 TEMPLATE = app
 
 CONFIG += debug
+CONFIG += c++11
 
 QT += qml quick #network?
 
@@ -17,7 +18,10 @@ HEADERS += src/headers/GameActor.h \
     #src/headers/Plane.h \
     src/headers/Locater.h \
     src/headers/Physics.h \
-    src/headers/Spacecraft.h
+    src/headers/Spacecraft.h \
+    src/headers/Projectile.h \ 
+    src/headers/GameField.h \
+    src/headers/InputHandler.h
 
 DESTDIR = ../build
 OBJECTS_DIR = ../build
@@ -38,7 +42,10 @@ SOURCES += src/main.cpp \
     #src/Plane.cpp \
     src/Locator.cpp \
     src/Physics.cpp \
-    src/Spacecraft.cpp
+    src/Spacecraft.cpp \
+    src/Projectile.cpp \
+    src/GameField.cpp \
+    src/InputHandler.cpp
 
 RESOURCES += assets/img/img.qrc \
         assets/audio/audio.qrc \
