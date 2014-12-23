@@ -1,6 +1,7 @@
 #include "headers/GameLoop.h"
 #include "headers/Spacecraft.h"
 #include "headers/Projectile.h"
+#include "headers/InputHandler.h"
 #include <QTime>
 #include <QDebug>
 #include <math.h>
@@ -12,8 +13,9 @@
 using namespace std;
 
 
-GameLoop::GameLoop()
+GameLoop::GameLoop(InputHandler *inputHandler)
 {
+    this->inputHandler = inputHandler;
     field = new GameField(500, 500);
     for (int i = 0; i < 1; i++) {
         Vec3f position(rand() % field->getWidth(),rand() % field->getHeight(), 0);
@@ -74,7 +76,6 @@ bool GameLoop::eventFilter(QObject *obj, QEvent *event)
   {
     QKeyEvent *keyEvent = (QKeyEvent*)event;
     inputs = keyEvent->key();
-    qDebug() << inputs;
   }
   return false;
 }
@@ -87,18 +88,23 @@ void GameLoop::stop()
 
 void GameLoop::processInput()
 {
-    if (inputs == 16777234) {
-        // left
+    inputHandler->execute();
+    if (inputs == Qt::Key_Left) {
         actors[actors.size() - 1]->applyForce(Vec3f(-0.01,0.,0.));
-    } else if (inputs == 16777235) {
-        // up
+    } else if (inputs == Qt::Key_Up) {
         actors[actors.size() - 1]->applyForce(Vec3f(0.,-0.01,0.));
-    } else if (inputs == 16777236) {
-        // right
+    } else if (inputs == Qt::Key_Right) {
         actors[actors.size() - 1]->applyForce(Vec3f(0.01,0.,0.));
-    } else if (inputs == 16777237) {
-        // down
+    } else if (inputs == Qt::Key_Down) {
         actors[actors.size() - 1]->applyForce(Vec3f(0.,0.01,0.));
+    } else if (inputs == Qt::Key_W) {
+        qDebug() << "Shoot Up";
+    } else if (inputs == Qt::Key_S) {
+        qDebug() << "Shoot Down";
+    } else if (inputs == Qt::Key_A) {
+        qDebug() << "Shoot Left";
+    } else if (inputs == Qt::Key_D) {
+        qDebug() << "Shoot Right";
     }
     inputs = 0;
 }
