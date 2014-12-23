@@ -65,7 +65,6 @@ void GameLoop::run()
 
 void GameLoop::inputEvents(int code)
 {
-    qDebug() << code;
     inputs = code;
 }
 
