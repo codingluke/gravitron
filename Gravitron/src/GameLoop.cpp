@@ -20,12 +20,12 @@ GameLoop::GameLoop()
         float mass = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
         float gravitationRange =  rand() % 200 + 1;
         float g = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
-        GameActor* actor = new GameActor(position, mass, gravitationRange, g, *field);
+        GameActor* actor = new GameActor(position, mass, gravitationRange, g, *field, 5);
         actors.push_back(actor);
     }
     Vec3f position(rand() % field->getWidth(),rand() % field->getHeight(), 0);
     float mass = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
-    actors.push_back(new Spacecraft(position, mass, 0, 0, *field));
+    actors.push_back(new Spacecraft(position, mass, 0, 0, *field, 10));
 }
 
 GameLoop::~GameLoop() {

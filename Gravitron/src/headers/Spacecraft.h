@@ -9,6 +9,7 @@ class Spacecraft : public GameActor
 public:
     Spacecraft();
     Spacecraft(Vec3f position, double mass, float gravitationRange, float g, GameField &field);
+    Spacecraft(Vec3f position, double mass, float gravitationRange, float g, GameField &field, float maxSpeed);
     Spacecraft(const Spacecraft &spacecraft);
     virtual ~Spacecraft();
 

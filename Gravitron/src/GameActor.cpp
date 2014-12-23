@@ -3,7 +3,7 @@
 #include <iostream>
 #include "headers/Physics.h"
 
-void GameActor::initialize(Vec3f position, double mass, float gravitationRange, float g, GameField &field)
+void GameActor::initialize(Vec3f position, double mass, float gravitationRange, float g, GameField &field, float maxSpeed)
 {
     killed = false;
 	velocity = Vec3f();
@@ -12,7 +12,8 @@ void GameActor::initialize(Vec3f position, double mass, float gravitationRange, 
 	this->mass = mass;
     this->gravitationRange = gravitationRange;
     this->g = g;
-    this->field = &field; 
+    this->field = &field;
+    this->maxSpeed = maxSpeed; 
 }
 
 void GameActor::initialize(const GameActor &actor)
@@ -25,18 +26,24 @@ void GameActor::initialize(const GameActor &actor)
     gravitationRange = actor.gravitationRange;
     g = actor.g;
     field = actor.getField();
+    maxSpeed = -1;
 }
 
 GameActor::GameActor()
 {
 	Vec3f in = Vec3f();
     GameField *f = new GameField();
-    initialize(in, 1., 1., 1., *f);
+    initialize(in, 1., 1., 1., *f, -1);
 }
 
 GameActor::GameActor(Vec3f position, double mass, float gravitationRange, float g, GameField &field)
 {
-    initialize(position, mass, gravitationRange, g, field);
+    initialize(position, mass, gravitationRange, g, field, -1);
+}
+
+GameActor::GameActor(Vec3f position, double mass, float gravitationRange, float g, GameField &field, float maxSpeed)
+{
+    initialize(position, mass, gravitationRange, g, field, maxSpeed);
 }
 
 GameActor::GameActor(const GameActor &actor)
@@ -73,6 +80,10 @@ void GameActor::update()
         position.v[1] = position.v[1] - field->getHeight();
     if (position.v[1] < 0)
         position.v[1] = field->getHeight() - position.v[1];
+    if (maxSpeed != -1) {
+        if (velocity.magnitude() > maxSpeed)
+            velocity = velocity.normalize() * maxSpeed;
+    }
 }
 
 void GameActor::update(vector<GameActor*> actors)
@@ -161,8 +172,24 @@ float GameActor::getGravitationRange() const
     return gravitationRange;
 }
 
-float GameActor::getG() const {
+float GameActor::getG() const 
+{
     return g;
+}
+
+void GameActor::setG(float g)
+{
+    this->g = g;
+}
+
+float GameActor::getMaxSpeed() const 
+{
+    return maxSpeed;
+}
+
+void GameActor::setMaxSpeed(float maxSpeed)
+{
+    this->maxSpeed = maxSpeed;
 }
 
 GameActorView* GameActor::getView() const

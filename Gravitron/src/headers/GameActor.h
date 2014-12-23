@@ -40,13 +40,14 @@ protected:
      * The gravitation acceleration.
      */
     float g;
-
+    float maxSpeed;
     GameField *field;
 
 public:
 	GameActor();
     GameActor(Vec3f position, double mass, float gravitationRange, float g, GameField &field);
-	GameActor(const GameActor &actor);
+    GameActor(Vec3f position, double mass, float gravitationRange, float g, GameField &field, float maxSpeed);
+    GameActor(const GameActor &actor);
     virtual ~GameActor();
 
 	virtual void applyForce(Vec3f force);
@@ -63,6 +64,9 @@ public:
     float getMass() const;
     float getGravitationRange() const;
     float getG() const;
+    void setG(float g);
+    float getMaxSpeed() const;
+    void setMaxSpeed(float maxSpeed);
     virtual GameActorView* getView() const;
     GameField* getField() const;
 
@@ -71,7 +75,7 @@ public:
     virtual std::string toString() const;
 
 private:
-    void initialize(Vec3f position, double mass, float gravitationRange, float g, GameField &field);
+    void initialize(Vec3f position, double mass, float gravitationRange, float g, GameField &field, float maxSpeed);
 	void initialize(const GameActor &actor);
 };
 

@@ -13,6 +13,12 @@ Spacecraft::Spacecraft(Vec3f position, double mass, float gravitationRange, floa
     g = 0;
 }
 
+Spacecraft::Spacecraft(Vec3f position, double mass, float gravitationRange, float g, GameField &field, float maxSpeed) :
+    GameActor(position, mass, gravitationRange, g, field, maxSpeed)
+{
+    g = 0;
+}
+
 Spacecraft::Spacecraft(const Spacecraft &spacecraft) : GameActor(spacecraft)
 {
     g = 0;
