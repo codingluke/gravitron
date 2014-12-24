@@ -12,7 +12,6 @@
 
 using namespace std;
 
-
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
@@ -23,8 +22,6 @@ int main(int argc, char *argv[])
 
     QQmlApplicationEngine engine;
     GravitronSettings settings;
-    QString languare = "en";
-    settings.setLanguare(languare);
     MenuListener mListener(&settings); // = MenuListener(&settings);
     engine.rootContext()->setContextProperty("Settings", &settings);
     engine.rootContext()->setContextProperty("MListener", &mListener);

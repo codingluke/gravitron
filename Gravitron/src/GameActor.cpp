@@ -102,7 +102,7 @@ void GameActor::update(vector<GameActor*> actors)
 	    // Update Gravitation
 	    Vec3f f = Physics::calculateGravitationForce(this, actors.at(i));
 	    actors.at(i)->applyForce(f);
-	}
+    }
     }
     update();
 }

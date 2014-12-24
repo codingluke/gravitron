@@ -1,47 +1,72 @@
 #include "headers/GravitronSettings.h"
 #include <QFile>
 #include <QDataStream>
+#include <QTextStream>
 #include <iostream>
 
 GravitronSettings::GravitronSettings(QObject *parent) :
     QObject(parent)
 {
-    mDifficulty = 1;
+    load();
 }
 
-void GravitronSettings::saveToFile() {
-    QFile file("gravitronSettings");
-    if (!file.open(QIODevice::WriteOnly)) {
-        return;
-    }
-    QDataStream out(&file);
-    out.setVersion(QDataStream::Qt_5_3);
-    std::cout << this;
-    out << this;
-}
-
-std::ostream& operator<< (std::ostream& stream, const GravitronSettings& settings)
+QDataStream& operator<< (QDataStream& stream, const GravitronSettings& settings)
 {
-    stream << settings.difficulty() << std::endl;
-    stream << settings.fullScreen() << std::endl;
-    stream << settings.musicSoundVolume() << std::endl;
-    stream << settings.playMusic() << std::endl;
-    stream << settings.playSounds() << std::endl;
-    stream << settings.playerName().toStdString() << std::endl;
-    stream << settings.playingFieldSize() << std::endl;
-    stream << settings.botsCount() << std::endl;
-    stream << settings.planetCount() << std::endl;
-    stream << settings.astroidCount() << std::endl;
-    stream << settings.frag() << std::endl;
-    stream << settings.respawTime() << std::endl;
-    stream << settings.languare().toStdString() << std::endl;
+    stream << settings.mDifficulty;
+    stream << settings.mFullScreen;
+    stream << settings.mMusicSoundVolume;
+    stream << settings.mPlayMusic;
+    stream << settings.mPlaySounds;
+    stream << settings.mPlayerName;
+    stream << settings.mPlayingFieldSize;
+    stream << settings.mBotsCount;
+    stream << settings.mPlanetCount;
+    stream << settings.mAstroidCount;
+    stream << settings.mFrag;
+    stream << settings.mRespawTime;
+    stream << settings.mLanguare;
     return stream;
 }
 
-void GravitronSettings::loadFromFile() {
-
+QDataStream& operator>> (QDataStream& stream, GravitronSettings& settings)
+{
+    stream >> settings.mDifficulty;
+    stream >> settings.mFullScreen;
+    stream >> settings.mMusicSoundVolume;
+    stream >> settings.mPlayMusic;
+    stream >> settings.mPlaySounds;
+    stream >> settings.mPlayerName;
+    stream >> settings.mPlayingFieldSize;
+    stream >> settings.mBotsCount;
+    stream >> settings.mPlanetCount;
+    stream >> settings.mAstroidCount;
+    stream >> settings.mFrag;
+    stream >> settings.mRespawTime;
+    stream >> settings.mLanguare;
+    return stream;
 }
 
+void GravitronSettings::load() {
+    QString filename="settings.save";
+    QFile file(filename);
+    if ( file.open(QIODevice::ReadWrite) )
+    {
+        QDataStream stream(&file);
+        stream >> *this;
+    }
+    file.close();
+}
+
+void GravitronSettings::save() {
+    QString filename="settings.save";
+    QFile file(filename);
+    if ( file.open(QIODevice::ReadWrite) )
+    {
+        QDataStream stream(&file);
+        stream << *this;
+    }
+    file.close();
+}
 
 int GravitronSettings::difficulty() const {
     return mDifficulty;
@@ -49,8 +74,8 @@ int GravitronSettings::difficulty() const {
 
 void GravitronSettings::setDifficulty(const int &source) {
     mDifficulty = source;
-    this->saveToFile();
-    difficultyChanged(source);
+    save();
+    emit difficultyChanged(source);
 }
 
 int GravitronSettings::fullScreen() const {
@@ -59,7 +84,8 @@ int GravitronSettings::fullScreen() const {
 
 void GravitronSettings::setFullScreen(const bool& source){
     mFullScreen = source;
-    fullScreenChanged(source);
+    save();
+    emit fullScreenChanged(source);
 }
 
 int GravitronSettings::musicSoundVolume() const{
@@ -68,7 +94,8 @@ int GravitronSettings::musicSoundVolume() const{
 
 void GravitronSettings::setMusicSoundVolume(const int& source){
     mMusicSoundVolume = source;
-    musicSoundVolumeChanged(source);
+    save();
+    emit musicSoundVolumeChanged(source);
 }
 
 bool GravitronSettings::playMusic() const{
@@ -77,7 +104,8 @@ bool GravitronSettings::playMusic() const{
 
 void GravitronSettings::setPlayMusic(const bool& source){
     mPlayMusic = source;
-    playMusicChanged(source);
+    save();
+    emit playMusicChanged(source);
 }
 
 bool GravitronSettings::playSounds() const{
@@ -86,7 +114,8 @@ bool GravitronSettings::playSounds() const{
 
 void GravitronSettings::setPlaySounds(const bool& source){
     mPlaySounds = source;
-    playSoundsChanged(source);
+    save();
+    emit playSoundsChanged(source);
 }
 
 QString GravitronSettings::playerName() const{
@@ -95,7 +124,8 @@ QString GravitronSettings::playerName() const{
 
 void GravitronSettings::setPlayerName(const QString& source){
     mPlayerName = source;
-    playerNameChanged(source);
+    save();
+    emit playerNameChanged(source);
 }
 
 int GravitronSettings::playingFieldSize() const{
@@ -104,7 +134,8 @@ int GravitronSettings::playingFieldSize() const{
 
 void GravitronSettings::setPlayingFieldSize(const int& source) {
     mPlayingFieldSize = source;
-    playingFieldSizeChanged(source);
+    save();
+    emit playingFieldSizeChanged(source);
 }
 
 int GravitronSettings::botsCount() const {
@@ -113,7 +144,8 @@ int GravitronSettings::botsCount() const {
 
 void GravitronSettings::setBotsCount(const int& source) {
     mBotsCount = source;
-    botsCountChanged(source);
+    save();
+    emit botsCountChanged(source);
 }
 
 int GravitronSettings::planetCount() const {
@@ -122,7 +154,8 @@ int GravitronSettings::planetCount() const {
 
 void GravitronSettings::setPlanetCount(const int& source) {
     mPlanetCount = source;
-    planetCountChanged(source);
+    save();
+    emit planetCountChanged(source);
 }
 
 int GravitronSettings::astroidCount() const {
@@ -131,7 +164,8 @@ int GravitronSettings::astroidCount() const {
 
 void GravitronSettings::setAstroidCount(const int& source) {
     mAstroidCount = source;
-    astroidCountChanged(source);
+    save();
+    emit astroidCountChanged(source);
 }
 
 int GravitronSettings::frag() const {
@@ -140,7 +174,8 @@ int GravitronSettings::frag() const {
 
 void GravitronSettings::setFrag(const int& source) {
     mFrag = source;
-    fragChanged(source);
+    save();
+    emit fragChanged(source);
 }
 
 int GravitronSettings::respawTime() const {
@@ -149,7 +184,8 @@ int GravitronSettings::respawTime() const {
 
 void GravitronSettings::setRespawTime(const int& source) {
     mRespawTime = source;
-    respawTimeChanged(source);
+    save();
+    emit respawTimeChanged(source);
 }
 
 QString GravitronSettings::languare() const {
@@ -158,5 +194,6 @@ QString GravitronSettings::languare() const {
 
 void GravitronSettings::setLanguare(const QString& source) {
     mLanguare = source;
+    save();
     emit languareChanged(source);
 }

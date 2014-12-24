@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QString>
 #include <iostream>
+#include <QTextStream>
 
 class GravitronSettings : public QObject
 {
@@ -105,9 +106,10 @@ class GravitronSettings : public QObject
         QString languare() const;
         void setLanguare(const QString& source);
 
-        void saveToFile();
-        void loadFromFile();
-        friend std::ostream& operator<< (std::ostream& stream, const GravitronSettings& settings);
+        void save();
+        void load();
+        friend QDataStream& operator<< (QDataStream& stream, const GravitronSettings& settings);
+        friend QDataStream& operator>> (QDataStream& stream, GravitronSettings& settings);
 
 
     signals:
