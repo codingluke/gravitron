@@ -20,7 +20,8 @@ HEADERS += src/headers/GameActor.h \
     src/headers/Physics.h \
     src/headers/Spacecraft.h \
     src/headers/Projectile.h \ 
-    src/headers/GameField.h
+    src/headers/GameField.h \
+    src/headers/InputHandler.h
 
 DESTDIR = ../build
 OBJECTS_DIR = ../build
@@ -43,7 +44,8 @@ SOURCES += src/main.cpp \
     src/Physics.cpp \
     src/Spacecraft.cpp \
     src/Projectile.cpp \
-    src/GameField.cpp
+    src/GameField.cpp \
+    src/InputHandler.cpp
 
 RESOURCES += assets/img/img.qrc \
         assets/audio/audio.qrc \

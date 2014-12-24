@@ -12,7 +12,7 @@
  */
 class GameActor
 {
-protected:
+    protected:
 	/**
 	 * Velocity is the actual direction and speed for this GameActor.
 	 */
@@ -31,24 +31,24 @@ protected:
 	 * The mass of the GameActor, but actually a factor in relation to
 	 * a preset normal mass.
 	 */
-    float mass;
+	float mass;
 
-    float gravitationRange;
-    bool killed;
+	float gravitationRange;
+	bool killed;
 
-    /**
-     * The gravitation acceleration.
-     */
-    float g;
-    float maxSpeed;
-    GameField *field;
+	/**
+	 * The gravitation acceleration.
+	 */
+	float g;
+	float maxSpeed;
+	GameField *field;
 
-public:
+    public:
 	GameActor();
-    GameActor(Vec3f position, double mass, float gravitationRange, float g, GameField &field);
-    GameActor(Vec3f position, double mass, float gravitationRange, float g, GameField &field, float maxSpeed);
-    GameActor(const GameActor &actor);
-    virtual ~GameActor();
+	GameActor(Vec3f position, double mass, float gravitationRange, float g, GameField &field);
+	GameActor(Vec3f position, double mass, float gravitationRange, float g, GameField &field, float maxSpeed);
+	GameActor(const GameActor &actor);
+	virtual ~GameActor();
 
 	virtual void applyForce(Vec3f force);
 	virtual void update();
@@ -56,26 +56,27 @@ public:
 	void update(double radius);
 
 	bool operator== (GameActor& right);
-    GameActor &operator= (const GameActor &right);
+	GameActor &operator= (const GameActor &right);
 
 	Vec3f getPosition() const;
 	Vec3f getAcceleration() const;
 	Vec3f getVelocity() const;
-    float getMass() const;
-    float getGravitationRange() const;
-    float getG() const;
-    void setG(float g);
-    float getMaxSpeed() const;
-    void setMaxSpeed(float maxSpeed);
-    virtual GameActorView* getView() const;
-    GameField* getField() const;
+	float getMass() const;
+	float getGravitationRange() const;
+	float getG() const;
+	void setG(float g);
+	float getMaxSpeed() const;
+	void setMaxSpeed(float maxSpeed);
+	virtual GameActorView* getView() const;
+	GameField* getField() const;
 
-    void kill();
+	void kill();
+	bool isKilled();
 
-    virtual std::string toString() const;
+	virtual std::string toString() const;
 
-private:
-    void initialize(Vec3f position, double mass, float gravitationRange, float g, GameField &field, float maxSpeed);
+    private:
+	void initialize(Vec3f position, double mass, float gravitationRange, float g, GameField &field, float maxSpeed);
 	void initialize(const GameActor &actor);
 };
 

@@ -1,5 +1,6 @@
 #include "headers/Game.h"
 #include "headers/GameActorView.h"
+#include "headers/InputHandler.h"
 #include <QDebug>
 #include <iostream>
 
@@ -36,8 +37,10 @@ void Game::start()
 
 void Game::init()
 {
-    gameLoop = new GameLoop();
+    InputHandler *iHandler = new InputHandler();
+    gameLoop = new GameLoop(iHandler);
     QCoreApplication::instance()->installEventFilter(gameLoop);
+    QCoreApplication::instance()->installEventFilter(iHandler);
     connect(this, SIGNAL(stop(void)), gameLoop, SLOT(stop(void)));
     connect(gameLoop, SIGNAL(ping(string)), this, SLOT(handleResults(string)));
     connect(gameLoop, SIGNAL(renderObject(vector<GameActorView*>*)), this, SLOT(render(vector<GameActorView*>*)));

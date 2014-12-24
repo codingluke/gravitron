@@ -1,6 +1,7 @@
 #include "headers/GameLoop.h"
 #include "headers/Spacecraft.h"
 #include "headers/Projectile.h"
+#include "headers/InputHandler.h"
 #include <QTime>
 #include <QDebug>
 #include <math.h>
@@ -12,10 +13,11 @@
 using namespace std;
 
 
-GameLoop::GameLoop()
+GameLoop::GameLoop(InputHandler *inputHandler)
 {
+    this->inputHandler = inputHandler;
     field = new GameField(500, 500);
-    for (int i = 0; i < 1; i++) {
+    for (int i = 0; i < 3; i++) {
         Vec3f position(rand() % field->getWidth(),rand() % field->getHeight(), 0);
         float mass = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
         float gravitationRange =  rand() % 200 + 1;
@@ -25,7 +27,8 @@ GameLoop::GameLoop()
     }
     Vec3f position(rand() % field->getWidth(),rand() % field->getHeight(), 0);
     float mass = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
-    actors.push_back(new Spacecraft(position, mass, 0, 0, *field, 10));
+    localPlayer = new Spacecraft(position, mass, 0, 0, *field, 10);
+    actors.push_back(localPlayer);
 }
 
 GameLoop::~GameLoop() {
@@ -35,6 +38,7 @@ GameLoop::~GameLoop() {
         delete (*it);
     }
     delete field;
+    delete localPlayer;
 }
 
 void GameLoop::run()
@@ -63,23 +67,6 @@ void GameLoop::run()
     }
 }
 
-void GameLoop::inputEvents(int code)
-{
-    qDebug() << code;
-    inputs = code;
-}
-
-bool GameLoop::eventFilter(QObject *obj, QEvent *event)
-{
-  if (event->type() == QEvent::KeyPress && obj)
-  {
-    QKeyEvent *keyEvent = (QKeyEvent*)event;
-    inputs = keyEvent->key();
-    qDebug() << inputs;
-  }
-  return false;
-}
-
 void GameLoop::stop()
 {
     running = false;
@@ -88,45 +75,65 @@ void GameLoop::stop()
 
 void GameLoop::processInput()
 {
-    if (inputs == 16777234) {
-        // left
-        actors[actors.size() - 1]->applyForce(Vec3f(-0.01,0.,0.));
-    } else if (inputs == 16777235) {
-        // up
-        actors[actors.size() - 1]->applyForce(Vec3f(0.,-0.01,0.));
-    } else if (inputs == 16777236) {
-        // right
-        actors[actors.size() - 1]->applyForce(Vec3f(0.01,0.,0.));
-    } else if (inputs == 16777237) {
-        // down
-        actors[actors.size() - 1]->applyForce(Vec3f(0.,0.01,0.));
+    set<int> codes = inputHandler->getInputs();
+    for(set<int>::iterator it = codes.begin(); it != codes.end(); it++) {
+        execLocalPlayerAction(*it);
     }
-    inputs = 0;
+}
+
+void GameLoop::execLocalPlayerAction(int code)
+{
+    if (code == Qt::Key_Left) {
+        localPlayer->applyForce(Vec3f(-0.01,0.,0.));
+    } else if (code == Qt::Key_Up) {
+        localPlayer->applyForce(Vec3f(0.,-0.01,0.));
+    } else if (code == Qt::Key_Right) {
+        localPlayer->applyForce(Vec3f(0.01,0.,0.));
+    } else if (code == Qt::Key_Down) {
+        localPlayer->applyForce(Vec3f(0.,0.01,0.));
+    } else if (code == Qt::Key_W) {
+        qDebug() << "Shoot Up";
+    } else if (code == Qt::Key_S) {
+        qDebug() << "Shoot Down";
+    } else if (code == Qt::Key_A) {
+        qDebug() << "Shoot Left";
+    } else if (code == Qt::Key_D) {
+        qDebug() << "Shoot Right";
+    }
 }
 
 void GameLoop::update()
 {
-    //applyGravitationToAllActor();
-    updateAllActors();
+
+    vector<GameActor*>::iterator it;
+    for(it = actors.begin(); it != actors.end(); it++) {
+        (*it)->update(actors);
+    }
+    for(it = actors.begin(); it != actors.end(); it++) {
+        if ((*it)->isKilled() && (*it) != localPlayer) {
+            qDebug() << "kill";
+            delete (*it);
+            actors.erase(it);
+        }
+    }
+    actors.shrink_to_fit();
 }
 
 void GameLoop::render()
 {
     if(actors.size() > 0) { //wenn actors leer sind > speicherzugriffsfehler im vector
         vector<GameActorView*> *viewlist = new vector<GameActorView*>;
-        for (unsigned int i = 0; i < actors.size(); i++) {
-            GameActorView *view = actors[i]->getView();
+        vector<GameActor*>::iterator it;
+        for(it = actors.begin(); it != actors.end(); it++) {
+        //for (unsigned int i = 0; i < actors.size(); i++) {
+            //GameActorView *view = actors[i]->getView();
+            GameActorView *view = (*it)->getView();
+            qDebug() << "hallo";
             viewlist->push_back(view);
         }
         emit renderObject(viewlist);
         QThread::msleep(5);
     } else {
         stop();
-    }
-}
-
-void GameLoop::updateAllActors() {
-    for (unsigned int i = 0; i < actors.size(); i++) {
-        actors[i]->update(actors);
     }
 }

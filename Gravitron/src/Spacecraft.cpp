@@ -28,19 +28,6 @@ Spacecraft::~Spacecraft() {
 
 }
 
-
-/*void Spacecraft::applyForce(Vec3f force) {
-
-}
-
-void Spacecraft::update() {
-
-}
-
-void Spacecraft::update(double radius) {
-
-}*/
-
 GameActorView* Spacecraft::getView() const {
     //std::cout << "spacecraft" << std::endl;
     std::ostringstream x;
@@ -55,6 +42,25 @@ GameActorView* Spacecraft::getView() const {
     return view;
 }
 
-/*std::string Spacecraft::toString() const {
+void Spacecraft::forceAhead()
+{
+    applyForce(Vec3f(0.,-0.01,0.));
+}
 
-}*/
+void Spacecraft::forceBack()
+{
+    applyForce(Vec3f(0.,0.01,0.));
+}
+
+void Spacecraft::forceLeft()
+{
+    applyForce(Vec3f(-0.01,0.,0.));
+}
+
+void Spacecraft::forceRight()
+{
+    applyForce(Vec3f(0.01,0.,0.));
+}
+
+
+
