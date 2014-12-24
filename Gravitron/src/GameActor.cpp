@@ -13,7 +13,7 @@ void GameActor::initialize(Vec3f position, double mass, float gravitationRange, 
     this->gravitationRange = gravitationRange;
     this->g = g;
     this->field = &field;
-    this->maxSpeed = maxSpeed; 
+    this->maxSpeed = maxSpeed;
 }
 
 void GameActor::initialize(const GameActor &actor)
@@ -114,6 +114,11 @@ void GameActor::kill()
     killed = true;
 }
 
+bool GameActor::isKilled()
+{
+    return killed;
+}
+
 /**
  * Updates the GameActor and adjusts its distance from
  * the origin (0,0,0) to place it on the surface of a sphere
@@ -174,7 +179,7 @@ float GameActor::getGravitationRange() const
     return gravitationRange;
 }
 
-float GameActor::getG() const 
+float GameActor::getG() const
 {
     return g;
 }
@@ -184,7 +189,7 @@ void GameActor::setG(float g)
     this->g = g;
 }
 
-float GameActor::getMaxSpeed() const 
+float GameActor::getMaxSpeed() const
 {
     return maxSpeed;
 }

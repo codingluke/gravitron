@@ -27,7 +27,6 @@ GameLoop::GameLoop(InputHandler *inputHandler)
     }
     Vec3f position(rand() % field->getWidth(),rand() % field->getHeight(), 0);
     float mass = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
-    //Spacecraft *player = new Spacecraft(position, mass, 0, 0, *field, 10);
     localPlayer = new Spacecraft(position, mass, 0, 0, *field, 10);
     actors.push_back(localPlayer);
 }
@@ -39,6 +38,7 @@ GameLoop::~GameLoop() {
         delete (*it);
     }
     delete field;
+    delete localPlayer;
 }
 
 void GameLoop::run()
@@ -104,17 +104,31 @@ void GameLoop::execLocalPlayerAction(int code)
 
 void GameLoop::update()
 {
-    for (unsigned int i = 0; i < actors.size(); i++) {
-        actors[i]->update(actors);
+
+    vector<GameActor*>::iterator it;
+    for(it = actors.begin(); it != actors.end(); it++) {
+        (*it)->update(actors);
     }
+    for(it = actors.begin(); it != actors.end(); it++) {
+        if ((*it)->isKilled() && (*it) != localPlayer) {
+            qDebug() << "kill";
+            delete (*it);
+            actors.erase(it);
+        }
+    }
+    actors.shrink_to_fit();
 }
 
 void GameLoop::render()
 {
     if(actors.size() > 0) { //wenn actors leer sind > speicherzugriffsfehler im vector
         vector<GameActorView*> *viewlist = new vector<GameActorView*>;
-        for (unsigned int i = 0; i < actors.size(); i++) {
-            GameActorView *view = actors[i]->getView();
+        vector<GameActor*>::iterator it;
+        for(it = actors.begin(); it != actors.end(); it++) {
+        //for (unsigned int i = 0; i < actors.size(); i++) {
+            //GameActorView *view = actors[i]->getView();
+            GameActorView *view = (*it)->getView();
+            qDebug() << "hallo";
             viewlist->push_back(view);
         }
         emit renderObject(viewlist);
