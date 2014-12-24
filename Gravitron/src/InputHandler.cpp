@@ -17,20 +17,6 @@ set<int> InputHandler::getInputs()
     return copy;
 }
 
-//void InputHandler::bindFunction(int code, callback func)
-//{
-    //bindings[code] = func;
-//}
-
-//void InputHandler::execute()
-//{
-    //set<int>::iterator it;
-    //for(it = inputs.begin(); it != inputs.end(); it++) {
-        //qDebug() << *it;
-    //}
-    //qDebug() << "-----------------";
-//}
-
 bool InputHandler::eventFilter(QObject *obj, QEvent *event)
 {
   if (event->type() == QEvent::KeyPress && obj) {

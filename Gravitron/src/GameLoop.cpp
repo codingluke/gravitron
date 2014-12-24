@@ -33,8 +33,7 @@ GameLoop::GameLoop(InputHandler *inputHandler)
 
 GameLoop::~GameLoop() {
     vector<GameActor*>::iterator it;
-    for (it = actors.begin(); it < actors.end(); it++)
-    {
+    for (it = actors.begin(); it < actors.end(); it++) {
         delete (*it);
     }
     delete field;
@@ -55,11 +54,8 @@ void GameLoop::run()
     {
         lag += t.elapsed();
         t.restart();
-
         processInput();
-
-        while (running && lag >= ms_per_update)
-        {
+        while (running && lag >= ms_per_update) {
             update();
             lag -= ms_per_update;
         }
@@ -104,7 +100,6 @@ void GameLoop::execLocalPlayerAction(int code)
 
 void GameLoop::update()
 {
-
     vector<GameActor*>::iterator it;
     for(it = actors.begin(); it != actors.end(); it++) {
         (*it)->update(actors);

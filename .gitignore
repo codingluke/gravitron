@@ -3,3 +3,4 @@ Gravitron.pro.*
 src/*.o
 *.o
 build/
+settings.save
