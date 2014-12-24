@@ -17,7 +17,7 @@ GameLoop::GameLoop(InputHandler *inputHandler)
 {
     this->inputHandler = inputHandler;
     field = new GameField(500, 500);
-    for (int i = 0; i < 1; i++) {
+    for (int i = 0; i < 3; i++) {
         Vec3f position(rand() % field->getWidth(),rand() % field->getHeight(), 0);
         float mass = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
         float gravitationRange =  rand() % 200 + 1;
