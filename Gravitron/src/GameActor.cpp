@@ -221,5 +221,7 @@ std::string GameActor::toString() const
     os << "pos:(" << (double) position[0] << ", " << (double) position[1] << ", " << (double) position[2] << ")";
     os << std::endl;
     os << "vel:(" << (double) velocity[0] << ", " << (double) velocity[1] << ", " << (double) velocity[2] << ")";
+    os << std::endl;
+    os << "speed: " << velocity.magnitude();
     return os.str();
 }
