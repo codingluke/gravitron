@@ -67,21 +67,6 @@ void GameLoop::run()
     }
 }
 
-//void GameLoop::inputEvents(int code)
-//{
-    //inputs = code;
-//}
-
-//bool GameLoop::eventFilter(QObject *obj, QEvent *event)
-//{
-  //if (event->type() == QEvent::KeyPress && obj)
-  //{
-    //QKeyEvent *keyEvent = (QKeyEvent*)event;
-    //inputs = keyEvent->key();
-  //}
-  //return false;
-//}
-
 void GameLoop::stop()
 {
     running = false;
@@ -94,29 +79,10 @@ void GameLoop::processInput()
     for(set<int>::iterator it = codes.begin(); it != codes.end(); it++) {
         execLocalPlayerAction(*it);
     }
-    //if (inputs == Qt::Key_Left) {
-        //localPlayer->applyForce(Vec3f(-0.01,0.,0.));
-    //} else if (inputs == Qt::Key_Up) {
-        //localPlayer->applyForce(Vec3f(0.,-0.01,0.));
-    //} else if (inputs == Qt::Key_Right) {
-        //localPlayer->applyForce(Vec3f(0.01,0.,0.));
-    //} else if (inputs == Qt::Key_Down) {
-        //localPlayer->applyForce(Vec3f(0.,0.01,0.));
-    //} else if (inputs == Qt::Key_W) {
-        //qDebug() << "Shoot Up";
-    //} else if (inputs == Qt::Key_S) {
-        //qDebug() << "Shoot Down";
-    //} else if (inputs == Qt::Key_A) {
-        //qDebug() << "Shoot Left";
-    //} else if (inputs == Qt::Key_D) {
-        //qDebug() << "Shoot Right";
-    //}
-    //inputs = 0;
 }
 
 void GameLoop::execLocalPlayerAction(int code)
 {
-    qDebug() << code;
     if (code == Qt::Key_Left) {
         localPlayer->applyForce(Vec3f(-0.01,0.,0.));
     } else if (code == Qt::Key_Up) {

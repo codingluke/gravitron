@@ -25,12 +25,8 @@ class GameLoop : public QThread
         QQmlApplicationEngine *engine;
         vector<GameActor*> actors;
         GameActor *localPlayer;
-        //int inputs;
         GameField *field;
         InputHandler *inputHandler;
-
-    //protected:
-        //bool eventFilter(QObject *obj, QEvent *event);
 
     public:
         GameLoop(InputHandler *inputHandler);
@@ -39,14 +35,11 @@ class GameLoop : public QThread
     public slots:
         void run();
         void stop();
-        //void inputEvents(int code);
 
     private:
         void processInput();
         void update();
         void render();
-        void applyGravitationToAllActor();
-        void updateAllActors();
         void execLocalPlayerAction(int code);
 
     signals:
