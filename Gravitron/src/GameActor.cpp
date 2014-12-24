@@ -13,7 +13,7 @@ void GameActor::initialize(Vec3f position, double mass, float gravitationRange, 
     this->gravitationRange = gravitationRange;
     this->g = g;
     this->field = &field;
-    this->maxSpeed = maxSpeed; 
+    this->maxSpeed = maxSpeed;
 }
 
 void GameActor::initialize(const GameActor &actor)
@@ -88,15 +88,17 @@ void GameActor::update()
 
 void GameActor::update(vector<GameActor*> actors)
 {
+    GameActor *other;
     for (unsigned int i = 0; i < actors.size(); i++) {
-	if (actors.at(i) != this)
+	other = actors.at(i);
+	if (other != this)
 	{
 	    // Collition Detection
 	    bool collision = Physics::collisionDetection(position, 20.0f,
-				      actors.at(i)->getPosition(), 20.0f);
+				      other->getPosition(), 20.0f);
 	    if (collision) {
 		kill();
-		actors.at(i)->kill();
+		other->kill();
 	    }
 
 	    // Update Gravitation
@@ -110,6 +112,11 @@ void GameActor::update(vector<GameActor*> actors)
 void GameActor::kill()
 {
     killed = true;
+}
+
+bool GameActor::isKilled()
+{
+    return killed;
 }
 
 /**
@@ -172,7 +179,7 @@ float GameActor::getGravitationRange() const
     return gravitationRange;
 }
 
-float GameActor::getG() const 
+float GameActor::getG() const
 {
     return g;
 }
@@ -182,7 +189,7 @@ void GameActor::setG(float g)
     this->g = g;
 }
 
-float GameActor::getMaxSpeed() const 
+float GameActor::getMaxSpeed() const
 {
     return maxSpeed;
 }

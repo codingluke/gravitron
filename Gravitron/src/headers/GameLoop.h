@@ -9,6 +9,7 @@
 #include "GameActorView.h"
 #include <QKeyEvent>
 #include "GameField.h"
+#include "InputHandler.h"
 
 using namespace std;
 
@@ -23,27 +24,23 @@ class GameLoop : public QThread
         QObject *game;
         QQmlApplicationEngine *engine;
         vector<GameActor*> actors;
-        int inputs;
+        GameActor *localPlayer;
         GameField *field;
-
-    protected:
-        bool eventFilter(QObject *obj, QEvent *event);
+        InputHandler *inputHandler;
 
     public:
-        GameLoop();
+        GameLoop(InputHandler *inputHandler);
         virtual ~GameLoop();
 
     public slots:
         void run();
         void stop();
-        void inputEvents(int code);
 
     private:
         void processInput();
         void update();
         void render();
-        void applyGravitationToAllActor();
-        void updateAllActors();
+        void execLocalPlayerAction(int code);
 
     signals:
         void ping(const string &result);
