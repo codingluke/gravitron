@@ -27,7 +27,9 @@ GameLoop::GameLoop(InputHandler *inputHandler)
     }
     Vec3f position(rand() % field->getWidth(),rand() % field->getHeight(), 0);
     float mass = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
-    actors.push_back(new Spacecraft(position, mass, 0, 0, *field, 10));
+    //Spacecraft *player = new Spacecraft(position, mass, 0, 0, *field, 10);
+    localPlayer = new Spacecraft(position, mass, 0, 0, *field, 10);
+    actors.push_back(localPlayer);
 }
 
 GameLoop::~GameLoop() {
@@ -65,22 +67,20 @@ void GameLoop::run()
     }
 }
 
-void GameLoop::inputEvents(int code)
-{
-    inputs = code;
-}
+//void GameLoop::inputEvents(int code)
+//{
+    //inputs = code;
+//}
 
-bool GameLoop::eventFilter(QObject *obj, QEvent *event)
-{
-  if (event->type() == QEvent::KeyPress && obj)
-  {
-    QKeyEvent *keyEvent = (QKeyEvent*)event;
-    mutex.lock();
-    inputs = keyEvent->key();
-    mutex.unlock();
-  }
-  return false;
-}
+//bool GameLoop::eventFilter(QObject *obj, QEvent *event)
+//{
+  //if (event->type() == QEvent::KeyPress && obj)
+  //{
+    //QKeyEvent *keyEvent = (QKeyEvent*)event;
+    //inputs = keyEvent->key();
+  //}
+  //return false;
+//}
 
 void GameLoop::stop()
 {
@@ -90,25 +90,50 @@ void GameLoop::stop()
 
 void GameLoop::processInput()
 {
-    inputHandler->execute();
-    if (inputs == Qt::Key_Left) {
-        actors[actors.size() - 1]->applyForce(Vec3f(-0.01,0.,0.));
-    } else if (inputs == Qt::Key_Up) {
-        actors[actors.size() - 1]->applyForce(Vec3f(0.,-0.01,0.));
-    } else if (inputs == Qt::Key_Right) {
-        actors[actors.size() - 1]->applyForce(Vec3f(0.01,0.,0.));
-    } else if (inputs == Qt::Key_Down) {
-        actors[actors.size() - 1]->applyForce(Vec3f(0.,0.01,0.));
-    } else if (inputs == Qt::Key_W) {
+    set<int> codes = inputHandler->getInputs();
+    for(set<int>::iterator it = codes.begin(); it != codes.end(); it++) {
+        execLocalPlayerAction(*it);
+    }
+    //if (inputs == Qt::Key_Left) {
+        //localPlayer->applyForce(Vec3f(-0.01,0.,0.));
+    //} else if (inputs == Qt::Key_Up) {
+        //localPlayer->applyForce(Vec3f(0.,-0.01,0.));
+    //} else if (inputs == Qt::Key_Right) {
+        //localPlayer->applyForce(Vec3f(0.01,0.,0.));
+    //} else if (inputs == Qt::Key_Down) {
+        //localPlayer->applyForce(Vec3f(0.,0.01,0.));
+    //} else if (inputs == Qt::Key_W) {
+        //qDebug() << "Shoot Up";
+    //} else if (inputs == Qt::Key_S) {
+        //qDebug() << "Shoot Down";
+    //} else if (inputs == Qt::Key_A) {
+        //qDebug() << "Shoot Left";
+    //} else if (inputs == Qt::Key_D) {
+        //qDebug() << "Shoot Right";
+    //}
+    //inputs = 0;
+}
+
+void GameLoop::execLocalPlayerAction(int code)
+{
+    qDebug() << code;
+    if (code == Qt::Key_Left) {
+        localPlayer->applyForce(Vec3f(-0.01,0.,0.));
+    } else if (code == Qt::Key_Up) {
+        localPlayer->applyForce(Vec3f(0.,-0.01,0.));
+    } else if (code == Qt::Key_Right) {
+        localPlayer->applyForce(Vec3f(0.01,0.,0.));
+    } else if (code == Qt::Key_Down) {
+        localPlayer->applyForce(Vec3f(0.,0.01,0.));
+    } else if (code == Qt::Key_W) {
         qDebug() << "Shoot Up";
-    } else if (inputs == Qt::Key_S) {
+    } else if (code == Qt::Key_S) {
         qDebug() << "Shoot Down";
-    } else if (inputs == Qt::Key_A) {
+    } else if (code == Qt::Key_A) {
         qDebug() << "Shoot Left";
-    } else if (inputs == Qt::Key_D) {
+    } else if (code == Qt::Key_D) {
         qDebug() << "Shoot Right";
     }
-    inputs = 0;
 }
 
 void GameLoop::update()

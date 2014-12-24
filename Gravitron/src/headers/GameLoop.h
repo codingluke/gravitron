@@ -8,7 +8,6 @@
 #include "GameActor.h"
 #include "GameActorView.h"
 #include <QKeyEvent>
-#include <QMutex>
 #include "GameField.h"
 #include "InputHandler.h"
 
@@ -25,13 +24,13 @@ class GameLoop : public QThread
         QObject *game;
         QQmlApplicationEngine *engine;
         vector<GameActor*> actors;
-        int inputs;
-        QMutex mutex;
+        GameActor *localPlayer;
+        //int inputs;
         GameField *field;
         InputHandler *inputHandler;
 
-    protected:
-        bool eventFilter(QObject *obj, QEvent *event);
+    //protected:
+        //bool eventFilter(QObject *obj, QEvent *event);
 
     public:
         GameLoop(InputHandler *inputHandler);
@@ -40,7 +39,7 @@ class GameLoop : public QThread
     public slots:
         void run();
         void stop();
-        void inputEvents(int code);
+        //void inputEvents(int code);
 
     private:
         void processInput();
@@ -48,6 +47,7 @@ class GameLoop : public QThread
         void render();
         void applyGravitationToAllActor();
         void updateAllActors();
+        void execLocalPlayerAction(int code);
 
     signals:
         void ping(const string &result);
