@@ -21,7 +21,15 @@ HEADERS += src/headers/GameActor.h \
     src/headers/Spacecraft.h \
     src/headers/Projectile.h \ 
     src/headers/GameField.h \
-    src/headers/InputHandler.h
+    src/headers/InputHandler.h \
+    src/headers/Missile.h \
+    src/headers/AimMissile.h \
+    src/headers/Laser.h \
+    src/headers/Planet.h \
+    src/headers/Sun.h \
+    src/headers/PowerUp.h \
+    src/headers/Asteroid.h \
+    src/headers/Scrap.h
 
 DESTDIR = ../build
 OBJECTS_DIR = ../build
@@ -45,7 +53,15 @@ SOURCES += src/main.cpp \
     src/Spacecraft.cpp \
     src/Projectile.cpp \
     src/GameField.cpp \
-    src/InputHandler.cpp
+    src/InputHandler.cpp \
+    src/Missile.cpp \
+    src/AimMissile.cpp \
+    src/Laser.cpp \
+    src/Planet.cpp \
+    src/Sun.cpp \
+    src/PowerUp.cpp \
+    src/Asteroid.cpp \
+    src/Scrap.cpp
 
 RESOURCES += assets/img/img.qrc \
         assets/audio/audio.qrc \
