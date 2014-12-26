@@ -1,6 +1,7 @@
 #include "headers/Projectile.h"
 #include <sstream>
 #include <iostream>
+#include <QDebug>
 
 
 /**
@@ -18,7 +19,6 @@ Projectile::Projectile(Vec3f position, double mass, float gravitationRange, floa
     GameActor(position, mass, gravitationRange, g, health, field)
     {
         this->timeToLive = timeToLive;
-        g = 0;
         this->friendly.push_back(&friendly);
     }
 
@@ -50,10 +50,11 @@ void Projectile::update()
         kill();
     else if (timeToLive != -1)
         timeToLive--;
+    qDebug() << "Updating projectile.\n";
 }
 
 void handleCollision(GameActor &other)
 {
-    
+
 }
 

@@ -94,16 +94,16 @@ void GameLoop::execLocalPlayerAction(int code)
         localPlayer->applyForce(Vec3f(0.,0.01,0.));
     } else if (code == Qt::Key_W) {
         actors.push_back(new Laser(*localPlayer, Vec3f(0.,-0.01,0.), *field, *localPlayer));
-        qDebug() << "Shoot Up";
+        //qDebug() << "Shoot Up";
     } else if (code == Qt::Key_S) {
         actors.push_back(new Laser(*localPlayer, Vec3f(0.,0.01,0.), *field, *localPlayer));
-        qDebug() << "Shoot Down";
+        //qDebug() << "Shoot Down";
     } else if (code == Qt::Key_A) {
         actors.push_back(new Laser(*localPlayer, Vec3f(-0.01,0.,0.), *field, *localPlayer));
-        qDebug() << "Shoot Left";
+        //qDebug() << "Shoot Left";
     } else if (code == Qt::Key_D) {
         actors.push_back(new Laser(*localPlayer, Vec3f(0.01,0.,0.), *field, *localPlayer));
-        qDebug() << "Shoot Right";
+        //qDebug() << "Shoot Right";
     }   
 }
 
@@ -133,7 +133,7 @@ void GameLoop::render()
         //for (unsigned int i = 0; i < actors.size(); i++) {
             //GameActorView *view = actors[i]->getView();
             GameActorView *view = (*it)->getView();
-            qDebug() << "hallo";
+            //qDebug() << "hallo";
             viewlist->push_back(view);
         }
         emit renderObject(viewlist);

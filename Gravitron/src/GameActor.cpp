@@ -225,6 +225,7 @@ void GameActor::dealDamage(int damage)
         else
             health -= damage;
     }
+    cout << "Dealing damage: " << damage << ".\n";
 }
 
 GameActorView* GameActor::getView() const
@@ -263,6 +264,6 @@ std::string GameActor::toString() const
 
 void GameActor::handleCollision(GameActor &other)
 {
-    
+
 }
 

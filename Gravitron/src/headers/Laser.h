@@ -1,6 +1,8 @@
 #ifndef LASER_H
 #define LASER_H
 #include "Projectile.h"
+#include "GameActorView.h"
+
 
 class Laser : public Projectile
 {
@@ -14,6 +16,8 @@ public:
     virtual ~Laser();
     int getTimeToLive() const;
     void handleCollision(GameActor &other);
+
+    GameActorView* getView() const;
 };
 
 #endif // LASER_H

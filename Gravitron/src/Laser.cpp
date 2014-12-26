@@ -1,4 +1,6 @@
 #include "headers/Laser.h"
+#include <sstream>
+#include <iostream>
 
 Laser::Laser() : Projectile()
 {
@@ -47,4 +49,18 @@ void Laser::handleCollision(GameActor &other)
         other.dealDamage(20);
         kill();
     }
+}
+
+GameActorView* Laser::getView() const {
+    //std::cout << "spacecraft" << std::endl;
+    std::ostringstream x;
+    std::ostringstream y;
+    x << position[0];
+    y << position[1];
+    GameActorView *view = new GameActorView("qrc:/qml/actor");
+    view->setProperty("identifier", "L");
+    view->setProperty("x", x.str());
+    view->setProperty("y", y.str());
+    view->setProperty("color", "blue");
+    return view;
 }
