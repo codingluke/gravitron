@@ -2,6 +2,7 @@
 #include "headers/Spacecraft.h"
 #include "headers/Projectile.h"
 #include "headers/InputHandler.h"
+#include "headers/Laser.h"
 #include <QTime>
 #include <QDebug>
 #include <math.h>
@@ -92,14 +93,18 @@ void GameLoop::execLocalPlayerAction(int code)
     } else if (code == Qt::Key_Down) {
         localPlayer->applyForce(Vec3f(0.,0.01,0.));
     } else if (code == Qt::Key_W) {
+        actors.push_back(new Laser(*localPlayer, Vec3f(0.,-0.01,0.), *field, *localPlayer));
         qDebug() << "Shoot Up";
     } else if (code == Qt::Key_S) {
+        actors.push_back(new Laser(*localPlayer, Vec3f(0.,0.01,0.), *field, *localPlayer));
         qDebug() << "Shoot Down";
     } else if (code == Qt::Key_A) {
+        actors.push_back(new Laser(*localPlayer, Vec3f(-0.01,0.,0.), *field, *localPlayer));
         qDebug() << "Shoot Left";
     } else if (code == Qt::Key_D) {
+        actors.push_back(new Laser(*localPlayer, Vec3f(0.01,0.,0.), *field, *localPlayer));
         qDebug() << "Shoot Right";
-    }
+    }   
 }
 
 void GameLoop::update()
@@ -117,7 +122,7 @@ void GameLoop::update()
         }
     }
     actors.shrink_to_fit();
-}
+}     
 
 void GameLoop::render()
 {

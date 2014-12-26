@@ -26,7 +26,7 @@ void GameActor::initialize(const GameActor &actor)
     gravitationRange = actor.gravitationRange;
     g = actor.g;
     field = actor.getField();
-    maxSpeed = -1;
+    maxSpeed = actor.getMaxSpeed();
 }
 
 GameActor::GameActor()
@@ -93,7 +93,7 @@ void GameActor::update(vector<GameActor*> actors)
 	other = actors.at(i);
 	if (other != this)
 	{
-	    // Collition Detection
+	    // Collision Detection
 	    bool collision = Physics::collisionDetection(position, 20.0f,
 				      other->getPosition(), 20.0f);
 	    if (collision) {

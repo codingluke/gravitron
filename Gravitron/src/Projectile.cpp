@@ -14,11 +14,12 @@ Projectile::Projectile() : GameActor()
     g = 0;
 }
 
-Projectile::Projectile(Vec3f position, double mass, float gravitationRange, float g, int timeToLive, GameField &field) : 
+Projectile::Projectile(Vec3f position, double mass, float gravitationRange, float g, int timeToLive, GameField &field, GameActor &friendly) : 
     GameActor(position, mass, gravitationRange, g, field)
     {
         this->timeToLive = timeToLive;
         g = 0;
+        this->friendly.push_back(&friendly);
     }
 
 Projectile::Projectile(const Projectile &projectile) : GameActor(projectile)
@@ -35,6 +36,7 @@ int Projectile::getTimeToLive() const
 {
     return timeToLive;
 }
+
 
 /**
  * Loses one unit of timeToLive per frame. If the TTL

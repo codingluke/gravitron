@@ -32,6 +32,10 @@ class GameActor
 	 * a preset normal mass.
 	 */
 	float mass;
+    /**
+     * The health points of this GameActor, 0 indicating a dead GameActor.
+     */
+    int health;
 
 	float gravitationRange;
 	bool killed;
