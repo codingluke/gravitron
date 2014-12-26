@@ -3,3 +3,8 @@
 Planet::Planet()
 {
 }
+
+void Planet::handleCollision(GameActor &other)
+{
+    
+}

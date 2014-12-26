@@ -3,3 +3,8 @@
 Asteroid::Asteroid()
 {
 }
+
+void Asteroid::handleCollision(GameActor &other)
+{
+    
+}

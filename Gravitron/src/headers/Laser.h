@@ -13,6 +13,7 @@ public:
     Laser(const Laser &projectile);
     virtual ~Laser();
     int getTimeToLive() const;
+    void handleCollision(GameActor &other);
 };
 
 #endif // LASER_H

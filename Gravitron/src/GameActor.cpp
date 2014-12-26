@@ -3,7 +3,7 @@
 #include <iostream>
 #include "headers/Physics.h"
 
-void GameActor::initialize(Vec3f position, double mass, float gravitationRange, float g, GameField &field, float maxSpeed)
+void GameActor::initialize(Vec3f position, double mass, float gravitationRange, float g, int health, GameField &field, float maxSpeed)
 {
     killed = false;
 	velocity = Vec3f();
@@ -14,6 +14,7 @@ void GameActor::initialize(Vec3f position, double mass, float gravitationRange, 
     this->g = g;
     this->field = &field;
     this->maxSpeed = maxSpeed;
+    this->health = health;
 }
 
 void GameActor::initialize(const GameActor &actor)
@@ -27,23 +28,24 @@ void GameActor::initialize(const GameActor &actor)
     g = actor.g;
     field = actor.getField();
     maxSpeed = actor.getMaxSpeed();
+    health = actor.getHealth();
 }
 
 GameActor::GameActor()
 {
 	Vec3f in = Vec3f();
     GameField *f = new GameField();
-    initialize(in, 1., 1., 1., *f, -1);
+    initialize(in, 1., 1., 1., -1, *f, -1);
 }
 
-GameActor::GameActor(Vec3f position, double mass, float gravitationRange, float g, GameField &field)
+GameActor::GameActor(Vec3f position, double mass, float gravitationRange, float g, int health, GameField &field)
 {
-    initialize(position, mass, gravitationRange, g, field, -1);
+    initialize(position, mass, gravitationRange, g, health, field, -1);
 }
 
-GameActor::GameActor(Vec3f position, double mass, float gravitationRange, float g, GameField &field, float maxSpeed)
+GameActor::GameActor(Vec3f position, double mass, float gravitationRange, float g, int health, GameField &field, float maxSpeed)
 {
-    initialize(position, mass, gravitationRange, g, field, maxSpeed);
+    initialize(position, mass, gravitationRange, g, health, field, maxSpeed);
 }
 
 GameActor::GameActor(const GameActor &actor)
@@ -90,21 +92,18 @@ void GameActor::update(vector<GameActor*> actors)
 {
     GameActor *other;
     for (unsigned int i = 0; i < actors.size(); i++) {
-	other = actors.at(i);
-	if (other != this)
-	{
-	    // Collision Detection
-	    bool collision = Physics::collisionDetection(position, 20.0f,
-				      other->getPosition(), 20.0f);
-	    if (collision) {
-		kill();
-		other->kill();
-	    }
-
-	    // Update Gravitation
-	    Vec3f f = Physics::calculateGravitationForce(this, actors.at(i));
-	    actors.at(i)->applyForce(f);
-    }
+    	other = actors.at(i);
+    	if (other != this)
+    	{
+    	    // Collision Detection
+    	    bool collision = Physics::collisionDetection(position, 20.0f,
+    				      other->getPosition(), 20.0f);
+    	    if (collision)
+    		  handleCollision(*other);
+    	    // Update Gravitation
+    	    Vec3f f = Physics::calculateGravitationForce(this, actors.at(i));
+    	    actors.at(i)->applyForce(f);
+        }
     }
     update();
 }
@@ -199,6 +198,35 @@ void GameActor::setMaxSpeed(float maxSpeed)
     this->maxSpeed = maxSpeed;
 }
 
+int GameActor::getHealth() const 
+{
+    return health;  
+}
+
+void GameActor::setHealth(int health)
+{
+    this->health = health;
+}
+
+void GameActor::addHealth(int health)
+{
+    this->health += health;
+}
+
+void GameActor::dealDamage(int damage)
+{
+    if (health != -1)
+    {
+        if (health <= damage)
+        {
+            health = 0;
+            kill();
+        }
+        else
+            health -= damage;
+    }
+}
+
 GameActorView* GameActor::getView() const
 {
     std::ostringstream x;
@@ -232,3 +260,9 @@ std::string GameActor::toString() const
     os << "speed: " << velocity.magnitude();
     return os.str();
 }
+
+void GameActor::handleCollision(GameActor &other)
+{
+    
+}
+

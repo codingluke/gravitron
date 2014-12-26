@@ -6,6 +6,7 @@ class Planet : public GameActor
 {
 public:
     Planet();
+    void handleCollision(GameActor &other);
 };
 
 #endif // PLANET_H

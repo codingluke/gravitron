@@ -3,3 +3,8 @@
 Missile::Missile()
 {
 }
+
+void Missile::handleCollision(GameActor &other)
+{
+    
+}

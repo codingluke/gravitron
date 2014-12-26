@@ -9,11 +9,12 @@ class Spacecraft : public GameActor
     public:
         Spacecraft();
         Spacecraft(Vec3f position, double mass,
-                   float gravitationRange, float g, GameField &field);
+                   float gravitationRange, float g, int health, GameField &field);
         Spacecraft(Vec3f position, double mass,
-                   float gravitationRange, float g, GameField &field,
+                   float gravitationRange, float g, int health, GameField &field,
                    float maxSpeed);
         Spacecraft(const Spacecraft &spacecraft);
+        void handleCollision(GameActor &other);
         virtual ~Spacecraft();
 
         GameActorView* getView() const override;

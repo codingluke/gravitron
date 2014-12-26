@@ -6,6 +6,7 @@ class Asteroid : public GameActor
 {
 public:
     Asteroid();
+    void handleCollision(GameActor &other);
 };
 
 #endif // ASTEROID_H

@@ -3,3 +3,8 @@
 PowerUp::PowerUp()
 {
 }
+
+void PowerUp::handleCollision(GameActor &other)
+{
+    
+}

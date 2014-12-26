@@ -6,6 +6,7 @@ class Missile : public Projectile
 {
 public:
     Missile();
+    void handleCollision(GameActor &other);
 };
 
 #endif // MISSILE_H

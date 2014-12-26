@@ -6,6 +6,7 @@ class Scrap : public GameActor
 {
 public:
     Scrap();
+    void handleCollision(GameActor &other);
 };
 
 #endif // SCRAP_H

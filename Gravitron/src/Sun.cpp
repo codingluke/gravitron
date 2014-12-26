@@ -3,3 +3,8 @@
 Sun::Sun()
 {
 }
+
+void Sun::handleCollision(GameActor &other)
+{
+    
+}

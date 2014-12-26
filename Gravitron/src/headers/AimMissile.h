@@ -6,6 +6,7 @@ class AimMissile : public Missile
 {
 public:
     AimMissile();
+    void handleCollision(GameActor &other);
 };
 
 #endif // AIMMISSILE_H

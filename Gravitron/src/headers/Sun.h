@@ -6,6 +6,7 @@ class Sun : public GameActor
 {
 public:
     Sun();
+    void handleCollision(GameActor &other);
 };
 
 #endif // SUN_H

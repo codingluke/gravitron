@@ -14,8 +14,8 @@ Projectile::Projectile() : GameActor()
     g = 0;
 }
 
-Projectile::Projectile(Vec3f position, double mass, float gravitationRange, float g, int timeToLive, GameField &field, GameActor &friendly) : 
-    GameActor(position, mass, gravitationRange, g, field)
+Projectile::Projectile(Vec3f position, double mass, float gravitationRange, float g, int timeToLive, int health, GameField &field, GameActor &friendly) : 
+    GameActor(position, mass, gravitationRange, g, health, field)
     {
         this->timeToLive = timeToLive;
         g = 0;
@@ -51,3 +51,9 @@ void Projectile::update()
     else if (timeToLive != -1)
         timeToLive--;
 }
+
+void handleCollision(GameActor &other)
+{
+    
+}
+

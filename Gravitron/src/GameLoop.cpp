@@ -23,12 +23,12 @@ GameLoop::GameLoop(InputHandler *inputHandler)
         float mass = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
         float gravitationRange =  rand() % 200 + 1;
         float g = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
-        GameActor* actor = new GameActor(position, mass, gravitationRange, g, *field, 5);
+        GameActor* actor = new GameActor(position, mass, gravitationRange, g, 100, *field, 5);
         actors.push_back(actor);
     }
     Vec3f position(rand() % field->getWidth(),rand() % field->getHeight(), 0);
     float mass = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
-    localPlayer = new Spacecraft(position, mass, 0, 0, *field, 10);
+    localPlayer = new Spacecraft(position, mass, 0, 0, 100, *field, 10);
     actors.push_back(localPlayer);
 }
 
