@@ -10,6 +10,10 @@
 #include <QKeyEvent>
 #include "GameField.h"
 #include "InputHandler.h"
+#include "GameGenerator.h"
+#include "Player.h"
+
+class GameGenerator; // <<== Forward declare the class. Because of circular definitions.
 
 using namespace std;
 
@@ -24,13 +28,22 @@ class GameLoop : public QThread
         QObject *game;
         QQmlApplicationEngine *engine;
         vector<GameActor*> actors;
+        vector<Player*> bots;
+        vector<Player*> player;
+        int respawnTime;
         GameActor *localPlayer;
         GameField *field;
         InputHandler *inputHandler;
+        GameGenerator *gGenerator;
 
     public:
-        GameLoop(InputHandler *inputHandler);
+        GameLoop(InputHandler *inputHandler, GameGenerator* gGenerator);
         virtual ~GameLoop();
+        void setBots(vector<Player*> bots);
+        void setPlayer(vector<Player*> player);
+        void setActors(vector<GameActor*> actors);
+        void setGameField(GameField* newField);
+        void setRespawTime(int respawnTime);
 
     public slots:
         void run();
@@ -41,6 +54,9 @@ class GameLoop : public QThread
         void update();
         void render();
         void execLocalPlayerAction(int code);
+        void deleteBots();
+        void deletePlayer();
+        void deleteActors();
 
     signals:
         void ping(const string &result);
@@ -48,3 +64,4 @@ class GameLoop : public QThread
 };
 
 #endif
+

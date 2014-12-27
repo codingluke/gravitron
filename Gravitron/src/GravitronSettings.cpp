@@ -25,6 +25,7 @@ QDataStream& operator<< (QDataStream& stream, const GravitronSettings& settings)
     stream << settings.mFrag;
     stream << settings.mRespawTime;
     stream << settings.mLanguare;
+    stream << settings.mNetwork;
     return stream;
 }
 
@@ -43,18 +44,38 @@ QDataStream& operator>> (QDataStream& stream, GravitronSettings& settings)
     stream >> settings.mFrag;
     stream >> settings.mRespawTime;
     stream >> settings.mLanguare;
+    stream >> settings.mNetwork;
     return stream;
 }
 
 void GravitronSettings::load() {
     QString filename="settings.save";
     QFile file(filename);
-    if ( file.open(QIODevice::ReadWrite) )
+    if (file.exists() && file.open(QIODevice::ReadWrite) )
     {
         QDataStream stream(&file);
         stream >> *this;
+    } else {
+        setDefaultSettings();
     }
     file.close();
+}
+
+void GravitronSettings::setDefaultSettings() {
+    mDifficulty = 2;
+    mFullScreen = false;
+    mMusicSoundVolume = 50;
+    mPlayMusic = true;
+    mPlaySounds = true;
+    mPlayerName = "Player1";
+    mPlayingFieldSize = 500;
+    mBotsCount = 3;
+    mPlanetCount = 5;
+    mAstroidCount = 5;
+    mFrag = 3;
+    mRespawTime = 30;
+    mLanguare = "en";
+    mNetwork = false;
 }
 
 void GravitronSettings::save() {
@@ -196,4 +217,13 @@ void GravitronSettings::setLanguare(const QString& source) {
     mLanguare = source;
     save();
     emit languareChanged(source);
+}
+
+bool GravitronSettings::network() const {
+    return mNetwork;
+}
+
+void GravitronSettings::setNetwork(const bool& source) {
+    mNetwork = source;
+    save();
 }

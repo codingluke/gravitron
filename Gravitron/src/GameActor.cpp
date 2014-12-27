@@ -2,12 +2,13 @@
 #include <sstream>
 #include <iostream>
 #include "headers/Physics.h"
+#include <QDebug>
 
 void GameActor::initialize(Vec3f position, double mass, float gravitationRange, float g, GameField &field, float maxSpeed)
 {
     killed = false;
 	velocity = Vec3f();
-	acceleration = Vec3f();
+    acceleration = Vec3f();
     this->position = position;
 	this->mass = mass;
     this->gravitationRange = gravitationRange;
@@ -97,8 +98,8 @@ void GameActor::update(vector<GameActor*> actors)
 	    bool collision = Physics::collisionDetection(position, 20.0f,
 				      other->getPosition(), 20.0f);
 	    if (collision) {
-		kill();
-		other->kill();
+            kill();
+            other->kill();
 	    }
 
 	    // Update Gravitation

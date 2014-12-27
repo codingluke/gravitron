@@ -8,7 +8,9 @@
 #include "headers/Game.h"
 #include "headers/MenuListener.h"
 #include "headers/Locater.h"
+#include "headers/GameGenerator.h"
 #include <string>
+#include <QDebug>
 
 using namespace std;
 
@@ -26,8 +28,9 @@ int main(int argc, char *argv[])
     engine.rootContext()->setContextProperty("Settings", &settings);
     engine.rootContext()->setContextProperty("MListener", &mListener);
 
+    GameGenerator gGenerator(&settings);
     // Add Game
-    Game game(&engine);
+    Game game(&engine, &gGenerator);
 
     engine.rootContext()->setContextProperty("Game", &game);
 
