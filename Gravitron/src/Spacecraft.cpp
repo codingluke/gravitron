@@ -62,5 +62,10 @@ void Spacecraft::forceRight()
     applyForce(Vec3f(0.01,0.,0.));
 }
 
+void Spacecraft::repair()
+{
+
+}
+
 
 

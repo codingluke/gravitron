@@ -11,6 +11,7 @@ public:
     GameField();
     GameField(int, int);
 
+
     void setWidth(int);
     void setHeight(int);
 

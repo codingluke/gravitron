@@ -22,6 +22,7 @@ class Spacecraft : public GameActor
         void forceBack();
         void forceLeft();
         void forceRight();
+        void repair();
 };
 
 #endif // SPACECRAFT_H

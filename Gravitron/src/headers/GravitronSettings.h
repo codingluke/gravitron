@@ -76,6 +76,10 @@ class GravitronSettings : public QObject
            WRITE setLanguare
            NOTIFY languareChanged)
 
+        Q_PROPERTY(bool network
+           READ network
+           WRITE setNetwork)
+
         explicit GravitronSettings(QObject *parent = 0);
 
     public slots:
@@ -105,12 +109,16 @@ class GravitronSettings : public QObject
         void setRespawTime(const int& source);
         QString languare() const;
         void setLanguare(const QString& source);
+        bool network() const;
+        void setNetwork(const bool& source);
 
         void save();
         void load();
         friend QDataStream& operator<< (QDataStream& stream, const GravitronSettings& settings);
         friend QDataStream& operator>> (QDataStream& stream, GravitronSettings& settings);
 
+    private:
+        void setDefaultSettings();
 
     signals:
         Q_INVOKABLE void difficultyChanged(const int& source);
@@ -142,6 +150,7 @@ class GravitronSettings : public QObject
         int mFrag;
         int mRespawTime;
         QString mLanguare;
+        bool mNetwork;
 };
 
 

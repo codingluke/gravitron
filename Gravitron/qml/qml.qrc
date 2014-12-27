@@ -17,5 +17,6 @@
         <file>GameSettingsSubMenu.qml</file>
         <file>GameSettingsActions.js</file>
         <file>MultiplayerJoin.qml</file>
+        <file alias="planet">actors/Planet.qml</file>
     </qresource>
 </RCC>

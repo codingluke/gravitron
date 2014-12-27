@@ -1,6 +1,7 @@
 #include "headers/Game.h"
 #include "headers/GameActorView.h"
 #include "headers/InputHandler.h"
+
 #include <QDebug>
 #include <iostream>
 
@@ -11,10 +12,10 @@ Game::Game(QObject *parent) : QObject(parent)
   init();
 }
 
-Game::Game(QQmlApplicationEngine *theEngine)
+Game::Game(QQmlApplicationEngine *theEngine, GameGenerator *gGenerator)
 {
   engine = theEngine;
-  init();
+  init(gGenerator);
 }
 
 /**
@@ -35,10 +36,14 @@ void Game::start()
     gameLoop->start();
 }
 
-void Game::init()
+void Game::init() {
+    init(NULL);
+}
+
+void Game::init(GameGenerator *gGenerator)
 {
     InputHandler *iHandler = new InputHandler();
-    gameLoop = new GameLoop(iHandler);
+    gameLoop = new GameLoop(iHandler, gGenerator);
     QCoreApplication::instance()->installEventFilter(gameLoop);
     QCoreApplication::instance()->installEventFilter(iHandler);
     connect(this, SIGNAL(stop(void)), gameLoop, SLOT(stop(void)));
@@ -97,6 +102,7 @@ void Game::render(vector<GameActorView*> *views)
         // Map the properties
         map<string, string> props = (*it)->getProperties();
         map<string, string>::iterator pit;
+
         for(pit = props.begin(); pit != props.end(); pit++) {
             childItem->setProperty(pit->first.c_str(), pit->second.c_str());
         }
