@@ -13,7 +13,6 @@ MenuListener::MenuListener(GravitronSettings *settings, QObject *parent) :
 
 void MenuListener::startSinglePlayerGame()
 {
-
     //GravitronSettings *s = settings;
     //int wait = 0;
 }

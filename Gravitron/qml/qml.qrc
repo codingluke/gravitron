@@ -17,5 +17,12 @@
         <file>GameSettingsSubMenu.qml</file>
         <file>GameSettingsActions.js</file>
         <file>MultiplayerJoin.qml</file>
+        <file>menus/Main.qml</file>
+        <file>menus/NewGame.qml</file>
+        <file>menus/SinglePlayer.qml</file>
+        <file>menus/Credits.qml</file>
+        <file>menus/GlobalSettings.qml</file>
+        <file>menus/GameSettings.qml</file>
+        <file>menus/Stats.qml</file>
     </qresource>
 </RCC>

@@ -1,40 +1,45 @@
 function btn_newGameClicked(){
-    showSubMenu("NewGameSubMenu.qml");
+    main_list.model = newGameMenu;
+}
+
+function btn_startGameClicked() {
     //showSubMenu("Game.qml");
-    //Game.setQmlParent(load_subMenu.item);
-    //Game.start();
+    scrollView.visible = false;
+    loader.visible = true;
+    loader.source = "Game.qml";
+    Game.setQmlParent(loader.item);
+    Game.start();
 }
 
 function btn_settingsClicked() {
-    showSubMenu("GlobalSettingsSubMenu.qml");
+    main_list.model = globalSettingsMenu
 }
 
 function btn_creditsClicked() {
-    showSubMenu("CreditsSubMenu.qml");
+    main_list.model = creditsMenu
 }
 
 function btn_statsClicked() {
-    showSubMenu("StatsSubMenu.qml");
+    //showSubMenu("StatsSubMenu.qml");
+    main_list.model = statsMenu
 }
 
 function showSubMenu(name) {
-    col_mainMenu.visible = false;
     load_subMenu.source = name;
-    load_subMenu.visible = true;
 }
 
 function btn_backClicked() {
-    load_subMenu.visible = false;
-    col_mainMenu.visible = true;
+    main_list.model = mainMenu;
+    scrollView.visible = true;
+    loader.visible = false;
 }
 
 function btn_backToNewGameClicked() {
-    load_singlePlayerSubMenu.visible = false;
-    col_newGameSubMenu.visible = true;
+    main_list.model = newGameMenu
 }
 
 function btn_singelPlayerClicked() {
-    showNewGameSubMenu("SinglePlayerSubMenu.qml")
+    main_list.model = singlePlayerMenu;
 }
 
 function btn_multiPlayerClicked(){

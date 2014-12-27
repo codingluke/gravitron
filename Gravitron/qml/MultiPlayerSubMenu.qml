@@ -20,7 +20,6 @@ Rectangle {
         spacing: 10
         width: 300
 
-
         Button {
             id: btn_back
             width: Global.buttonWidth
@@ -50,9 +49,9 @@ Rectangle {
 
         }
 
-        GameSettingsSubMenu {
-            id: gameSettings
-        }
+        //GameSettingsSubMenu {
+            //id: gameSettings
+        //}
 
         Button {
             id: btn_startSinglePlayer

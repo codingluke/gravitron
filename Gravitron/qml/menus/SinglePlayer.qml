@@ -1,24 +1,14 @@
-import QtQuick 2.0
+import QtQuick 2.3
 import QtQuick.Controls 1.2
-import QtPositioning 5.3
-import QtQuick.Layouts 1.0
-import GravitronSettings 1.0
 
-import "constants.js" as Global
-import "functions.js" as Functions
+import "../constants.js" as Global
+import "../functions.js" as Functions
 
-Rectangle {
-    id: rec_singlePlayerSubMenu
-    width: parent.height
-    height: parent.width
-
-
+VisualItemModel {
     Column {
-        id: col_singlePlayerSubMenu
-        spacing: 10
-        width: 300
-        anchors.verticalCenter: parent.verticalCenter
         anchors.horizontalCenter: parent.horizontalCenter
+        anchors.verticalCenter: parent.verticalCenter
+        spacing: 10
 
         Button {
             id: btn_backToNewGame
