@@ -10,7 +10,7 @@ import "functions.js" as Functions
 Window {
     id: win_startWindow
     visible: true
-    width: 500
+    width: 1200
     height: 500
     
     Image {
@@ -94,8 +94,8 @@ Window {
     }
 
     Loader {
-        width: Screen.width
-        height: Screen.height
+        width: parent.width
+        height: parent.height
         visible: false
         id: load_subMenu
     }
