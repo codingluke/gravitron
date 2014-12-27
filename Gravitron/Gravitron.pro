@@ -3,7 +3,7 @@ TEMPLATE = app
 CONFIG += debug
 CONFIG += c++11
 
-QT += qml quick #network?
+QT += qml quick network
 
 HEADERS += src/headers/GameActor.h \
     src/headers/Vec3f.h \
@@ -29,7 +29,9 @@ HEADERS += src/headers/GameActor.h \
     src/headers/Sun.h \
     src/headers/PowerUp.h \
     src/headers/Asteroid.h \
-    src/headers/Scrap.h
+    src/headers/Scrap.h \
+    src/headers/TcpClient.h \
+    src/headers/TcpServer.h
 
 DESTDIR = ../build
 OBJECTS_DIR = ../build
@@ -61,7 +63,9 @@ SOURCES += src/main.cpp \
     src/Sun.cpp \
     src/PowerUp.cpp \
     src/Asteroid.cpp \
-    src/Scrap.cpp
+    src/Scrap.cpp \
+    src/TcpClient.cpp \
+    src/TcpServer.cpp
 
 RESOURCES += assets/img/img.qrc \
         assets/audio/audio.qrc \
