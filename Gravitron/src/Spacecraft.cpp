@@ -1,4 +1,5 @@
 #include "headers/Spacecraft.h"
+#include "headers/Laser.h"
 #include <sstream>
 #include <iostream>
 
@@ -60,6 +61,30 @@ void Spacecraft::forceLeft()
 void Spacecraft::forceRight()
 {
     applyForce(Vec3f(0.01,0.,0.));
+}
+
+Projectile &Spacecraft::shootUp()
+{
+    Projectile *shot = new Laser(this->getPosition() + Vec3f(0,-2.,0.), Vec3f(0., -1., 0.), *field, *this);
+    return *shot;
+}
+
+Projectile &Spacecraft::shootDown()
+{
+    Projectile *shot = new Laser(this->getPosition() + Vec3f(0., 2., 0.), Vec3f(0., 1., 0.), *field, *this);
+    return *shot;
+}
+
+Projectile &Spacecraft::shootLeft()
+{
+    Projectile *shot = new Laser(this->getPosition() + Vec3f(-2., 0., 0.), Vec3f(-1., 0., 0.), *field, *this);
+    return *shot;
+}
+
+Projectile &Spacecraft::shootRight()
+{
+    Projectile *shot = new Laser(this->getPosition() + Vec3f(2., 0., 0.), Vec3f(1., 0., 0.), *field, *this);
+    return *shot;
 }
 
 void Spacecraft::handleCollision(GameActor &other)

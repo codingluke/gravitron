@@ -24,7 +24,7 @@ class GameLoop : public QThread
         QObject *game;
         QQmlApplicationEngine *engine;
         vector<GameActor*> actors;
-        GameActor *localPlayer;
+        Spacecraft *localPlayer;
         GameField *field;
         InputHandler *inputHandler;
 

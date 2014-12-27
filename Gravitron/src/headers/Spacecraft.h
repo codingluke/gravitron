@@ -2,6 +2,7 @@
 #define SPACECRAFT_H
 #include "GameActor.h"
 #include "GameField.h"
+#include "Projectile.h"
 
 
 class Spacecraft : public GameActor
@@ -23,6 +24,11 @@ class Spacecraft : public GameActor
         void forceBack();
         void forceLeft();
         void forceRight();
+
+        Projectile &shootUp();
+        Projectile &shootDown();
+        Projectile &shootLeft();
+        Projectile &shootRight();
 };
 
 #endif // SPACECRAFT_H
