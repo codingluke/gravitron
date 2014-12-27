@@ -43,7 +43,8 @@ function btn_singelPlayerClicked() {
 }
 
 function btn_multiPlayerClicked(){
-    showNewGameSubMenu("MultiPlayerSubMenu.qml")
+    //showNewGameSubMenu("MultiPlayerSubMenu.qml")
+    main_list.model = multiPlayerMenu;
 }
 
 function showNewGameSubMenu(name) {

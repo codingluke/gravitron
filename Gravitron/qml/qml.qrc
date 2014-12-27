@@ -24,5 +24,6 @@
         <file>menus/GlobalSettings.qml</file>
         <file>menus/GameSettings.qml</file>
         <file>menus/Stats.qml</file>
+        <file>menus/MultiPlayer.qml</file>
     </qresource>
 </RCC>

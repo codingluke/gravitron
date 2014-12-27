@@ -37,6 +37,7 @@ Window {
     Menus.GameSettings { id: gameSettingsMenu }
     Menus.GlobalSettings{ id: globalSettingsMenu }
     Menus.Stats { id: statsMenu }
+    Menus.MultiPlayer{ id: multiPlayerMenu }
 
     ScrollView {
         id: scrollView
