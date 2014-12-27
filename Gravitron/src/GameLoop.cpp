@@ -95,6 +95,7 @@ void GameLoop::execLocalPlayerAction(int code)
     } else if (code == Qt::Key_W) {
         //actors.push_back(new Laser(*localPlayer, Vec3f(0.,-0.01,0.), *field, *localPlayer));
         actors.push_back(new Laser(localPlayer->getPosition() + Vec3f(-2.,-2.,0.), Vec3f(0.,-0.01,0.), *field, *localPlayer));
+        inputHandler->removeInputCode(Qt::Key_W);
         //qDebug() << "Shoot Up";
     } else if (code == Qt::Key_S) {
         //actors.push_back(new Laser(*localPlayer, Vec3f(0.,0.01,0.), *field, *localPlayer));

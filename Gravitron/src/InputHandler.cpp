@@ -17,6 +17,20 @@ set<int> InputHandler::getInputs()
     return copy;
 }
 
+void InputHandler::insertInputCode(int code)
+{
+    mutex.lock();
+    inputs.insert(code);
+    mutex.unlock();
+}
+
+void InputHandler::removeInputCode(int code)
+{
+    mutex.lock();
+    inputs.erase(code);
+    mutex.unlock();
+}
+
 //void InputHandler::bindFunction(int code, callback func)
 //{
     //bindings[code] = func;
@@ -35,14 +49,10 @@ bool InputHandler::eventFilter(QObject *obj, QEvent *event)
 {
   if (event->type() == QEvent::KeyPress && obj) {
       QKeyEvent *keyEvent = (QKeyEvent*)event;
-      mutex.lock();
-      inputs.insert(keyEvent->key());
-      mutex.unlock();
+      insertInputCode(keyEvent->key());
   } else if (event->type() == QEvent::KeyRelease && obj) {
       QKeyEvent *keyEvent = (QKeyEvent*)event;
-      mutex.lock();
-      inputs.erase(keyEvent->key());
-      mutex.unlock();
+      removeInputCode(keyEvent->key());
   }
   return false;
 }
