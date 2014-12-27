@@ -18,7 +18,7 @@ GameLoop::GameLoop(InputHandler *inputHandler)
 {
     this->inputHandler = inputHandler;
     field = new GameField(500, 500);
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < 4; i++) {
         Vec3f position(rand() % field->getWidth(),rand() % field->getHeight(), 0);
         float mass = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
         float gravitationRange =  rand() % 200 + 1;
@@ -93,23 +93,23 @@ void GameLoop::execLocalPlayerAction(int code)
     } else if (code == Qt::Key_Down) {
         localPlayer->applyForce(Vec3f(0.,0.01,0.));
     } else if (code == Qt::Key_W) {
-        actors.push_back(new Laser(*localPlayer, Vec3f(0.,-0.01,0.), *field, *localPlayer));
+        //actors.push_back(new Laser(*localPlayer, Vec3f(0.,-0.01,0.), *field, *localPlayer));
+        actors.push_back(new Laser(localPlayer->getPosition() + Vec3f(-2.,-2.,0.), Vec3f(0.,-0.01,0.), *field, *localPlayer));
         //qDebug() << "Shoot Up";
     } else if (code == Qt::Key_S) {
-        actors.push_back(new Laser(*localPlayer, Vec3f(0.,0.01,0.), *field, *localPlayer));
+        //actors.push_back(new Laser(*localPlayer, Vec3f(0.,0.01,0.), *field, *localPlayer));
         //qDebug() << "Shoot Down";
     } else if (code == Qt::Key_A) {
-        actors.push_back(new Laser(*localPlayer, Vec3f(-0.01,0.,0.), *field, *localPlayer));
+        //actors.push_back(new Laser(*localPlayer, Vec3f(-0.01,0.,0.), *field, *localPlayer));
         //qDebug() << "Shoot Left";
     } else if (code == Qt::Key_D) {
-        actors.push_back(new Laser(*localPlayer, Vec3f(0.01,0.,0.), *field, *localPlayer));
+        //actors.push_back(new Laser(*localPlayer, Vec3f(0.01,0.,0.), *field, *localPlayer));
         //qDebug() << "Shoot Right";
-    }   
+    }
 }
 
 void GameLoop::update()
 {
-
     vector<GameActor*>::iterator it;
     for(it = actors.begin(); it != actors.end(); it++) {
         (*it)->update(actors);
@@ -122,10 +122,11 @@ void GameLoop::update()
         }
     }
     actors.shrink_to_fit();
-}     
+}
 
 void GameLoop::render()
 {
+    qDebug() << actors.size();
     if(actors.size() > 0) { //wenn actors leer sind > speicherzugriffsfehler im vector
         vector<GameActorView*> *viewlist = new vector<GameActorView*>;
         vector<GameActor*>::iterator it;
