@@ -17,6 +17,7 @@ class TcpServer: public QObject
     public slots:
         void acceptConnection();
         void startRead();
+        void startListen(int port);
 
     private:
         QTcpServer server;

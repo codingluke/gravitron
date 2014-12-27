@@ -8,6 +8,8 @@
 #include "headers/Game.h"
 #include "headers/MenuListener.h"
 #include "headers/Locater.h"
+#include "headers/TcpClient.h"
+#include "headers/TcpServer.h"
 #include <string>
 
 using namespace std;
@@ -28,8 +30,17 @@ int main(int argc, char *argv[])
 
     // Add Game
     Game game(&engine);
-
     engine.rootContext()->setContextProperty("Game", &game);
+
+    // Add TCP
+    TcpServer server;
+    TcpClient client;
+    //engine.rootContext()->setContextProperty("Server", &server);
+    //engine.rootContext()->setContextProperty("Client", &client);
+
+    //server.startListen(8000);
+    //QThread::msleep(200);
+    //client.start("127.0.0.1", 8000);
 
     Locater l(settings, app);
     l.loadLanguare(settings.languare());
