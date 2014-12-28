@@ -94,19 +94,19 @@ void GameLoop::execLocalPlayerAction(int code)
     } else if (code == Qt::Key_Down) {
         localPlayer->applyForce(Vec3f(0.,0.01,0.));
     } else if (code == Qt::Key_W) {
-        actors.push_back(new Projectile(localPlayer->Spacecraft::shootUp()));
+        actors.push_back(&(localPlayer->Spacecraft::shootUp()));
         inputHandler->removeInputCode(Qt::Key_W);
         //qDebug() << "Shoot Up";
     } else if (code == Qt::Key_S) {
-        actors.push_back(new Projectile(localPlayer->Spacecraft::shootDown()));
+        actors.push_back(&(localPlayer->Spacecraft::shootDown()));
         inputHandler->removeInputCode(Qt::Key_S);
         //qDebug() << "Shoot Down";
     } else if (code == Qt::Key_A) {
-        actors.push_back(new Projectile(localPlayer->Spacecraft::shootLeft()));
+        actors.push_back(&(localPlayer->Spacecraft::shootLeft()));
         inputHandler->removeInputCode(Qt::Key_A);
         //qDebug() << "Shoot Left";
     } else if (code == Qt::Key_D) {
-        actors.push_back(new Projectile(localPlayer->Spacecraft::shootRight()));
+        actors.push_back(&(localPlayer->Spacecraft::shootRight()));
         inputHandler->removeInputCode(Qt::Key_D);
         //qDebug() << "Shoot Right";
     }

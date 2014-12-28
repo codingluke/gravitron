@@ -14,10 +14,11 @@ public:
     Projectile();
     Projectile(Vec3f position, double mass, float gravitationRange, float g, int timeToLive, int health, GameField &field, GameActor &friendly);
     Projectile(const Projectile &projectile);
-    virtual ~Projectile();
+    ~Projectile();
     int getTimeToLive() const;
     void handleCollision(GameActor &other);
     void update() override;
+
 };
 
 #endif // PROJECTILE_H
