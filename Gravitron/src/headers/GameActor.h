@@ -61,6 +61,8 @@ class GameActor
 	virtual void update(vector<GameActor*> actors);
 	void update(double radius);
 
+    void handleCollision(GameActor &other);
+
 	bool operator== (GameActor& right);
 	GameActor &operator= (const GameActor &right);
 
@@ -79,7 +81,6 @@ class GameActor
     void addHealth(int health);
 	virtual GameActorView* getView() const;
 	GameField* getField() const;
-    void handleCollision(GameActor &other);
 
 	void kill();
 	bool isKilled();

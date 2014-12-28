@@ -1,5 +1,6 @@
 #include "headers/GameActor.h"
 #include <sstream>
+#include <QDebug>
 #include <iostream>
 #include "headers/Physics.h"
 
@@ -99,7 +100,10 @@ void GameActor::update(vector<GameActor*> actors)
     	    bool collision = Physics::collisionDetection(position, 20.0f,
     				      other->getPosition(), 20.0f);
     	    if (collision)
-    		  handleCollision(*other);
+            {
+    		    handleCollision(*other);
+                other->handleCollision(*this);
+            }
     	    // Update Gravitation
     	    Vec3f f = Physics::calculateGravitationForce(this, actors.at(i));
     	    actors.at(i)->applyForce(f);
@@ -263,7 +267,4 @@ std::string GameActor::toString() const
 }
 
 void GameActor::handleCollision(GameActor &other)
-{
-
-}
-
+{}

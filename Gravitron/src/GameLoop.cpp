@@ -23,7 +23,7 @@ GameLoop::GameLoop(InputHandler *inputHandler)
         float mass = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
         float gravitationRange =  rand() % 200 + 1;
         float g = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
-        GameActor* actor = new GameActor(position, mass, gravitationRange, g, 100, *field, 5);
+        GameActor* actor = new GameActor(position, mass, gravitationRange, g, 20, *field, 5);
         actors.push_back(actor);
     }
     Vec3f position(rand() % field->getWidth(),rand() % field->getHeight(), 0);
@@ -64,6 +64,7 @@ void GameLoop::run()
             update();
             lag -= ms_per_update;
         }
+
         render();
     }
 }
@@ -93,29 +94,20 @@ void GameLoop::execLocalPlayerAction(int code)
     } else if (code == Qt::Key_Down) {
         localPlayer->applyForce(Vec3f(0.,0.01,0.));
     } else if (code == Qt::Key_W) {
-        //actors.push_back(new Laser(*localPlayer, Vec3f(0.,-0.01,0.), *field, *localPlayer));
-        //actors.push_back(new Laser(localPlayer->getPosition() + Vec3f(-2.,-2.,0.), Vec3f(0.,-0.01,0.), *field, *localPlayer));
-        Projectile *shot = new Projectile(localPlayer->Spacecraft::shootUp());
-        actors.push_back(shot);
+        actors.push_back(new Projectile(localPlayer->Spacecraft::shootUp()));
         inputHandler->removeInputCode(Qt::Key_W);
         //qDebug() << "Shoot Up";
     } else if (code == Qt::Key_S) {
-        Projectile *shot = new Projectile(localPlayer->Spacecraft::shootDown());
-        actors.push_back(shot);
+        actors.push_back(new Projectile(localPlayer->Spacecraft::shootDown()));
         inputHandler->removeInputCode(Qt::Key_S);
-        //actors.push_back(new Laser(*localPlayer, Vec3f(0.,0.01,0.), *field, *localPlayer));
         //qDebug() << "Shoot Down";
     } else if (code == Qt::Key_A) {
-        Projectile *shot = new Projectile(localPlayer->Spacecraft::shootLeft());
-        actors.push_back(shot);
+        actors.push_back(new Projectile(localPlayer->Spacecraft::shootLeft()));
         inputHandler->removeInputCode(Qt::Key_A);
-        //actors.push_back(new Laser(*localPlayer, Vec3f(-0.01,0.,0.), *field, *localPlayer));
         //qDebug() << "Shoot Left";
     } else if (code == Qt::Key_D) {
-        Projectile *shot = new Projectile(localPlayer->Spacecraft::shootRight());
-        actors.push_back(shot);
+        actors.push_back(new Projectile(localPlayer->Spacecraft::shootRight()));
         inputHandler->removeInputCode(Qt::Key_D);
-        //actors.push_back(new Laser(*localPlayer, Vec3f(0.01,0.,0.), *field, *localPlayer));
         //qDebug() << "Shoot Right";
     }
 }
@@ -129,7 +121,7 @@ void GameLoop::update()
     for(it = actors.begin(); it != actors.end(); it++) {
         if ((*it)->isKilled() && (*it) != localPlayer) {
             qDebug() << "kill";
-            delete (*it);
+            delete *it;
             actors.erase(it);
         }
     }
@@ -138,7 +130,7 @@ void GameLoop::update()
 
 void GameLoop::render()
 {
-    qDebug() << actors.size();
+    //qDebug() << actors.size();
     if(actors.size() > 0) { //wenn actors leer sind > speicherzugriffsfehler im vector
         vector<GameActorView*> *viewlist = new vector<GameActorView*>;
         vector<GameActor*>::iterator it;

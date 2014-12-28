@@ -28,8 +28,13 @@ Projectile::Projectile(const Projectile &projectile) : GameActor(projectile)
     g = 0;
 }
 
-Projectile::~Projectile() {
-
+Projectile::~Projectile() 
+{
+    vector<GameActor*>::iterator it;
+    for (it = friendly.begin(); it < friendly.end(); it++)
+    {
+        friendly.erase(it);
+    }
 }
 
 int Projectile::getTimeToLive() const
@@ -53,7 +58,7 @@ void Projectile::update()
     //qDebug() << "Updating projectile.\n";
 }
 
-void handleCollision(GameActor &other)
+void Projectile::handleCollision(GameActor &other) 
 {
 
 }

@@ -13,11 +13,11 @@ public:
     Laser(GameActor &actor, Vec3f velocity, GameField &field, GameActor &friendly);
     Laser(GameActor &actor, GameField &field, GameActor &friendly);
     Laser(const Laser &projectile);
-    virtual ~Laser();
+    ~Laser();
     int getTimeToLive() const;
     void handleCollision(GameActor &other);
 
-    GameActorView* getView() const;
+    GameActorView* getView() const override;
 };
 
 #endif // LASER_H
