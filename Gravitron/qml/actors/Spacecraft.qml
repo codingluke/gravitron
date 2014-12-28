@@ -3,10 +3,10 @@ import QtQuick 2.3
 Rectangle {
     property int identifier 
 
-    id: actor
+    id: spacecraft
     width: 50
     height: 50
-    color: "red"
+    color: "#FF000000"
     Text {
         id: buttonLabel
         anchors.centerIn: parent

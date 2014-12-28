@@ -6,7 +6,7 @@ Rectangle {
     id: planet
     width: 50
     height: 50
-    color: "red"
+    color: "#FF000000"
     Text {
         id: buttonLabel
         anchors.centerIn: parent
