@@ -29,7 +29,7 @@ void GameGenerator::generateGame(GameLoop* g) {
     */
     //generateBots();
     generatePlanets();
-    //generateAstroids();
+    generateAstroids();
     generatePlayer();
 
     qDebug() << "GameCreator: " << actors.size();
@@ -78,6 +78,8 @@ void GameGenerator::generatePlanets() {
 
 void GameGenerator::generateAstroids() {
     for(int i = 0; i < settings->astroidCount(); i++) {
-        actors.push_back(new Asteroid());
+        Vec3f position(rand() % field->getWidth(),rand() % field->getHeight(), 0);
+        float mass = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
+        actors.push_back(new Asteroid(position, mass, 100, 10, *field, 7));
     }
 }

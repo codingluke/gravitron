@@ -38,7 +38,6 @@ GameActorView* Spacecraft::getView() const {
     view->setProperty("identifier", "S");
     view->setProperty("x", x.str());
     view->setProperty("y", y.str());
-    view->setProperty("color", "green");
     return view;
 }
 

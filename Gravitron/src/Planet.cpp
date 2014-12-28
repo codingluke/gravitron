@@ -22,7 +22,6 @@ GameActorView* Planet::getView() const {
     v->setProperty("identifier", "S");
     v->setProperty("x", x.str());
     v->setProperty("y", y.str());
-    v->setProperty("color", "green");
     return v;
 }
 

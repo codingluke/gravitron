@@ -5,7 +5,8 @@
 class Asteroid : public GameActor
 {
 public:
-    Asteroid();
+    Asteroid(Vec3f position, double mass, float gravitationRange, float g, GameField &field, float maxSpeed);
+    GameActorView* getView() const ;
 };
 
 #endif // ASTEROID_H

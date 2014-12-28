@@ -140,21 +140,25 @@ void GameLoop::execLocalPlayerAction(int code)
 
 void GameLoop::update()
 {
+    qDebug() << "GameLoop: update";
     vector<GameActor*>::iterator it;
     for(it = actors.begin(); it != actors.end(); it++) {
         (*it)->update(actors);
     }
     for(it = actors.begin(); it != actors.end(); it++) {
         if ((*it)->isKilled() && (*it) != localPlayer) {
-            //delete (*it);
-            //actors.erase(it);
+            delete (*it);
+            actors.erase(it);
         }
     }
     actors.shrink_to_fit();
+    QThread::msleep(5);
 }
+
 
 void GameLoop::render()
 {
+    qDebug() << "GameLoop: render";
     if(actors.size() > 0) { //wenn actors leer sind > speicherzugriffsfehler im vector
         vector<GameActorView*> *viewlist = new vector<GameActorView*>;
         vector<GameActor*>::iterator it;
