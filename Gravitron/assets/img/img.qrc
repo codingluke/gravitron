@@ -2,5 +2,7 @@
     <qresource prefix="/img">
         <file alias="menuBackgroundImage">comet-family-1920.jpg</file>
         <file alias="spacecraft">spacecraft.png</file>
+        <file alias="planet">planet.png</file>
+        <file alias="asteroid">asteroid.png</file>
     </qresource>
 </RCC>

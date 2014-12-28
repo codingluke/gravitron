@@ -38,7 +38,6 @@ GameActorView* Spacecraft::getView() const {
     view->setProperty("identifier", "S");
     view->setProperty("x", x.str());
     view->setProperty("y", y.str());
-    view->setProperty("color", "green");
     return view;
 }
 
@@ -60,6 +59,11 @@ void Spacecraft::forceLeft()
 void Spacecraft::forceRight()
 {
     applyForce(Vec3f(0.01,0.,0.));
+}
+
+void Spacecraft::repair()
+{
+
 }
 
 

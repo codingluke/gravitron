@@ -1,9 +1,9 @@
 import QtQuick 2.3
 
 Rectangle {
-    property int identifier 
+    property int identifier
 
-    id: spacecraft
+    id: planet
     width: 50
     height: 50
     color: "#FF000000"
@@ -17,8 +17,6 @@ Rectangle {
         id: image1
         width: parent.width
         height: parent.height
-        source: "qrc:/img/spacecraft"
+        source: "qrc:/img/planet"
     }
-
-
 }

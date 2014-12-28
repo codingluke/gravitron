@@ -31,7 +31,13 @@ HEADERS += src/headers/GameActor.h \
     src/headers/Asteroid.h \
     src/headers/Scrap.h \
     src/headers/TcpClient.h \
-    src/headers/TcpServer.h
+    src/headers/TcpServer.h \
+    src/headers/Player.h \
+    src/headers/HumanPlayer.h \
+    src/headers/HumanNetworkPlayer.h \
+    src/headers/KiPlayer.h \
+    src/headers/KiNetworkPlayer.h \
+    src/headers/GameGenerator.h
 
 DESTDIR = ../build
 OBJECTS_DIR = ../build
@@ -65,7 +71,13 @@ SOURCES += src/main.cpp \
     src/Asteroid.cpp \
     src/Scrap.cpp \
     src/TcpClient.cpp \
-    src/TcpServer.cpp
+    src/TcpServer.cpp \
+    src/Player.cpp \
+    src/HumanPlayer.cpp \
+    src/HumanNetworkPlayer.cpp \
+    src/KiPlayer.cpp \
+    src/KiNetworkPlayer.cpp \
+    src/GameGenerator.cpp
 
 RESOURCES += assets/img/img.qrc \
         assets/audio/audio.qrc \

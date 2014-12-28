@@ -8,6 +8,8 @@
 #include <QtQml>
 #include <QQuickItem>
 #include "GameActorView.h"
+#include "GravitronSettings.h"
+#include "GameGenerator.h"
 
 using namespace std;
 
@@ -22,7 +24,7 @@ class Game: public QObject
 
     public:
         Game(QObject *parent = 0);
-        Game(QQmlApplicationEngine *theEngine);
+        Game(QQmlApplicationEngine *theEngine, GameGenerator *gGenerator);
         ~Game();
 
         Q_INVOKABLE void setQmlParent(QQuickItem *theQmlParent);
@@ -38,6 +40,7 @@ class Game: public QObject
 
     private:
         void init();
+        void init(GameGenerator *gGenerator);
         void clearScene();
 };
 

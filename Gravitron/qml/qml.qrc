@@ -25,5 +25,7 @@
         <file>menus/GameSettings.qml</file>
         <file>menus/Stats.qml</file>
         <file>menus/MultiPlayer.qml</file>
+        <file alias="planet">actors/Planet.qml</file>
+        <file alias="asteroid">actors/Asteroid.qml</file>
     </qresource>
 </RCC>
