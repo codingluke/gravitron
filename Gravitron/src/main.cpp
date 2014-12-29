@@ -41,10 +41,15 @@ int main(int argc, char *argv[])
     engine.rootContext()->setContextProperty("Server", &server);
     engine.rootContext()->setContextProperty("Client", &client);
 
+    //server.transfer("yey from the server");
+
     Locater l(settings, app);
     l.loadLanguare(settings.languare());
 
     engine.load(QUrl(QStringLiteral("qrc:/qml/main.qml")));
+
+    server.startListen(8000);
+    client.start("127.0.0.1", 8000);
 
     return app.exec();
 }

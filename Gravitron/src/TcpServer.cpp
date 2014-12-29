@@ -14,6 +14,7 @@ TcpServer::TcpServer(QObject* parent): QObject(parent)
 TcpServer::~TcpServer()
 {
     server.close();
+    client->close();
 }
 
 void TcpServer::startListen(int port)
@@ -32,10 +33,18 @@ void TcpServer::acceptConnection()
             this, SLOT(startRead()));
 }
 
+void TcpServer::transfer(QString message)
+{
+    if (client->state() == QAbstractSocket::ConnectedState) {
+        client->write(message.toStdString().c_str(), message.length());
+    } else {
+        qDebug() << "TcpServer: not connected!";
+    }
+}
+
 void TcpServer::startRead()
 {
     char buffer[1024] = {0};
     client->read(buffer, client->bytesAvailable());
     cout << buffer << endl;
-    client->close();
 }

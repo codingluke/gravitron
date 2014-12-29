@@ -8,19 +8,24 @@
 
 class TcpClient: public QObject
 {
-  Q_OBJECT
+    Q_OBJECT
 
-  public:
-    TcpClient(QObject* parent = 0);
-    ~TcpClient();
+    private:
+        QTcpSocket client;
 
-    Q_INVOKABLE void start(QString address, quint16 port);
+    public:
+        TcpClient(QObject* parent = 0);
+        ~TcpClient();
 
-  public slots:
-    void startTransfer();
+        Q_INVOKABLE void start(QString address, quint16 port);
+        void transfer(QString message);
 
-  private:
-    QTcpSocket client;
+    public slots:
+        void startTransfer();
+        void startRead();
+
+    signals:
+        void received(QString message);
 };
 
 #endif

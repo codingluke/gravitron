@@ -5,6 +5,7 @@
 #include <QObject>
 #include <QTcpServer>
 #include <QTcpSocket>
+#include <QString>
 
 class TcpServer: public QObject
 {
@@ -14,10 +15,16 @@ class TcpServer: public QObject
         TcpServer(QObject * parent = 0);
         ~TcpServer();
 
+        void transfer(QString message);
+
     public slots:
         void acceptConnection();
         void startRead();
         void startListen(int port);
+
+
+    signals:
+        void received(QString message);
 
     private:
         QTcpServer server;
