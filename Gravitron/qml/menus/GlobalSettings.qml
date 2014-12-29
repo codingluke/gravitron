@@ -9,112 +9,100 @@ import "../functions.js" as Functions
 import "../GlobalSettingsActions.js" as SettingsFunctions
 import QtQuick.LocalStorage 2.0
 
+
 VisualItemModel {
     Column {
-        spacing: 10
+        id: col_settingsSubMenu
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter
+        spacing: 10
+        width: 300
 
-        Text {
-            height: Global.textHeight
-            width: Global.textWidth
-            //: Lable for the game settings
-            text: qsTr("gameSettings")
-        }
-        
         Button {
             id: btn_back
             width: Global.buttonWidth
             height: Global.buttonHeight
-            //: The back to the main menu
+            //: Button bach to the mainmenu
             text: qsTr("back")
             onClicked: Functions.btn_backClicked()
         }
 
         Text {
-            height: Global.textHeight
-            width: Global.textWidth
-            //: Label for the palying field size slider
-            text: qsTr("playingFieldSize")
+            id: txt_settingsHeadline
+            //: Label for the settings menu
+            text: qsTr("settings")
         }
 
-        Slider {
-            id: slide_playingFieldSize
-            width: Global.sliderWidth
-            height: Global.sliderHeigt
+        Button {
+            id: btn_difficulty
+            width: Global.buttonWidth
+            height: Global.buttonHeight
+            text: SettingsFunctions.getBtnDifficultyText()
+            onClicked: SettingsFunctions.btn_difficultyClicked()
         }
 
-        Text {
-            height: Global.textHeight
-            width: Global.textWidth
-            //: Label for the number of enemies slider
-            text: qsTr("numberEnemies")
-        }
-
-        Slider {
-            id: slide_botsCount
-            width: Global.sliderWidth
-            height: Global.sliderHeigt
+        Button {
+            id: btn_fullScreen
+            width: Global.buttonWidth
+            height: Global.buttonHeight
+            text: SettingsFunctions.getBtnFullScreenText()
+            onClicked: SettingsFunctions.btn_fullScreenClicked()
         }
 
         Text {
+            id: lbl_volume
             height: Global.textHeight
             width: Global.textWidth
-            //: Label for the amount of planets slider
-            text: qsTr("planetAmount")
+            //: Label for the music and sounds volume slider
+            text: qsTr("volume")
+            font.pixelSize: 12
         }
 
         Slider {
-            id: slide_planetCount
+            id: slide_musicSoundVolume
             width: Global.sliderWidth
-            height: Global.sliderHeigt
+            height: Global.sliderHeight
+            tickmarksEnabled: false
+            stepSize: 1
+            activeFocusOnPress: true
+            minimumValue: 0
+            value: SettingsFunctions.getSlideMusicSoundVolumeVlaue()
+            maximumValue: 100
+            onValueChanged: SettingsFunctions.slide_musicSoundVolumeChanged()
         }
 
-        Text {
-            height: Global.textHeight
-            width: Global.textWidth
-            //: Label for the amount of astorieds slider
-            text: qsTr("astroidAmount")
+        Button {
+            id: btn_playMusic
+            width: Global.buttonWidth
+            height: Global.buttonHeight
+            text: SettingsFunctions.getBtnPlayMusicText()
+            onClicked: SettingsFunctions.btn_playMusicClicked()
         }
 
-        Slider {
-            id: slide_astroidCount
-            width: Global.sliderWidth
-            height: Global.sliderHeigt
+        Button {
+            id: btn_playSounds
+            width: Global.buttonWidth
+            height: Global.buttonHeight
+            text: SettingsFunctions.getBtnPlaySoundsText()
+            onClicked: SettingsFunctions.btn_playSoundsClicked()
         }
 
-        Text {
-            height: Global.textHeight
-            width: Global.textWidth
-            //: Label for the frag limit slider
-            text: qsTr("fragLimit")
+        TextField {
+            id: txt_playerName
+            height: Global.textFieldHeight
+            width: Global.textFieldWidth
+            //: Placeholder for the playername input
+            placeholderText: qsTr("name")
+            text: SettingsFunctions.getTxtPlayerNameText()
+            onTextChanged: SettingsFunctions.txt_playerNameChanged()
         }
 
-        Slider {
-            id: slide_frag
-            width: Global.sliderWidth
-            height: Global.sliderHeigt
+        Button {
+            id: btn_languare
+            text: SettingsFunctions.getLanguare()
+            width: Global.buttonWidth
+            height: Global.buttonHeight
+            onClicked: SettingsFunctions.btn_languareClicked()
         }
-
-        Text {
-            height: Global.textHeight
-            width: Global.textWidth
-            //: Label for the respawn time slider
-            text: qsTr("rRespawnTime")
-        }
-
-        Slider {
-            id: slide_respawTime
-            width: Global.sliderWidth
-            height: Global.sliderHeigt
-        }
-
-        Text {
-            height: Global.textHeight
-            width: Global.textWidth
-            //:Label for the PowerUp settings
-            text: qsTr("powerUpSettings")
-        }
-
     }
 }

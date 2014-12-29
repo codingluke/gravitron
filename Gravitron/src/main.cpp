@@ -48,7 +48,6 @@ int main(int argc, char *argv[])
     Locater l(settings, app);
     l.loadLanguare(settings.languare());
 
-
     engine.load(QUrl(QStringLiteral("qrc:/qml/main.qml")));
 
     return app.exec();

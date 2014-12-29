@@ -22,13 +22,13 @@ Window {
         //width: parent.width
     //}
 
-    Audio {
-       id:audioPlayer
-       source: "qrc:/audio/menuBackgroundMusic"
-       autoLoad: true
-       autoPlay: true
-       loops: Audio.Infinite
-    }
+    //Audio {
+       //id:audioPlayer
+       //source: "qrc:/audio/menuBackgroundMusic"
+       //autoLoad: true
+       //autoPlay: true
+       //loops: Audio.Infinite
+    //}
 
     Menus.Main { id: mainMenu }
     Menus.NewGame { id: newGameMenu }
