@@ -13,6 +13,12 @@ Laser::Laser(Vec3f position, Vec3f velocity, GameField &field, GameActor &friend
     applyForce(velocity);
 }
 
+Laser::Laser(Vec3f position, Vec3f velocity, GameField &field) :
+    Projectile(position, 0, 0, 0, 90, 1, field)
+{
+    applyForce(velocity);
+}
+
 Laser::Laser(GameActor &actor, Vec3f velocity, GameField &field, GameActor &friendly) :
     Projectile(actor.getPosition(), 0, 0, 0, 90, 1, field, friendly)
 {
@@ -64,6 +70,10 @@ GameActorView* Laser::getView() const {
     view->setProperty("identifier", "L");
     view->setProperty("x", x.str());
     view->setProperty("y", y.str());
+    if (killed) {
+    view->setProperty("color", "red");
+    } else {
     view->setProperty("color", "blue");
+    }
     return view;
 }

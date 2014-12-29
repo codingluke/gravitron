@@ -34,9 +34,9 @@ void GameActor::initialize(const GameActor &actor)
 
 GameActor::GameActor()
 {
-	Vec3f in = Vec3f();
-    GameField *f = new GameField();
-    initialize(in, 1., 1., 1., -1, *f, -1);
+	//Vec3f in = Vec3f();
+    //GameField *f = new GameField();
+    //initialize(Vec3f(), 1., 1., 1., -1, GameField(), -1);
 }
 
 GameActor::GameActor(Vec3f position, double mass, float gravitationRange, float g, int health, GameField &field)
@@ -243,9 +243,9 @@ GameActorView* GameActor::getView() const
     view->setProperty("x", x.str());
     view->setProperty("y", y.str());
     if (killed) {
-	view->setProperty("color", "red");
+    view->setProperty("color", "red");
     } else {
-	view->setProperty("color", "yellow");
+    view->setProperty("color", "yellow");
     }
     return view;
 }

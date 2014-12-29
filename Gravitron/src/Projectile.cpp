@@ -22,6 +22,12 @@ Projectile::Projectile(Vec3f position, double mass, float gravitationRange, floa
         this->friendly.push_back(&friendly);
     }
 
+Projectile::Projectile(Vec3f position, double mass, float gravitationRange, float g, int timeToLive, int health, GameField &field) :
+    GameActor(position, mass, gravitationRange, g, health, field)
+    {
+        this->timeToLive = timeToLive;
+    }
+
 Projectile::Projectile(const Projectile &projectile) : GameActor(projectile)
 {
     this->timeToLive = projectile.getTimeToLive();
@@ -30,11 +36,6 @@ Projectile::Projectile(const Projectile &projectile) : GameActor(projectile)
 
 Projectile::~Projectile() 
 {
-    vector<GameActor*>::iterator it;
-    for (it = friendly.begin(); it < friendly.end(); it++)
-    {
-        friendly.erase(it);
-    }
 }
 
 int Projectile::getTimeToLive() const
@@ -53,7 +54,7 @@ void Projectile::update()
     GameActor::update();
     if (timeToLive == 0)
         kill();
-    else if (timeToLive != -1)
+    else if (timeToLive != -1 && !isKilled())
         timeToLive--;
     //qDebug() << "Updating projectile.\n";
 }

@@ -63,6 +63,7 @@ void GameLoop::run()
         {
             update();
             lag -= ms_per_update;
+            qDebug() << "updated";
         }
 
         render();
@@ -114,23 +115,34 @@ void GameLoop::execLocalPlayerAction(int code)
 
 void GameLoop::update()
 {
+   
     vector<GameActor*>::iterator it;
     for(it = actors.begin(); it != actors.end(); it++) {
         (*it)->update(actors);
     }
-    for(it = actors.begin(); it != actors.end(); it++) {
-        if ((*it)->isKilled() && (*it) != localPlayer) {
+    // for(it = actors.begin(); it != actors.end() && (it != NULL); it++) {
+    //     if ((*it)->isKilled() && (*it) != localPlayer) {
+    //         qDebug() << "kill";
+    //         delete *it;
+    //         actors.erase(it);
+    //     }
+    // }
+    for (int i = 0; i < (int) actors.size(); i++)
+    {
+        if((actors[i]->isKilled()) && (actors[i] != localPlayer))
+        {
             qDebug() << "kill";
-            delete *it;
-            actors.erase(it);
+            delete (actors[i]);
+            actors.erase(actors.begin() + i);
         }
-    }
+    } 
+    
     actors.shrink_to_fit();
 }
 
 void GameLoop::render()
 {
-    //qDebug() << actors.size();
+    
     if(actors.size() > 0) { //wenn actors leer sind > speicherzugriffsfehler im vector
         vector<GameActorView*> *viewlist = new vector<GameActorView*>;
         vector<GameActor*>::iterator it;
