@@ -14,7 +14,7 @@ class TcpClient: public QObject
     TcpClient(QObject* parent = 0);
     ~TcpClient();
 
-    void start(QString address, quint16 port);
+    Q_INVOKABLE void start(QString address, quint16 port);
 
   public slots:
     void startTransfer();

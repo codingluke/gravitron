@@ -4,8 +4,8 @@ import QtPositioning 5.3
 import QtQuick.Layouts 1.0
 import GravitronSettings 1.0
 
-import "../constants.js" as Global
-import "../functions.js" as Functions
+import "constants.js" as Global
+import "functions.js" as Functions
 
 VisualItemModel {
     Column {

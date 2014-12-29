@@ -3,8 +3,8 @@ import QtQuick.Controls 1.2
 import QMLFileReader 1.0
 
 import "../"
-import "../constants.js" as Global
-import "../functions.js" as Functions
+import "constants.js" as Global
+import "functions.js" as Functions
 
 VisualItemModel {
     Column {

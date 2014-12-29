@@ -18,6 +18,7 @@ TcpServer::~TcpServer()
 
 void TcpServer::startListen(int port)
 {
+    qDebug() << "TcpServer: startListen";
     connect(&server, SIGNAL(newConnection()),
             this, SLOT(acceptConnection()));
     server.listen(QHostAddress::Any, port);

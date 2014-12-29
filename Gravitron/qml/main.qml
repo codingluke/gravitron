@@ -3,11 +3,7 @@ import QtQuick.Controls 1.2
 import QtQuick.Window 2.2
 import QtMultimedia 5.0
 
-import "constants.js" as Global
-import "functions.js" as Functions
 import "menus" as Menus
-
-
 
 Window {
     id: win_startWindow
@@ -32,12 +28,13 @@ Window {
 
     Menus.Main { id: mainMenu }
     Menus.NewGame { id: newGameMenu }
-    Menus.SinglePlayer { id: singlePlayerMenu }
     Menus.Credits { id: creditsMenu }
-    Menus.GameSettings { id: gameSettingsMenu }
+    Menus.StartGame { id: startGameMenu }
     Menus.GlobalSettings{ id: globalSettingsMenu }
     Menus.Stats { id: statsMenu }
     Menus.MultiPlayer{ id: multiPlayerMenu }
+    Menus.Server { id: serverMenu }
+    Menus.Client { id: clientMenu }
 
     ScrollView {
         id: scrollView

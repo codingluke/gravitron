@@ -1,7 +1,7 @@
 import QtQuick 2.3
 import QtQuick.Controls 1.2
 
-import "functions.js" as Functions
+import "menus/functions.js" as Functions
 
 Rectangle {
     id: game_scene

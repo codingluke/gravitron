@@ -15,12 +15,13 @@ TcpClient::~TcpClient()
 
 void TcpClient::start(QString address, quint16 port)
 {
+    qDebug() << "TcpClient: start";
     QHostAddress addr(address);
     client.connectToHost(addr, port);
 }
 
 void TcpClient::startTransfer()
 {
-    qDebug() << "kukuk";
+    qDebug() << "TcpClient: startTransfer";
     client.write("Hello, world", 13);
 }

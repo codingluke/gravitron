@@ -1,8 +1,8 @@
 import QtQuick 2.3
 import QtQuick.Controls 1.2
 
-import "../constants.js" as Global
-import "../functions.js" as Functions
+import "constants.js" as Global
+import "functions.js" as Functions
 
 VisualItemModel {
     Column {

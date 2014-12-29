@@ -38,12 +38,8 @@ int main(int argc, char *argv[])
     // Add TCP
     TcpServer server;
     TcpClient client;
-    //engine.rootContext()->setContextProperty("Server", &server);
-    //engine.rootContext()->setContextProperty("Client", &client);
-
-    //server.startListen(8000);
-    //QThread::msleep(200);
-    //client.start("127.0.0.1", 8000);
+    engine.rootContext()->setContextProperty("Server", &server);
+    engine.rootContext()->setContextProperty("Client", &client);
 
     Locater l(settings, app);
     l.loadLanguare(settings.languare());
