@@ -21,6 +21,8 @@ class InputHandler : public QObject
     public:
         InputHandler();
         set<int> getInputs();
+        void removeInputCode(int code);
+        void insertInputCode(int code);
 
     protected:
         bool eventFilter(QObject *obj, QEvent *event);

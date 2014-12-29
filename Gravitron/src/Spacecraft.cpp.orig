@@ -8,14 +8,14 @@ Spacecraft::Spacecraft() : GameActor()
     g = 0;
 }
 
-Spacecraft::Spacecraft(Vec3f position, double mass, float gravitationRange, float g, GameField &field) :
-    GameActor(position, mass, gravitationRange, g, 100, field)
+Spacecraft::Spacecraft(Vec3f position, double mass, float gravitationRange, float g, int health, GameField &field) :
+    GameActor(position, mass, gravitationRange, g, health, field)
 {
     g = 0;
 }
 
-Spacecraft::Spacecraft(Vec3f position, double mass, float gravitationRange, float g, GameField &field, float maxSpeed) :
-    GameActor(position, mass, gravitationRange, g, 100, field, maxSpeed)
+Spacecraft::Spacecraft(Vec3f position, double mass, float gravitationRange, float g, int health, GameField &field, float maxSpeed) :
+    GameActor(position, mass, gravitationRange, g, health, field, maxSpeed)
 {
     g = 0;
 }
@@ -62,14 +62,19 @@ void Spacecraft::forceRight()
     applyForce(Vec3f(0.01,0.,0.));
 }
 
+<<<<<<< HEAD
 Projectile &Spacecraft::shootUp()
 {
     return *(new Laser(this->getPosition() + Vec3f(0,-2.,0.), Vec3f(0., -1., 0.), *field, *this));
 }
+=======
 void Spacecraft::repair()
 {
 
 }
+
+>>>>>>> fd61845cfa5990ab675a0acc2f2742853d4cb0a5
+
 Projectile &Spacecraft::shootDown()
 {
     return *(new Laser(this->getPosition() + Vec3f(0., 2., 0.), Vec3f(0., 1., 0.), *field, *this));
@@ -90,6 +95,4 @@ void Spacecraft::handleCollision(GameActor &other)
     //other.dealDamage(10);
     //dealDamage(5);
 }
-
-
 

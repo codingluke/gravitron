@@ -3,7 +3,7 @@
 #include <iostream>
 
 Asteroid::Asteroid(Vec3f position, double mass, float gravitationRange, float g, GameField &field, float maxSpeed) :
-    GameActor(position, mass, gravitationRange, g, field, maxSpeed)
+    GameActor(position, mass, gravitationRange, g, 50, field, maxSpeed)
 {
 
 }
@@ -18,4 +18,9 @@ GameActorView* Asteroid::getView() const {
     v->setProperty("x", x.str());
     v->setProperty("y", y.str());
     return v;
+}
+
+void Asteroid::handleCollision(GameActor &other)
+{
+    
 }

@@ -32,8 +32,14 @@ class GameActor
 	 * a preset normal mass.
 	 */
 	float mass;
+    /**
+     * The health points of this GameActor, 0 indicating a dead GameActor
+     * and -1 indicating an invincible GameActor.
+     */
+    int health;
 
 	float gravitationRange;
+
 	bool killed;
 
 	/**
@@ -45,8 +51,8 @@ class GameActor
 
     public:
 	GameActor();
-	GameActor(Vec3f position, double mass, float gravitationRange, float g, GameField &field);
-	GameActor(Vec3f position, double mass, float gravitationRange, float g, GameField &field, float maxSpeed);
+	GameActor(Vec3f position, double mass, float gravitationRange, float g, int health, GameField &field);
+	GameActor(Vec3f position, double mass, float gravitationRange, float g, int health, GameField &field, float maxSpeed);
 	GameActor(const GameActor &actor);
 	virtual ~GameActor();
 
@@ -54,6 +60,8 @@ class GameActor
 	virtual void update();
 	virtual void update(vector<GameActor*> actors);
 	void update(double radius);
+
+    virtual void handleCollision(GameActor &other);
 
 	bool operator== (GameActor& right);
 	GameActor &operator= (const GameActor &right);
@@ -67,6 +75,10 @@ class GameActor
 	void setG(float g);
 	float getMaxSpeed() const;
 	void setMaxSpeed(float maxSpeed);
+    int getHealth() const;
+    void setHealth(int health);
+    void dealDamage(int damage);
+    void addHealth(int health);
 	virtual GameActorView* getView() const;
 	GameField* getField() const;
 
@@ -76,7 +88,7 @@ class GameActor
 	virtual std::string toString() const;
 
     private:
-	void initialize(Vec3f position, double mass, float gravitationRange, float g, GameField &field, float maxSpeed);
+	void initialize(Vec3f position, double mass, float gravitationRange, float g, int health, GameField &field, float maxSpeed);
 	void initialize(const GameActor &actor);
 };
 

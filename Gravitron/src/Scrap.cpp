@@ -3,3 +3,8 @@
 Scrap::Scrap()
 {
 }
+
+void Scrap::handleCollision(GameActor &other)
+{
+    
+}

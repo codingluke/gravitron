@@ -6,6 +6,7 @@ class PowerUp : public GameActor
 {
 public:
     PowerUp();
+    void handleCollision(GameActor &other);
 };
 
 #endif // POWERUP_H
