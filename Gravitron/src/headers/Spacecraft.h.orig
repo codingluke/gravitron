@@ -24,12 +24,15 @@ class Spacecraft : public GameActor
         void forceBack();
         void forceLeft();
         void forceRight();
+<<<<<<< HEAD
 
         Projectile &shootUp();
         Projectile &shootDown();
         Projectile &shootLeft();
         Projectile &shootRight();
+=======
         void repair();
+>>>>>>> fd61845cfa5990ab675a0acc2f2742853d4cb0a5
 };
 
 #endif // SPACECRAFT_H

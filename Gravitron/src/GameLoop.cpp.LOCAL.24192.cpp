@@ -14,68 +14,32 @@
 using namespace std;
 
 
-GameLoop::GameLoop(InputHandler *inputHandler, GameGenerator *gGenerator)
+GameLoop::GameLoop(InputHandler *inputHandler)
 {
     this->inputHandler = inputHandler;
-    this->gGenerator = gGenerator;
-    gGenerator->generateGame(this);
+    field = new GameField(500, 500);
+    for (int i = 0; i < 4; i++) {
+        Vec3f position(rand() % field->getWidth(),rand() % field->getHeight(), 0);
+        float mass = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
+        float gravitationRange =  rand() % 200 + 1;
+        float g = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
+        GameActor* actor = new GameActor(position, mass, gravitationRange, g, 20, *field, 5);
+        actors.push_back(actor);
+    }
+    Vec3f position(rand() % field->getWidth(),rand() % field->getHeight(), 0);
+    float mass = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
+    localPlayer = new Spacecraft(position, mass, 0, 0, 100, *field, 10);
+    actors.push_back(localPlayer);
 }
 
 GameLoop::~GameLoop() {
-    deleteActors();
-    deletePlayer();
-    deleteBots();
-    delete field;
-    delete localPlayer;
-    delete inputHandler;
-}
-
-void GameLoop::deleteActors() {
     vector<GameActor*>::iterator it;
     for (it = actors.begin(); it < actors.end(); it++)
     {
         delete (*it);
     }
-}
-
-void GameLoop::deleteBots() {
-    vector<Player*>::iterator it;
-    for (it = bots.begin(); it < bots.end(); it++)
-    {
-        delete (*it);
-    }
-}
-
-void GameLoop::deletePlayer() {
-    vector<Player*>::iterator it;
-    for (it = player.begin(); it < player.end(); it++)
-    {
-        delete (*it);
-    }
-}
-
-void GameLoop::setBots(vector<Player*> bots) {
-    deleteBots();
-    this->bots = bots;
-}
-
-void GameLoop::setPlayer(vector<Player*> player) {
-    deletePlayer();
-    this->player = player;
-    this->localPlayer = this->player[0]->spacecraft;
-}
-
-void GameLoop::setActors(vector<GameActor*> actors) {
-    deleteActors();
-    this->actors = actors;
-}
-
-void GameLoop::setRespawTime(int respawnTime) {
-    this->respawnTime = respawnTime;
-}
-
-void GameLoop::setGameField(GameField* newField) {
-    this->field = newField;
+    delete field;
+    delete localPlayer;
 }
 
 void GameLoop::run()
@@ -151,7 +115,7 @@ void GameLoop::execLocalPlayerAction(int code)
 
 void GameLoop::update()
 {
-    qDebug() << "GameLoop: update";
+   
     vector<GameActor*>::iterator it;
     for(it = actors.begin(); it != actors.end(); it++) {
         (*it)->update(actors);
@@ -174,18 +138,19 @@ void GameLoop::update()
     } 
     
     actors.shrink_to_fit();
-    QThread::msleep(5);
 }
-
 
 void GameLoop::render()
 {
-    qDebug() << "GameLoop: render";
+    
     if(actors.size() > 0) { //wenn actors leer sind > speicherzugriffsfehler im vector
         vector<GameActorView*> *viewlist = new vector<GameActorView*>;
         vector<GameActor*>::iterator it;
         for(it = actors.begin(); it != actors.end(); it++) {
+        //for (unsigned int i = 0; i < actors.size(); i++) {
+            //GameActorView *view = actors[i]->getView();
             GameActorView *view = (*it)->getView();
+            //qDebug() << "hallo";
             viewlist->push_back(view);
         }
         emit renderObject(viewlist);

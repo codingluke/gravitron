@@ -28,11 +28,14 @@ class GameLoop : public QThread
         QObject *game;
         QQmlApplicationEngine *engine;
         vector<GameActor*> actors;
+<<<<<<< HEAD
         Spacecraft *localPlayer;
+=======
         vector<Player*> bots;
         vector<Player*> player;
         int respawnTime;
         GameActor *localPlayer;
+>>>>>>> fd61845cfa5990ab675a0acc2f2742853d4cb0a5
         GameField *field;
         InputHandler *inputHandler;
         GameGenerator *gGenerator;

@@ -17,8 +17,24 @@ using namespace std;
 GameLoop::GameLoop(InputHandler *inputHandler, GameGenerator *gGenerator)
 {
     this->inputHandler = inputHandler;
+<<<<<<< HEAD
+    field = new GameField(500, 500);
+    for (int i = 0; i < 4; i++) {
+        Vec3f position(rand() % field->getWidth(),rand() % field->getHeight(), 0);
+        float mass = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
+        float gravitationRange =  rand() % 200 + 1;
+        float g = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
+        GameActor* actor = new GameActor(position, mass, gravitationRange, g, 20, *field, 5);
+        actors.push_back(actor);
+    }
+    Vec3f position(rand() % field->getWidth(),rand() % field->getHeight(), 0);
+    float mass = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
+    localPlayer = new Spacecraft(position, mass, 0, 0, 100, *field, 10);
+    actors.push_back(localPlayer);
+=======
     this->gGenerator = gGenerator;
     gGenerator->generateGame(this);
+>>>>>>> fd61845cfa5990ab675a0acc2f2742853d4cb0a5
 }
 
 GameLoop::~GameLoop() {
@@ -151,11 +167,16 @@ void GameLoop::execLocalPlayerAction(int code)
 
 void GameLoop::update()
 {
+<<<<<<< HEAD
+   
+=======
     qDebug() << "GameLoop: update";
+>>>>>>> fd61845cfa5990ab675a0acc2f2742853d4cb0a5
     vector<GameActor*>::iterator it;
     for(it = actors.begin(); it != actors.end(); it++) {
         (*it)->update(actors);
     }
+<<<<<<< HEAD
     // for(it = actors.begin(); it != actors.end() && (it != NULL); it++) {
     //     if ((*it)->isKilled() && (*it) != localPlayer) {
     //         qDebug() << "kill";
@@ -170,6 +191,12 @@ void GameLoop::update()
             qDebug() << "kill";
             delete (actors[i]);
             actors.erase(actors.begin() + i);
+=======
+    for(it = actors.begin(); it != actors.end(); it++) {
+        if ((*it)->isKilled() && (*it) != localPlayer) {
+            delete (*it);
+            actors.erase(it);
+>>>>>>> fd61845cfa5990ab675a0acc2f2742853d4cb0a5
         }
     } 
     
@@ -180,12 +207,20 @@ void GameLoop::update()
 
 void GameLoop::render()
 {
+<<<<<<< HEAD
+    
+=======
     qDebug() << "GameLoop: render";
+>>>>>>> fd61845cfa5990ab675a0acc2f2742853d4cb0a5
     if(actors.size() > 0) { //wenn actors leer sind > speicherzugriffsfehler im vector
         vector<GameActorView*> *viewlist = new vector<GameActorView*>;
         vector<GameActor*>::iterator it;
         for(it = actors.begin(); it != actors.end(); it++) {
             GameActorView *view = (*it)->getView();
+<<<<<<< HEAD
+            //qDebug() << "hallo";
+=======
+>>>>>>> fd61845cfa5990ab675a0acc2f2742853d4cb0a5
             viewlist->push_back(view);
         }
         emit renderObject(viewlist);

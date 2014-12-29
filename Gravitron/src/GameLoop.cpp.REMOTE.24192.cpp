@@ -2,7 +2,6 @@
 #include "headers/Spacecraft.h"
 #include "headers/Projectile.h"
 #include "headers/InputHandler.h"
-#include "headers/Laser.h"
 #include <QTime>
 #include <QDebug>
 #include <math.h>
@@ -99,9 +98,7 @@ void GameLoop::run()
         {
             update();
             lag -= ms_per_update;
-            qDebug() << "updated";
         }
-
         render();
     }
 }
@@ -131,21 +128,13 @@ void GameLoop::execLocalPlayerAction(int code)
     } else if (code == Qt::Key_Down) {
         localPlayer->applyForce(Vec3f(0.,0.01,0.));
     } else if (code == Qt::Key_W) {
-        actors.push_back(&(localPlayer->Spacecraft::shootUp()));
-        inputHandler->removeInputCode(Qt::Key_W);
-        //qDebug() << "Shoot Up";
+        qDebug() << "Shoot Up";
     } else if (code == Qt::Key_S) {
-        actors.push_back(&(localPlayer->Spacecraft::shootDown()));
-        inputHandler->removeInputCode(Qt::Key_S);
-        //qDebug() << "Shoot Down";
+        qDebug() << "Shoot Down";
     } else if (code == Qt::Key_A) {
-        actors.push_back(&(localPlayer->Spacecraft::shootLeft()));
-        inputHandler->removeInputCode(Qt::Key_A);
-        //qDebug() << "Shoot Left";
+        qDebug() << "Shoot Left";
     } else if (code == Qt::Key_D) {
-        actors.push_back(&(localPlayer->Spacecraft::shootRight()));
-        inputHandler->removeInputCode(Qt::Key_D);
-        //qDebug() << "Shoot Right";
+        qDebug() << "Shoot Right";
     }
 }
 
@@ -156,23 +145,12 @@ void GameLoop::update()
     for(it = actors.begin(); it != actors.end(); it++) {
         (*it)->update(actors);
     }
-    // for(it = actors.begin(); it != actors.end() && (it != NULL); it++) {
-    //     if ((*it)->isKilled() && (*it) != localPlayer) {
-    //         qDebug() << "kill";
-    //         delete *it;
-    //         actors.erase(it);
-    //     }
-    // }
-    for (int i = 0; i < (int) actors.size(); i++)
-    {
-        if((actors[i]->isKilled()) && (actors[i] != localPlayer))
-        {
-            qDebug() << "kill";
-            delete (actors[i]);
-            actors.erase(actors.begin() + i);
+    for(it = actors.begin(); it != actors.end(); it++) {
+        if ((*it)->isKilled() && (*it) != localPlayer) {
+            delete (*it);
+            actors.erase(it);
         }
-    } 
-    
+    }
     actors.shrink_to_fit();
     QThread::msleep(5);
 }
