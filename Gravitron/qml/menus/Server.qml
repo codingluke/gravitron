@@ -32,7 +32,7 @@ VisualItemModel {
             id: txt_serverPort
             height: Global.textFieldHeight
             width: Global.textFieldWidth
-            minimumValue: 1010
+            minimumValue: 8000
             maximumValue: 9000
         }
         
@@ -43,6 +43,15 @@ VisualItemModel {
             //: Button to start a singel palyer game
             text: "Create Server"
             onClicked: Functions.btn_createServerClicked();
+        }
+        
+        Button {
+            id: btn_sendMessageFromServer
+            width: Global.buttonWidth
+            height: Global.buttonHeight
+            //: Button to start a singel palyer game
+            text: "Send test"
+            onClicked: Functions.btn_sendMessageFromServer()
         }
 
         Button {

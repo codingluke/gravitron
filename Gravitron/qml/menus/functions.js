@@ -27,6 +27,10 @@ function btn_createServerClicked() {
     Server.startListen(txt_serverPort.value);
 }
 
+function btn_sendMessageFromServer() {
+    Server.transfer("im the server");
+}
+
 function btn_joinGameClicked() {
     main_list.model = clientMenu;
 }

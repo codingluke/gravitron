@@ -35,7 +35,7 @@ void TcpServer::acceptConnection()
 
 void TcpServer::transfer(QString message)
 {
-    if (client->state() == QAbstractSocket::ConnectedState) {
+    if (client && client->state() == QAbstractSocket::ConnectedState) {
         client->write(message.toStdString().c_str(), message.length());
     } else {
         qDebug() << "TcpServer: not connected!";
@@ -46,5 +46,6 @@ void TcpServer::startRead()
 {
     char buffer[1024] = {0};
     client->read(buffer, client->bytesAvailable());
-    cout << buffer << endl;
+    cout << "server:" << buffer << endl;
+    emit received(QString(buffer));
 }
