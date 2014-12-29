@@ -44,8 +44,6 @@ Laser::~Laser()
 
 void Laser::handleCollision(GameActor &other)
 {
-    qDebug() << "Collision";
-
     vector<GameActor*>::iterator it;
     bool otherIsFriendly = false;
     for (it = friendly.begin(); it != friendly.end(); it++)

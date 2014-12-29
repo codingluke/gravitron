@@ -99,7 +99,6 @@ void GameLoop::run()
         {
             update();
             lag -= ms_per_update;
-            qDebug() << "updated";
         }
 
         render();
@@ -133,25 +132,20 @@ void GameLoop::execLocalPlayerAction(int code)
     } else if (code == Qt::Key_W) {
         actors.push_back(&(localPlayer->Spacecraft::shootUp()));
         inputHandler->removeInputCode(Qt::Key_W);
-        //qDebug() << "Shoot Up";
     } else if (code == Qt::Key_S) {
         actors.push_back(&(localPlayer->Spacecraft::shootDown()));
         inputHandler->removeInputCode(Qt::Key_S);
-        //qDebug() << "Shoot Down";
     } else if (code == Qt::Key_A) {
         actors.push_back(&(localPlayer->Spacecraft::shootLeft()));
         inputHandler->removeInputCode(Qt::Key_A);
-        //qDebug() << "Shoot Left";
     } else if (code == Qt::Key_D) {
         actors.push_back(&(localPlayer->Spacecraft::shootRight()));
         inputHandler->removeInputCode(Qt::Key_D);
-        //qDebug() << "Shoot Right";
     }
 }
 
 void GameLoop::update()
 {
-    qDebug() << "GameLoop: update";
     vector<GameActor*>::iterator it;
     for(it = actors.begin(); it != actors.end(); it++) {
         (*it)->update(actors);
@@ -167,7 +161,6 @@ void GameLoop::update()
     {
         if((actors[i]->isKilled()) && (actors[i] != localPlayer))
         {
-            qDebug() << "kill";
             delete (actors[i]);
             actors.erase(actors.begin() + i);
         }
@@ -180,7 +173,6 @@ void GameLoop::update()
 
 void GameLoop::render()
 {
-    qDebug() << "GameLoop: render";
     if(actors.size() > 0) { //wenn actors leer sind > speicherzugriffsfehler im vector
         vector<GameActorView*> *viewlist = new vector<GameActorView*>;
         vector<GameActor*>::iterator it;
