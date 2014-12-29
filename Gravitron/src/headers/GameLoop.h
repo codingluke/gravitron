@@ -32,7 +32,6 @@ class GameLoop : public QThread
         vector<Player*> bots;
         vector<Player*> player;
         int respawnTime;
-        GameActor *localPlayer;
         GameField *field;
         InputHandler *inputHandler;
         GameGenerator *gGenerator;

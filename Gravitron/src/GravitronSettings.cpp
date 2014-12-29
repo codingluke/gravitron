@@ -69,9 +69,9 @@ void GravitronSettings::setDefaultSettings() {
     mPlaySounds = true;
     mPlayerName = "Player1";
     mPlayingFieldSize = 500;
-    mBotsCount = 3;
-    mPlanetCount = 5;
-    mAstroidCount = 5;
+    mBotsCount = 0;
+    mPlanetCount = 3;
+    mAstroidCount = 0;
     mFrag = 3;
     mRespawTime = 30;
     mLanguare = "en";

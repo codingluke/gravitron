@@ -94,7 +94,6 @@ void GameActor::update(vector<GameActor*> actors)
 {
     GameActor *other;
     for (unsigned int i = 0; i < actors.size(); i++) {
-<<<<<<< HEAD
     	other = actors.at(i);
     	if (other != this)
     	{
@@ -110,23 +109,6 @@ void GameActor::update(vector<GameActor*> actors)
     	    Vec3f f = Physics::calculateGravitationForce(this, actors.at(i));
     	    actors.at(i)->applyForce(f);
         }
-=======
-	other = actors.at(i);
-	if (other != this)
-	{
-	    // Collition Detection
-	    bool collision = Physics::collisionDetection(position, 20.0f,
-				      other->getPosition(), 20.0f);
-	    if (collision) {
-            kill();
-            other->kill();
-	    }
-
-	    // Update Gravitation
-	    Vec3f f = Physics::calculateGravitationForce(this, actors.at(i));
-	    actors.at(i)->applyForce(f);
-    }
->>>>>>> fd61845cfa5990ab675a0acc2f2742853d4cb0a5
     }
     update();
 }

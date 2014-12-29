@@ -8,14 +8,14 @@ Spacecraft::Spacecraft() : GameActor()
     g = 0;
 }
 
-Spacecraft::Spacecraft(Vec3f position, double mass, float gravitationRange, float g, int health, GameField &field) :
-    GameActor(position, mass, gravitationRange, g, health, field)
+Spacecraft::Spacecraft(Vec3f position, double mass, float gravitationRange, float g, GameField &field) :
+    GameActor(position, mass, gravitationRange, g, 100, field)
 {
     g = 0;
 }
 
-Spacecraft::Spacecraft(Vec3f position, double mass, float gravitationRange, float g, int health, GameField &field, float maxSpeed) :
-    GameActor(position, mass, gravitationRange, g, health, field, maxSpeed)
+Spacecraft::Spacecraft(Vec3f position, double mass, float gravitationRange, float g, GameField &field, float maxSpeed) :
+    GameActor(position, mass, gravitationRange, g, 100, field, maxSpeed)
 {
     g = 0;
 }

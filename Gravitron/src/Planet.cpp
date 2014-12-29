@@ -5,7 +5,7 @@
 #include <iostream>
 
 Planet::Planet(Vec3f pos, GameField &field) :
-    GameActor(pos, 10, 30, 0.5, field)
+    GameActor(pos, 10, 30, 0.5, 100, field)
 {
 }
 
