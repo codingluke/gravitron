@@ -17,7 +17,7 @@ public:
     Projectile(const Projectile &projectile);
     ~Projectile();
     int getTimeToLive() const;
-    void handleCollision(GameActor &other);
+    virtual void handleCollision(GameActor &other);
     void update() override;
 
 };

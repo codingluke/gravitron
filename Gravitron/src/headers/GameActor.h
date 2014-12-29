@@ -61,7 +61,7 @@ class GameActor
 	virtual void update(vector<GameActor*> actors);
 	void update(double radius);
 
-    void handleCollision(GameActor &other);
+    virtual void handleCollision(GameActor &other);
 
 	bool operator== (GameActor& right);
 	GameActor &operator= (const GameActor &right);

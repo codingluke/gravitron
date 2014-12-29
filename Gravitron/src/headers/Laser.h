@@ -16,7 +16,7 @@ public:
     Laser(const Laser &laser);
     ~Laser();
     int getTimeToLive() const;
-    void handleCollision(GameActor &other);
+    void handleCollision(GameActor &other) override;
 
     GameActorView* getView() const override;
 };
