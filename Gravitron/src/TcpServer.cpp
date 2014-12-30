@@ -6,9 +6,6 @@ using namespace std;
 
 TcpServer::TcpServer(QObject* parent): QObject(parent)
 {
-    //connect(&server, SIGNAL(newConnection()),
-            //this, SLOT(acceptConnection()));
-    //server.listen(QHostAddress::Any, 8888);
 }
 
 TcpServer::~TcpServer()

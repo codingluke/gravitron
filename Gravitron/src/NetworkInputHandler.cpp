@@ -11,6 +11,7 @@ NetworkInputHandler::NetworkInputHandler()
 
 NetworkInputHandler::NetworkInputHandler(TcpClient *client)
 {
+    isServer = false;
     this->client = client;
 }
 
@@ -44,7 +45,9 @@ void NetworkInputHandler::insertInputCode(int code)
 {
     mutex.lock();
     pair<set<int>::iterator, bool> ret = inputs.insert(code);
+    qDebug() << "TcpClient: insertInputCode";
     if (ret.second) {
+        qDebug() << "TcpClient: kukuk";
         transferInputs();
     }
     mutex.unlock();
@@ -61,22 +64,25 @@ void NetworkInputHandler::removeInputCode(int code)
 
 bool NetworkInputHandler::eventFilter(QObject *obj, QEvent *event)
 {
-  if (event->type() == QEvent::KeyPress && obj) {
-      QKeyEvent *keyEvent = (QKeyEvent*)event;
-      insertInputCode(keyEvent->key());
-  } else if (event->type() == QEvent::KeyRelease && obj) {
-      QKeyEvent *keyEvent = (QKeyEvent*)event;
-      removeInputCode(keyEvent->key());
-  }
-  return false;
+    if (event->type() == QEvent::KeyPress && obj) {
+        QKeyEvent *keyEvent = (QKeyEvent*)event;
+        insertInputCode(keyEvent->key());
+    } else if (event->type() == QEvent::KeyRelease && obj) {
+        QKeyEvent *keyEvent = (QKeyEvent*)event;
+        removeInputCode(keyEvent->key());
+    }
+    return false;
 }
 
 void NetworkInputHandler::transferInputs() const
 {
+    qDebug() << "NetworkInputHandler: transferInputs";
     if (isServer) {
+        qDebug() << "NetworkInputHandler: server transferInputs";
         server->transfer("inputs from the server");
     } else {
-        client->transfer("inputs from the client");
+        qDebug() << "NetworkInputHandler: client transferInputs";
+        //client->transfer("inputs from the client");
     }
 }
 

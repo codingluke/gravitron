@@ -55,13 +55,11 @@ VisualItemModel {
         }
 
         Button {
-            id: btn_startSinglePlayer
+            id: btn_startMultiplayerGame
             width: Global.buttonWidth
             height: Global.buttonHeight
-            //: Button to start a singel palyer game
             text: qsTr("start")
-            //onClicked: MListener.startSinglePlayerGame();
-            onClicked: Functions.btn_startGameClicked();
+            onClicked: Functions.btn_startMultiplayerGameClicked();
         }
     }
 }

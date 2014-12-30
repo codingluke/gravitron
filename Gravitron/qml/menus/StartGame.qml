@@ -112,6 +112,7 @@ VisualItemModel {
             //:Label for the PowerUp settings
             text: qsTr("powerUpSettings")
         }
+
         Button {
             id: btn_startSinglePlayer
             width: Global.buttonWidth

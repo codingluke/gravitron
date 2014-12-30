@@ -1,6 +1,7 @@
 #include "headers/Game.h"
 #include "headers/GameActorView.h"
 #include "headers/InputHandler.h"
+#include "headers/NetworkInputHandler.h"
 
 #include <QDebug>
 #include <iostream>
@@ -33,6 +34,22 @@ void Game::setQmlParent(QQuickItem *theQmlParent)
  */
 void Game::start()
 {
+    gameLoop->start();
+}
+
+void Game::start(TcpClient *client)
+{
+    qDebug() << "Game: start client";
+    NetworkInputHandler *iHandler = new NetworkInputHandler(client);
+    QCoreApplication::instance()->installEventFilter(iHandler);
+    gameLoop->start();
+}
+
+void Game::start(TcpServer *server)
+{
+    qDebug() << "Game: start server";
+    NetworkInputHandler *iHandler = new NetworkInputHandler(server);
+    QCoreApplication::instance()->installEventFilter(iHandler);
     gameLoop->start();
 }
 

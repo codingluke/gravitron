@@ -43,14 +43,6 @@ int main(int argc, char *argv[])
     engine.rootContext()->setContextProperty("Server", &server);
     engine.rootContext()->setContextProperty("Client", &client);
 
-    //NetworkInputHandler *sHandler = new NetworkInputHandler(&server);
-    //QCoreApplication::instance()->installEventFilter(sHandler);
-
-    NetworkInputHandler cHandler(&client);
-    QCoreApplication::instance()->installEventFilter(&cHandler);
-
-    //server.transfer("yey from the server");
-
     Locater l(settings, app);
     l.loadLanguare(settings.languare());
 
