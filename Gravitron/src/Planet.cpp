@@ -4,8 +4,9 @@
 #include <sstream>
 #include <iostream>
 
+//GameActor(Vec3f position, double mass, float gravitationRange, float g, int health, GameField &field)
 Planet::Planet(Vec3f pos, GameField &field) :
-    GameActor(pos, 10, 30, 0.5, 100, field)
+    GameActor(pos, 100, 50, 2, 100, field)
 {
 }
 

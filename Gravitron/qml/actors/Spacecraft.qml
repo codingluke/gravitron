@@ -6,7 +6,7 @@ Rectangle {
     id: spacecraft
     width: 50
     height: 50
-    color: "#FF000000"
+    color: "#00000000"
     Text {
         id: buttonLabel
         anchors.centerIn: parent
@@ -15,8 +15,6 @@ Rectangle {
 
     Image {
         id: image1
-        width: parent.width
-        height: parent.height
         source: "qrc:/img/spacecraft"
     }
 

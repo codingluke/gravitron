@@ -7,6 +7,7 @@
 #include "headers/HumanPlayer.h"
 #include "headers/HumanNetworkPlayer.h"
 #include "headers/GameField.h"
+#include "headers/PowerUp.h"
 #include <QDebug>
 
 GameGenerator::GameGenerator(QObject *parent) :
@@ -28,6 +29,7 @@ void GameGenerator::generateGame(GameLoop* g) {
     QString mPlayerName;
     */
     //generateBots();
+    generateRandomPowerUps();
     generatePlanets();
     generateAstroids();
     generatePlayer();
@@ -82,4 +84,22 @@ void GameGenerator::generateAstroids() {
         float mass = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
         actors.push_back(new Asteroid(position, mass, 100, 10, *field, 7));
     }
+}
+
+void GameGenerator::generateRandomPowerUps() {
+    int numberRadomPowerUps = 0;
+    if (settings->difficulty() == 1) {
+        numberRadomPowerUps = rand() % 10;
+    } else if (settings->difficulty() == 2) {
+        numberRadomPowerUps = 1;
+    }
+
+    for (int i = 0; i < numberRadomPowerUps; i++) {
+        Vec3f position(rand() % field->getWidth(),rand() % field->getHeight(), 0);
+        actors.push_back(generateNewPowerUp(position));
+    }
+}
+
+GameActor* GameGenerator::generateNewPowerUp(Vec3f position) {
+    return new PowerUp(position, *field);
 }

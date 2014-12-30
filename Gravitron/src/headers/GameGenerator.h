@@ -23,12 +23,14 @@ public:
     explicit GameGenerator(QObject *parent = 0);
     GameGenerator(GravitronSettings *settings);
     void generateGame(GameLoop* g);
+    GameActor* generateNewPowerUp(Vec3f position);
 
 private:
     void generateBots();
     void generatePlanets();
     void generateAstroids();
     void generatePlayer();
+    void generateRandomPowerUps();
 
 
 signals:

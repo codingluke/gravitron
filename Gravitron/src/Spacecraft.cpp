@@ -64,7 +64,7 @@ void Spacecraft::forceRight()
 
 Projectile &Spacecraft::shootUp()
 {
-    return *(new Laser(this->getPosition() + Vec3f(0,-2.,0.), Vec3f(0., -1., 0.), *field, *this));
+    return *(new Laser(this->getPosition() + Vec3f(0,-2.,0.), Vec3f(0., -12., 0.), *field, *this));
 }
 void Spacecraft::repair()
 {
@@ -72,17 +72,17 @@ void Spacecraft::repair()
 }
 Projectile &Spacecraft::shootDown()
 {
-    return *(new Laser(this->getPosition() + Vec3f(0., 2., 0.), Vec3f(0., 1., 0.), *field, *this));
+    return *(new Laser(this->getPosition() + Vec3f(0., 2., 0.), Vec3f(0., 12., 0.), *field, *this));
 }
 
 Projectile &Spacecraft::shootLeft()
 {
-    return *(new Laser(this->getPosition() + Vec3f(-2., 0., 0.), Vec3f(-1., 0., 0.), *field, *this));
+    return *(new Laser(this->getPosition() + Vec3f(-2., 0., 0.), Vec3f(-12., 0., 0.), *field, *this));
 }
 
 Projectile &Spacecraft::shootRight()
 {
-    return *(new Laser(this->getPosition() + Vec3f(2., 0., 0.), Vec3f(1., 0., 0.), *field, *this));
+    return *(new Laser(this->getPosition() + Vec3f(2., 0., 0.), Vec3f(12., 0., 0.), *field, *this));
 }
 
 void Spacecraft::handleCollision(GameActor &other)
