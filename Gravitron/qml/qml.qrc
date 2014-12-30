@@ -20,5 +20,6 @@
         <file alias="planet">actors/Planet.qml</file>
         <file alias="asteroid">actors/Asteroid.qml</file>
         <file alias="powerUp">actors/PowerUp.qml</file>
+        <file alias="scrap">actors/Scrap.qml</file>
     </qresource>
 </RCC>

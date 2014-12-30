@@ -5,5 +5,8 @@
         <file alias="planet">planet.png</file>
         <file alias="asteroid">asteroid.png</file>
         <file alias="powerUp">PowerUp.png</file>
+        <file alias="scrap3">scrap3.png</file>
+        <file alias="scrap2">scrap2.png</file>
+        <file alias="scrap1">scrap1.png</file>
     </qresource>
 </RCC>

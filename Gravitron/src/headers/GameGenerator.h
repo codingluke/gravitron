@@ -24,6 +24,7 @@ public:
     GameGenerator(GravitronSettings *settings);
     void generateGame(GameLoop* g);
     GameActor* generateNewPowerUp(Vec3f position);
+    GameActor* generateNewScrap(Vec3f position);
 
 private:
     void generateBots();
@@ -31,6 +32,7 @@ private:
     void generateAstroids();
     void generatePlayer();
     void generateRandomPowerUps();
+    void generateRandomScrap();
 
 
 signals:

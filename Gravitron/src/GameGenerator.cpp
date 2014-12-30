@@ -8,6 +8,7 @@
 #include "headers/HumanNetworkPlayer.h"
 #include "headers/GameField.h"
 #include "headers/PowerUp.h"
+#include "headers/Scrap.h"
 #include <QDebug>
 
 GameGenerator::GameGenerator(QObject *parent) :
@@ -29,7 +30,9 @@ void GameGenerator::generateGame(GameLoop* g) {
     QString mPlayerName;
     */
     //generateBots();
+    srand(time(NULL));
     generateRandomPowerUps();
+    generateRandomScrap();
     generatePlanets();
     generateAstroids();
     generatePlayer();
@@ -102,4 +105,22 @@ void GameGenerator::generateRandomPowerUps() {
 
 GameActor* GameGenerator::generateNewPowerUp(Vec3f position) {
     return new PowerUp(position, *field);
+}
+
+void GameGenerator::generateRandomScrap() {
+    int numberRadomScrap = 0;
+    if (settings->difficulty() == 2) {
+        numberRadomScrap = rand() % 30;
+    } else if (settings->difficulty() == 2) {
+        numberRadomScrap = rand() % 10;
+    }
+
+    for (int i = 0; i < numberRadomScrap; i++) {
+        Vec3f position(rand() % field->getWidth(),rand() % field->getHeight(), 0);
+        actors.push_back(generateNewScrap(position));
+    }
+}
+
+GameActor* GameGenerator::generateNewScrap(Vec3f position) {
+    return new Scrap(position, *field);
 }

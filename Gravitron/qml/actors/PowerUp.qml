@@ -3,7 +3,7 @@ import QtQuick 2.3
 Rectangle {
     property int identifier
 
-    id: planet
+    id: powerUp
     width: 55
     height: 55
     color: "#00000000"

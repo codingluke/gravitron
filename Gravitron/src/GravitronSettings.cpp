@@ -62,7 +62,7 @@ void GravitronSettings::load() {
 }
 
 void GravitronSettings::setDefaultSettings() {
-    mDifficulty = 1;
+    mDifficulty = 2;
     mFullScreen = false;
     mMusicSoundVolume = 50;
     mPlayMusic = true;

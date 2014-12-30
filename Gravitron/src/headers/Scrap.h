@@ -5,8 +5,12 @@
 class Scrap : public GameActor
 {
 public:
-    Scrap();
+    Scrap(Vec3f position, GameField &field);
     void handleCollision(GameActor &other);
+    GameActorView* getView() const;
+
+private:
+    string img;
 };
 
 #endif // SCRAP_H
