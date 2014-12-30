@@ -9,13 +9,13 @@ using namespace std;
 
 Game::Game(QObject *parent) : QObject(parent)
 {
-  init();
+    init();
 }
 
 Game::Game(QQmlApplicationEngine *theEngine, GameGenerator *gGenerator)
 {
-  engine = theEngine;
-  init(gGenerator);
+    engine = theEngine;
+    init(gGenerator);
 }
 
 /**
@@ -44,11 +44,13 @@ void Game::init(GameGenerator *gGenerator)
 {
     InputHandler *iHandler = new InputHandler();
     gameLoop = new GameLoop(iHandler, gGenerator);
-    QCoreApplication::instance()->installEventFilter(gameLoop);
     QCoreApplication::instance()->installEventFilter(iHandler);
-    connect(this, SIGNAL(stop(void)), gameLoop, SLOT(stop(void)));
-    connect(gameLoop, SIGNAL(ping(string)), this, SLOT(handleResults(string)));
-    connect(gameLoop, SIGNAL(renderObject(vector<GameActorView*>*)), this, SLOT(render(vector<GameActorView*>*)));
+    connect(this, SIGNAL(stop(void)),
+            gameLoop, SLOT(stop(void)));
+    connect(gameLoop, SIGNAL(ping(string)),
+            this, SLOT(handleResults(string)));
+    connect(gameLoop, SIGNAL(renderObject(vector<GameActorView*>*)),
+            this, SLOT(render(vector<GameActorView*>*)));
 }
 
 Game::~Game()

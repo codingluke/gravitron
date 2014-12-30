@@ -5,7 +5,22 @@
 
 using namespace std;
 
-InputHandler::InputHandler()
+NetworkInputHandler::NetworkInputHandler()
+{
+}
+
+NetworkInputHandler::NetworkInputHandler(TcpClient *client)
+{
+    this->client = client;
+}
+
+NetworkInputHandler::NetworkInputHandler(TcpServer *server)
+{
+    isServer = true;
+    this->server = server;
+}
+
+NetworkInputHandler::~NetworkInputHandler()
 {
 }
 
@@ -28,9 +43,9 @@ set<int> NetworkInputHandler::getRemoteInputs()
 void NetworkInputHandler::insertInputCode(int code)
 {
     mutex.lock();
-    ret = inputs.insert(code);
+    pair<set<int>::iterator, bool> ret = inputs.insert(code);
     if (ret.second) {
-      // sync new input over network
+        transferInputs();
     }
     mutex.unlock();
 }
@@ -39,7 +54,7 @@ void NetworkInputHandler::removeInputCode(int code)
 {
     mutex.lock();
     if (inputs.erase(code) == 1) {
-      // sync new input over network
+        transferInputs();
     }
     mutex.unlock();
 }
@@ -54,5 +69,19 @@ bool NetworkInputHandler::eventFilter(QObject *obj, QEvent *event)
       removeInputCode(keyEvent->key());
   }
   return false;
+}
+
+void NetworkInputHandler::transferInputs() const
+{
+    if (isServer) {
+        server->transfer("inputs from the server");
+    } else {
+        client->transfer("inputs from the client");
+    }
+}
+
+void NetworkInputHandler::received(QString message)
+{
+    qDebug() << "NetworkInputHandler: received -> " << message;
 }
 

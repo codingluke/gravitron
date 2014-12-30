@@ -11,6 +11,8 @@
 #include "headers/TcpClient.h"
 #include "headers/TcpServer.h"
 #include "headers/GameGenerator.h"
+#include "headers/NetworkInputHandler.h"
+
 #include <string>
 #include <QDebug>
 
@@ -40,6 +42,12 @@ int main(int argc, char *argv[])
     TcpClient client;
     engine.rootContext()->setContextProperty("Server", &server);
     engine.rootContext()->setContextProperty("Client", &client);
+
+    //NetworkInputHandler *sHandler = new NetworkInputHandler(&server);
+    //QCoreApplication::instance()->installEventFilter(sHandler);
+
+    NetworkInputHandler cHandler(&client);
+    QCoreApplication::instance()->installEventFilter(&cHandler);
 
     //server.transfer("yey from the server");
 

@@ -14,17 +14,18 @@ class NetworkInputHandler : public QObject
     Q_OBJECT
 
     private:
-      TcpServer *server;
-      TcpClient *client;
-      set<int> inputs;
-      set<int> remoteinputs;
-      QMutex mutex;
-      bool isServer;
+        QMutex mutex;
+        TcpServer *server; // holds just a reference from outside
+        TcpClient *client; // holds just a reverence from outside
+        set<int> inputs;
+        set<int> remoteinputs;
+        bool isServer = false;
 
     public:
         NetworkInputHandler();
         NetworkInputHandler(TcpClient *client);
         NetworkInputHandler(TcpServer *server);
+
         ~NetworkInputHandler();
 
         set<int> getInputs();
@@ -35,12 +36,11 @@ class NetworkInputHandler : public QObject
     protected:
         bool eventFilter(QObject *obj, QEvent *event);
 
-    private slot:
+    public slots:
         void received(QString message);
 
     private:
-        void sendInputs();
-
+        void transferInputs() const;
 };
 
 #endif

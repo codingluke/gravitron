@@ -22,6 +22,7 @@ HEADERS += src/headers/GameActor.h \
     src/headers/Projectile.h \ 
     src/headers/GameField.h \
     src/headers/InputHandler.h \
+    src/headers/NetworkInputHandler.h \
     src/headers/Missile.h \
     src/headers/AimMissile.h \
     src/headers/Laser.h \
@@ -62,6 +63,7 @@ SOURCES += src/main.cpp \
     src/Projectile.cpp \
     src/GameField.cpp \
     src/InputHandler.cpp \
+    src/NetworkInputHandler.cpp \
     src/Missile.cpp \
     src/AimMissile.cpp \
     src/Laser.cpp \
