@@ -35,7 +35,8 @@ HEADERS += src/headers/GameActor.h \
     src/headers/HumanNetworkPlayer.h \
     src/headers/KiPlayer.h \
     src/headers/KiNetworkPlayer.h \
-    src/headers/GameGenerator.h
+    src/headers/GameGenerator.h \
+    src/headers/ActrorsAdjustments.h
 
 DESTDIR = ../build
 OBJECTS_DIR = ../build

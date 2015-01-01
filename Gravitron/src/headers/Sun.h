@@ -5,7 +5,7 @@
 class Sun : public GameActor
 {
 public:
-    Sun(Vec3f pos, GameField &field);
+    Sun(Vec3f position, float mass, float gravitationRange, float g, GameField& field);
     void handleCollision(GameActor &other);
     GameActorView* getView() const;
     void applyForce(Vec3f force);

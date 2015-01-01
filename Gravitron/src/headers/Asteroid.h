@@ -4,10 +4,12 @@
 
 class Asteroid : public GameActor
 {
+
+
 public:
     Asteroid();
-    void handleCollision(GameActor &other);
     Asteroid(Vec3f position, double mass, float gravitationRange, float g, GameField &field, float maxSpeed);
+    void handleCollision(GameActor &other);
     GameActorView* getView() const ;
 };
 

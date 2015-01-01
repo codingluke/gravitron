@@ -34,6 +34,7 @@ private:
     void generateRandomPowerUps();
     void generateRandomScrap();
     void generateSun();
+    Spacecraft* generateNewSpacecraft();
 
 
 signals:

@@ -6,8 +6,8 @@ class Planet : public GameActor
 {
 public:
     Planet();
+    Planet(Vec3f pos, float mass, float gravitationRange, float g, GameField &field);
     void handleCollision(GameActor &other);
-    Planet(Vec3f pos, GameField &field);
     void kill();
     GameActorView* getView() const;
     void update();

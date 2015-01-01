@@ -72,7 +72,7 @@ Projectile &Spacecraft::shootUp()
 {
     Projectile* p;
     if (wappon == 1) {
-        p = new Laser(this->getPosition() + Vec3f(0,-2.,0.), Vec3f(0., -12., 0.), *field, *this);
+        p = new Laser(this->getPosition() + Vec3f(0,-2.,0.), Vec3f(0., -50., 0.), *field, *this);
     } else if (wappon == 2) {
         p = new Missile(this->getPosition() + Vec3f(0,-2.,0.), Vec3f(0., -12., 0.), *field, *this);
     } else if (wappon == 3) {
@@ -88,7 +88,7 @@ Projectile &Spacecraft::shootDown()
 {
     Projectile* p;
     if (wappon == 1) {
-        p = new Laser(this->getPosition() + Vec3f(0., 2., 0.), Vec3f(0., 12., 0.), *field, *this);
+        p = new Laser(this->getPosition() + Vec3f(0., 2., 0.), Vec3f(0., 50., 0.), *field, *this);
     } else if (wappon == 2) {
         p = new Missile(this->getPosition() + Vec3f(0., 2., 0.), Vec3f(0., 12., 0.), *field, *this);
     } else if (wappon == 3) {
@@ -101,7 +101,7 @@ Projectile &Spacecraft::shootLeft()
 {
     Projectile* p;
     if (wappon == 1) {
-        p = new Laser(this->getPosition() + Vec3f(-2., 0., 0.), Vec3f(-12., 0., 0.), *field, *this);
+        p = new Laser(this->getPosition() + Vec3f(-2., 0., 0.), Vec3f(-50., 0., 0.), *field, *this);
     } else if (wappon == 2) {
         p = new Missile(this->getPosition() + Vec3f(-2., 0., 0.), Vec3f(-12., 0., 0.), *field, *this);
     } else if (wappon == 3) {
@@ -114,7 +114,7 @@ Projectile &Spacecraft::shootRight()
 {
     Projectile* p;
     if (wappon == 1) {
-        p = new Laser(this->getPosition() + Vec3f(2., 0., 0.), Vec3f(12., 0., 0.), *field, *this);
+        p = new Laser(this->getPosition() + Vec3f(2., 0., 0.), Vec3f(50., 0., 0.), *field, *this);
     } else if (wappon == 2) {
         p = new Missile(this->getPosition() + Vec3f(2., 0., 0.), Vec3f(12., 0., 0.), *field, *this);
     } else if (wappon == 3) {
