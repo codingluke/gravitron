@@ -6,6 +6,8 @@
 
 class Player : public QObject
 {
+    Q_OBJECT
+
 public:
     Player(QObject *parent = 0);
     Player(Spacecraft* spacecraft, int frag);
@@ -19,5 +21,4 @@ public:
 
 
 };
-
 #endif // PLAYER_H

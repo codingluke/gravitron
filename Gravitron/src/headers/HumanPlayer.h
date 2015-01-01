@@ -7,11 +7,12 @@
 
 class HumanPlayer : public Player
 {
+    Q_OBJECT
 public:
     HumanPlayer(Spacecraft* spacecraft, int frag, GameLoop *loop);
     virtual ~HumanPlayer();
 
-public slots:
+private slots:
     void setActiveWappon(int wapponNumber);
 };
 
