@@ -7,7 +7,7 @@
 class HumanNetworkPlayer : public HumanPlayer
 {
 public:
-    HumanNetworkPlayer(Spacecraft* spacecraft, int frag);
+    HumanNetworkPlayer(Spacecraft* spacecraft, int frag, GameLoop *loop);
     virtual ~HumanNetworkPlayer();
 };
 

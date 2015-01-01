@@ -1,28 +1,34 @@
 #include "headers/Spacecraft.h"
 #include "headers/Laser.h"
+#include "headers/AimMissile.h"
+#include "headers/Missile.h"
 #include <sstream>
 #include <iostream>
 
 Spacecraft::Spacecraft() : GameActor()
 {
     g = 0;
+    wappon = 1;
 }
 
 Spacecraft::Spacecraft(Vec3f position, double mass, float gravitationRange, float g, GameField &field) :
     GameActor(position, mass, gravitationRange, g, 100, field)
 {
     g = 0;
+    wappon = 1;
 }
 
 Spacecraft::Spacecraft(Vec3f position, double mass, float gravitationRange, float g, GameField &field, float maxSpeed) :
     GameActor(position, mass, gravitationRange, g, 100, field, maxSpeed)
 {
     g = 0;
+    wappon = 1;
 }
 
 Spacecraft::Spacecraft(const Spacecraft &spacecraft) : GameActor(spacecraft)
 {
     g = 0;
+    wappon = 1;
 }
 
 Spacecraft::~Spacecraft() {
@@ -64,7 +70,15 @@ void Spacecraft::forceRight()
 
 Projectile &Spacecraft::shootUp()
 {
-    return *(new Laser(this->getPosition() + Vec3f(0,-2.,0.), Vec3f(0., -12., 0.), *field, *this));
+    Projectile* p;
+    if (wappon == 1) {
+        p = new Laser(this->getPosition() + Vec3f(0,-2.,0.), Vec3f(0., -12., 0.), *field, *this);
+    } else if (wappon == 2) {
+        p = new Missile(this->getPosition() + Vec3f(0,-2.,0.), Vec3f(0., -12., 0.), *field, *this);
+    } else if (wappon == 2) {
+        p = new AimMissile(this->getPosition() + Vec3f(0,-2.,0.), Vec3f(0., -12., 0.), *field, *this);
+    }
+    return *p;
 }
 void Spacecraft::repair()
 {
@@ -72,17 +86,41 @@ void Spacecraft::repair()
 }
 Projectile &Spacecraft::shootDown()
 {
-    return *(new Laser(this->getPosition() + Vec3f(0., 2., 0.), Vec3f(0., 12., 0.), *field, *this));
+    Projectile* p;
+    if (wappon == 1) {
+        p = new Laser(this->getPosition() + Vec3f(0., 2., 0.), Vec3f(0., 12., 0.), *field, *this);
+    } else if (wappon == 2) {
+        p = new Missile(this->getPosition() + Vec3f(0., 2., 0.), Vec3f(0., 12., 0.), *field, *this);
+    } else if (wappon == 2) {
+        p = new AimMissile(this->getPosition() + Vec3f(0., 2., 0.), Vec3f(0., 12., 0.), *field, *this);
+    }
+    return *p;
 }
 
 Projectile &Spacecraft::shootLeft()
 {
-    return *(new Laser(this->getPosition() + Vec3f(-2., 0., 0.), Vec3f(-12., 0., 0.), *field, *this));
+    Projectile* p;
+    if (wappon == 1) {
+        p = new Laser(this->getPosition() + Vec3f(-2., 0., 0.), Vec3f(-12., 0., 0.), *field, *this);
+    } else if (wappon == 2) {
+        p = new Missile(this->getPosition() + Vec3f(-2., 0., 0.), Vec3f(-12., 0., 0.), *field, *this);
+    } else if (wappon == 2) {
+        p = new AimMissile(this->getPosition() + Vec3f(-2., 0., 0.), Vec3f(-12., 0., 0.), *field, *this);
+    }
+    return *p;
 }
 
 Projectile &Spacecraft::shootRight()
 {
-    return *(new Laser(this->getPosition() + Vec3f(2., 0., 0.), Vec3f(12., 0., 0.), *field, *this));
+    Projectile* p;
+    if (wappon == 1) {
+        p = new Laser(this->getPosition() + Vec3f(2., 0., 0.), Vec3f(12., 0., 0.), *field, *this);
+    } else if (wappon == 2) {
+        p = new Missile(this->getPosition() + Vec3f(2., 0., 0.), Vec3f(12., 0., 0.), *field, *this);
+    } else if (wappon == 2) {
+        p = new AimMissile(this->getPosition() + Vec3f(2., 0., 0.), Vec3f(12., 0., 0.), *field, *this);
+    }
+    return *p;
 }
 
 void Spacecraft::handleCollision(GameActor &other)
@@ -91,5 +129,8 @@ void Spacecraft::handleCollision(GameActor &other)
     //dealDamage(5);
 }
 
+void Spacecraft::setWappon(int wapponNumber) {
+    this->wappon = wapponNumber;
+}
 
 

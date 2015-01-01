@@ -68,14 +68,9 @@ GameActorView* Laser::getView() const {
     std::ostringstream y;
     x << position[0];
     y << position[1];
-    GameActorView *view = new GameActorView("qrc:/qml/actor");
+    GameActorView *view = new GameActorView("qrc:/qml/laser");
     view->setProperty("identifier", "L");
     view->setProperty("x", x.str());
     view->setProperty("y", y.str());
-    if (killed) {
-    view->setProperty("color", "red");
-    } else {
-    view->setProperty("color", "blue");
-    }
     return view;
 }

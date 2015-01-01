@@ -21,5 +21,8 @@
         <file alias="asteroid">actors/Asteroid.qml</file>
         <file alias="powerUp">actors/PowerUp.qml</file>
         <file alias="scrap">actors/Scrap.qml</file>
+        <file alias="sun">actors/Sun.qml</file>
+        <file alias="missile">actors/Missile.qml</file>
+        <file alias="laser">actors/Laser.qml</file>
     </qresource>
 </RCC>

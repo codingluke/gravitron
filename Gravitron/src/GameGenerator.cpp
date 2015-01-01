@@ -9,6 +9,7 @@
 #include "headers/GameField.h"
 #include "headers/PowerUp.h"
 #include "headers/Scrap.h"
+#include "headers/Sun.h"
 #include <QDebug>
 
 GameGenerator::GameGenerator(QObject *parent) :
@@ -18,7 +19,7 @@ GameGenerator::GameGenerator(QObject *parent) :
 
 GameGenerator::GameGenerator(GravitronSettings *settings) {
     this->settings = settings;
-    this->field = new GameField(500 , 500);
+    this->field = new GameField(1000 , 1000);
 }
 
 void GameGenerator::generateGame(GameLoop* g) {
@@ -31,11 +32,12 @@ void GameGenerator::generateGame(GameLoop* g) {
     */
     //generateBots();
     srand(time(NULL));
+    generateSun();
     generateRandomPowerUps();
     generateRandomScrap();
     generatePlanets();
     generateAstroids();
-    generatePlayer();
+    generatePlayer(g);
 
     qDebug() << "GameCreator: " << actors.size();
 
@@ -61,15 +63,15 @@ void GameGenerator::generateBots() {
     }
 }
 
-void GameGenerator::generatePlayer() {
+void GameGenerator::generatePlayer(GameLoop* g) {
     Vec3f position(rand() % field->getWidth(),rand() % field->getHeight(), 0);
     float mass = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
     Spacecraft* sc = new Spacecraft(position, mass, 0, 0, *field, 10);
     actors.push_back(sc);
     if (settings->network()) {
-        humanPlayer.push_back(new HumanNetworkPlayer(sc, settings->frag()));
+        humanPlayer.push_back(new HumanNetworkPlayer(sc, settings->frag(), g));
     } else {
-        humanPlayer.push_back(new HumanPlayer(sc, settings->frag()));
+        humanPlayer.push_back(new HumanPlayer(sc, settings->frag(), g));
     }
 }
 
@@ -123,4 +125,9 @@ void GameGenerator::generateRandomScrap() {
 
 GameActor* GameGenerator::generateNewScrap(Vec3f position) {
     return new Scrap(position, *field);
+}
+
+void GameGenerator::generateSun() {
+    Vec3f position(rand() % field->getWidth(),rand() % field->getHeight(), 0);
+    actors.push_back(new Sun(position, *field));
 }

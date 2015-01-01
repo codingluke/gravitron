@@ -8,5 +8,11 @@
         <file alias="scrap3">scrap3.png</file>
         <file alias="scrap2">scrap2.png</file>
         <file alias="scrap1">scrap1.png</file>
+        <file alias="sun">sun.png</file>
+        <file alias="missile">missile.png</file>
+        <file alias="laser">laser.png</file>
+        <file alias="selectMissile">selectMissile.png</file>
+        <file alias="selectAimMissile">selectAimMissile.png</file>
+        <file alias="selectLaser">selcetLaser.png</file>
     </qresource>
 </RCC>

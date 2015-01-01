@@ -30,9 +30,10 @@ private:
     void generateBots();
     void generatePlanets();
     void generateAstroids();
-    void generatePlayer();
+    void generatePlayer(GameLoop* g);
     void generateRandomPowerUps();
     void generateRandomScrap();
+    void generateSun();
 
 
 signals:

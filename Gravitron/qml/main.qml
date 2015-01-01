@@ -10,8 +10,8 @@ import "functions.js" as Functions
 Window {
     id: win_startWindow
     visible: true
-    width: 500
-    height: 500
+    width: 1000
+    height: 1000
     
     Image {
         id: img_backgrond
