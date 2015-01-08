@@ -8,7 +8,7 @@
 class Spacecraft : public GameActor
 {
     private:
-        int wappon;
+        int weapon;
 
     public:
         Spacecraft();
@@ -34,7 +34,7 @@ class Spacecraft : public GameActor
         Projectile &shootRight();
         void repair();
 
-        void setWappon(int wapponNumber);
+        void setWeapon(int weaponNumber);
 };
 
 #endif // SPACECRAFT_H

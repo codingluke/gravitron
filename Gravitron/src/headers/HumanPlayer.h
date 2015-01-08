@@ -13,7 +13,7 @@ public:
     virtual ~HumanPlayer();
 
 private slots:
-    void setActiveWappon(int wapponNumber);
+    void setActiveWeapon(int weaponNumber);
 };
 
 #endif // HUMANPLAYER_H

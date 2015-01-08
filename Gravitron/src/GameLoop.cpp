@@ -142,14 +142,14 @@ void GameLoop::execLocalPlayerAction(int code)
         actors.push_back(&(localPlayer->Spacecraft::shootRight()));
         inputHandler->removeInputCode(Qt::Key_D);
     } else if (code == Qt::Key_1) {
-        emit activeWapponGame(1);
-        emit activeWapponPlayer(1);
+        emit activeWeaponGame(1);
+        emit activeWeaponPlayer(1);
     } else if (code == Qt::Key_2) {
-        emit activeWapponGame(2);
-        emit activeWapponPlayer(2);
+        emit activeWeaponGame(2);
+        emit activeWeaponPlayer(2);
     } else if (code == Qt::Key_3) {
-        emit activeWapponGame(3);
-        emit activeWapponPlayer(3);
+        emit activeWeaponGame(3);
+        emit activeWeaponPlayer(3);
     }
 }
 
