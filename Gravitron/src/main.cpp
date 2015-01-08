@@ -32,9 +32,10 @@ int main(int argc, char *argv[])
     engine.rootContext()->setContextProperty("Settings", &settings);
     engine.rootContext()->setContextProperty("MListener", &mListener);
 
-    GameGenerator gGenerator(&settings);
+    //GameGenerator gGenerator(&settings);
     // Add Game
-    Game game(&engine, &gGenerator);
+    //Game game(&engine, &gGenerator);
+    Game game(&engine, &settings);
     engine.rootContext()->setContextProperty("Game", &game);
 
     // Add TCP

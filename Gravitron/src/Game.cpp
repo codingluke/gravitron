@@ -10,13 +10,12 @@ using namespace std;
 
 Game::Game(QObject *parent) : QObject(parent)
 {
-    init();
 }
 
-Game::Game(QQmlApplicationEngine *theEngine, GameGenerator *gGenerator)
+Game::Game(QQmlApplicationEngine *theEngine, GravitronSettings *theSettings)
 {
     engine = theEngine;
-    init(gGenerator);
+    settings = theSettings;
 }
 
 /**
@@ -34,6 +33,17 @@ void Game::setQmlParent(QQuickItem *theQmlParent)
  */
 void Game::start()
 {
+    InputHandler *iHandler = new InputHandler();
+    gameLoop = new GameLoop(iHandler, new GameGenerator(settings));
+    QCoreApplication::instance()->installEventFilter(iHandler);
+    connect(this, SIGNAL(stop(void)),
+            gameLoop, SLOT(stop(void)));
+    connect(gameLoop, SIGNAL(ping(string)),
+            this, SLOT(handleResults(string)));
+    connect(gameLoop, SIGNAL(renderObject(vector<GameActorView*>*)),
+            this, SLOT(render(vector<GameActorView*>*)));
+    connect(gameLoop, SIGNAL(activeWapponGame(int)),
+            this, SLOT(setActiveWappon(int)));
     gameLoop->start();
 }
 
@@ -53,24 +63,24 @@ void Game::start(TcpServer *server)
     gameLoop->start();
 }
 
-void Game::init() {
-    init(NULL);
-}
+//void Game::init() {
+    //init(NULL);
+//}
 
-void Game::init(GameGenerator *gGenerator)
-{
-    InputHandler *iHandler = new InputHandler();
-    gameLoop = new GameLoop(iHandler, gGenerator);
-    QCoreApplication::instance()->installEventFilter(iHandler);
-    connect(this, SIGNAL(stop(void)),
-            gameLoop, SLOT(stop(void)));
-    connect(gameLoop, SIGNAL(ping(string)),
-            this, SLOT(handleResults(string)));
-    connect(gameLoop, SIGNAL(renderObject(vector<GameActorView*>*)),
-            this, SLOT(render(vector<GameActorView*>*)));
-    connect(gameLoop, SIGNAL(activeWapponGame(int)),
-            this, SLOT(setActiveWappon(int)));
-}
+//void Game::init()
+//{
+    //InputHandler *iHandler = new InputHandler();
+    //gameLoop = new GameLoop(iHandler, new GameGenerator(settings));
+    //QCoreApplication::instance()->installEventFilter(iHandler);
+    //connect(this, SIGNAL(stop(void)),
+            //gameLoop, SLOT(stop(void)));
+    //connect(gameLoop, SIGNAL(ping(string)),
+            //this, SLOT(handleResults(string)));
+    //connect(gameLoop, SIGNAL(renderObject(vector<GameActorView*>*)),
+            //this, SLOT(render(vector<GameActorView*>*)));
+    //connect(gameLoop, SIGNAL(activeWapponGame(int)),
+            //this, SLOT(setActiveWappon(int)));
+//}
 
 Game::~Game()
 {

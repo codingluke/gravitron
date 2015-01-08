@@ -23,10 +23,11 @@ class Game: public QObject
         QQmlApplicationEngine *engine;
         QQuickItem *qmlParent;
         GameLoop *gameLoop;
+        GravitronSettings *settings;
 
     public:
         Game(QObject *parent = 0);
-        Game(QQmlApplicationEngine *theEngine, GameGenerator *gGenerator);
+        Game(QQmlApplicationEngine *theEngine, GravitronSettings *theSettings);
         ~Game();
 
         Q_INVOKABLE void setQmlParent(QQuickItem *theQmlParent);
@@ -44,8 +45,6 @@ class Game: public QObject
         Q_INVOKABLE void inputEvents(int code);
 
     private:
-        void init();
-        void init(GameGenerator *gGenerator);
         void clearScene();
 };
 
