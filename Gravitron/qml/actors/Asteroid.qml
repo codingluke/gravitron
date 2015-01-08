@@ -4,19 +4,12 @@ Rectangle {
     property int identifier
 
     id: planet
-    width: 50
-    height: 50
-    color: "#FF000000"
-    Text {
-        id: buttonLabel
-        anchors.centerIn: parent
-        text: parent.identifier
-    }
+    color: "#00000000"
 
     Image {
         id: image1
-        width: parent.width
-        height: parent.height
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.verticalCenter: parent.verticalCenter
         source: "qrc:/img/asteroid"
     }
 }

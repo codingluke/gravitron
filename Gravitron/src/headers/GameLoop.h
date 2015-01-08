@@ -36,6 +36,7 @@ class GameLoop : public QThread
         InputHandler *inputHandler;
         GameGenerator *gGenerator;
 
+
     public:
         GameLoop(InputHandler *inputHandler, GameGenerator* gGenerator);
         virtual ~GameLoop();
@@ -61,6 +62,8 @@ class GameLoop : public QThread
     signals:
         void ping(const string &result);
         void renderObject(vector<GameActorView*> *views);
+        void activeWapponGame(int wapponNumber);
+        void activeWapponPlayer(int wapponNumber);
 };
 
 #endif

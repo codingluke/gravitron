@@ -11,24 +11,28 @@ Laser::Laser(Vec3f position, Vec3f velocity, GameField &field, GameActor &friend
     Projectile(position, 0, 0, 0, 90, 1, field, friendly)
 {
     applyForce(velocity);
+    this->maxSpeed = velocity.magnitude();
 }
 
 Laser::Laser(Vec3f position, Vec3f velocity, GameField &field) :
     Projectile(position, 0, 0, 0, 90, 1, field)
 {
     applyForce(velocity);
+    this->maxSpeed = velocity.magnitude();
 }
 
 Laser::Laser(GameActor &actor, Vec3f velocity, GameField &field, GameActor &friendly) :
     Projectile(actor.getPosition(), 0, 0, 0, 90, 1, field, friendly)
 {
     applyForce(velocity);
+    this->maxSpeed = velocity.magnitude();
 }
 
 Laser::Laser(GameActor &actor, GameField &field, GameActor &friendly) :
     Projectile(actor.getPosition(), 0, 0, 0, 90, 1, field, friendly)
 {
     applyForce(actor.getVelocity());
+    this->maxSpeed = actor.getVelocity().magnitude();
 }
 
 Laser::Laser(const Laser &projectile) :
@@ -64,14 +68,9 @@ GameActorView* Laser::getView() const {
     std::ostringstream y;
     x << position[0];
     y << position[1];
-    GameActorView *view = new GameActorView("qrc:/qml/actor");
+    GameActorView *view = new GameActorView("qrc:/qml/laser");
     view->setProperty("identifier", "L");
     view->setProperty("x", x.str());
     view->setProperty("y", y.str());
-    if (killed) {
-    view->setProperty("color", "red");
-    } else {
-    view->setProperty("color", "blue");
-    }
     return view;
 }

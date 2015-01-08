@@ -26,7 +26,7 @@ GameLoop::~GameLoop() {
     deletePlayer();
     deleteBots();
     delete field;
-    delete localPlayer;
+    //delete localPlayer;
     delete inputHandler;
 }
 
@@ -137,6 +137,15 @@ void GameLoop::execLocalPlayerAction(int code)
     } else if (code == Qt::Key_D) {
         actors.push_back(&(localPlayer->Spacecraft::shootRight()));
         inputHandler->removeInputCode(Qt::Key_D);
+    } else if (code == Qt::Key_1) {
+        emit activeWapponGame(1);
+        emit activeWapponPlayer(1);
+    } else if (code == Qt::Key_2) {
+        emit activeWapponGame(2);
+        emit activeWapponPlayer(2);
+    } else if (code == Qt::Key_3) {
+        emit activeWapponGame(3);
+        emit activeWapponPlayer(3);
     }
 }
 

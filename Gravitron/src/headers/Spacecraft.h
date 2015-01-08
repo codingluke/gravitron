@@ -7,6 +7,9 @@
 
 class Spacecraft : public GameActor
 {
+    private:
+        int wappon;
+
     public:
         Spacecraft();
         Spacecraft(Vec3f position, double mass,
@@ -30,6 +33,8 @@ class Spacecraft : public GameActor
         Projectile &shootLeft();
         Projectile &shootRight();
         void repair();
+
+        void setWappon(int wapponNumber);
 };
 
 #endif // SPACECRAFT_H

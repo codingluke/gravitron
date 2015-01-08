@@ -71,7 +71,7 @@ void GravitronSettings::setDefaultSettings() {
     mPlayingFieldSize = 500;
     mBotsCount = 0;
     mPlanetCount = 3;
-    mAstroidCount = 0;
+    mAstroidCount = 10;
     mFrag = 3;
     mRespawTime = 30;
     mLanguare = "en";
