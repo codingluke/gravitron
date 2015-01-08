@@ -58,6 +58,9 @@ Rectangle {
             id: slide_planetCount
             width: Global.sliderWidth
             height: Global.sliderHeigt
+            stepSize: 1
+            maximumValue: 50
+            minimumValue: 5
         }
 
         Text {
@@ -71,6 +74,9 @@ Rectangle {
             id: slide_astroidCount
             width: Global.sliderWidth
             height: Global.sliderHeigt
+            stepSize: 1
+            maximumValue: 50
+            minimumValue: 5
         }
 
         Text {

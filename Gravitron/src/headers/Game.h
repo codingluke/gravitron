@@ -34,6 +34,7 @@ class Game: public QObject
         Q_INVOKABLE void start();
         Q_INVOKABLE void start(TcpClient *client);
         Q_INVOKABLE void start(TcpServer *server);
+        Q_INVOKABLE void stop();
 
     public slots:
         void handleResults(const string &result);
@@ -41,7 +42,6 @@ class Game: public QObject
         void setActiveWappon(int wapponNumber);
 
     signals:
-        Q_INVOKABLE void stop();
         Q_INVOKABLE void inputEvents(int code);
 
     private:

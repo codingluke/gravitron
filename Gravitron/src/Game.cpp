@@ -36,8 +36,10 @@ void Game::start()
     InputHandler *iHandler = new InputHandler();
     gameLoop = new GameLoop(iHandler, new GameGenerator(settings));
     QCoreApplication::instance()->installEventFilter(iHandler);
-    connect(this, SIGNAL(stop(void)),
-            gameLoop, SLOT(stop(void)));
+    //connect(this, SIGNAL(stop(void)),
+            //gameLoop, SLOT(stop(void)));
+    //connect(this, SIGNAL(stop(void)),
+            //this, SLOT(reset(void)));
     connect(gameLoop, SIGNAL(ping(string)),
             this, SLOT(handleResults(string)));
     connect(gameLoop, SIGNAL(renderObject(vector<GameActorView*>*)),
@@ -63,6 +65,14 @@ void Game::start(TcpServer *server)
     gameLoop->start();
 }
 
+void Game::stop()
+{
+    gameLoop->stop();
+    gameLoop->quit();
+    gameLoop->wait();
+    delete gameLoop;
+}
+
 //void Game::init() {
     //init(NULL);
 //}
@@ -84,9 +94,10 @@ void Game::start(TcpServer *server)
 
 Game::~Game()
 {
-    gameLoop->quit();
-    gameLoop->wait();
-    delete gameLoop;
+    stop();
+    //gameLoop->quit();
+    //gameLoop->wait();
+    //delete gameLoop;
 }
 
 void Game::handleResults(const string &result)
