@@ -64,9 +64,9 @@ VisualItemModel {
             stepSize: 1
             activeFocusOnPress: true
             minimumValue: 0
-            //value: SettingsFunctions.getSlideMusicSoundVolumeVlaue()
+            value: SettingsFunctions.getSlideMusicSoundVolumeVlaue()
             maximumValue: 100
-            onValueChanged: SettingsFunctions.slide_musicSoundVolumeChanged()
+            onPressedChanged: SettingsFunctions.slide_musicSoundVolumeChanged()
         }
 
         Button {

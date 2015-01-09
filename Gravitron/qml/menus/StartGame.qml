@@ -65,12 +65,10 @@ VisualItemModel {
             id: slide_planetCount
             width: Global.sliderWidth
             height: Global.sliderHeigt
-            value: GameSettings.getSlidePlanetCount();
-            onValueChanged: GameSettings.slide_planetCountChanged()
-            updateValueWhileDragging: false
-            tickmarksEnabled: true
-            minimumValue: 5
-            maximumValue: 50
+            value: Settings.planetCount
+            onPressedChanged: Settings.setPlanetCount(slide_planetCount.value)
+            minimumValue: 1
+            maximumValue: 20
         }
 
         Text {
@@ -84,10 +82,10 @@ VisualItemModel {
             id: slide_astroidCount
             width: Global.sliderWidth
             height: Global.sliderHeigt
-            value: GameSettings.getSlideAstroidCount()
-            minimumValue: 5
-            maximumValue: 50
-            onValueChanged: GameSettings.slide_astroidCountChanged()
+            value: Settings.astroidCount
+            onPressedChanged: Settings.setAstroidCount(slide_astroidCount.value)
+            minimumValue: 1
+            maximumValue: 20
         }
 
         Text {
