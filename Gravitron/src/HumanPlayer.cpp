@@ -4,14 +4,14 @@
 
 HumanPlayer::HumanPlayer(Spacecraft *spacecraft, int frag, GameLoop* loop) : Player(spacecraft, frag)
 {
-    this->spacecraft->setWappon(3);
-    connect(loop, SIGNAL(activeWapponPlayer(int)), this, SLOT(setActiveWappon(int)));
+    this->spacecraft->setWeapon(3);
+    connect(loop, SIGNAL(activeWeaponPlayer(int)), this, SLOT(setActiveWeapon(int)));
 }
 
 HumanPlayer::~HumanPlayer() {
 
 }
 
-void HumanPlayer::setActiveWappon(int wapponNumber) {
-    this->spacecraft->setWappon(wapponNumber);
+void HumanPlayer::setActiveWeapon(int weaponNumber) {
+    this->spacecraft->setWeapon(weaponNumber);
 }

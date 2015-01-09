@@ -59,8 +59,8 @@ class GameLoop : public QThread
 
     signals:
         void renderObject(vector<GameActorView*> *views);
-        void activeWapponGame(int wapponNumber);
-        void activeWapponPlayer(int wapponNumber);
+        void activeWeaponGame(int weaponNumber);
+        void activeWeaponPlayer(int weaponNumber);
 };
 
 #endif
