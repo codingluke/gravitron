@@ -68,6 +68,7 @@ VisualItemModel {
             value: GameSettings.getSlidePlanetCount();
             onValueChanged: GameSettings.slide_planetCountChanged()
             updateValueWhileDragging: false
+            tickmarksEnabled: true
             minimumValue: 5
             maximumValue: 50
         }
