@@ -25,7 +25,6 @@ GameLoop::~GameLoop() {
     deletePlayer();
     deleteBots();
     delete field;
-    delete inputHandler;
 }
 
 void GameLoop::deleteActors() {
@@ -91,7 +90,6 @@ void GameLoop::run()
             update();
             lag -= ms_per_update;
         }
-
         render();
     }
 }

@@ -2,26 +2,11 @@
 #include <QDebug>
 #include <QEvent>
 #include <QKeyEvent>
+#include <iostream>
 
 using namespace std;
 
 NetworkInputHandler::NetworkInputHandler()
-{
-}
-
-NetworkInputHandler::NetworkInputHandler(TcpClient *client)
-{
-    isServer = false;
-    this->client = client;
-}
-
-NetworkInputHandler::NetworkInputHandler(TcpServer *server)
-{
-    isServer = true;
-    this->server = server;
-}
-
-NetworkInputHandler::~NetworkInputHandler()
 {
 }
 
@@ -33,61 +18,38 @@ set<int> NetworkInputHandler::getInputs()
     return copy;
 }
 
-set<int> NetworkInputHandler::getRemoteInputs()
+void NetworkInputHandler::setInputsFromString(QString inputsStr)
 {
-    mutex.lock();
-    set<int> copy = remoteinputs;
-    mutex.unlock();
-    return copy;
+    set<int> tmp;
+    QStringList codes = inputsStr.split(",", QString::SkipEmptyParts);
+    for (int i = 0; i < codes.size(); ++i) {
+        tmp.insert(codes[i].toInt());
+    }
+    setInputs(tmp);
 }
 
-void NetworkInputHandler::insertInputCode(int code)
+void NetworkInputHandler::setInputs(set<int> newInputs)
 {
     mutex.lock();
-    pair<set<int>::iterator, bool> ret = inputs.insert(code);
-    qDebug() << "TcpClient: insertInputCode";
-    if (ret.second) {
-        qDebug() << "TcpClient: kukuk";
-        transferInputs();
-    }
+    inputs = newInputs;
     mutex.unlock();
 }
 
 void NetworkInputHandler::removeInputCode(int code)
 {
     mutex.lock();
-    if (inputs.erase(code) == 1) {
-        transferInputs();
-    }
+    inputs.erase(code);
     mutex.unlock();
 }
 
-bool NetworkInputHandler::eventFilter(QObject *obj, QEvent *event)
+void NetworkInputHandler::receive(QString message)
 {
-    if (event->type() == QEvent::KeyPress && obj) {
-        QKeyEvent *keyEvent = (QKeyEvent*)event;
-        insertInputCode(keyEvent->key());
-    } else if (event->type() == QEvent::KeyRelease && obj) {
-        QKeyEvent *keyEvent = (QKeyEvent*)event;
-        removeInputCode(keyEvent->key());
+    set<int> codes;
+    QStringList messages = message.split(";", QString::SkipEmptyParts);
+    for (int i = 0; i < messages.size(); ++i) {
+        if (messages.at(i).startsWith('i')) {
+            setInputsFromString(messages.at(i));
+        }
     }
-    return false;
-}
-
-void NetworkInputHandler::transferInputs() const
-{
-    qDebug() << "NetworkInputHandler: transferInputs";
-    if (isServer) {
-        qDebug() << "NetworkInputHandler: server transferInputs";
-        server->transfer("inputs from the server");
-    } else {
-        qDebug() << "NetworkInputHandler: client transferInputs";
-        //client->transfer("inputs from the client");
-    }
-}
-
-void NetworkInputHandler::received(QString message)
-{
-    qDebug() << "NetworkInputHandler: received -> " << message;
 }
 

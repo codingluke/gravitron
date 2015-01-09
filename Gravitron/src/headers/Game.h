@@ -32,8 +32,8 @@ class Game: public QObject
 
         Q_INVOKABLE void setQmlParent(QQuickItem *theQmlParent);
         Q_INVOKABLE void start();
-        Q_INVOKABLE void start(TcpClient *client);
-        Q_INVOKABLE void start(TcpServer *server);
+        Q_INVOKABLE void startClient(TcpClient *client);
+        Q_INVOKABLE void startServer(TcpServer *server);
         Q_INVOKABLE void stop();
 
     public slots:

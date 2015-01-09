@@ -5,6 +5,9 @@
 #include <QObject>
 #include <QString>
 #include <QTcpSocket>
+#include <set>
+
+using namespace std;
 
 class TcpClient: public QObject
 {
@@ -18,11 +21,12 @@ class TcpClient: public QObject
         ~TcpClient();
 
         Q_INVOKABLE void start(QString address, quint16 port);
-        Q_INVOKABLE void transfer(QString message);
 
     public slots:
         void startTransfer();
         void startRead();
+        Q_INVOKABLE void transfer(QString message);
+        Q_INVOKABLE void transfer(set<int> inputs);
 
     signals:
         void received(QString message);

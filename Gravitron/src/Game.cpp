@@ -43,19 +43,29 @@ void Game::start()
     gameLoop->start();
 }
 
-void Game::start(TcpClient *client)
+void Game::startClient(TcpClient *client)
 {
     qDebug() << "Game: start client";
-    NetworkInputHandler *iHandler = new NetworkInputHandler(client);
+    InputHandler *iHandler = new InputHandler();
+    connect(iHandler, SIGNAL(inputsChanged(set<int>)),
+            client, SLOT(transfer(set<int>)));
     QCoreApplication::instance()->installEventFilter(iHandler);
-    gameLoop->start();
 }
 
-void Game::start(TcpServer *server)
+void Game::startServer(TcpServer *server)
 {
     qDebug() << "Game: start server";
-    NetworkInputHandler *iHandler = new NetworkInputHandler(server);
+    NetworkInputHandler *nHandler = new NetworkInputHandler();
+    connect(server, SIGNAL(received(QString)),
+            nHandler, SLOT(receive(QString)));
+
+    InputHandler *iHandler = new InputHandler();
     QCoreApplication::instance()->installEventFilter(iHandler);
+    gameLoop = new GameLoop(iHandler, GameGenerator(settings));
+    connect(gameLoop, SIGNAL(renderObject(vector<GameActorView*>*)),
+            this, SLOT(render(vector<GameActorView*>*)));
+    connect(gameLoop, SIGNAL(activeWapponGame(int)),
+            this, SLOT(setActiveWappon(int)));
     gameLoop->start();
 }
 

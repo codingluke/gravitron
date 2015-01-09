@@ -20,14 +20,19 @@ set<int> InputHandler::getInputs()
 void InputHandler::insertInputCode(int code)
 {
     mutex.lock();
-    inputs.insert(code);
+    pair<set<int>::iterator, bool> ret = inputs.insert(code);
+    if (ret.second) {
+        emit inputsChanged(inputs);
+    }
     mutex.unlock();
 }
 
 void InputHandler::removeInputCode(int code)
 {
     mutex.lock();
-    inputs.erase(code);
+    if (inputs.erase(code) == 1) {
+        emit inputsChanged(inputs);
+    }
     mutex.unlock();
 }
 

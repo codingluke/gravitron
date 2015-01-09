@@ -17,7 +17,7 @@ function btn_startMultiplayerGameClicked() {
     loader.visible = true;
     loader.source = "../Game.qml";
     Game.setQmlParent(loader.item);
-    Game.start(Server);
+    Game.startServer(Server);
 }
 
 function btn_joinMultiplayerGameClicked() {
@@ -26,7 +26,7 @@ function btn_joinMultiplayerGameClicked() {
     loader.visible = true;
     loader.source = "../Game.qml";
     Game.setQmlParent(loader.item);
-    Game.start(Client);
+    Game.startClient(Client);
 }
 
 function btn_settingsClicked() {

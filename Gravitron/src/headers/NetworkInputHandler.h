@@ -6,6 +6,7 @@
 #include <set>
 #include "TcpServer.h"
 #include "TcpClient.h"
+#include <QString>
 
 using namespace std;
 
@@ -15,32 +16,19 @@ class NetworkInputHandler : public QObject
 
     private:
         QMutex mutex;
-        TcpServer *server; // holds just a reference from outside
-        TcpClient *client; // holds just a reverence from outside
         set<int> inputs;
-        set<int> remoteinputs;
-        bool isServer = false;
 
     public:
         NetworkInputHandler();
-        NetworkInputHandler(TcpClient *client);
-        NetworkInputHandler(TcpServer *server);
-
-        ~NetworkInputHandler();
 
         set<int> getInputs();
-        set<int> getRemoteInputs();
         void removeInputCode(int code);
-        void insertInputCode(int code);
-
-    protected:
-        bool eventFilter(QObject *obj, QEvent *event);
+        void setInputs(set<int> newInputs);
+        void setInputsFromString(QString inputStr);
 
     public slots:
-        void received(QString message);
+        void receive(QString message);
 
-    private:
-        void transferInputs() const;
 };
 
 #endif

@@ -41,8 +41,5 @@ void TcpServer::transfer(QString message)
 
 void TcpServer::startRead()
 {
-    char buffer[1024] = {0};
-    client->read(buffer, client->bytesAvailable());
-    cout << "server:" << buffer << endl;
-    emit received(QString(buffer));
+    emit received(client->readAll());
 }
