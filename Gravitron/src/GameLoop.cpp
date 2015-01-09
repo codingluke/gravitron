@@ -14,11 +14,10 @@
 using namespace std;
 
 
-GameLoop::GameLoop(InputHandler *inputHandler, GameGenerator *gGenerator)
+GameLoop::GameLoop(InputHandler *inputHandler, GameGenerator gGenerator)
 {
     this->inputHandler = inputHandler;
-    this->gGenerator = gGenerator;
-    gGenerator->generateGame(this);
+    gGenerator.generateGame(this);
 }
 
 GameLoop::~GameLoop() {
@@ -26,7 +25,6 @@ GameLoop::~GameLoop() {
     deletePlayer();
     deleteBots();
     delete field;
-    //delete localPlayer;
     delete inputHandler;
 }
 
@@ -39,16 +37,14 @@ void GameLoop::deleteActors() {
 
 void GameLoop::deleteBots() {
     vector<Player*>::iterator it;
-    for (it = bots.begin(); it < bots.end(); it++)
-    {
+    for (it = bots.begin(); it < bots.end(); it++) {
         delete (*it);
     }
 }
 
 void GameLoop::deletePlayer() {
     vector<Player*>::iterator it;
-    for (it = player.begin(); it < player.end(); it++)
-    {
+    for (it = player.begin(); it < player.end(); it++) {
         delete (*it);
     }
 }
@@ -84,7 +80,6 @@ void GameLoop::run()
     QTime t;
     int lag = 0;
 
-    emit ping("start");
     t.start();
 
     while (running)
@@ -104,7 +99,6 @@ void GameLoop::run()
 void GameLoop::stop()
 {
     running = false;
-    emit ping("stop");
 }
 
 void GameLoop::processInput()
@@ -169,8 +163,8 @@ void GameLoop::update()
             delete (actors[i]);
             actors.erase(actors.begin() + i);
         }
-    } 
-    
+    }
+
     actors.shrink_to_fit();
     QThread::msleep(5);
 }

@@ -37,7 +37,6 @@ class Game: public QObject
         Q_INVOKABLE void stop();
 
     public slots:
-        void handleResults(const string &result);
         void render(vector<GameActorView*> *views);
         void setActiveWappon(int wapponNumber);
 

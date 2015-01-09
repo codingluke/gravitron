@@ -2,7 +2,6 @@ import QtQuick 2.0
 import QtQuick.Controls 1.2
 import QtPositioning 5.3
 import QtQuick.Layouts 1.0
-import GravitronSettings 1.0
 import QtQml.Models 2.1
 
 import "constants.js" as Global

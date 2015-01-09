@@ -34,14 +34,8 @@ void Game::setQmlParent(QQuickItem *theQmlParent)
 void Game::start()
 {
     InputHandler *iHandler = new InputHandler();
-    gameLoop = new GameLoop(iHandler, new GameGenerator(settings));
+    gameLoop = new GameLoop(iHandler, GameGenerator(settings));
     QCoreApplication::instance()->installEventFilter(iHandler);
-    //connect(this, SIGNAL(stop(void)),
-            //gameLoop, SLOT(stop(void)));
-    //connect(this, SIGNAL(stop(void)),
-            //this, SLOT(reset(void)));
-    connect(gameLoop, SIGNAL(ping(string)),
-            this, SLOT(handleResults(string)));
     connect(gameLoop, SIGNAL(renderObject(vector<GameActorView*>*)),
             this, SLOT(render(vector<GameActorView*>*)));
     connect(gameLoop, SIGNAL(activeWapponGame(int)),
@@ -73,36 +67,9 @@ void Game::stop()
     delete gameLoop;
 }
 
-//void Game::init() {
-    //init(NULL);
-//}
-
-//void Game::init()
-//{
-    //InputHandler *iHandler = new InputHandler();
-    //gameLoop = new GameLoop(iHandler, new GameGenerator(settings));
-    //QCoreApplication::instance()->installEventFilter(iHandler);
-    //connect(this, SIGNAL(stop(void)),
-            //gameLoop, SLOT(stop(void)));
-    //connect(gameLoop, SIGNAL(ping(string)),
-            //this, SLOT(handleResults(string)));
-    //connect(gameLoop, SIGNAL(renderObject(vector<GameActorView*>*)),
-            //this, SLOT(render(vector<GameActorView*>*)));
-    //connect(gameLoop, SIGNAL(activeWapponGame(int)),
-            //this, SLOT(setActiveWappon(int)));
-//}
-
 Game::~Game()
 {
-    stop();
-    //gameLoop->quit();
-    //gameLoop->wait();
-    //delete gameLoop;
-}
-
-void Game::handleResults(const string &result)
-{
-    qDebug() << QString::fromStdString(result);
+    //stop();
 }
 
 /**

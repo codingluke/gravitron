@@ -34,21 +34,19 @@ class GameLoop : public QThread
         int respawnTime;
         GameField *field;
         InputHandler *inputHandler;
-        GameGenerator *gGenerator;
-
 
     public:
-        GameLoop(InputHandler *inputHandler, GameGenerator* gGenerator);
+        GameLoop(InputHandler *inputHandler, GameGenerator gGenerator);
         virtual ~GameLoop();
         void setBots(vector<Player*> bots);
         void setPlayer(vector<Player*> player);
         void setActors(vector<GameActor*> actors);
         void setGameField(GameField* newField);
         void setRespawTime(int respawnTime);
+        void stop();
 
     public slots:
         void run();
-        void stop();
 
     private:
         void processInput();
@@ -60,7 +58,6 @@ class GameLoop : public QThread
         void deleteActors();
 
     signals:
-        void ping(const string &result);
         void renderObject(vector<GameActorView*> *views);
         void activeWapponGame(int wapponNumber);
         void activeWapponPlayer(int wapponNumber);

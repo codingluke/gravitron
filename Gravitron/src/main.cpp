@@ -21,10 +21,7 @@ using namespace std;
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
-
-    qRegisterMetaType<string>("string");
     qmlRegisterType<QMLFileReader, 1>("QMLFileReader", 1, 0, "QMLFileReader");
-    qmlRegisterType<GravitronSettings, 1>("GravitronSettings", 1, 0, "GravitronSettings");
 
     QQmlApplicationEngine engine;
     GravitronSettings settings;
@@ -32,9 +29,7 @@ int main(int argc, char *argv[])
     engine.rootContext()->setContextProperty("Settings", &settings);
     engine.rootContext()->setContextProperty("MListener", &mListener);
 
-    //GameGenerator gGenerator(&settings);
     // Add Game
-    //Game game(&engine, &gGenerator);
     Game game(&engine, &settings);
     engine.rootContext()->setContextProperty("Game", &game);
 

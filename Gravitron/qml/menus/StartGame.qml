@@ -3,6 +3,7 @@ import QtQuick.Controls 1.2
 
 import "constants.js" as Global
 import "functions.js" as Functions
+import "GameSettingsActions.js" as GameSettings
 
 VisualItemModel {
 
@@ -19,7 +20,6 @@ VisualItemModel {
             text: qsTr("back")
             onClicked: Functions.btn_backToNewGameClicked()
         }
-
 
         Text {
             height: Global.textHeight
@@ -65,6 +65,11 @@ VisualItemModel {
             id: slide_planetCount
             width: Global.sliderWidth
             height: Global.sliderHeigt
+            value: GameSettings.getSlidePlanetCount();
+            onValueChanged: GameSettings.slide_planetCountChanged()
+            updateValueWhileDragging: false
+            minimumValue: 5
+            maximumValue: 50
         }
 
         Text {
@@ -78,6 +83,10 @@ VisualItemModel {
             id: slide_astroidCount
             width: Global.sliderWidth
             height: Global.sliderHeigt
+            value: GameSettings.getSlideAstroidCount()
+            minimumValue: 5
+            maximumValue: 50
+            onValueChanged: GameSettings.slide_astroidCountChanged()
         }
 
         Text {
