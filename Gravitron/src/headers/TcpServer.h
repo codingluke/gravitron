@@ -6,6 +6,8 @@
 #include <QTcpServer>
 #include <QTcpSocket>
 #include <QString>
+#include <vector>
+#include "GameActorView.h"
 
 class TcpServer: public QObject
 {
@@ -15,12 +17,12 @@ class TcpServer: public QObject
         TcpServer(QObject * parent = 0);
         ~TcpServer();
 
-        Q_INVOKABLE void transfer(QString message);
-
     public slots:
         void acceptConnection();
         void startRead();
         void startListen(int port);
+
+        Q_INVOKABLE void transfer(QString message);
 
     signals:
         void received(QString message);

@@ -12,12 +12,12 @@
 #include "InputHandler.h"
 #include "GameGenerator.h"
 #include "Player.h"
+#include "NetworkInputHandler.h"
 
 class GameGenerator; // <<== Forward declare the class. Because of circular definitions.
 
 using namespace std;
 
-//class GameLoop : public QObject
 class GameLoop : public QThread
 {
     Q_OBJECT
@@ -37,7 +37,11 @@ class GameLoop : public QThread
 
     public:
         GameLoop(InputHandler *inputHandler, GameGenerator gGenerator);
+        GameLoop(InputHandler *inputHandler, NetworkInputHandler *nHandler,
+                 GameGenerator gGenerator);
+
         virtual ~GameLoop();
+
         void setBots(vector<Player*> bots);
         void setPlayer(vector<Player*> player);
         void setActors(vector<GameActor*> actors);
@@ -59,6 +63,7 @@ class GameLoop : public QThread
 
     signals:
         void renderObject(vector<GameActorView*> *views);
+        void sendViewlist(QString viewlist);
         void activeWeaponGame(int weaponNumber);
         void activeWeaponPlayer(int weaponNumber);
 };

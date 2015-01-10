@@ -23,7 +23,9 @@ class GameGenerator : public QObject
         explicit GameGenerator(QObject *parent = 0);
         GameGenerator(GravitronSettings *settings);
         GameGenerator(const GameGenerator& original); // copy constructor
+
         void generateGame(GameLoop* g);
+
         GameActor* generateNewPowerUp(Vec3f position);
         GameActor* generateNewScrap(Vec3f position);
 

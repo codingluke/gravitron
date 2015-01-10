@@ -24,7 +24,7 @@ GameLoop::~GameLoop() {
     deleteActors();
     deletePlayer();
     deleteBots();
-    delete field;
+    //delete field;
 }
 
 void GameLoop::deleteActors() {
@@ -68,9 +68,9 @@ void GameLoop::setRespawTime(int respawnTime) {
     this->respawnTime = respawnTime;
 }
 
-void GameLoop::setGameField(GameField* newField) {
-    this->field = newField;
-}
+//void GameLoop::setGameField(GameField* newField) {
+    //this->field = newField;
+//}
 
 void GameLoop::run()
 {
@@ -147,13 +147,6 @@ void GameLoop::update()
     for(it = actors.begin(); it != actors.end(); it++) {
         (*it)->update(actors);
     }
-    // for(it = actors.begin(); it != actors.end() && (it != NULL); it++) {
-    //     if ((*it)->isKilled() && (*it) != localPlayer) {
-    //         qDebug() << "kill";
-    //         delete *it;
-    //         actors.erase(it);
-    //     }
-    // }
     for (int i = 0; i < (int) actors.size(); i++)
     {
         if((actors[i]->isKilled()) && (actors[i] != localPlayer))
@@ -167,16 +160,20 @@ void GameLoop::update()
     QThread::msleep(5);
 }
 
-
 void GameLoop::render()
 {
     if(actors.size() > 0) { //wenn actors leer sind > speicherzugriffsfehler im vector
         vector<GameActorView*> *viewlist = new vector<GameActorView*>;
         vector<GameActor*>::iterator it;
+        QString serializedViewlist("v");
         for(it = actors.begin(); it != actors.end(); it++) {
             GameActorView *view = (*it)->getView();
             viewlist->push_back(view);
+            serializedViewlist += QString::fromStdString(view->toString());
+            serializedViewlist += ";";
         }
+        serializedViewlist += "\n";
+        emit sendViewlist(serializedViewlist);
         emit renderObject(viewlist);
         QThread::msleep(5);
     } else {

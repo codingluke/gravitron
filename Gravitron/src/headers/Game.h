@@ -38,6 +38,7 @@ class Game: public QObject
 
     public slots:
         void render(vector<GameActorView*> *views);
+        void renderRemote(QString views);
         void setActiveWappon(int wapponNumber);
 
     signals:

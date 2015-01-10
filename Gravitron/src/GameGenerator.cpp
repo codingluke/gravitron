@@ -47,7 +47,6 @@ void GameGenerator::generateGame(GameLoop* g) {
     g->setPlayer(humanPlayer);
     g->setActors(actors);
     g->setRespawTime(settings->respawTime());
-    g->setGameField(field); //settings->playingFieldSize()))
 }
 
 void GameGenerator::generateBots() {

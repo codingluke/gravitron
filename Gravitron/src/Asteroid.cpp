@@ -22,5 +22,5 @@ GameActorView* Asteroid::getView() const {
 
 void Asteroid::handleCollision(GameActor &other)
 {
-    
+
 }

@@ -59,9 +59,6 @@ void TcpClient::startTransfer()
 
 void TcpClient::startRead()
 {
-    char buffer[1024] = {0};
-    client.read(buffer, client.bytesAvailable());
-    cout << "client: " << buffer << endl;
-    emit received(QString(buffer));
+    emit received(client.readAll());
 }
 

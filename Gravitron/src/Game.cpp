@@ -47,25 +47,31 @@ void Game::startClient(TcpClient *client)
 {
     qDebug() << "Game: start client";
     InputHandler *iHandler = new InputHandler();
+    QCoreApplication::instance()->installEventFilter(iHandler);
+
     connect(iHandler, SIGNAL(inputsChanged(set<int>)),
             client, SLOT(transfer(set<int>)));
-    QCoreApplication::instance()->installEventFilter(iHandler);
+    connect(client, SIGNAL(received(QString)),
+            this, SLOT(renderRemote(QString)));
 }
 
 void Game::startServer(TcpServer *server)
 {
     qDebug() << "Game: start server";
     NetworkInputHandler *nHandler = new NetworkInputHandler();
-    connect(server, SIGNAL(received(QString)),
-            nHandler, SLOT(receive(QString)));
-
     InputHandler *iHandler = new InputHandler();
     QCoreApplication::instance()->installEventFilter(iHandler);
     gameLoop = new GameLoop(iHandler, GameGenerator(settings));
+
     connect(gameLoop, SIGNAL(renderObject(vector<GameActorView*>*)),
             this, SLOT(render(vector<GameActorView*>*)));
     connect(gameLoop, SIGNAL(activeWapponGame(int)),
             this, SLOT(setActiveWappon(int)));
+    connect(gameLoop, SIGNAL(sendViewlist(QString)),
+            server, SLOT(transfer(QString)));
+    connect(server, SIGNAL(received(QString)),
+            nHandler, SLOT(receive(QString)));
+
     gameLoop->start();
 }
 
@@ -79,7 +85,7 @@ void Game::stop()
 
 Game::~Game()
 {
-    //stop();
+    stop();
 }
 
 /**
@@ -96,6 +102,29 @@ void Game::clearScene()
         QQuickItem *itm = itc.next();
         if (itm->property("identifier").isValid())
             delete itm;
+    }
+}
+
+/**
+ * Deserializes the serialized Views, generates a viewlist and sends them
+ * to the render method.
+ *
+ * @param Qstring of the serializedViewlist over the network.
+ */
+void Game::renderRemote(QString serializedViewlist)
+{
+    QStringList vList = serializedViewlist.split("\n", QString::SkipEmptyParts);
+    for (int i = 0; i < vList.size(); ++i) {
+        if (vList.at(i).startsWith("v")) {
+            vector<GameActorView*> *viewlist = new vector<GameActorView*>;
+            QStringList vL = vList.at(i).split(";", QString::SkipEmptyParts);
+            for (int j = 0; j < vL.size(); ++j) {
+                GameActorView *v = new GameActorView();
+                v->fromString(vL.at(j).toStdString());
+                viewlist->push_back(v);
+            }
+            render(viewlist);
+        }
     }
 }
 
@@ -121,7 +150,6 @@ void Game::render(vector<GameActorView*> *views)
         // Map the properties
         map<string, string> props = (*it)->getProperties();
         map<string, string>::iterator pit;
-
         for(pit = props.begin(); pit != props.end(); pit++) {
             childItem->setProperty(pit->first.c_str(), pit->second.c_str());
         }
