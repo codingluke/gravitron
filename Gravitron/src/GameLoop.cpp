@@ -68,10 +68,6 @@ void GameLoop::setRespawTime(int respawnTime) {
     this->respawnTime = respawnTime;
 }
 
-//void GameLoop::setGameField(GameField* newField) {
-    //this->field = newField;
-//}
-
 void GameLoop::run()
 {
     ms_per_update = 60;
