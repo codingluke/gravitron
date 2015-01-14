@@ -1,5 +1,5 @@
 #include "headers/GameGenerator.h"
-#include "headers/ActrorsAdjustments.h"
+#include "headers/ActorsAdjustments.h"
 #include "headers/Planet.h"
 #include "headers/Asteroid.h"
 #include "headers/Spacecraft.h"
