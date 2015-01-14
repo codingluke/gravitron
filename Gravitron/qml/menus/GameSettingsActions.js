@@ -15,7 +15,7 @@ function slide_botsCountChanged() {
 }
 
 function getSlidePlanetCount() {
-    return Settings.planetCount;
+   return Settings.planetCount;
 }
 
 function slide_planetCountChanged() {

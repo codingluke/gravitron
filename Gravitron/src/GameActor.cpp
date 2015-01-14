@@ -202,9 +202,9 @@ void GameActor::setMaxSpeed(float maxSpeed)
     this->maxSpeed = maxSpeed;
 }
 
-int GameActor::getHealth() const 
+int GameActor::getHealth() const
 {
-    return health;  
+    return health;
 }
 
 void GameActor::setHealth(int health)

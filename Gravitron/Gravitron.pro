@@ -3,7 +3,7 @@ TEMPLATE = app
 CONFIG += debug
 CONFIG += c++11
 
-QT += qml quick #network?
+QT += qml quick network
 
 HEADERS += src/headers/GameActor.h \
     src/headers/Vec3f.h \
@@ -22,6 +22,7 @@ HEADERS += src/headers/GameActor.h \
     src/headers/Projectile.h \ 
     src/headers/GameField.h \
     src/headers/InputHandler.h \
+    src/headers/NetworkInputHandler.h \
     src/headers/Missile.h \
     src/headers/AimMissile.h \
     src/headers/Laser.h \
@@ -30,6 +31,8 @@ HEADERS += src/headers/GameActor.h \
     src/headers/PowerUp.h \
     src/headers/Asteroid.h \
     src/headers/Scrap.h \
+    src/headers/TcpClient.h \
+    src/headers/TcpServer.h \
     src/headers/Player.h \
     src/headers/HumanPlayer.h \
     src/headers/HumanNetworkPlayer.h \
@@ -61,6 +64,7 @@ SOURCES += src/main.cpp \
     src/Projectile.cpp \
     src/GameField.cpp \
     src/InputHandler.cpp \
+    src/NetworkInputHandler.cpp \
     src/Missile.cpp \
     src/AimMissile.cpp \
     src/Laser.cpp \
@@ -69,6 +73,8 @@ SOURCES += src/main.cpp \
     src/PowerUp.cpp \
     src/Asteroid.cpp \
     src/Scrap.cpp \
+    src/TcpClient.cpp \
+    src/TcpServer.cpp \
     src/Player.cpp \
     src/HumanPlayer.cpp \
     src/HumanNetworkPlayer.cpp \

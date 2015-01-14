@@ -10,6 +10,8 @@
 #include "GameActorView.h"
 #include "GravitronSettings.h"
 #include "GameGenerator.h"
+#include "TcpClient.h"
+#include "TcpServer.h"
 
 using namespace std;
 
@@ -21,27 +23,28 @@ class Game: public QObject
         QQmlApplicationEngine *engine;
         QQuickItem *qmlParent;
         GameLoop *gameLoop;
+        GravitronSettings *settings;
 
     public:
         Game(QObject *parent = 0);
-        Game(QQmlApplicationEngine *theEngine, GameGenerator *gGenerator);
+        Game(QQmlApplicationEngine *theEngine, GravitronSettings *theSettings);
         ~Game();
 
         Q_INVOKABLE void setQmlParent(QQuickItem *theQmlParent);
         Q_INVOKABLE void start();
+        Q_INVOKABLE void startClient(TcpClient *client);
+        Q_INVOKABLE void startServer(TcpServer *server);
+        Q_INVOKABLE void stop();
 
     public slots:
-        void handleResults(const string &result);
         void render(vector<GameActorView*> *views);
+        void renderRemote(QString views);
         void setActiveWappon(int wapponNumber);
 
     signals:
-        Q_INVOKABLE void stop();
         Q_INVOKABLE void inputEvents(int code);
 
     private:
-        void init();
-        void init(GameGenerator *gGenerator);
         void clearScene();
 };
 

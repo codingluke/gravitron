@@ -9,108 +9,106 @@
 class GravitronSettings : public QObject
 {
     Q_OBJECT
+    Q_PROPERTY(int difficulty
+           READ difficulty
+           WRITE setDifficulty
+           NOTIFY difficultyChanged)
+
+    Q_PROPERTY(bool fullScreen
+           READ fullScreen
+           WRITE setFullScreen
+           NOTIFY fullScreenChanged)
+
+    Q_PROPERTY(int musicSoundVolume
+           READ musicSoundVolume
+           WRITE setMusicSoundVolume
+           NOTIFY musicSoundVolumeChanged)
+
+    Q_PROPERTY(bool playMusic
+           READ playMusic
+           WRITE setPlayMusic
+           NOTIFY playMusicChanged)
+
+    Q_PROPERTY(bool playSounds
+           READ playSounds
+           WRITE setPlaySounds
+           NOTIFY playSoundsChanged)
+
+    Q_PROPERTY(QString playerName
+           READ playerName
+           WRITE setPlayerName
+           NOTIFY playerNameChanged)
+
+    Q_PROPERTY(int playingFieldSize
+           READ playingFieldSize
+           WRITE setPlayingFieldSize
+           NOTIFY playingFieldSizeChanged)
+
+    Q_PROPERTY(int botsCount
+       READ botsCount
+       WRITE setBotsCount
+       NOTIFY botsCountChanged)
+
+    Q_PROPERTY(int planetCount
+       READ planetCount
+       WRITE setPlanetCount
+       NOTIFY planetCountChanged)
+
+    Q_PROPERTY(int astroidCount
+       READ astroidCount
+       WRITE setAstroidCount
+       NOTIFY astroidCountChanged)
+
+    Q_PROPERTY(int frag
+       READ frag
+       WRITE setFrag
+       NOTIFY fragChanged)
+
+    Q_PROPERTY(int respawTime
+       READ respawTime
+       WRITE setRespawTime
+       NOTIFY respawTimeChanged)
+
+    Q_PROPERTY(QString languare
+       READ languare
+       WRITE setLanguare
+       NOTIFY languareChanged)
+
+    Q_PROPERTY(bool network
+       READ network
+       WRITE setNetwork)
 
     public:
-        Q_PROPERTY(int difficulty
-               READ difficulty
-               WRITE setDifficulty
-               NOTIFY difficultyChanged)
-
-        Q_PROPERTY(bool fullScreen
-               READ fullScreen
-               WRITE setFullScreen
-               NOTIFY fullScreenChanged)
-
-        Q_PROPERTY(int musicSoundVolume
-               READ musicSoundVolume
-               WRITE setMusicSoundVolume
-               NOTIFY musicSoundVolumeChanged)
-
-        Q_PROPERTY(bool playMusic
-               READ playMusic
-               WRITE setPlayMusic
-               NOTIFY playMusicChanged)
-
-        Q_PROPERTY(bool playSounds
-               READ playSounds
-               WRITE setPlaySounds
-               NOTIFY playSoundsChanged)
-
-        Q_PROPERTY(QString playerName
-               READ playerName
-               WRITE setPlayerName
-               NOTIFY playerNameChanged)
-
-        Q_PROPERTY(int playingFieldSize
-               READ playingFieldSize
-               WRITE setPlayingFieldSize
-               NOTIFY playingFieldSizeChanged)
-
-        Q_PROPERTY(int botsCount
-           READ botsCount
-           WRITE setBotsCount
-           NOTIFY botsCountChanged)
-
-        Q_PROPERTY(int planetCount
-           READ planetCount
-           WRITE setPlanetCount
-           NOTIFY planetCountChanged)
-
-        Q_PROPERTY(int astroidCount
-           READ astroidCount
-           WRITE setAstroidCount
-           NOTIFY astroidCountChanged)
-
-        Q_PROPERTY(int frag
-           READ frag
-           WRITE setFrag
-           NOTIFY fragChanged)
-
-        Q_PROPERTY(int respawTime
-           READ respawTime
-           WRITE setRespawTime
-           NOTIFY respawTimeChanged)
-
-        Q_PROPERTY(QString languare
-           READ languare
-           WRITE setLanguare
-           NOTIFY languareChanged)
-
-        Q_PROPERTY(bool network
-           READ network
-           WRITE setNetwork)
-
         explicit GravitronSettings(QObject *parent = 0);
 
-    public slots:
-        int difficulty() const;
-        void setDifficulty(const int& source);
-        int fullScreen() const;
-        void setFullScreen(const bool& source);
-        int musicSoundVolume() const;
-        void setMusicSoundVolume(const int& source);
-        bool playMusic() const;
-        void setPlayMusic(const bool& source);
-        bool playSounds() const;
-        void setPlaySounds(const bool& source);
-        QString playerName() const;
-        void setPlayerName(const QString& source);
-        int playingFieldSize() const;
-        void setPlayingFieldSize(const int& source);
-        int botsCount() const;
-        void setBotsCount(const int& source);
-        int planetCount() const;
-        void setPlanetCount(const int& source);
-        int astroidCount() const;
-        void setAstroidCount(const int& source);
-        int frag() const;
-        void setFrag(const int& source);
-        int respawTime() const;
-        void setRespawTime(const int& source);
-        QString languare() const;
-        void setLanguare(const QString& source);
-        bool network() const;
-        void setNetwork(const bool& source);
+        Q_INVOKABLE int difficulty() const;
+        Q_INVOKABLE void setDifficulty(const int& source);
+        Q_INVOKABLE int fullScreen() const;
+        Q_INVOKABLE void setFullScreen(const bool& source);
+        Q_INVOKABLE int musicSoundVolume() const;
+        Q_INVOKABLE void setMusicSoundVolume(const int& source);
+        Q_INVOKABLE bool playMusic() const;
+        Q_INVOKABLE void setPlayMusic(const bool& source);
+        Q_INVOKABLE bool playSounds() const;
+        Q_INVOKABLE void setPlaySounds(const bool& source);
+        Q_INVOKABLE QString playerName() const;
+        Q_INVOKABLE void setPlayerName(const QString& source);
+        Q_INVOKABLE int playingFieldSize() const;
+        Q_INVOKABLE void setPlayingFieldSize(const int& source);
+        Q_INVOKABLE int botsCount() const;
+        Q_INVOKABLE void setBotsCount(const int& source);
+        Q_INVOKABLE int planetCount() const;
+        Q_INVOKABLE void setPlanetCount(const int& source);
+        Q_INVOKABLE int astroidCount() const;
+        Q_INVOKABLE void setAstroidCount(const int& source);
+        Q_INVOKABLE int frag() const;
+        Q_INVOKABLE void setFrag(const int& source);
+        Q_INVOKABLE int respawTime() const;
+        Q_INVOKABLE void setRespawTime(const int& source);
+        Q_INVOKABLE QString languare() const;
+        Q_INVOKABLE void setLanguare(const QString& source);
+        Q_INVOKABLE bool network() const;
+        Q_INVOKABLE void setNetwork(const bool& source);
 
         void save();
         void load();
@@ -121,20 +119,20 @@ class GravitronSettings : public QObject
         void setDefaultSettings();
 
     signals:
-        Q_INVOKABLE void difficultyChanged(const int& source);
-        Q_INVOKABLE void fullScreenChanged(const bool& source);
-        Q_INVOKABLE void musicSoundVolumeChanged(const int& source);
-        Q_INVOKABLE void playMusicChanged(const bool& source);
-        Q_INVOKABLE void playSoundsChanged(const bool& source);
-        Q_INVOKABLE void playerNameChanged(const QString& source);
-        Q_INVOKABLE void playingFieldSizeChanged(const int& source);
-        Q_INVOKABLE void botsCountChanged(const int& source);
-        Q_INVOKABLE void planetCountChanged(const int& source);
-        Q_INVOKABLE void astroidCountChanged(const int& source);
-        Q_INVOKABLE void fragChanged(const int& source);
-        Q_INVOKABLE void respawTimeChanged(const int& source);
-        Q_INVOKABLE void languareChanged(const QString& source);
-        Q_INVOKABLE void error(const QString& msg);
+        void difficultyChanged(const int& source);
+        void fullScreenChanged(const bool& source);
+        void musicSoundVolumeChanged(const int& source);
+        void playMusicChanged(const bool& source);
+        void playSoundsChanged(const bool& source);
+        void playerNameChanged(const QString& source);
+        void playingFieldSizeChanged(const int& source);
+        void botsCountChanged(const int& source);
+        void planetCountChanged(const int& source);
+        void astroidCountChanged(const int& source);
+        void fragChanged(const int& source);
+        void respawTimeChanged(const int& source);
+        void languareChanged(const QString& source);
+        void error(const QString& msg);
 
     private:
         int mDifficulty;

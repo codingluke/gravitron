@@ -8,15 +8,24 @@
         <file alias="actor">actors/Actor.qml</file>
         <file alias="spacecraft">actors/Spacecraft.qml</file>
         <file>GlobalSettingsSubMenu.qml</file>
-        <file>constants.js</file>
+        <file>menus/constants.js</file>
         <file>SinglePlayerSubMenu.qml</file>
         <file>MultiPlayerSubMenu.qml</file>
         <file>StatsSubMenu.qml</file>
-        <file>functions.js</file>
-        <file>GlobalSettingsActions.js</file>
+        <file>menus/functions.js</file>
+        <file>menus/GlobalSettingsActions.js</file>
         <file>GameSettingsSubMenu.qml</file>
-        <file>GameSettingsActions.js</file>
+        <file>menus/GameSettingsActions.js</file>
         <file>MultiplayerJoin.qml</file>
+        <file>menus/Main.qml</file>
+        <file>menus/NewGame.qml</file>
+        <file>menus/Credits.qml</file>
+        <file>menus/GlobalSettings.qml</file>
+        <file>menus/StartGame.qml</file>
+        <file>menus/Stats.qml</file>
+        <file>menus/MultiPlayer.qml</file>
+        <file>menus/Server.qml</file>
+        <file>menus/Client.qml</file>
         <file alias="planet">actors/Planet.qml</file>
         <file alias="asteroid">actors/Asteroid.qml</file>
         <file alias="powerUp">actors/PowerUp.qml</file>

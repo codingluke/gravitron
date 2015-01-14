@@ -14,42 +14,36 @@
 using namespace std;
 
 
-GameLoop::GameLoop(InputHandler *inputHandler, GameGenerator *gGenerator)
+GameLoop::GameLoop(InputHandler *inputHandler, GameGenerator gGenerator)
 {
     this->inputHandler = inputHandler;
-    this->gGenerator = gGenerator;
-    gGenerator->generateGame(this);
+    gGenerator.generateGame(this);
 }
 
 GameLoop::~GameLoop() {
     deleteActors();
     deletePlayer();
     deleteBots();
-    delete field;
-    //delete localPlayer;
-    delete inputHandler;
+    //delete field;
 }
 
 void GameLoop::deleteActors() {
     vector<GameActor*>::iterator it;
-    for (it = actors.begin(); it < actors.end(); it++)
-    {
+    for (it = actors.begin(); it < actors.end(); it++) {
         delete (*it);
     }
 }
 
 void GameLoop::deleteBots() {
     vector<Player*>::iterator it;
-    for (it = bots.begin(); it < bots.end(); it++)
-    {
+    for (it = bots.begin(); it < bots.end(); it++) {
         delete (*it);
     }
 }
 
 void GameLoop::deletePlayer() {
     vector<Player*>::iterator it;
-    for (it = player.begin(); it < player.end(); it++)
-    {
+    for (it = player.begin(); it < player.end(); it++) {
         delete (*it);
     }
 }
@@ -74,10 +68,6 @@ void GameLoop::setRespawTime(int respawnTime) {
     this->respawnTime = respawnTime;
 }
 
-void GameLoop::setGameField(GameField* newField) {
-    this->field = newField;
-}
-
 void GameLoop::run()
 {
     ms_per_update = 60;
@@ -85,22 +75,17 @@ void GameLoop::run()
     QTime t;
     int lag = 0;
 
-    emit ping("start");
     t.start();
 
     while (running)
     {
         lag += t.elapsed();
         t.restart();
-
         processInput();
-
-        while (running && lag >= ms_per_update)
-        {
+        while (running && lag >= ms_per_update) {
             update();
             lag -= ms_per_update;
         }
-
         render();
     }
 }
@@ -108,7 +93,6 @@ void GameLoop::run()
 void GameLoop::stop()
 {
     running = false;
-    emit ping("stop");
 }
 
 void GameLoop::processInput()
@@ -159,13 +143,6 @@ void GameLoop::update()
     for(it = actors.begin(); it != actors.end(); it++) {
         (*it)->update(actors);
     }
-    // for(it = actors.begin(); it != actors.end() && (it != NULL); it++) {
-    //     if ((*it)->isKilled() && (*it) != localPlayer) {
-    //         qDebug() << "kill";
-    //         delete *it;
-    //         actors.erase(it);
-    //     }
-    // }
     for (int i = 0; i < (int) actors.size(); i++)
     {
         if((actors[i]->isKilled()) && (actors[i] != localPlayer))
@@ -173,22 +150,26 @@ void GameLoop::update()
             delete (actors[i]);
             actors.erase(actors.begin() + i);
         }
-    } 
-    
+    }
+
     actors.shrink_to_fit();
     QThread::msleep(5);
 }
-
 
 void GameLoop::render()
 {
     if(actors.size() > 0) { //wenn actors leer sind > speicherzugriffsfehler im vector
         vector<GameActorView*> *viewlist = new vector<GameActorView*>;
         vector<GameActor*>::iterator it;
+        QString serializedViewlist("v");
         for(it = actors.begin(); it != actors.end(); it++) {
             GameActorView *view = (*it)->getView();
             viewlist->push_back(view);
+            serializedViewlist += QString::fromStdString(view->toString());
+            serializedViewlist += ";";
         }
+        serializedViewlist += "\n";
+        emit sendViewlist(serializedViewlist);
         emit renderObject(viewlist);
         QThread::msleep(5);
     } else {

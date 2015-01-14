@@ -2,17 +2,12 @@ import QtQuick 2.0
 import QtQuick.Controls 1.2
 import QtPositioning 5.3
 import QtQuick.Layouts 1.0
-import GravitronSettings 1.0
+import QtQml.Models 2.1
 
 import "constants.js" as Global
 import "functions.js" as Functions
 
-Rectangle {
-    id: rec_multiPlayerSubMenu
-    width: parent.width
-    height: parent.height
-
-
+ObjectModel {
     Column {
         id: col_multiPlayerSubMenu
         anchors.horizontalCenter: parent.horizontalCenter
@@ -30,11 +25,12 @@ Rectangle {
         }
 
         Button {
-            id: btn_createGame
+            id: btn_createMultiplayerGame
             width: Global.buttonWidth
             height: Global.buttonHeight
             //: Button to create a multiplayergame
             text: qsTr("createMultiPlayerGame")
+            onClicked: Functions.btn_createMultiplayerGameClicked()
         }
 
         Button {
@@ -43,23 +39,15 @@ Rectangle {
             height: Global.buttonHeight
             //: Button to join a multiplayergame
             text: qsTr("joinMultiPlayerGame")
+            onClicked: Functions.btn_joinGameClicked()
         }
 
-        MultiplayerJoin {
-
-        }
-
-        //GameSettingsSubMenu {
-            //id: gameSettings
+        //Button {
+            //id: btn_startSinglePlayer
+            //width: Global.buttonWidth
+            //height: Global.buttonHeight
+            ////: Button to start a multiplayergame
+            //text: qsTr("startMultiPlayerGame")
         //}
-
-        Button {
-            id: btn_startSinglePlayer
-            width: Global.buttonWidth
-            height: Global.buttonHeight
-            //: Button to start a multiplayergame
-            text: qsTr("startMultiPlayerGame")
-        }
-
     }
 }

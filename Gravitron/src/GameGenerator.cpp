@@ -18,9 +18,19 @@ GameGenerator::GameGenerator(QObject *parent) :
 {
 }
 
-GameGenerator::GameGenerator(GravitronSettings *settings) {
+GameGenerator::GameGenerator(GravitronSettings *settings)
+{
     this->settings = settings;
     this->field = new GameField(1000 , 1000);
+}
+
+GameGenerator::GameGenerator(const GameGenerator& original)
+{
+    settings = original.settings;
+    field = original.field;
+    actors = original.actors;
+    bots = original.bots;
+    humanPlayer = original.humanPlayer;
 }
 
 void GameGenerator::generateGame(GameLoop* g) {
@@ -37,7 +47,6 @@ void GameGenerator::generateGame(GameLoop* g) {
     g->setPlayer(humanPlayer);
     g->setActors(actors);
     g->setRespawTime(settings->respawTime());
-    g->setGameField(field); //settings->playingFieldSize()))
 }
 
 void GameGenerator::generateBots() {

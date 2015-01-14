@@ -20,30 +20,21 @@ set<int> InputHandler::getInputs()
 void InputHandler::insertInputCode(int code)
 {
     mutex.lock();
-    inputs.insert(code);
+    pair<set<int>::iterator, bool> ret = inputs.insert(code);
+    if (ret.second) {
+        emit inputsChanged(inputs);
+    }
     mutex.unlock();
 }
 
 void InputHandler::removeInputCode(int code)
 {
     mutex.lock();
-    inputs.erase(code);
+    if (inputs.erase(code) == 1) {
+        emit inputsChanged(inputs);
+    }
     mutex.unlock();
 }
-
-//void InputHandler::bindFunction(int code, callback func)
-//{
-    //bindings[code] = func;
-//}
-
-//void InputHandler::execute()
-//{
-    //set<int>::iterator it;
-    //for(it = inputs.begin(); it != inputs.end(); it++) {
-        //qDebug() << *it;
-    //}
-    //qDebug() << "-----------------";
-//}
 
 bool InputHandler::eventFilter(QObject *obj, QEvent *event)
 {
@@ -56,3 +47,4 @@ bool InputHandler::eventFilter(QObject *obj, QEvent *event)
   }
   return false;
 }
+

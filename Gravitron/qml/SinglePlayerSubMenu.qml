@@ -29,9 +29,9 @@ Rectangle {
             onClicked: Functions.btn_backToNewGameClicked()
         }
 
-        GameSettingsSubMenu {
-            id: gameSettings
-        }
+        //GameSettingsSubMenu {
+            //id: gameSettings
+        //}
 
         Button {
             id: btn_startSinglePlayer
@@ -39,7 +39,8 @@ Rectangle {
             height: Global.buttonHeight
             //: Button to start a singel palyer game
             text: qsTr("start")
-            onClicked: MListener.startSinglePlayerGame();
+            //onClicked: MListener.startSinglePlayerGame();
+            onClicked: Functions.btn_startGameClicked();
         }
     }
 }
