@@ -1,4 +1,5 @@
 #include "headers/Laser.h"
+#include "headers/ActorsAdjustments.h"
 #include <sstream>
 #include <iostream>
 #include <QDebug>
@@ -57,7 +58,7 @@ void Laser::handleCollision(GameActor &other)
     }
     if (!otherIsFriendly)
     {
-        other.dealDamage(20);
+        other.dealDamage(LASER_DAMAGE);
         kill();
     }
 }

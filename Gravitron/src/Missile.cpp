@@ -1,4 +1,5 @@
 #include "headers/Missile.h"
+#include "headers/ActorsAdjustments.h"
 #include <sstream>
 #include <iostream>
 #include <QDebug>
@@ -40,9 +41,6 @@ Missile::~Missile()
 
 }
 
-
-
-
 void Missile::handleCollision(GameActor &other)
 {
     vector<GameActor*>::iterator it;
@@ -54,7 +52,7 @@ void Missile::handleCollision(GameActor &other)
     }
     if (!otherIsFriendly)
     {
-        other.dealDamage(20);
+        other.dealDamage(MISSILE_DAMAGE);
         kill();
     }
 }

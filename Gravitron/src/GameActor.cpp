@@ -3,7 +3,6 @@
 #include <QDebug>
 #include <iostream>
 #include "headers/Physics.h"
-#include <QDebug>
 
 void GameActor::initialize(Vec3f position, double mass, float gravitationRange, float g, int health, GameField &field, float maxSpeed)
 {
