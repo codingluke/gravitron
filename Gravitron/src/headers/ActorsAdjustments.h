@@ -1,5 +1,5 @@
-#ifndef ACTRORSADJUSTMENTS_H
-#define ACTRORSADJUSTMENTS_H
+#ifndef ACTORSADJUSTMENTS_H
+#define ACTORSADJUSTMENTS_H
 
 static float SUN_MAX_MASS = 6;
 static float SUN_MIN_MASS = 6;
@@ -132,4 +132,4 @@ static float POWERUP_MIN_RADIUS = 10;
 static float POWERUP_MAX_HEALTH = -1;
 static float POWERUP_MIN_HEALTH = -1;
 
-#endif // ACTRORSADJUSTMENTS_H
+#endif // ACTORSADJUSTMENTS_H
