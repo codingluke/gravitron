@@ -11,15 +11,15 @@ Spacecraft::Spacecraft() : GameActor()
     weapon = 1;
 }
 
-Spacecraft::Spacecraft(Vec3f position, double mass, float gravitationRange, float g, GameField &field) :
-    GameActor(position, mass, gravitationRange, g, 100, field)
+Spacecraft::Spacecraft(Vec3f position, double mass, float gravitationRange, float g, GameField &field, vector<GameActor*> *actors) :
+    GameActor(position, mass, gravitationRange, g, 100, field, actors)
 {
     g = 0;
     weapon = 1;
 }
 
-Spacecraft::Spacecraft(Vec3f position, double mass, float gravitationRange, float g, GameField &field, float maxSpeed) :
-    GameActor(position, mass, gravitationRange, g, 100, field, maxSpeed)
+Spacecraft::Spacecraft(Vec3f position, double mass, float gravitationRange, float g, GameField &field, float maxSpeed, vector<GameActor*> *actors) :
+    GameActor(position, mass, gravitationRange, g, 100, field, maxSpeed, actors)
 {
     g = 0;
     weapon = 1;
@@ -72,11 +72,11 @@ Projectile &Spacecraft::shootUp()
 {
     Projectile* p;
     if (weapon == 1) {
-        p = new Laser(this->getPosition() + Vec3f(0,-2.,0.), Vec3f(0., -50., 0.), *field, *this);
+        p = new Laser(this->getPosition() + Vec3f(0,-2.,0.), Vec3f(0., -50., 0.), *field, *this, actors);
     } else if (weapon == 2) {
-        p = new Missile(this->getPosition() + Vec3f(0,-2.,0.), Vec3f(0., -12., 0.), *field, *this);
+        p = new Missile(this->getPosition() + Vec3f(0,-2.,0.), Vec3f(0., -12., 0.), *field, *this, actors);
     } else if (weapon == 3) {
-        p = new AimMissile(this->getPosition() + Vec3f(0,-2.,0.), Vec3f(0., -12., 0.), *field, *this);
+        p = new AimMissile(this->getPosition() + Vec3f(0,-2.,0.), Vec3f(0., -12., 0.), *field, *this, actors);
     }
     return *p;
 }
@@ -88,11 +88,11 @@ Projectile &Spacecraft::shootDown()
 {
     Projectile* p;
     if (weapon == 1) {
-        p = new Laser(this->getPosition() + Vec3f(0., 2., 0.), Vec3f(0., 50., 0.), *field, *this);
+        p = new Laser(this->getPosition() + Vec3f(0., 2., 0.), Vec3f(0., 50., 0.), *field, *this, actors);
     } else if (weapon == 2) {
-        p = new Missile(this->getPosition() + Vec3f(0., 2., 0.), Vec3f(0., 12., 0.), *field, *this);
+        p = new Missile(this->getPosition() + Vec3f(0., 2., 0.), Vec3f(0., 12., 0.), *field, *this, actors);
     } else if (weapon == 3) {
-        p = new AimMissile(this->getPosition() + Vec3f(0., 2., 0.), Vec3f(0., 12., 0.), *field, *this);
+        p = new AimMissile(this->getPosition() + Vec3f(0., 2., 0.), Vec3f(0., 12., 0.), *field, *this, actors);
     }
     return *p;
 }
@@ -101,11 +101,11 @@ Projectile &Spacecraft::shootLeft()
 {
     Projectile* p;
     if (weapon == 1) {
-        p = new Laser(this->getPosition() + Vec3f(-2., 0., 0.), Vec3f(-50., 0., 0.), *field, *this);
+        p = new Laser(this->getPosition() + Vec3f(-2., 0., 0.), Vec3f(-50., 0., 0.), *field, *this, actors);
     } else if (weapon == 2) {
-        p = new Missile(this->getPosition() + Vec3f(-2., 0., 0.), Vec3f(-12., 0., 0.), *field, *this);
+        p = new Missile(this->getPosition() + Vec3f(-2., 0., 0.), Vec3f(-12., 0., 0.), *field, *this, actors);
     } else if (weapon == 3) {
-        p = new AimMissile(this->getPosition() + Vec3f(-2., 0., 0.), Vec3f(-12., 0., 0.), *field, *this);
+        p = new AimMissile(this->getPosition() + Vec3f(-2., 0., 0.), Vec3f(-12., 0., 0.), *field, *this, actors);
     }
     return *p;
 }
@@ -114,11 +114,11 @@ Projectile &Spacecraft::shootRight()
 {
     Projectile* p;
     if (weapon == 1) {
-        p = new Laser(this->getPosition() + Vec3f(2., 0., 0.), Vec3f(50., 0., 0.), *field, *this);
+        p = new Laser(this->getPosition() + Vec3f(2., 0., 0.), Vec3f(50., 0., 0.), *field, *this, actors);
     } else if (weapon == 2) {
-        p = new Missile(this->getPosition() + Vec3f(2., 0., 0.), Vec3f(12., 0., 0.), *field, *this);
+        p = new Missile(this->getPosition() + Vec3f(2., 0., 0.), Vec3f(12., 0., 0.), *field, *this, actors);
     } else if (weapon == 3) {
-        p = new AimMissile(this->getPosition() + Vec3f(2., 0., 0.), Vec3f(12., 0., 0.), *field, *this);
+        p = new AimMissile(this->getPosition() + Vec3f(2., 0., 0.), Vec3f(12., 0., 0.), *field, *this, actors);
     }
     return *p;
 }

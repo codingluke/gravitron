@@ -76,7 +76,7 @@ Spacecraft* GameGenerator::generateNewSpacecraft() {
     float mass = fmod(rand(), SPACECRAFT_MAX_MASS - (SPACECRAFT_MIN_MASS - 1)) + SPACECRAFT_MIN_MASS;
     float g = fmod(rand(), PLANET_MAX_G - (PLANET_MIN_G - 1)) + PLANET_MIN_G;
     float gravitationRange = fmod(rand(), PLANET_MAX_GRAVITATION_RANGE - (PLANET_MIN_GRAVITATION_RANGE - 1)) + PLANET_MIN_GRAVITATION_RANGE;
-    return new Spacecraft(position, mass, 0, 0, *field, 10);
+    return new Spacecraft(position, mass, 0, 0, *field, 10, &actors);
 }
 
 
@@ -87,7 +87,7 @@ void GameGenerator::generatePlanets() {
         float mass = fmod(rand(), PLANET_MAX_MASS - (PLANET_MIN_MASS - 1)) + PLANET_MIN_MASS;
         float g = fmod(rand(), PLANET_MAX_G - (PLANET_MIN_G - 1)) + PLANET_MIN_G;
         float gravitationRange = fmod(rand(), PLANET_MAX_GRAVITATION_RANGE - (PLANET_MIN_GRAVITATION_RANGE - 1)) + PLANET_MIN_GRAVITATION_RANGE;
-        actors.push_back(new Planet(position, mass, gravitationRange, g, *field));
+        actors.push_back(new Planet(position, mass, gravitationRange, g, *field, &actors));
     }
 }
 
@@ -97,7 +97,7 @@ void GameGenerator::generateAstroids() {
         float mass = fmod(rand(), ASTEROID_MAX_MASS - (ASTEROID_MIN_MASS - 1)) + ASTEROID_MIN_MASS;
         float g = fmod(rand(), ASTEROID_MAX_G - (ASTEROID_MIN_G - 1)) + ASTEROID_MIN_G;
         float gravitationRange = fmod(rand(), ASTEROID_MAX_GRAVITATION_RANGE - (ASTEROID_MIN_GRAVITATION_RANGE - 1)) + ASTEROID_MIN_GRAVITATION_RANGE;
-        actors.push_back(new Asteroid(position, mass, gravitationRange, g, *field, 7));
+        actors.push_back(new Asteroid(position, mass, gravitationRange, g, *field, 7, &actors));
     }
 }
 
@@ -116,7 +116,7 @@ void GameGenerator::generateRandomPowerUps() {
 }
 
 GameActor* GameGenerator::generateNewPowerUp(Vec3f position) {
-    return new PowerUp(position, *field);
+    return new PowerUp(position, *field, &actors);
 }
 
 void GameGenerator::generateRandomScrap() {
@@ -137,7 +137,7 @@ GameActor* GameGenerator::generateNewScrap(Vec3f position) {
     float mass = fmod(rand(), SCRAP_MAX_MASS - (SCRAP_MIN_MASS - 1)) + SCRAP_MIN_MASS;
     float g = fmod(rand(), SCRAP_MAX_G - (SCRAP_MIN_G - 1)) + SCRAP_MIN_G;
     float gravitationRange = fmod(rand(), SCRAP_MAX_GRAVITATION_RANGE - (SCRAP_MIN_GRAVITATION_RANGE - 1)) +SCRAP_MIN_GRAVITATION_RANGE;
-    return new Scrap(position, mass, gravitationRange, g, *field);
+    return new Scrap(position, mass, gravitationRange, g, *field, &actors);
 }
 
 void GameGenerator::generateSun() {
@@ -145,5 +145,5 @@ void GameGenerator::generateSun() {
     float mass = fmod(rand(), SUN_MAX_MASS - (SUN_MIN_MASS - 1)) + SUN_MIN_MASS;
     float g = fmod(rand(), SUN_MAX_G - (SUN_MIN_G - 1)) + SUN_MIN_G;
     float gravitationRange = fmod(rand(), SUN_MAX_GRAVITATION_RANGE - (SUN_MIN_GRAVITATION_RANGE - 1)) + SUN_MIN_GRAVITATION_RANGE;
-    actors.push_back(new Sun(position, mass, gravitationRange, g, *field));
+    actors.push_back(new Sun(position, mass, gravitationRange, g, *field, &actors));
 }

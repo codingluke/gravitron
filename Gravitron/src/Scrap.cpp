@@ -3,8 +3,8 @@
 #include <sstream>
 
 //GameActor::GameActor(Vec3f position, double mass, float gravitationRange, float g, int health, GameField &field, float maxSpeed)
-Scrap::Scrap(Vec3f position, float mass, float gravitationRange, float g, GameField &field) :
-    GameActor(position, mass, gravitationRange, g, 20, field, 0.3)
+Scrap::Scrap(Vec3f position, float mass, float gravitationRange, float g, GameField &field, vector<GameActor*> *actors) :
+    GameActor(position, mass, gravitationRange, g, 20, field, 0.3, actors)
 {
     int imgNumber = rand() % 3;
     img = "scrap3";

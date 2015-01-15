@@ -2,7 +2,7 @@
 #include <iostream>
 #include <sstream>
 
-PowerUp::PowerUp(Vec3f position, GameField &field) : GameActor(position, 0.0, 0.0, 0.0, 0, field)
+PowerUp::PowerUp(Vec3f position, GameField &field, vector<GameActor*> *actors) : GameActor(position, 0.0, 0.0, 0.0, 0, field, actors)
 {
 }
 

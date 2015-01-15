@@ -8,23 +8,23 @@ Missile::Missile() : Projectile()
 {
 }
 
-Missile::Missile(Vec3f position, Vec3f velocity, GameField &field, GameActor &friendly) :
-    Projectile(position, 0, 0, 0, 90, 1, field, friendly)
+Missile::Missile(Vec3f position, Vec3f velocity, GameField &field, GameActor &friendly, vector<GameActor*> *actors) :
+    Projectile(position, 0, 0, 0, 90, 1, field, friendly, actors)
 {
     applyForce(velocity);
     this->maxSpeed = velocity.magnitude() + 30;
 }
 
-Missile::Missile(GameActor &actor, Vec3f velocity, GameField &field, GameActor &friendly) :
-    Projectile(actor.getPosition(), 0, 0, 0, 90, 1, field, friendly)
+Missile::Missile(GameActor &actor, Vec3f velocity, GameField &field, GameActor &friendly, vector<GameActor*> *actors) :
+    Projectile(actor.getPosition(), 0, 0, 0, 90, 1, field, friendly, actors)
 {
     applyForce(velocity);
     this->maxSpeed = velocity.magnitude() + 30;
 }
 
 
-Missile::Missile(GameActor &actor, GameField &field, GameActor &friendly) :
-    Projectile(actor.getPosition(), 0, 0, 0, 90, 1, field, friendly)
+Missile::Missile(GameActor &actor, GameField &field, GameActor &friendly, vector<GameActor*> *actors) :
+    Projectile(actor.getPosition(), 0, 0, 0, 90, 1, field, friendly, actors)
 {
     applyForce(actor.getVelocity());
     this->maxSpeed = actor.getVelocity().magnitude() + 30;

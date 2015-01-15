@@ -13,10 +13,10 @@ class Spacecraft : public GameActor
     public:
         Spacecraft();
         Spacecraft(Vec3f position, double mass,
-                   float gravitationRange, float g, GameField &field);
+                   float gravitationRange, float g, GameField &field, vector<GameActor*> *actors);
         Spacecraft(Vec3f position, double mass,
                    float gravitationRange, float g, GameField &field,
-                   float maxSpeed);
+                   float maxSpeed, vector<GameActor*> *actors);
         Spacecraft(const Spacecraft &spacecraft);
         void handleCollision(GameActor &other);
         virtual ~Spacecraft();

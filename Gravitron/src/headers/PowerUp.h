@@ -5,7 +5,7 @@
 class PowerUp : public GameActor
 {
 public:
-    PowerUp(Vec3f position, GameField &field);
+    PowerUp(Vec3f position, GameField &field, vector<GameActor*> *actors);
     void handleCollision(GameActor &other);
     GameActorView* getView() const;
     virtual void applyForce(Vec3f force);

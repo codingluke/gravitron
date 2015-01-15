@@ -4,7 +4,7 @@
 #include <iostream>
 #include "headers/Physics.h"
 
-void GameActor::initialize(Vec3f position, double mass, float gravitationRange, float g, int health, GameField &field, float maxSpeed)
+void GameActor::initialize(Vec3f position, double mass, float gravitationRange, float g, int health, GameField &field, float maxSpeed, vector<GameActor*> *actors)
 {
     killed = false;
 	velocity = Vec3f();
@@ -16,6 +16,7 @@ void GameActor::initialize(Vec3f position, double mass, float gravitationRange, 
     this->field = &field;
     this->maxSpeed = maxSpeed;
     this->health = health;
+    this->actors = actors;
 }
 
 void GameActor::initialize(const GameActor &actor)
@@ -30,6 +31,7 @@ void GameActor::initialize(const GameActor &actor)
     field = actor.getField();
     maxSpeed = actor.getMaxSpeed();
     health = actor.getHealth();
+    actors = actor.getActors();
 }
 
 GameActor::GameActor()
@@ -39,14 +41,14 @@ GameActor::GameActor()
     //initialize(Vec3f(), 1., 1., 1., -1, GameField(), -1);
 }
 
-GameActor::GameActor(Vec3f position, double mass, float gravitationRange, float g, int health, GameField &field)
+GameActor::GameActor(Vec3f position, double mass, float gravitationRange, float g, int health, GameField &field, vector<GameActor*> *actors)
 {
-    initialize(position, mass, gravitationRange, g, health, field, -1);
+    initialize(position, mass, gravitationRange, g, health, field, -1, actors);
 }
 
-GameActor::GameActor(Vec3f position, double mass, float gravitationRange, float g, int health, GameField &field, float maxSpeed)
+GameActor::GameActor(Vec3f position, double mass, float gravitationRange, float g, int health, GameField &field, float maxSpeed, vector<GameActor*> *actors)
 {
-    initialize(position, mass, gravitationRange, g, health, field, maxSpeed);
+    initialize(position, mass, gravitationRange, g, health, field, maxSpeed, actors);
 }
 
 GameActor::GameActor(const GameActor &actor)
@@ -264,6 +266,11 @@ std::string GameActor::toString() const
     os << std::endl;
     os << "speed: " << velocity.magnitude();
     return os.str();
+}
+
+vector<GameActor*> *GameActor::getActors() const
+{
+    return actors;
 }
 
 void GameActor::handleCollision(GameActor &other)

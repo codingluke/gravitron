@@ -15,15 +15,15 @@ Projectile::Projectile() : GameActor()
     g = 0;
 }
 
-Projectile::Projectile(Vec3f position, double mass, float gravitationRange, float g, int timeToLive, int health, GameField &field, GameActor &friendly) :
-    GameActor(position, mass, gravitationRange, g, health, field)
+Projectile::Projectile(Vec3f position, double mass, float gravitationRange, float g, int timeToLive, int health, GameField &field, GameActor &friendly, vector<GameActor*> *actors) :
+    GameActor(position, mass, gravitationRange, g, health, field, actors)
     {
         this->timeToLive = timeToLive;
         this->friendly.push_back(&friendly);
     }
 
-Projectile::Projectile(Vec3f position, double mass, float gravitationRange, float g, int timeToLive, int health, GameField &field) :
-    GameActor(position, mass, gravitationRange, g, health, field)
+Projectile::Projectile(Vec3f position, double mass, float gravitationRange, float g, int timeToLive, int health, GameField &field, vector<GameActor*> *actors) :
+    GameActor(position, mass, gravitationRange, g, health, field, actors)
     {
         this->timeToLive = timeToLive;
     }

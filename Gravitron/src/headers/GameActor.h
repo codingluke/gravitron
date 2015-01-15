@@ -48,11 +48,12 @@ class GameActor
 	float g;
 	float maxSpeed;
 	GameField *field;
+    vector<GameActor*> *actors;
 
     public:
 	GameActor();
-	GameActor(Vec3f position, double mass, float gravitationRange, float g, int health, GameField &field);
-	GameActor(Vec3f position, double mass, float gravitationRange, float g, int health, GameField &field, float maxSpeed);
+	GameActor(Vec3f position, double mass, float gravitationRange, float g, int health, GameField &field, vector<GameActor*> *actors);
+	GameActor(Vec3f position, double mass, float gravitationRange, float g, int health, GameField &field, float maxSpeed, vector<GameActor*> *actors);
 	GameActor(const GameActor &actor);
 	virtual ~GameActor();
 
@@ -81,6 +82,7 @@ class GameActor
     void addHealth(int health);
 	virtual GameActorView* getView() const;
 	GameField* getField() const;
+    vector<GameActor*> *getActors() const;
 
 	void kill();
 	bool isKilled();
@@ -88,7 +90,7 @@ class GameActor
 	virtual std::string toString() const;
 
     private:
-	void initialize(Vec3f position, double mass, float gravitationRange, float g, int health, GameField &field, float maxSpeed);
+	void initialize(Vec3f position, double mass, float gravitationRange, float g, int health, GameField &field, float maxSpeed, vector<GameActor*> *actors);
 	void initialize(const GameActor &actor);
 };
 

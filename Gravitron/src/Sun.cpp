@@ -3,7 +3,8 @@
 #include <sstream>
 
 //GameActor(Vec3f position, double mass, float gravitationRange, float g, int health, GameField &field);
-Sun::Sun(Vec3f position, float mass, float gravitationRange, float g, GameField& field) : GameActor(position, mass, gravitationRange, g, -1, field)
+Sun::Sun(Vec3f position, float mass, float gravitationRange, float g, GameField& field, vector<GameActor*> *actors) 
+    : GameActor(position, mass, gravitationRange, g, -1, field, actors)
 {
 }
 

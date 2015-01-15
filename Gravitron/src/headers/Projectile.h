@@ -12,8 +12,8 @@ protected:
 
 public:
     Projectile();
-    Projectile(Vec3f position, double mass, float gravitationRange, float g, int timeToLive, int health, GameField &field, GameActor &friendly);
-    Projectile(Vec3f position, double mass, float gravitationRange, float g, int timeToLive, int health, GameField &field);
+    Projectile(Vec3f position, double mass, float gravitationRange, float g, int timeToLive, int health, GameField &field, GameActor &friendly, vector<GameActor*> *actors);
+    Projectile(Vec3f position, double mass, float gravitationRange, float g, int timeToLive, int health, GameField &field, vector<GameActor*> *actors);
     Projectile(const Projectile &projectile);
     ~Projectile();
     int getTimeToLive() const;
