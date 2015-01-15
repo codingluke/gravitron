@@ -38,8 +38,8 @@ void Game::start()
     QCoreApplication::instance()->installEventFilter(iHandler);
     connect(gameLoop, SIGNAL(renderObject(vector<GameActorView*>*)),
             this, SLOT(render(vector<GameActorView*>*)));
-    connect(gameLoop, SIGNAL(activeWapponGame(int)),
-            this, SLOT(setActiveWappon(int)));
+    connect(gameLoop, SIGNAL(activeWeaponGame(int)),
+            this, SLOT(setActiveWeapon(int)));
     gameLoop->start();
 }
 
@@ -65,8 +65,8 @@ void Game::startServer(TcpServer *server)
 
     connect(gameLoop, SIGNAL(renderObject(vector<GameActorView*>*)),
             this, SLOT(render(vector<GameActorView*>*)));
-    connect(gameLoop, SIGNAL(activeWapponGame(int)),
-            this, SLOT(setActiveWappon(int)));
+    connect(gameLoop, SIGNAL(activeWeaponGame(int)),
+            this, SLOT(setActiveWeapon(int)));
     connect(gameLoop, SIGNAL(sendViewlist(QString)),
             server, SLOT(transfer(QString)));
     connect(server, SIGNAL(received(QString)),
@@ -158,22 +158,22 @@ void Game::render(vector<GameActorView*> *views)
     delete views;
 }
 
-void Game::setActiveWappon(int wapponNumber) {
-    if(wapponNumber == 1) {
+void Game::setActiveWeapon(int weaponNumber) {
+    if(weaponNumber == 1) {
         QQuickItem *laser = qmlParent->findChild<QQuickItem*>("rec_selectLaser");
         laser->setProperty("focus",QVariant(true));
         QQuickItem *missile = qmlParent->findChild<QQuickItem*>("rec_selectMissile");
         missile->setProperty("focus",QVariant(false));
         QQuickItem *aimMissile = qmlParent->findChild<QQuickItem*>("rec_selectAimMissile");
         aimMissile->setProperty("focus",QVariant(false));
-    } else if (wapponNumber == 2 ) {
+    } else if (weaponNumber == 2 ) {
         QQuickItem *laser = qmlParent->findChild<QQuickItem*>("rec_selectLaser");
         laser->setProperty("focus",QVariant(false));
         QQuickItem *missile = qmlParent->findChild<QQuickItem*>("rec_selectMissile");
         missile->setProperty("focus",QVariant(true));
         QQuickItem *aimMissile = qmlParent->findChild<QQuickItem*>("rec_selectAimMissile");
         aimMissile->setProperty("focus",QVariant(false));
-    } else if (wapponNumber == 3 ) {
+    } else if (weaponNumber == 3 ) {
         QQuickItem *laser = qmlParent->findChild<QQuickItem*>("rec_selectLaser");
         laser->setProperty("focus",QVariant(false));
         QQuickItem *missile = qmlParent->findChild<QQuickItem*>("rec_selectMissile");

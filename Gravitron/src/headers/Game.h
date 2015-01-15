@@ -39,7 +39,7 @@ class Game: public QObject
     public slots:
         void render(vector<GameActorView*> *views);
         void renderRemote(QString views);
-        void setActiveWappon(int wapponNumber);
+        void setActiveWeapon(int weaponNumber);
 
     signals:
         Q_INVOKABLE void inputEvents(int code);
