@@ -33,6 +33,11 @@ GameGenerator::GameGenerator(const GameGenerator& original)
     humanPlayer = original.humanPlayer;
 }
 
+GameGenerator::~GameGenerator() 
+{
+    delete field;
+}
+
 void GameGenerator::generateGame(GameLoop* g) {
     srand(time(NULL));
     //generateBots();

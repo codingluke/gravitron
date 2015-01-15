@@ -24,6 +24,7 @@ class GameGenerator : public QObject
         GameGenerator(GravitronSettings *settings);
         GameGenerator(const GameGenerator& original); // copy constructor
 
+        ~GameGenerator();
         void generateGame(GameLoop* g);
 
         GameActor* generateNewPowerUp(Vec3f position);
