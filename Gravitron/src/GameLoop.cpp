@@ -150,8 +150,8 @@ void GameLoop::update()
 {
     vector<GameActor*>::iterator it;
     for(it = actors.begin(); it != actors.end(); it++) {
-        (*it)->updateAll();
-        //(*it)->update(actors);
+        //(*it)->updateAll();
+        (*it)->update(actors);
     }
     for (int i = 0; i < (int) actors.size(); i++)
     {
