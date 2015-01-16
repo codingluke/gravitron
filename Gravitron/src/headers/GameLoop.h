@@ -33,12 +33,11 @@ class GameLoop : public QThread
         vector<Player*> player;
         int respawnTime;
         GameField *field;
-        InputHandler *inputHandler;
+        //InputHandler *inputHandler;
 
     public:
-        GameLoop(InputHandler *inputHandler, GameGenerator gGenerator);
-        GameLoop(InputHandler *inputHandler, NetworkInputHandler *nHandler,
-                 GameGenerator gGenerator);
+        GameLoop(GameGenerator gGenerator);
+        //GameLoop(NetworkInputHandler *nHandler, GameGenerator gGenerator);
 
         virtual ~GameLoop();
 

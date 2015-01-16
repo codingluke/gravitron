@@ -14,9 +14,9 @@
 using namespace std;
 
 
-GameLoop::GameLoop(InputHandler *inputHandler, GameGenerator gGenerator)
+GameLoop::GameLoop(GameGenerator gGenerator)
 {
-    this->inputHandler = inputHandler;
+    //this->inputHandler = inputHandler;
     gGenerator.generateGame(this);
 }
 
@@ -107,44 +107,6 @@ void GameLoop::stop()
 void GameLoop::processInput()
 {
     player[0]->processInput();
-    //set<int> codes = inputHandler->getInputs();
-    //for(set<int>::iterator it = codes.begin(); it != codes.end(); it++) {
-        //execLocalPlayerAction(*it);
-    //}
-}
-
-void GameLoop::execLocalPlayerAction(int code)
-{
-    if (code == Qt::Key_Left) {
-        localPlayer->applyForce(Vec3f(-0.01,0.,0.));
-    } else if (code == Qt::Key_Up) {
-        localPlayer->applyForce(Vec3f(0.,-0.01,0.));
-    } else if (code == Qt::Key_Right) {
-        localPlayer->applyForce(Vec3f(0.01,0.,0.));
-    } else if (code == Qt::Key_Down) {
-        localPlayer->applyForce(Vec3f(0.,0.01,0.));
-    } else if (code == Qt::Key_W) {
-        actors.push_back(&(localPlayer->Spacecraft::shootUp()));
-        inputHandler->removeInputCode(Qt::Key_W);
-    } else if (code == Qt::Key_S) {
-        actors.push_back(&(localPlayer->Spacecraft::shootDown()));
-        inputHandler->removeInputCode(Qt::Key_S);
-    } else if (code == Qt::Key_A) {
-        actors.push_back(&(localPlayer->Spacecraft::shootLeft()));
-        inputHandler->removeInputCode(Qt::Key_A);
-    } else if (code == Qt::Key_D) {
-        actors.push_back(&(localPlayer->Spacecraft::shootRight()));
-        inputHandler->removeInputCode(Qt::Key_D);
-    } else if (code == Qt::Key_1) {
-        emit activeWeaponGame(1);
-        emit activeWeaponPlayer(1);
-    } else if (code == Qt::Key_2) {
-        emit activeWeaponGame(2);
-        emit activeWeaponPlayer(2);
-    } else if (code == Qt::Key_3) {
-        emit activeWeaponGame(3);
-        emit activeWeaponPlayer(3);
-    }
 }
 
 void GameLoop::update()
@@ -152,10 +114,10 @@ void GameLoop::update()
     vector<GameActor*>::iterator it;
     for(it = actors.begin(); it != actors.end(); it++) {
         (*it)->updateAll();
-        //(*it)->update(actors);
     }
     for (int i = 0; i < (int) actors.size(); i++)
     {
+        //if((actors[i]->isKilled()) && !dynamic_cast<Player*>(actors[i]))
         if((actors[i]->isKilled()) && (actors[i] != localPlayer))
         {
             delete (actors[i]);

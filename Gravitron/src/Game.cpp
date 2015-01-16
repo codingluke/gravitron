@@ -33,9 +33,7 @@ void Game::setQmlParent(QQuickItem *theQmlParent)
  */
 void Game::start()
 {
-    InputHandler *iHandler = new InputHandler();
-    gameLoop = new GameLoop(iHandler, GameGenerator(settings));
-    QCoreApplication::instance()->installEventFilter(iHandler);
+    gameLoop = new GameLoop(GameGenerator(settings));
 
     connect(gameLoop, SIGNAL(renderObject(vector<GameActorView*>*)),
             this, SLOT(render(vector<GameActorView*>*)));
@@ -61,9 +59,7 @@ void Game::startServer(TcpServer *server)
 {
     qDebug() << "Game: start server";
     NetworkInputHandler *nHandler = new NetworkInputHandler();
-    InputHandler *iHandler = new InputHandler();
-    QCoreApplication::instance()->installEventFilter(iHandler);
-    gameLoop = new GameLoop(iHandler, GameGenerator(settings));
+    gameLoop = new GameLoop(GameGenerator(settings));
 
     connect(gameLoop, SIGNAL(renderObject(vector<GameActorView*>*)),
             this, SLOT(render(vector<GameActorView*>*)));

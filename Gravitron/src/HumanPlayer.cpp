@@ -39,28 +39,19 @@ void HumanPlayer::execAction(int code)
         inputHandler->removeInputCode(Qt::Key_W);
     } else if (code == Qt::Key_S) {
         spacecraft->shootDown();
-        //actors.push_back(&(localPlayer->Spacecraft::shootDown()));
         inputHandler->removeInputCode(Qt::Key_S);
     } else if (code == Qt::Key_A) {
         spacecraft->shootLeft();
-        //actors.push_back(&(localPlayer->Spacecraft::shootLeft()));
         inputHandler->removeInputCode(Qt::Key_A);
     } else if (code == Qt::Key_D) {
         spacecraft->shootRight();
-        //actors.push_back(&(localPlayer->Spacecraft::shootRight()));
         inputHandler->removeInputCode(Qt::Key_D);
     } else if (code == Qt::Key_1) {
         spacecraft->setWeapon(1);
-        //emit activeWeaponGame(1);
-        //emit activeWeaponPlayer(1);
     } else if (code == Qt::Key_2) {
         spacecraft->setWeapon(2);
-        //emit activeWeaponGame(2);
-        //emit activeWeaponPlayer(2);
     } else if (code == Qt::Key_3) {
         spacecraft->setWeapon(3);
-        //emit activeWeaponGame(3);
-        //emit activeWeaponPlayer(3);
     }
 }
 
