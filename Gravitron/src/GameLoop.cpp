@@ -62,6 +62,15 @@ void GameLoop::setPlayer(vector<Player*> player) {
 void GameLoop::setActors(vector<GameActor*> actors) {
     deleteActors();
     this->actors = actors;
+    remapActorsReferences();
+}
+
+void GameLoop::remapActorsReferences()
+{
+    vector<GameActor*>::iterator it;
+    for(it = actors.begin(); it != actors.end(); it++) {
+        (*it)->setActors(&actors);
+    }
 }
 
 void GameLoop::setRespawTime(int respawnTime) {

@@ -273,5 +273,10 @@ vector<GameActor*> *GameActor::getActors() const
     return actors;
 }
 
+void GameActor::setActors(vector<GameActor*> *actors)
+{
+    this->actors = actors;
+}
+
 void GameActor::handleCollision(GameActor &other)
 {}

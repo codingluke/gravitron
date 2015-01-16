@@ -76,13 +76,14 @@ class GameActor
 	void setG(float g);
 	float getMaxSpeed() const;
 	void setMaxSpeed(float maxSpeed);
-    int getHealth() const;
-    void setHealth(int health);
-    void dealDamage(int damage);
-    void addHealth(int health);
+	int getHealth() const;
+	void setHealth(int health);
+	void dealDamage(int damage);
+	void addHealth(int health);
 	virtual GameActorView* getView() const;
 	GameField* getField() const;
-    vector<GameActor*> *getActors() const;
+	vector<GameActor*> *getActors() const;
+	void setActors(vector<GameActor*> *actors);
 
 	void kill();
 	bool isKilled();

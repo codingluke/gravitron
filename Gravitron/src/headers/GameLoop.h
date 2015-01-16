@@ -60,6 +60,7 @@ class GameLoop : public QThread
         void deleteBots();
         void deletePlayer();
         void deleteActors();
+        void remapActorsReferences();
 
     signals:
         void renderObject(vector<GameActorView*> *views);
