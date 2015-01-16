@@ -7,10 +7,10 @@
 void GameActor::initialize(Vec3f position, double mass, float gravitationRange, float g, int health, GameField &field, float maxSpeed, vector<GameActor*> *actors)
 {
     killed = false;
-	velocity = Vec3f();
+	  velocity = Vec3f();
     acceleration = Vec3f();
     this->position = position;
-	this->mass = mass;
+	  this->mass = mass;
     this->gravitationRange = gravitationRange;
     this->g = g;
     this->field = &field;
@@ -22,10 +22,10 @@ void GameActor::initialize(Vec3f position, double mass, float gravitationRange, 
 void GameActor::initialize(const GameActor &actor)
 {
     killed = false;
-	position = actor.getPosition();
-	acceleration = actor.getAcceleration();
-	velocity = actor.getVelocity();
-	mass = actor.getMass();
+	  position = actor.getPosition();
+    acceleration = actor.getAcceleration();
+    velocity = actor.getVelocity();
+    mass = actor.getMass();
     gravitationRange = actor.gravitationRange;
     g = actor.g;
     field = actor.getField();
@@ -91,28 +91,51 @@ void GameActor::update()
     }
 }
 
-void GameActor::update(vector<GameActor*> actors)
+void GameActor::updateAll()
 {
     GameActor *other;
-    for (unsigned int i = 0; i < actors.size(); i++) {
-    	other = actors.at(i);
+    for (unsigned int i = 0; i < actors->size(); i++) {
+    	other = actors->at(i);
     	if (other != this)
     	{
     	    // Collision Detection
     	    bool collision = Physics::collisionDetection(position, 20.0f,
-    				      other->getPosition(), 20.0f);
+		other->getPosition(), 20.0f);
     	    if (collision)
             {
-    		    handleCollision(*other);
+    		handleCollision(*other);
                 other->handleCollision(*this);
             }
     	    // Update Gravitation
-    	    Vec3f f = Physics::calculateGravitationForce(this, actors.at(i));
-    	    actors.at(i)->applyForce(f);
+    	    Vec3f f = Physics::calculateGravitationForce(this, actors->at(i));
+    	    actors->at(i)->applyForce(f);
         }
     }
     update();
 }
+
+//void GameActor::update(vector<GameActor*> actors)
+//{
+    //GameActor *other;
+    //for (unsigned int i = 0; i < actors.size(); i++) {
+            //other = actors.at(i);
+            //if (other != this)
+            //{
+                //// Collision Detection
+                //bool collision = Physics::collisionDetection(position, 20.0f,
+                                          //other->getPosition(), 20.0f);
+                //if (collision)
+            //{
+                        //handleCollision(*other);
+                //other->handleCollision(*this);
+            //}
+                //// Update Gravitation
+                //Vec3f f = Physics::calculateGravitationForce(this, actors.at(i));
+                //actors.at(i)->applyForce(f);
+        //}
+    //}
+    //update();
+//}
 
 void GameActor::kill()
 {
