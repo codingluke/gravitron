@@ -7,14 +7,12 @@
         <file>CreditsSubMenu.qml</file>
         <file alias="actor">actors/Actor.qml</file>
         <file alias="spacecraft">actors/Spacecraft.qml</file>
-        <file>GlobalSettingsSubMenu.qml</file>
         <file>menus/constants.js</file>
         <file>SinglePlayerSubMenu.qml</file>
         <file>MultiPlayerSubMenu.qml</file>
         <file>StatsSubMenu.qml</file>
         <file>menus/functions.js</file>
         <file>menus/GlobalSettingsActions.js</file>
-        <file>GameSettingsSubMenu.qml</file>
         <file>menus/GameSettingsActions.js</file>
         <file>MultiplayerJoin.qml</file>
         <file>menus/Main.qml</file>

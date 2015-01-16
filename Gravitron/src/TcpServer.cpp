@@ -11,7 +11,9 @@ TcpServer::TcpServer(QObject* parent): QObject(parent)
 TcpServer::~TcpServer()
 {
     server.close();
-    client->close();
+    if (client != NULL) {
+        client->close();
+    }
 }
 
 void TcpServer::startListen(int port)
