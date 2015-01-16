@@ -78,12 +78,15 @@ Projectile &Spacecraft::shootUp()
     } else if (weapon == 3) {
         p = new AimMissile(this->getPosition() + Vec3f(0,-2.,0.), Vec3f(0., -12., 0.), *field, *this, actors);
     }
+    actors->push_back(p);
     return *p;
 }
+
 void Spacecraft::repair()
 {
 
 }
+
 Projectile &Spacecraft::shootDown()
 {
     Projectile* p;
@@ -94,6 +97,7 @@ Projectile &Spacecraft::shootDown()
     } else if (weapon == 3) {
         p = new AimMissile(this->getPosition() + Vec3f(0., 2., 0.), Vec3f(0., 12., 0.), *field, *this, actors);
     }
+    actors->push_back(p);
     return *p;
 }
 
@@ -107,6 +111,7 @@ Projectile &Spacecraft::shootLeft()
     } else if (weapon == 3) {
         p = new AimMissile(this->getPosition() + Vec3f(-2., 0., 0.), Vec3f(-12., 0., 0.), *field, *this, actors);
     }
+    actors->push_back(p);
     return *p;
 }
 
@@ -120,6 +125,7 @@ Projectile &Spacecraft::shootRight()
     } else if (weapon == 3) {
         p = new AimMissile(this->getPosition() + Vec3f(2., 0., 0.), Vec3f(12., 0., 0.), *field, *this, actors);
     }
+    actors->push_back(p);
     return *p;
 }
 

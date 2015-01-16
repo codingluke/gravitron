@@ -15,6 +15,10 @@ Player::~Player() {
 
 }
 
+void Player::processInput()
+{
+}
+
 void Player::respawn() {
     this->spacecraft->repair();
 }

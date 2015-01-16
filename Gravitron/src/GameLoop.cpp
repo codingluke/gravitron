@@ -106,10 +106,11 @@ void GameLoop::stop()
 
 void GameLoop::processInput()
 {
-    set<int> codes = inputHandler->getInputs();
-    for(set<int>::iterator it = codes.begin(); it != codes.end(); it++) {
-        execLocalPlayerAction(*it);
-    }
+    player[0]->processInput();
+    //set<int> codes = inputHandler->getInputs();
+    //for(set<int>::iterator it = codes.begin(); it != codes.end(); it++) {
+        //execLocalPlayerAction(*it);
+    //}
 }
 
 void GameLoop::execLocalPlayerAction(int code)
