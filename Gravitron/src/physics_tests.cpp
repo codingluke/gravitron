@@ -6,9 +6,9 @@ void Physics_tests::initTestCase() {
     Vec3f pos(1.0f, 1.0f, 1.0f);
     //GameActor(Vec3f position, double mass, float gravitationRange, float g, int health, GameField &field, float maxSpeed);
     gf = new GameField(1,1);
-    actor1 = GameActor(pos, 1.0, 1.0f, 1.0f, 1, *gf, 1.0f);
+    actor1 = GameActor(pos, 1.0, 1.0f, 1.0f, 1, *gf, 1.0f, NULL);
     pos = Vec3f(2.0f, 2.0f, 2.0f);
-    actor2 = GameActor(pos, 1.0, 1.0f, 1.0f, 1, *gf, 1.0f);
+    actor2 = GameActor(pos, 1.0, 1.0f, 1.0f, 1, *gf, 1.0f, NULL);
 
 }
 void Physics_tests::Physics_tests_calculateGravitationForce_gravitation() {
@@ -18,7 +18,7 @@ void Physics_tests::Physics_tests_calculateGravitationForce_gravitation() {
 
 void Physics_tests::Physics_tests_calculateGravitationForce_noGravitation() {
     Vec3f pos(1.0f, 1.0f, 1.0f);
-    actor1 = GameActor(pos, 1.0, 500.0f, 3.0f, 1, *gf, 1.0f);
+    actor1 = GameActor(pos, 1.0, 500.0f, 3.0f, 1, *gf, 1.0f, NULL);
     Vec3f force = Physics::calculateGravitationForce(&actor1, &actor2);
     QVERIFY(force[0] == -1.0f && force[2] == -1.0f && force[2] == -1.0f);
 }
