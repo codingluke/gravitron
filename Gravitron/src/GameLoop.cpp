@@ -106,18 +106,18 @@ void GameLoop::stop()
 
 void GameLoop::processInput()
 {
-    player[0]->processInput();
+    //player[0]->processInput();
 }
 
 void GameLoop::update()
 {
+    cerr << "GameLoop: " << actors.size() << "\n";
     vector<GameActor*>::iterator it;
     for(it = actors.begin(); it != actors.end(); it++) {
         (*it)->updateAll();
     }
     for (int i = 0; i < (int) actors.size(); i++)
     {
-        //if((actors[i]->isKilled()) && !dynamic_cast<Player*>(actors[i]))
         if((actors[i]->isKilled()) && (actors[i] != localPlayer))
         {
             delete (actors[i]);

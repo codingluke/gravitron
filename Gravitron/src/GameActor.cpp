@@ -94,16 +94,17 @@ void GameActor::update()
 void GameActor::updateAll()
 {
     GameActor *other;
+    cerr << "GameActor: " << actors->size() << "\n";
     for (unsigned int i = 0; i < actors->size(); i++) {
     	other = actors->at(i);
     	if (other != this)
     	{
     	    // Collision Detection
     	    bool collision = Physics::collisionDetection(position, 20.0f,
-		other->getPosition(), 20.0f);
+		          other->getPosition(), 20.0f);
     	    if (collision)
             {
-    		handleCollision(*other);
+    		        handleCollision(*other);
                 other->handleCollision(*this);
             }
     	    // Update Gravitation
