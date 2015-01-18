@@ -18,10 +18,10 @@ GameGenerator::GameGenerator(QObject *parent) :
 {
 }
 
-GameGenerator::GameGenerator(GravitronSettings *settings)
+GameGenerator::GameGenerator(GravitronSettings *settings, GameField* field)
 {
     this->settings = settings;
-    this->field = new GameField(1000 , 1000);
+    this->field = field;
 }
 
 GameGenerator::GameGenerator(const GameGenerator& original)
@@ -35,7 +35,7 @@ GameGenerator::GameGenerator(const GameGenerator& original)
 
 GameGenerator::~GameGenerator() 
 {
-    delete field;
+
 }
 
 void GameGenerator::generateGame(GameLoop* g) {

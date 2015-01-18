@@ -33,8 +33,9 @@ void Game::setQmlParent(QQuickItem *theQmlParent)
  */
 void Game::start()
 {
-    iHandler = new InputHandler();
-    gameLoop = new GameLoop(iHandler, GameGenerator(settings));
+    InputHandler *iHandler = new InputHandler();
+    field = new GameField(1000 , 1000);
+    gameLoop = new GameLoop(iHandler, GameGenerator(settings, field));
     QCoreApplication::instance()->installEventFilter(iHandler);
 
     connect(gameLoop, SIGNAL(renderObject(vector<GameActorView*>*)),
@@ -88,7 +89,7 @@ void Game::stop()
 Game::~Game()
 {
     stop();
-    //delete iHandler;
+    delete field;
 }
 
 /**
