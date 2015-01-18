@@ -23,7 +23,6 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-#define TEST
 #ifdef TEST
     Vec3F_Tests test1;
     QTest::qExec(&test1);

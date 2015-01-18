@@ -1,11 +1,19 @@
 TEMPLATE = app
 
-CONFIG += debug \
-        c++11 \
+CONFIG += c++11 \
         address_sanitizer \
-        testcase
+
 
 QT += qml quick network testlib
+
+CONFIG(debug, debug|release):DEFINES+=TEST #For Linux, Mac, ...
+CONFIG(Debug, Debug|Release):DEFINES+=TEST #For Windows
+
+QMAKE_CXXFLAGS_DEBUG += -fsanitize=address \
+                        -O1 \
+                        -fno-omit-frame-pointer
+
+QMAKE_LFLAGS_DEBUG += -fsanitize=address
 
 HEADERS += src/headers/GameActor.h \
     src/headers/Vec3f.h \
