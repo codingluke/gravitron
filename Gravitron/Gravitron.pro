@@ -1,8 +1,6 @@
 TEMPLATE = app
 
-CONFIG += c++11 \
-        address_sanitizer \
-
+CONFIG += c++11
 
 QT += qml quick network testlib
 
