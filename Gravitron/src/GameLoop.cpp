@@ -24,7 +24,7 @@ GameLoop::~GameLoop() {
     deleteActors();
     deletePlayer();
     deleteBots();
-    //delete field;
+    delete field;
 }
 
 void GameLoop::deleteActors() {

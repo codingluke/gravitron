@@ -14,14 +14,14 @@ class GameGenerator : public QObject
     Q_OBJECT
     private:
         GravitronSettings *settings;
+        GameField* field;
         std::vector<GameActor*> actors;
         std::vector<Player*> bots;
         std::vector<Player*> humanPlayer;
-        GameField* field;
 
     public:
         explicit GameGenerator(QObject *parent = 0);
-        GameGenerator(GravitronSettings *settings);
+        GameGenerator(GravitronSettings *settings, GameField* field);
         GameGenerator(const GameGenerator& original); // copy constructor
 
         ~GameGenerator();

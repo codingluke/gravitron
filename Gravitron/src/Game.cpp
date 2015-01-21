@@ -34,14 +34,14 @@ void Game::setQmlParent(QQuickItem *theQmlParent)
 void Game::start()
 {
     InputHandler *iHandler = new InputHandler();
-    gameLoop = new GameLoop(iHandler, GameGenerator(settings));
+    field = new GameField(1000 , 1000);
+    gameLoop = new GameLoop(iHandler, GameGenerator(settings, field));
     QCoreApplication::instance()->installEventFilter(iHandler);
 
     connect(gameLoop, SIGNAL(renderObject(vector<GameActorView*>*)),
             this, SLOT(render(vector<GameActorView*>*)));
     connect(gameLoop, SIGNAL(activeWeaponGame(int)),
             this, SLOT(setActiveWeapon(int)));
-
     gameLoop->start();
 }
 
@@ -80,14 +80,16 @@ void Game::startServer(TcpServer *server)
 void Game::stop()
 {
     gameLoop->stop();
-    gameLoop->quit();
-    gameLoop->wait();
-    delete gameLoop;
+    //Stop is doing the jop
+    //gameLoop->quit();
+    //gameLoop->wait();
+    //delete gameLoop;
 }
 
 Game::~Game()
 {
     stop();
+    delete field;
 }
 
 /**
