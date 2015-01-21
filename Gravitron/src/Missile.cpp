@@ -58,7 +58,6 @@ void Missile::handleCollision(GameActor &other)
 }
 
 GameActorView* Missile::getView() const {
-    //std::cout << "spacecraft" << std::endl;
     std::ostringstream x;
     std::ostringstream y;
     x << position[0];

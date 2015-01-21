@@ -4,7 +4,7 @@
 
 HumanPlayer::HumanPlayer(Spacecraft *spacecraft, int frag, GameLoop* loop) : Player(spacecraft, frag)
 {
-    this->spacecraft->setWeapon(3);
+    this->spacecraft->setWeapon(1);
     connect(loop, SIGNAL(activeWeaponPlayer(int)), this, SLOT(setActiveWeapon(int)));
 }
 

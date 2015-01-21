@@ -1,4 +1,5 @@
 #include "headers/AimMissile.h"
+#include "headers/ActorsAdjustments.h"
 
 AimMissile::AimMissile() : Missile()
 {
@@ -33,7 +34,18 @@ AimMissile::~AimMissile()
 
 void AimMissile::handleCollision(GameActor &other)
 {
-    
+    vector<GameActor*>::iterator it;
+    bool otherIsFriendly = false;
+    for (it = friendly.begin(); it != friendly.end(); it++)
+    {
+        if (*it == &other)
+            otherIsFriendly = true;
+    }
+    if (!otherIsFriendly)
+    {
+        other.dealDamage(AIM_MISSILE_DAMAGE);
+        kill();
+    }
 }
 
 
