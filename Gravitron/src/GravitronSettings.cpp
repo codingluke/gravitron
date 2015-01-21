@@ -174,7 +174,6 @@ int GravitronSettings::planetCount() const {
 }
 
 void GravitronSettings::setPlanetCount(const int& source) {
-    std::cerr << source;
     mPlanetCount = source;
     save();
     emit planetCountChanged(source);

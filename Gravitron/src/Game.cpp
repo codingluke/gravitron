@@ -58,7 +58,9 @@ void Game::startClient(TcpClient *client)
 void Game::startServer(TcpServer *server)
 {
     qDebug() << "Game: start server";
-    gameLoop = new GameLoop(GameGenerator(settings));
+    field = new GameField(1000 , 1000);
+    settings->setNetwork(true);
+    gameLoop = new GameLoop(GameGenerator(settings, field, server));
 
     connect(gameLoop, SIGNAL(renderObject(vector<GameActorView*>*)),
             this, SLOT(render(vector<GameActorView*>*)));

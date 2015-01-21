@@ -38,7 +38,7 @@ void TcpServer::transfer(QString message)
         client->write(message.toStdString().c_str(), message.length());
         client->flush();
     } else {
-        qDebug() << "TcpServer: not connected!";
+        //qDebug() << "TcpServer: not connected!";
     }
 }
 

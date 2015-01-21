@@ -10,17 +10,17 @@ class HumanPlayer : public Player
 {
     Q_OBJECT
 
-    private:
-      InputHandler *inputHandler;
+    protected:
+      QObject *inputHandler;
 
     public:
         HumanPlayer(Spacecraft* spacecraft, int frag);
         virtual ~HumanPlayer();
 
-        void processInput();
+        virtual void processInput();
 
-    private:
-        void execAction(int code);
+    protected:
+        virtual void execAction(int code);
 
     private slots:
         void setActiveWeapon(int weaponNumber);

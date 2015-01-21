@@ -94,7 +94,6 @@ void GameActor::update()
 void GameActor::updateAll()
 {
     GameActor *other;
-    cerr << "GameActor: " << actors << "\n";
     for (unsigned int i = 0; i < actors->size(); i++) {
     	other = actors->at(i);
     	if (other != this)

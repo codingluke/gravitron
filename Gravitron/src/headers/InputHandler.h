@@ -8,18 +8,17 @@
 
 using namespace std;
 
-typedef void (Spacecraft::*callback)();
-
 class InputHandler : public QObject
 {
     Q_OBJECT
 
     private:
-      set<int> inputs;
       QMutex mutex;
+      set<int> inputs;
 
     public:
         InputHandler();
+
         set<int> getInputs();
         void removeInputCode(int code);
         void insertInputCode(int code);

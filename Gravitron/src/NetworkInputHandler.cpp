@@ -21,9 +21,11 @@ set<int> NetworkInputHandler::getInputs()
 void NetworkInputHandler::setInputsFromString(QString inputsStr)
 {
     set<int> tmp;
-    QStringList codes = inputsStr.split(",", QString::SkipEmptyParts);
+    QStringList codes = inputsStr.remove(0,1).split(",", QString::SkipEmptyParts);
     for (int i = 0; i < codes.size(); ++i) {
-        tmp.insert(codes[i].toInt());
+        if (codes[i].toInt() != 0) {
+            tmp.insert(codes[i].toInt());
+        }
     }
     setInputs(tmp);
 }

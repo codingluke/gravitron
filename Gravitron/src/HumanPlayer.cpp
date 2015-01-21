@@ -17,7 +17,7 @@ HumanPlayer::~HumanPlayer()
 
 void HumanPlayer::processInput()
 {
-    set<int> codes = inputHandler->getInputs();
+    set<int> codes = dynamic_cast<InputHandler*>(inputHandler)->getInputs();
     for(set<int>::iterator it = codes.begin(); it != codes.end(); it++) {
         execAction(*it);
     }
@@ -35,16 +35,18 @@ void HumanPlayer::execAction(int code)
         spacecraft->forceBack();
     } else if (code == Qt::Key_W) {
         spacecraft->shootUp();
-        inputHandler->removeInputCode(Qt::Key_W);
+        cerr << "HumanPlayer: shootUp before remove\n";
+        dynamic_cast<InputHandler*>(inputHandler)->removeInputCode(Qt::Key_W);
+        cerr << "HumanPlayer: shootUp after remove\n";
     } else if (code == Qt::Key_S) {
         spacecraft->shootDown();
-        inputHandler->removeInputCode(Qt::Key_S);
+        dynamic_cast<InputHandler*>(inputHandler)->removeInputCode(Qt::Key_S);
     } else if (code == Qt::Key_A) {
         spacecraft->shootLeft();
-        inputHandler->removeInputCode(Qt::Key_A);
+        dynamic_cast<InputHandler*>(inputHandler)->removeInputCode(Qt::Key_A);
     } else if (code == Qt::Key_D) {
         spacecraft->shootRight();
-        inputHandler->removeInputCode(Qt::Key_D);
+        dynamic_cast<InputHandler*>(inputHandler)->removeInputCode(Qt::Key_D);
     } else if (code == Qt::Key_1) {
         spacecraft->setWeapon(1);
     } else if (code == Qt::Key_2) {

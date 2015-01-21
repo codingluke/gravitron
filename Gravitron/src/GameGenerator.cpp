@@ -24,10 +24,18 @@ GameGenerator::GameGenerator(GravitronSettings *settings, GameField* field)
     this->field = field;
 }
 
+GameGenerator::GameGenerator(GravitronSettings *settings, GameField* field, TcpServer *server)
+{
+    this->settings = settings;
+    this->field = field;
+    this->server = server;
+}
+
 GameGenerator::GameGenerator(const GameGenerator& original)
 {
     settings = original.settings;
     field = original.field;
+    server = original.server;
     actors = original.actors;
     bots = original.bots;
     humanPlayer = original.humanPlayer;
@@ -66,11 +74,16 @@ void GameGenerator::generateBots() {
 }
 
 void GameGenerator::generatePlayer(GameLoop* g) {
-    Spacecraft* sc = generateNewSpacecraft();
-    actors.push_back(sc);
     if (settings->network()) {
-        //humanPlayer.push_back(new HumanNetworkPlayer(sc, settings->frag()));
+        Spacecraft* sc = generateNewSpacecraft();
+        Spacecraft* sc2 = generateNewSpacecraft();
+        actors.push_back(sc);
+        actors.push_back(sc2);
+        humanPlayer.push_back(new HumanPlayer(sc, settings->frag()));
+        humanPlayer.push_back(new HumanNetworkPlayer(sc2, settings->frag(), server));
     } else {
+        Spacecraft* sc = generateNewSpacecraft();
+        actors.push_back(sc);
         humanPlayer.push_back(new HumanPlayer(sc, settings->frag()));
     }
 }

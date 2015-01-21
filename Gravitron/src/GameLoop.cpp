@@ -78,23 +78,17 @@ void GameLoop::setRespawTime(int respawnTime) {
 
 void GameLoop::run()
 {
-    ms_per_update = 60;
+    ms_per_update = 30;
     running = true;
     QTime t;
-    int lag = 0;
-
     t.start();
-
     while (running)
     {
-        lag += t.elapsed();
         t.restart();
         processInput();
-        while (running && lag >= ms_per_update) {
-            update();
-            lag -= ms_per_update;
-        }
+        update();
         render();
+        QThread::msleep(ms_per_update - t.elapsed());
     }
 }
 
@@ -105,7 +99,10 @@ void GameLoop::stop()
 
 void GameLoop::processInput()
 {
-    player[0]->processInput();
+    vector<Player*>::iterator it;
+    for(it = player.begin(); it != player.end(); it++) {
+      (*it)->processInput();
+    }
 }
 
 void GameLoop::update()

@@ -7,9 +7,15 @@
 
 class HumanNetworkPlayer : public HumanPlayer
 {
-public:
-    HumanNetworkPlayer(Spacecraft* spacecraft, int frag, TcpServer *server);
-    virtual ~HumanNetworkPlayer();
+  public:
+      HumanNetworkPlayer(Spacecraft* spacecraft, int frag, TcpServer *server);
+
+      virtual ~HumanNetworkPlayer();
+      void processInput();
+
+  protected:
+      virtual void execAction(int code);
+
 };
 
 #endif // HUMANNETWORKPLAYER_H

@@ -31,5 +31,5 @@ void Planet::update() {
 
 void Planet::handleCollision(GameActor &other)
 {
-    
+
 }

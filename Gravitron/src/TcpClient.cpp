@@ -29,7 +29,6 @@ void TcpClient::start(QString address, quint16 port)
 void TcpClient::transfer(QString message)
 {
     if (client.state() == QAbstractSocket::ConnectedState) {
-        qDebug() << message;
         client.write(message.toStdString().c_str(), message.length());
         client.flush();
     } else {

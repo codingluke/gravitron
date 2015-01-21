@@ -50,22 +50,22 @@ GameActorView* Spacecraft::getView() const {
 
 void Spacecraft::forceAhead()
 {
-    applyForce(Vec3f(0.,-0.01,0.));
+    applyForce(Vec3f(0.,-0.1,0.));
 }
 
 void Spacecraft::forceBack()
 {
-    applyForce(Vec3f(0.,0.01,0.));
+    applyForce(Vec3f(0.,0.1,0.));
 }
 
 void Spacecraft::forceLeft()
 {
-    applyForce(Vec3f(-0.01,0.,0.));
+    applyForce(Vec3f(-0.1,0.,0.));
 }
 
 void Spacecraft::forceRight()
 {
-    applyForce(Vec3f(0.01,0.,0.));
+    applyForce(Vec3f(0.1,0.,0.));
 }
 
 Projectile &Spacecraft::shootUp()

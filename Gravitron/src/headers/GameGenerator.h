@@ -5,6 +5,7 @@
 #include "GravitronSettings.h"
 #include "GameLoop.h"
 #include "Player.h"
+#include "TcpServer.h"
 #include <vector>
 
 class GameLoop; // <<== Forward declare the class. Because of circular definitions.
@@ -15,6 +16,7 @@ class GameGenerator : public QObject
     private:
         GravitronSettings *settings;
         GameField* field;
+        TcpServer* server;
         std::vector<GameActor*> actors;
         std::vector<Player*> bots;
         std::vector<Player*> humanPlayer;
@@ -22,6 +24,7 @@ class GameGenerator : public QObject
     public:
         explicit GameGenerator(QObject *parent = 0);
         GameGenerator(GravitronSettings *settings, GameField* field);
+        GameGenerator(GravitronSettings *settings, GameField* field, TcpServer *server);
         GameGenerator(const GameGenerator& original); // copy constructor
 
         ~GameGenerator();
