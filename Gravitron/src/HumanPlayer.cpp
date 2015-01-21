@@ -2,12 +2,11 @@
 #include "headers/GameLoop.h"
 #include <QDebug>
 
-HumanPlayer::HumanPlayer(Spacecraft *spacecraft, int frag, GameLoop* loop) : Player(spacecraft, frag)
+HumanPlayer::HumanPlayer(Spacecraft *spacecraft, int frag) : Player(spacecraft, frag)
 {
-    //inputHandler = new InputHandler();
-    //QCoreApplication::instance()->installEventFilter(inputHandler);
+    inputHandler = new InputHandler();
+    QCoreApplication::instance()->installEventFilter(inputHandler);
     this->spacecraft->setWeapon(3);
-    connect(loop, SIGNAL(activeWeaponPlayer(int)), this, SLOT(setActiveWeapon(int)));
 }
 
 HumanPlayer::~HumanPlayer()

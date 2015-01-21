@@ -16,7 +16,6 @@ using namespace std;
 
 GameLoop::GameLoop(GameGenerator gGenerator)
 {
-    //this->inputHandler = inputHandler;
     gGenerator.generateGame(this);
 }
 
@@ -106,12 +105,11 @@ void GameLoop::stop()
 
 void GameLoop::processInput()
 {
-    //player[0]->processInput();
+    player[0]->processInput();
 }
 
 void GameLoop::update()
 {
-    cerr << "GameLoop: " << actors.size() << "\n";
     vector<GameActor*>::iterator it;
     for(it = actors.begin(); it != actors.end(); it++) {
         (*it)->updateAll();

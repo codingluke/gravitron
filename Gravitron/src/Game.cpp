@@ -58,7 +58,6 @@ void Game::startClient(TcpClient *client)
 void Game::startServer(TcpServer *server)
 {
     qDebug() << "Game: start server";
-    NetworkInputHandler *nHandler = new NetworkInputHandler();
     gameLoop = new GameLoop(GameGenerator(settings));
 
     connect(gameLoop, SIGNAL(renderObject(vector<GameActorView*>*)),
@@ -67,8 +66,6 @@ void Game::startServer(TcpServer *server)
             this, SLOT(setActiveWeapon(int)));
     connect(gameLoop, SIGNAL(sendViewlist(QString)),
             server, SLOT(transfer(QString)));
-    connect(server, SIGNAL(received(QString)),
-            nHandler, SLOT(receive(QString)));
 
     gameLoop->start();
 }

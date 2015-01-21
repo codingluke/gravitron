@@ -33,9 +33,9 @@ GameGenerator::GameGenerator(const GameGenerator& original)
     humanPlayer = original.humanPlayer;
 }
 
-GameGenerator::~GameGenerator() 
+GameGenerator::~GameGenerator()
 {
-    delete field;
+    //delete field;
 }
 
 void GameGenerator::generateGame(GameLoop* g) {
@@ -70,9 +70,9 @@ void GameGenerator::generatePlayer(GameLoop* g) {
     Spacecraft* sc = generateNewSpacecraft();
     actors.push_back(sc);
     if (settings->network()) {
-        humanPlayer.push_back(new HumanNetworkPlayer(sc, settings->frag(), g));
+        humanPlayer.push_back(new HumanNetworkPlayer(sc, settings->frag()));
     } else {
-        humanPlayer.push_back(new HumanPlayer(sc, settings->frag(), g));
+        humanPlayer.push_back(new HumanPlayer(sc, settings->frag()));
     }
 }
 

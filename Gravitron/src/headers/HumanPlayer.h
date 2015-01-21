@@ -14,7 +14,7 @@ class HumanPlayer : public Player
       InputHandler *inputHandler;
 
     public:
-        HumanPlayer(Spacecraft* spacecraft, int frag, GameLoop *loop);
+        HumanPlayer(Spacecraft* spacecraft, int frag);
         virtual ~HumanPlayer();
 
         void processInput();

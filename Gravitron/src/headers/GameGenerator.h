@@ -39,12 +39,6 @@ class GameGenerator : public QObject
         void generateRandomScrap();
         void generateSun();
         Spacecraft* generateNewSpacecraft();
-
-
-signals:
-
-public slots:
-
 };
 
 #endif // GAMEGENERATOR_H
