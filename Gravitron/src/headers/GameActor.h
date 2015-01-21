@@ -67,7 +67,7 @@ class GameActor
         virtual void applyForce(Vec3f force);
         virtual void update();
         virtual void updateAll();
-        //virtual void update(vector<GameActor*> actors);
+        virtual void update(vector<GameActor*> actors);
         void update(double radius);
 
         virtual void handleCollision(GameActor &other);

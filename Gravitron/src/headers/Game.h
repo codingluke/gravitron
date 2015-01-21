@@ -24,6 +24,7 @@ class Game: public QObject
         QQuickItem *qmlParent;
         GameLoop *gameLoop;
         GravitronSettings *settings;
+        GameField *field;
 
     public:
         Game(QObject *parent = 0);

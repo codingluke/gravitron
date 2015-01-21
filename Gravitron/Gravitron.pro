@@ -1,21 +1,26 @@
 TEMPLATE = app
 
-CONFIG += debug
 CONFIG += c++11
 
-QT += qml quick network
+QT += qml quick network testlib
+
+CONFIG(debug, debug|release):DEFINES+=TEST #For Linux, Mac, ...
+CONFIG(Debug, Debug|Release):DEFINES+=TEST #For Windows
+
+QMAKE_CXXFLAGS_DEBUG += -fsanitize=address \
+                        -O1 \
+                        -fno-omit-frame-pointer
+
+QMAKE_LFLAGS_DEBUG += -fsanitize=address
 
 HEADERS += src/headers/GameActor.h \
     src/headers/Vec3f.h \
-    src/headers/Vec2f.h \
     src/headers/QmlFileReader.h \
     src/headers/GravitronSettings.h \
     src/headers/GameLoop.h \
     src/headers/Game.h \
     src/headers/GameActorView.h \
     src/headers/MenuListener.h \ 
-    src/headers/GameProjection.h \
-    #src/headers/Plane.h \
     src/headers/Locater.h \
     src/headers/Physics.h \
     src/headers/Spacecraft.h \
@@ -39,7 +44,10 @@ HEADERS += src/headers/GameActor.h \
     src/headers/KiPlayer.h \
     src/headers/KiNetworkPlayer.h \
     src/headers/GameGenerator.h \
-    src/headers/ActorsAdjustments.h
+    src/headers/ActorsAdjustments.h \
+    src/headers/vec3f_tests.h \
+    src/headers/physics_tests.h
+
 
 DESTDIR = ../build
 OBJECTS_DIR = ../build
@@ -49,15 +57,12 @@ RCC_DIR = ../build
 SOURCES += src/main.cpp \
     src/GameActor.cpp \
     src/Vec3f.cpp \
-    src/Vec2f.cpp \
     src/Game.cpp \
     src/GameLoop.cpp \
     src/GravitronSettings.cpp \
     src/QmlFileReader.cpp \
     src/GameActorView.cpp \
     src/MenuListener.cpp \
-    src/GameProjection.cpp \
-    #src/Plane.cpp \
     src/Locator.cpp \
     src/Physics.cpp \
     src/Spacecraft.cpp \
@@ -80,7 +85,10 @@ SOURCES += src/main.cpp \
     src/HumanNetworkPlayer.cpp \
     src/KiPlayer.cpp \
     src/KiNetworkPlayer.cpp \
-    src/GameGenerator.cpp
+    src/GameGenerator.cpp \
+    src/vec3f_tests.cpp \
+    src/physics_tests.cpp
+
 
 RESOURCES += assets/img/img.qrc \
         assets/audio/audio.qrc \

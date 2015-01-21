@@ -81,7 +81,7 @@ const Vec3f &Vec3f::operator-=(const Vec3f &other)
 
 float Vec3f::magnitude() const
 {
-    return sqrt(v[0] * v[0] + v[1] * v[1] + v[2] * v[2]);
+    return sqrt(magnitudeSquared());
 }
 
 float Vec3f::magnitudeSquared() const
@@ -91,7 +91,7 @@ float Vec3f::magnitudeSquared() const
 
 Vec3f Vec3f::normalize() const
 {
-    float m = sqrt(v[0] * v[0] + v[1] * v[1] + v[2] * v[2]);
+    float m = magnitude();
     return Vec3f(v[0] / m, v[1] / m, v[2] / m);
 }
 

@@ -115,28 +115,28 @@ void GameActor::updateAll()
     update();
 }
 
-//void GameActor::update(vector<GameActor*> actors)
-//{
-    //GameActor *other;
-    //for (unsigned int i = 0; i < actors.size(); i++) {
-            //other = actors.at(i);
-            //if (other != this)
-            //{
-                //// Collision Detection
-                //bool collision = Physics::collisionDetection(position, 20.0f,
-                                          //other->getPosition(), 20.0f);
-                //if (collision)
-            //{
-                        //handleCollision(*other);
-                //other->handleCollision(*this);
-            //}
-                //// Update Gravitation
-                //Vec3f f = Physics::calculateGravitationForce(this, actors.at(i));
-                //actors.at(i)->applyForce(f);
-        //}
-    //}
-    //update();
-//}
+void GameActor::update(vector<GameActor*> actors)
+{
+    GameActor *other;
+    for (unsigned int i = 0; i < actors.size(); i++) {
+            other = actors.at(i);
+            if (other != this)
+            {
+                // Collision Detection
+                bool collision = Physics::collisionDetection(position, 20.0f,
+                                          other->getPosition(), 20.0f);
+                if (collision)
+            {
+                        handleCollision(*other);
+                other->handleCollision(*this);
+            }
+                // Update Gravitation
+                Vec3f f = Physics::calculateGravitationForce(this, actors.at(i));
+                actors.at(i)->applyForce(f);
+        }
+    }
+    update();
+}
 
 void GameActor::kill()
 {

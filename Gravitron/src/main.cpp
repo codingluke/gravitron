@@ -13,6 +13,9 @@
 #include "headers/GameGenerator.h"
 #include "headers/NetworkInputHandler.h"
 
+#include "headers/vec3f_tests.h"
+#include "headers/physics_tests.h"
+
 #include <string>
 #include <QDebug>
 
@@ -20,6 +23,15 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
+#ifdef TEST
+    Vec3F_Tests test1;
+    QTest::qExec(&test1);
+
+    Physics_tests test2;
+    QTest::qExec(&test2);
+
+#endif
+
     QGuiApplication app(argc, argv);
     qmlRegisterType<QMLFileReader, 1>("QMLFileReader", 1, 0, "QMLFileReader");
 
