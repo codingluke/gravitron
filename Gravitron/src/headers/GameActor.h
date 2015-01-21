@@ -50,8 +50,20 @@ class GameActor
          * The gravitation acceleration.
          */
         float g;
+
+        /**
+         * The maximum speed.
+         */
         float maxSpeed;
+
+        /**
+         * The game area.
+         */
         GameField *field;
+
+        /**
+         * A list (vector) of all other GameActors
+         */
         vector<GameActor*> *actors;
 
     public:
@@ -71,6 +83,8 @@ class GameActor
         void update(double radius);
 
         virtual void handleCollision(GameActor &other);
+
+        virtual void handleKill();
 
         bool operator== (GameActor& right);
         GameActor &operator= (const GameActor &right);

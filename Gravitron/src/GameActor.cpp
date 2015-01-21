@@ -139,6 +139,7 @@ void GameActor::updateAll()
 
 void GameActor::kill()
 {
+    handleKill();
     killed = true;
 }
 
@@ -302,4 +303,7 @@ void GameActor::setActors(vector<GameActor*> *actors)
 }
 
 void GameActor::handleCollision(GameActor &other)
+{}
+
+void GameActor::handleKill()
 {}

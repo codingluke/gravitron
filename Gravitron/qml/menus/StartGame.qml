@@ -17,7 +17,7 @@ VisualItemModel {
             width: Global.buttonWidth
             height: Global.buttonHeight
             //: Button bach to the new game menu
-            text: qsTr("back")
+            text: qsTr("Back")
             onClicked: Functions.btn_backToNewGameClicked()
         }
 
@@ -25,14 +25,14 @@ VisualItemModel {
             height: Global.textHeight
             width: Global.textWidth
             //: Lable for the game settings
-            text: qsTr("gameSettings")
+            text: qsTr("Game Settings")
         }
 
         Text {
             height: Global.textHeight
             width: Global.textWidth
             //: Label for the palying field size slider
-            text: qsTr("playingFieldSize")
+            text: qsTr("Playing Area Size")
         }
 
         Slider {
@@ -45,7 +45,7 @@ VisualItemModel {
             height: Global.textHeight
             width: Global.textWidth
             //: Label for the number of enemies slider
-            text: qsTr("numberEnemies")
+            text: qsTr("Number of Enemies")
         }
 
         Slider {
@@ -58,7 +58,7 @@ VisualItemModel {
             height: Global.textHeight
             width: Global.textWidth
             //: Label for the amount of planets slider
-            text: qsTr("planetAmount")
+            text: qsTr("Planet Amount")
         }
 
         Slider {
@@ -75,7 +75,7 @@ VisualItemModel {
             height: Global.textHeight
             width: Global.textWidth
             //: Label for the amount of astorieds slider
-            text: qsTr("astroidAmount")
+            text: qsTr("Asteroid Amount")
         }
 
         Slider {
@@ -92,7 +92,7 @@ VisualItemModel {
             height: Global.textHeight
             width: Global.textWidth
             //: Label for the frag limit slider
-            text: qsTr("fragLimit")
+            text: qsTr("Frag Limit")
         }
 
         Slider {
@@ -105,7 +105,7 @@ VisualItemModel {
             height: Global.textHeight
             width: Global.textWidth
             //: Label for the respawn time slider
-            text: qsTr("rRespawnTime")
+            text: qsTr("Respawn Time")
         }
 
         Slider {
@@ -118,15 +118,15 @@ VisualItemModel {
             height: Global.textHeight
             width: Global.textWidth
             //:Label for the PowerUp settings
-            text: qsTr("powerUpSettings")
+            text: qsTr("Power-Up Settings")
         }
 
         Button {
             id: btn_startSinglePlayer
             width: Global.buttonWidth
             height: Global.buttonHeight
-            //: Button to start a singel palyer game
-            text: qsTr("start")
+            //: Button to start a single player game
+            text: qsTr("Start")
             //onClicked: MListener.startSinglePlayerGame();
             onClicked: Functions.btn_startGameClicked();
         }

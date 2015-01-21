@@ -1,6 +1,5 @@
 #include "headers/AimMissile.h"
 #include "headers/ActorsAdjustments.h"
-
 AimMissile::AimMissile() : Missile()
 {
 }

@@ -16,7 +16,7 @@ VisualItemModel {
             width: Global.buttonWidth
             height: Global.buttonHeight
             //: Button bach to the new game menu
-            text: qsTr("back")
+            text: qsTr("Back")
             onClicked: Functions.btn_backToNewGameClicked()
         }
 
@@ -40,7 +40,7 @@ VisualItemModel {
             id: btn_createServer
             width: Global.buttonWidth
             height: Global.buttonHeight
-            //: Button to start a singel palyer game
+            //: Button to start a single player game
             text: "Create Server"
             onClicked: Functions.btn_createServerClicked();
         }
@@ -49,7 +49,7 @@ VisualItemModel {
             id: btn_sendMessageFromServer
             width: Global.buttonWidth
             height: Global.buttonHeight
-            //: Button to start a singel palyer game
+            //: Button to start a single player game
             text: "Send test"
             onClicked: Functions.btn_sendMessageFromServer()
         }
@@ -58,7 +58,7 @@ VisualItemModel {
             id: btn_startMultiplayerGame
             width: Global.buttonWidth
             height: Global.buttonHeight
-            text: qsTr("start")
+            text: qsTr("Start")
             onClicked: Functions.btn_startMultiplayerGameClicked();
         }
     }
