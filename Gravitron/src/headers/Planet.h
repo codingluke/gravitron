@@ -8,7 +8,7 @@ public:
     Planet();
     Planet(Vec3f pos, float mass, float gravitationRange, float g, GameField &field, vector<GameActor*> *actors);
     void handleCollision(GameActor &other);
-    void kill();
+    void handleKill() override;
     GameActorView* getView() const;
     void update();
 };

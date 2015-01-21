@@ -26,14 +26,14 @@ Rectangle {
         }
 
         Button {
-            id: btn_singelPlayer
+            id: btn_singlePlayer
             width: Global.buttonWidth
             height: Global.buttonHeight
-            //: Button to the singel player settings
-            text: qsTr("singelPlayer")
+            //: Button to the single player settings
+            text: qsTr("singlePlayer")
             KeyNavigation.up: btn_multiPlayer
             KeyNavigation.down: btn_multiPlayer
-            onClicked: Functions.btn_singelPlayerClicked()
+            onClicked: Functions.btn_singlePlayerClicked()
         }
 
         Button {
@@ -42,8 +42,8 @@ Rectangle {
             height: Global.buttonHeight
             //: Button to the multi player settings
             text: qsTr("multiPlayer")
-            KeyNavigation.up: btn_singelPlayer
-            KeyNavigation.down: btn_singelPlayer
+            KeyNavigation.up: btn_singlePlayer
+            KeyNavigation.down: btn_singlePlayer
             onClicked: Functions.btn_multiPlayerClicked()
         }
     }

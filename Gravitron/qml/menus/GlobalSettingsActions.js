@@ -1,14 +1,14 @@
 function getBtnDifficultyText() {
 
     //: Text of the difficulty button
-    var text = qsTr("difficulty") + ": ";
+    var text = qsTr("Difficulty") + ": ";
     switch(Settings.difficulty) {
         //: difficulty easy
-        case 1: text += qsTr("easy"); break;
+        case 1: text += qsTr("Easy"); break;
         //: difficulty middel
-        case 2: text += qsTr("middel"); break;
+        case 2: text += qsTr("Medium"); break;
         //: difficulty hard
-        case 3: text += qsTr("hard"); break;
+        case 3: text += qsTr("Hard"); break;
     }
     return text;
 }
@@ -24,7 +24,7 @@ function btn_difficultyClicked() {
 
 function getBtnFullScreenText() {
     //: Text of the fullscreen button
-    var text = qsTr("fullscreen") + ": ";
+    var text = qsTr("Fullscreen") + ": ";
     if(Settings.fullScreen === true) {
         //: fullscreen on
         text += qsTr("on")
@@ -41,7 +41,7 @@ function btn_fullScreenClicked() {
 
 function getBtnPlayMusicText() {
     //: Text of the music button
-    var text = qsTr("music") + ": ";
+    var text = qsTr("Music") + ": ";
     if(Settings.playMusic === true) {
         //: music on
         text += qsTr("on")
@@ -66,7 +66,7 @@ function slide_musicSoundVolumeChanged() {
 
 function getBtnPlaySoundsText() {
     //: Text of the sounds button
-    var text = qsTr("sounds") + ": ";
+    var text = qsTr("Sounds") + ": ";
     if(Settings.playSounds === true) {
         //: sound on
         text += qsTr("on")

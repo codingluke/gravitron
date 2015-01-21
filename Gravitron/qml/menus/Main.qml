@@ -15,7 +15,7 @@ VisualItemModel {
             width: Global.buttonWidth
             height: Global.buttonHeight
             //: Button to the new game menu
-            text: qsTr("newGame")
+            text: qsTr("New Game")
             activeFocusOnPress: false
             enabled: true
             focus: true
@@ -29,7 +29,7 @@ VisualItemModel {
             width: Global.buttonWidth
             height: Global.buttonHeight
             //: Button to the settings menu
-            text: qsTr("settings")
+            text: qsTr("Settings")
             KeyNavigation.up: btn_newGame
             KeyNavigation.down: btn_credits
             onClicked: Functions.btn_settingsClicked()
@@ -40,7 +40,7 @@ VisualItemModel {
             width: Global.buttonWidth
             height: Global.buttonHeight
             //: Button to the credits menu
-            text: qsTr("credits")
+            text: qsTr("Credits")
             KeyNavigation.up: btn_settings
             KeyNavigation.down: btn_stats
             onClicked: Functions.btn_creditsClicked()
@@ -51,7 +51,7 @@ VisualItemModel {
             width: Global.buttonWidth
             height: Global.buttonHeight
             //: Button to the statics menu
-            text: qsTr("statics")
+            text: qsTr("Stats")
             KeyNavigation.up: btn_credits
             KeyNavigation.down: btn_exit
             onClicked: Functions.btn_statsClicked()
@@ -62,7 +62,7 @@ VisualItemModel {
             width: Global.buttonWidth
             height: Global.buttonHeight
             //Button to exit the game
-            text: qsTr("exit")
+            text: qsTr("Exit")
             KeyNavigation.up: btn_credits
             KeyNavigation.down: btn_newGame
             onClicked: Qt.quit()

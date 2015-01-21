@@ -21,14 +21,14 @@ VisualItemModel {
             width: Global.buttonWidth
             height: Global.buttonHeight
             //: Button bach to the mainmenu
-            text: qsTr("back")
+            text: qsTr("Back")
             onClicked: Functions.btn_backClicked()
         }
 
         Text {
             id: txt_settingsHeadline
             //: Label for the settings menu
-            text: qsTr("settings")
+            text: qsTr("Settings")
         }
 
         Button {
@@ -52,7 +52,7 @@ VisualItemModel {
             height: Global.textHeight
             width: Global.textWidth
             //: Label for the music and sounds volume slider
-            text: qsTr("volume")
+            text: qsTr("Volume")
             font.pixelSize: 12
         }
 
@@ -90,7 +90,7 @@ VisualItemModel {
             height: Global.textFieldHeight
             width: Global.textFieldWidth
             //: Placeholder for the playername input
-            placeholderText: qsTr("name")
+            placeholderText: qsTr("Name")
             text: SettingsFunctions.getTxtPlayerNameText()
             onTextChanged: SettingsFunctions.txt_playerNameChanged()
         }
