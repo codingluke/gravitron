@@ -36,7 +36,6 @@ Spacecraft::~Spacecraft() {
 }
 
 GameActorView* Spacecraft::getView() const {
-    //std::cout << "spacecraft" << std::endl;
     std::ostringstream x;
     std::ostringstream y;
     x << position[0];

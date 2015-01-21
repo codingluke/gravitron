@@ -7,6 +7,7 @@ HumanPlayer::HumanPlayer(Spacecraft *spacecraft, int frag) : Player(spacecraft, 
     inputHandler = new InputHandler();
     QCoreApplication::instance()->installEventFilter(inputHandler);
     this->spacecraft->setWeapon(3);
+    this->spacecraft->setWeapon(1);
 }
 
 HumanPlayer::~HumanPlayer()
@@ -35,9 +36,7 @@ void HumanPlayer::execAction(int code)
         spacecraft->forceBack();
     } else if (code == Qt::Key_W) {
         spacecraft->shootUp();
-        cerr << "HumanPlayer: shootUp before remove\n";
         dynamic_cast<InputHandler*>(inputHandler)->removeInputCode(Qt::Key_W);
-        cerr << "HumanPlayer: shootUp after remove\n";
     } else if (code == Qt::Key_S) {
         spacecraft->shootDown();
         dynamic_cast<InputHandler*>(inputHandler)->removeInputCode(Qt::Key_S);

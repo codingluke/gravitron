@@ -46,7 +46,7 @@ function btn_createServerClicked() {
 }
 
 function btn_sendMessageFromServer() {
-    Server.transfer("im the server");
+    Server.transfer("i am the server");
 }
 
 function btn_joinGameClicked() {
@@ -76,7 +76,7 @@ function btn_backToNewGameClicked() {
     main_list.model = newGameMenu
 }
 
-function btn_singelPlayerClicked() {
+function btn_singlePlayerClicked() {
     main_list.model = startGameMenu;
 }
 

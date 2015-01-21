@@ -37,7 +37,7 @@ Rectangle {
             id: btn_startSinglePlayer
             width: Global.buttonWidth
             height: Global.buttonHeight
-            //: Button to start a singel palyer game
+            //: Button to start a single palyer game
             text: qsTr("start")
             //onClicked: MListener.startSinglePlayerGame();
             onClicked: Functions.btn_startGameClicked();

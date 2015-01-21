@@ -16,7 +16,7 @@ VisualItemModel {
             width: Global.buttonWidth
             height: Global.buttonHeight
             //: Button bach to the new game menu
-            text: qsTr("back")
+            text: qsTr("Back")
             onClicked: Functions.btn_backToNewGameClicked()
         }
 
@@ -52,7 +52,7 @@ VisualItemModel {
             id: btn_connectToServer
             width: Global.buttonWidth
             height: Global.buttonHeight
-            //: Button to start a singel palyer game
+            //: Button to start a single player game
             text: "Connect to Server"
             onClicked: Functions.btn_connectToServerClicked();
         }
@@ -61,7 +61,7 @@ VisualItemModel {
             id: btn_joinMulitplayerGame
             width: Global.buttonWidth
             height: Global.buttonHeight
-            text: qsTr("start")
+            text: qsTr("Start")
             onClicked: Functions.btn_joinMultiplayerGameClicked()
         }
     }

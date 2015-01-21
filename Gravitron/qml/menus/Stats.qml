@@ -20,14 +20,14 @@ VisualItemModel {
             width: Global.buttonWidth
             height: Global.buttonHeight
             //: Button bach to the mainmenu
-            text: qsTr("back")
+            text: qsTr("Back")
             onClicked: Functions.btn_backClicked()
         }
 
         Text {
             id: txt_statsHeadline
             //: Label for the stats
-            text: qsTr("stats")
+            text: qsTr("Stats")
         }
     }
 }

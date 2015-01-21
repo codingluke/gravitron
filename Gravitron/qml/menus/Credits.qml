@@ -17,7 +17,7 @@ VisualItemModel {
             width: Global.buttonWidth
             height: Global.buttonHeight
             //: The back to the main menu
-            text: qsTr("back")
+            text: qsTr("Back")
             onClicked: Functions.btn_backClicked()
         }
 
