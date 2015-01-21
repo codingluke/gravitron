@@ -7,7 +7,6 @@ HumanPlayer::HumanPlayer(Spacecraft *spacecraft, int frag) : Player(spacecraft, 
     inputHandler = new InputHandler();
     QCoreApplication::instance()->installEventFilter(inputHandler);
     this->spacecraft->setWeapon(3);
-    this->spacecraft->setWeapon(1);
 }
 
 HumanPlayer::~HumanPlayer()
