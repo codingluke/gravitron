@@ -12,5 +12,5 @@ Rectangle {
         anchors.verticalCenter: parent.verticalCenter
         source: "qrc:/img/" + parent.scrapImg
     }
-    transform: Rotation { origin.x: this.x; origin.y: this.y ; angle: 45 }    
+    transform: Rotation { origin.x: width / 2; origin.y: height / 2 ; angle: scrap.angle - 90}
 }

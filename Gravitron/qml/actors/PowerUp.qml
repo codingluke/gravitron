@@ -23,5 +23,5 @@ Rectangle {
              }
         source: "qrc:/img/powerUp"
     }
-    transform: Rotation { origin.x: this.x; origin.y: this.y ; angle: 45 }    
+    transform: Rotation { origin.x: width / 2; origin.y: height / 2 ; angle: powerUp.angle - 90}
 }

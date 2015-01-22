@@ -12,5 +12,5 @@ Rectangle {
         anchors.verticalCenter: parent.verticalCenter
         source: "qrc:/img/missile"
     }
-    transform: Rotation { origin.x: this.x; origin.y: this.y ; angle: 45 }
+    transform: Rotation { origin.x: width / 2; origin.y: height / 2 ; angle: missile.angle - 90}
 }

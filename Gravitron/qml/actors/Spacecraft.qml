@@ -19,5 +19,5 @@ Rectangle {
          anchors.centerIn: parent
          text: parent.angle
     }
-    transform: Rotation { origin.x: 0; origin.y: 0 ; angle: 45 }
+    transform: Rotation { origin.x: width / 2; origin.y: height / 2 ; angle: spacecraft.angle - 90}
 }

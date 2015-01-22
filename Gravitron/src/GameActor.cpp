@@ -256,7 +256,7 @@ void GameActor::dealDamage(int damage)
         else
             health -= damage;
     }
-    cout << "Dealing damage: " << damage << ".\n";
+    // cout << "Dealing damage: " << damage << ".\n";
 }
 
 GameActorView* GameActor::getView() const
@@ -314,10 +314,29 @@ void GameActor::handleKill()
 
 float GameActor::calculateRotation() const
 {
-    float a_cos = radToDeg(acos(velocity[0]));
-    if (asin(velocity[1]) < 0)
-        a_cos = 180 - a_cos;
-    return a_cos;
+    float res = 0;
+    if (abs(velocity[0]) < 0.0001) 
+    {
+        if (abs(velocity[1]) < 0)
+            res = 90;
+        else
+            res = 270;
+    }
+    else if (abs(velocity[1]) < 0.0001) 
+    {
+        if (abs(velocity[0]) > 0)
+            res = 0;
+        else
+            res = 180;
+    }
+    else 
+    {
+        res = atan(velocity[1] / velocity[0]);
+        res = radToDeg(res);
+        if (velocity[0] > 0)
+            res += 180;
+    }
+    return res;
 }
 
 float GameActor::radToDeg(float radians) const

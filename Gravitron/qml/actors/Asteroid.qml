@@ -3,7 +3,7 @@ import QtQuick 2.3
 Rectangle {
     property int identifier
     property real planet
-    id: planet
+    id: asteroid
     color: "#00000000"
 
     Image {
@@ -12,5 +12,5 @@ Rectangle {
         anchors.verticalCenter: parent.verticalCenter
         source: "qrc:/img/asteroid"
     }
-    transform: Rotation { origin.x: this.x; origin.y: this.y ; angle: 45 }
+    transform: Rotation { origin.x: width / 2; origin.y: height / 2 ; angle: asteroid.angle - 90}
 }

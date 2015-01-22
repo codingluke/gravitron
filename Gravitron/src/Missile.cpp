@@ -71,5 +71,8 @@ GameActorView* Missile::getView() const {
     } else {
         view->setProperty("color", "blue");
     }
+    std::ostringstream rot;
+    rot << calculateRotation();
+    view->setProperty("angle", rot.str());
     return view;
 }
