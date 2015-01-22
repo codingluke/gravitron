@@ -117,6 +117,8 @@ class GameActor
                         float g, int health, GameField &field, float maxSpeed,
                         vector<GameActor*> *actors);
         void initialize(const GameActor &actor);
+        float calculateRotation() const; 
+        float radToDeg(float radians) const; 
 };
 
 #endif

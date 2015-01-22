@@ -3,6 +3,7 @@
 #include <QDebug>
 #include <iostream>
 #include "headers/Physics.h"
+#include <math.h>
 
 void GameActor::initialize(Vec3f position, double mass, float gravitationRange, float g, int health, GameField &field, float maxSpeed, vector<GameActor*> *actors)
 {
@@ -273,6 +274,9 @@ GameActorView* GameActor::getView() const
     } else {
     view->setProperty("color", "yellow");
     }
+    std::ostringstream rot;
+    rot << calculateRotation();
+    view->setProperty("angle", rot.str());
     return view;
 }
 
@@ -307,3 +311,16 @@ void GameActor::handleCollision(GameActor &other)
 
 void GameActor::handleKill()
 {}
+
+float GameActor::calculateRotation() const
+{
+    float a_cos = radToDeg(acos(velocity[0]));
+    if (asin(velocity[1]) < 0)
+        a_cos = 180 - a_cos;
+    return a_cos;
+}
+
+float GameActor::radToDeg(float radians) const
+{
+    return radians * 180 / M_PI;
+}

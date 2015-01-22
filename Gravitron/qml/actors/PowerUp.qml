@@ -2,7 +2,7 @@ import QtQuick 2.3
 
 Rectangle {
     property int identifier
-
+    property real angle
     id: powerUp
     width: 55
     height: 55
@@ -23,4 +23,5 @@ Rectangle {
              }
         source: "qrc:/img/powerUp"
     }
+    transform: Rotation { origin.x: this.x; origin.y: this.y ; angle: 45 }    
 }
