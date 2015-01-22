@@ -78,7 +78,7 @@ void GameLoop::setRespawTime(int respawnTime) {
 void GameLoop::run()
 {
     int lag = 0;
-    ms_per_update = 35;
+    ms_per_update = 30;
     running = true;
     QTime t;
     t.start();
