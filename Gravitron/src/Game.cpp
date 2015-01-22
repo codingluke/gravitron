@@ -16,6 +16,7 @@ Game::Game(QQmlApplicationEngine *theEngine, GravitronSettings *theSettings)
 {
     engine = theEngine;
     settings = theSettings;
+    gameLoop = NULL;
 }
 
 /**
@@ -35,7 +36,6 @@ void Game::start()
 {
     field = new GameField(1000 , 1000);
     gameLoop = new GameLoop(GameGenerator(settings, field));
-
     connect(gameLoop, SIGNAL(renderObject(vector<GameActorView*>*)),
             this, SLOT(render(vector<GameActorView*>*)));
     connect(gameLoop, SIGNAL(activeWeaponGame(int)),
@@ -70,15 +70,17 @@ void Game::startServer(TcpServer *server)
             server, SLOT(transfer(QString)));
 
     gameLoop->start();
+    gameLoop->setPriority(QThread::LowestPriority);
 }
 
 void Game::stop()
 {
-    gameLoop->stop();
-    //Stop is doing the jop
-    //gameLoop->quit();
-    //gameLoop->wait();
-    //delete gameLoop;
+    if (gameLoop) {
+        gameLoop->stop();
+        while(!gameLoop->isFinished()){} // dirty hack!
+        delete gameLoop;
+        gameLoop = NULL;
+    }
 }
 
 Game::~Game()

@@ -23,7 +23,6 @@ GameLoop::~GameLoop() {
     deleteActors();
     deletePlayer();
     deleteBots();
-    delete field;
 }
 
 void GameLoop::deleteActors() {
@@ -78,7 +77,8 @@ void GameLoop::setRespawTime(int respawnTime) {
 
 void GameLoop::run()
 {
-    ms_per_update = 30;
+    int lag = 0;
+    ms_per_update = 35;
     running = true;
     QTime t;
     t.start();
@@ -88,7 +88,10 @@ void GameLoop::run()
         processInput();
         update();
         render();
-        QThread::msleep(ms_per_update - t.elapsed());
+        lag = ms_per_update - t.elapsed();
+        if (lag > 0) {
+            QThread::msleep(lag);
+        }
     }
 }
 

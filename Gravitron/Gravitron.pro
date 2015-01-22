@@ -1,8 +1,8 @@
 TEMPLATE = app
 
-CONFIG += c++11
+CONFIG += c++11 debug
 
-QT += qml quick network testlib
+QT += qml quick network testlib 
 
 CONFIG(debug, debug|release):DEFINES+=TEST #For Linux, Mac, ...
 CONFIG(Debug, Debug|Release):DEFINES+=TEST #For Windows
