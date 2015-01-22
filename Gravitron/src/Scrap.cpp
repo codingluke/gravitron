@@ -31,5 +31,8 @@ GameActorView* Scrap::getView() const {
     view->setProperty("x", x.str());
     view->setProperty("y", y.str());
     view->setProperty("scrapImg", img);
+    std::ostringstream rot;
+    rot << calculateRotation();
+    view->setProperty("angle", rot.str());
     return view;
 }

@@ -2,7 +2,7 @@ import QtQuick 2.3
 
 Rectangle {
     property int identifier
-
+    property  real angle
     id: missile
     color: "#00000000"
 
@@ -12,6 +12,5 @@ Rectangle {
         anchors.verticalCenter: parent.verticalCenter
         source: "qrc:/img/missile"
     }
-
-
+    transform: Rotation { origin.x: width / 2; origin.y: height / 2 ; angle: missile.angle - 90}
 }

@@ -152,6 +152,7 @@ void Game::render(vector<GameActorView*> *views)
         map<string, string>::iterator pit;
         for(pit = props.begin(); pit != props.end(); pit++) {
             childItem->setProperty(pit->first.c_str(), pit->second.c_str());
+            //childItem->setProperty("angle", "45");
         }
         delete (*it);
     }
@@ -182,3 +183,4 @@ void Game::setActiveWeapon(int weaponNumber) {
         aimMissile->setProperty("focus",QVariant(true));
     }
 }
+ 

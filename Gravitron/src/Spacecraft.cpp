@@ -44,6 +44,9 @@ GameActorView* Spacecraft::getView() const {
     view->setProperty("identifier", "S");
     view->setProperty("x", x.str());
     view->setProperty("y", y.str());
+    std::ostringstream rot;
+    rot << calculateRotation();
+    view->setProperty("angle", rot.str());
     return view;
 }
 
