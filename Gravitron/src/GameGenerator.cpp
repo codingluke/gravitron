@@ -82,6 +82,7 @@ void GameGenerator::generatePlayer(GameLoop* g) {
         humanPlayer.push_back(new HumanPlayer(sc, settings->frag()));
         humanPlayer.push_back(new HumanNetworkPlayer(sc2, settings->frag(), server));
     } else {
+        cerr << "GameGenerator: singlePlayer\n";
         Spacecraft* sc = generateNewSpacecraft();
         actors.push_back(sc);
         humanPlayer.push_back(new HumanPlayer(sc, settings->frag()));

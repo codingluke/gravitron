@@ -113,8 +113,9 @@ void GameLoop::update()
     }
     for (int i = 0; i < (int) actors.size(); i++)
     {
-        if((actors[i]->isKilled()) && (actors[i] != localPlayer))
-        {
+        Spacecraft* isSpacecraft = NULL;
+        isSpacecraft = dynamic_cast<Spacecraft*>(actors[i]);
+        if((actors[i]->isKilled()) && (!isSpacecraft)) {
             delete (actors[i]);
             actors.erase(actors.begin() + i);
         }
