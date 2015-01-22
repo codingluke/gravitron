@@ -1,6 +1,6 @@
 TEMPLATE = app
 
-CONFIG += c++11 debug
+CONFIG += c++11
 
 QT += qml quick network testlib 
 

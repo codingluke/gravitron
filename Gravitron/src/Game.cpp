@@ -64,13 +64,13 @@ void Game::startServer(TcpServer *server)
 
     connect(gameLoop, SIGNAL(renderObject(vector<GameActorView*>*)),
             this, SLOT(render(vector<GameActorView*>*)));
-    connect(gameLoop, SIGNAL(activeWeaponGame(int)),
-            this, SLOT(setActiveWeapon(int)));
+    //connect(gameLoop, SIGNAL(activeWeaponGame(int)),
+            //this, SLOT(setActiveWeapon(int)));
     connect(gameLoop, SIGNAL(sendViewlist(QString)),
             server, SLOT(transfer(QString)));
 
     gameLoop->start();
-    gameLoop->setPriority(QThread::LowestPriority);
+    gameLoop->setPriority(QThread::LowPriority);
 }
 
 void Game::stop()
