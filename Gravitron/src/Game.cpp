@@ -17,6 +17,7 @@ Game::Game(QQmlApplicationEngine *theEngine, GravitronSettings *theSettings)
     engine = theEngine;
     settings = theSettings;
     gameLoop = NULL;
+    field = NULL;
 }
 
 /**
@@ -80,13 +81,13 @@ void Game::stop()
         while(!gameLoop->isFinished()){} // dirty hack!
         delete gameLoop;
         gameLoop = NULL;
+        delete field;
     }
 }
 
 Game::~Game()
 {
     stop();
-    delete field;
 }
 
 /**
