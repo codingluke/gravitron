@@ -14,10 +14,5 @@ Rectangle {
         source: "qrc:/img/spacecraft"
 
     }
-    Text {
-         id: buttonLabel
-         anchors.centerIn: parent
-         text: parent.angle
-    }
     transform: Rotation { origin.x: width / 2; origin.y: height / 2 ; angle: spacecraft.angle - 90}
 }
