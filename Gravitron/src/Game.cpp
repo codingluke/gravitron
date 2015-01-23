@@ -113,6 +113,7 @@ void Game::clearScene()
  */
 void Game::renderRemote(QString serializedViewlist)
 {
+    // qDebug() << serializedViewlist << "\n";
     QStringList vList = serializedViewlist.split("\n", QString::SkipEmptyParts);
     for (int i = 0; i < vList.size(); ++i) {
         if (vList.at(i).startsWith("v")) {
