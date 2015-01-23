@@ -3,7 +3,7 @@ import QtQuick 2.3
 Rectangle {
     property int identifier
     property string scrapImg: "scrap1"
-
+    property real angle
     id: scrap
     color: "#00000000"
     Image {
@@ -12,4 +12,5 @@ Rectangle {
         anchors.verticalCenter: parent.verticalCenter
         source: "qrc:/img/" + parent.scrapImg
     }
+    transform: Rotation { origin.x: width / 2; origin.y: height / 2 ; angle: scrap.angle - 90}
 }

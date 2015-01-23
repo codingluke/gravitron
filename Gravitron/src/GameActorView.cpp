@@ -56,3 +56,16 @@ void GameActorView::fromString(string serialized)
     }
 }
 
+vector<string> GameActorView::split(const string& value, char separator)
+{
+    vector<string> result;
+    string::size_type p = 0;
+    string::size_type q;
+    while ((q = value.find(separator, p)) != string::npos) {
+        result.emplace_back(value, p, q - p);
+        p = q + 1;
+    }
+    result.emplace_back(value, p);
+    return result;
+}
+        
