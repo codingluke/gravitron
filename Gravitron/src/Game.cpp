@@ -145,6 +145,7 @@ void Game::render(vector<GameActorView*> *views)
         // Create Object from QML and set its parent
         QString path = QString::fromStdString((*it)->getQmlPath());
         QQmlComponent component(engine, QUrl(path));
+        while (component.isLoading()) { }
         QQuickItem *childItem = qobject_cast<QQuickItem*>(component.create());
         childItem->setParentItem(qmlParent);
         // Map the properties
