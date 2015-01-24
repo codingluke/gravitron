@@ -48,7 +48,7 @@ void AimMissile::handleCollision(GameActor &other)
     }
     if (!otherIsFriendly)
     {
-        other.dealDamage(AIM_MISSILE_DAMAGE);
+        other.dealDamage(LASER_DAMAGE);
         kill();
     }
 }
@@ -57,8 +57,8 @@ void AimMissile::update() {
     if(target == -1 || target >= actors->size()) {
         setRandomTarget();
     }
-    float d = Physics::distance(position, actors->at(target)->getPosition());
-    applyForce(position * d);
+    Vec3f d = position - actors->at(target)->getPosition();
+    applyForce(d.normalize());
 
     Projectile::update();
 }
