@@ -36,6 +36,7 @@ void Game::setQmlParent(QQuickItem *theQmlParent)
 void Game::start()
 {
     field = new GameField(1000 , 1000);
+    settings->setNetwork(false);
     gameLoop = new GameLoop(GameGenerator(settings, field));
     connect(gameLoop, SIGNAL(renderObject(vector<GameActorView*>*)),
             this, SLOT(render(vector<GameActorView*>*)));
