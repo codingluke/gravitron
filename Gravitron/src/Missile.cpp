@@ -58,12 +58,14 @@ void Missile::handleCollision(GameActor &other)
 }
 
 GameActorView* Missile::getView() const {
+    std::ostringstream identifiy;
+    identifiy << identifier;
     std::ostringstream x;
     std::ostringstream y;
     x << position[0];
     y << position[1];
     GameActorView *view = new GameActorView("qrc:/qml/missile");
-    view->setProperty("identifier", "L");
+    view->setProperty("identifier", identifiy.str());
     view->setProperty("x", x.str());
     view->setProperty("y", y.str());
     if (killed) {

@@ -64,13 +64,14 @@ void Laser::handleCollision(GameActor &other)
 }
 
 GameActorView* Laser::getView() const {
-    //std::cout << "spacecraft" << std::endl;
+    std::ostringstream identifiy;
+    identifiy << identifier;
     std::ostringstream x;
     std::ostringstream y;
     x << position[0];
     y << position[1];
     GameActorView *view = new GameActorView("qrc:/qml/laser");
-    view->setProperty("identifier", "L");
+    view->setProperty("identifier", identifiy.str());
     view->setProperty("x", x.str());
     view->setProperty("y", y.str());
     std::ostringstream rot;

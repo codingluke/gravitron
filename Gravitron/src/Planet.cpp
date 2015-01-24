@@ -17,12 +17,14 @@ Planet::Planet(Vec3f pos, float mass, float gravitationRange, float g, GameField
 // }
 
 GameActorView* Planet::getView() const {
+    std::ostringstream identifiy;
+    identifiy << identifier;
     std::ostringstream x;
     std::ostringstream y;
     x << position[0];
     y << position[1];
     GameActorView* view = new GameActorView("qrc:/qml/planet");
-    view->setProperty("identifier", "S");
+    view->setProperty("identifier", identifiy.str());
     view->setProperty("x", x.str());
     view->setProperty("y", y.str());
     std::ostringstream rot;
@@ -50,5 +52,5 @@ void Planet::handleKill()
     //     actors->push_back(new Asteroid(position, mass, gravitationRange, g, *field, 7, actors));
     //     Vec3f direction(rand(), rand(), 0);
     //     actors->back()->applyForce(direction);
-    // } 
+    // }
 }

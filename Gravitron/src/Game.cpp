@@ -93,15 +93,26 @@ Game::~Game()
  * The "identifier" property is a self defined property to identify
  * self created QQuickItems.
  */
-void Game::clearScene()
+void Game::clearScene(vector<GameActorView*> *views)
 {
+    vector<GameActorView*>::iterator it;
     QList<QQuickItem*> children = qmlParent->childItems();
     QListIterator<QQuickItem*> itc(children);
-    while (itc.hasNext())
-    {
+    while (itc.hasNext()) {
         QQuickItem *itm = itc.next();
-        if (itm->property("identifier").isValid())
-            delete itm;
+        QVariant id = itm->property("identifier");
+        if (id.isValid()) {
+            bool exists = false;
+            for (it = views->begin(); !exists && it < views->end(); it++) {
+                if ((*it)->getProperties()["identifier"] ==
+                    id.toString().toStdString()) {
+                    exists = true;
+                }
+            }
+            if (!exists) {
+                delete itm;
+            }
+        }
     }
 }
 
@@ -139,22 +150,30 @@ void Game::renderRemote(QString serializedViewlist)
  */
 void Game::render(vector<GameActorView*> *views)
 {
-    clearScene();
+    clearScene(views);
     vector<GameActorView*>::iterator it;
     for (it = views->begin(); it < views->end(); it++)
     {
-        // Create Object from QML and set its parent
-        QString path = QString::fromStdString((*it)->getQmlPath());
-        QQmlComponent component(engine, QUrl(path));
-        while (component.isLoading()) { }
-        QQuickItem *childItem = qobject_cast<QQuickItem*>(component.create());
-        childItem->setParentItem(qmlParent);
-        // Map the properties
         map<string, string> props = (*it)->getProperties();
         map<string, string>::iterator pit;
-        for(pit = props.begin(); pit != props.end(); pit++) {
-            childItem->setProperty(pit->first.c_str(), pit->second.c_str());
-            //childItem->setProperty("angle", "45");
+        QString id = QString::fromStdString(props["identifier"]);
+        QObject *item = qmlParent->findChild<QQuickItem*>(id);
+        if (item) {
+            // Map the properties
+            for(pit = props.begin(); pit != props.end(); pit++) {
+                item->setProperty(pit->first.c_str(), pit->second.c_str());
+            }
+        } else {
+            // Create Object from QML and set its parent
+            QString path = QString::fromStdString((*it)->getQmlPath());
+            QQmlComponent component(engine, QUrl(path));
+            QQuickItem *childItem = qobject_cast<QQuickItem*>(component.create());
+            childItem->setParent(qmlParent);
+            childItem->setParentItem(qmlParent);
+            // Map the properties
+            for(pit = props.begin(); pit != props.end(); pit++) {
+                childItem->setProperty(pit->first.c_str(), pit->second.c_str());
+            }
         }
         delete (*it);
     }
@@ -185,4 +204,4 @@ void Game::setActiveWeapon(int weaponNumber) {
         aimMissile->setProperty("focus",QVariant(true));
     }
 }
- 
+

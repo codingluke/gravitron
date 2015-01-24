@@ -13,6 +13,9 @@
 class GameActor
 {
     protected:
+        static int id;
+        int identifier;
+
         /**
          * Velocity is the actual direction and speed for this GameActor.
          */
@@ -118,8 +121,8 @@ class GameActor
                         vector<GameActor*> *actors);
         void initialize(const GameActor &actor);
     protected:
-        float calculateRotation() const; 
-        float radToDeg(float radians) const; 
+        float calculateRotation() const;
+        float radToDeg(float radians) const;
 };
 
 #endif

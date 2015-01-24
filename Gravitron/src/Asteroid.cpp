@@ -12,8 +12,10 @@ GameActorView* Asteroid::getView() const {
     std::ostringstream y;
     x << position[0];
     y << position[1];
+    std::ostringstream identifiy;
+    identifiy << identifier;
     GameActorView* view = new GameActorView("qrc:/qml/asteroid");
-    view->setProperty("identifier", "S");
+    view->setProperty("identifier", identifiy.str());
     view->setProperty("x", x.str());
     view->setProperty("y", y.str());
     std::ostringstream rot;

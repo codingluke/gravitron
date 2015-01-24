@@ -8,17 +8,19 @@ PowerUp::PowerUp(Vec3f position, GameField &field, vector<GameActor*> *actors) :
 
 void PowerUp::handleCollision(GameActor &other)
 {
-    
+
 }
 
 GameActorView* PowerUp::getView() const
 {
+    std::ostringstream identifiy;
+    identifiy << identifier;
     std::ostringstream x;
     std::ostringstream y;
     x << position[0];
     y << position[1];
     GameActorView *view = new GameActorView("qrc:/qml/powerUp");
-    view->setProperty("identifier", "10");
+    view->setProperty("identifier", identifiy.str());
     view->setProperty("x", x.str());
     view->setProperty("y", y.str());
 

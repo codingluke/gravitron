@@ -5,6 +5,7 @@ Rectangle {
 
     id: sun
     color: "#00000000"
+    objectName: identifier
 
     Image {
         id: image1
@@ -12,6 +13,4 @@ Rectangle {
         anchors.verticalCenter: parent.verticalCenter
         source: "qrc:/img/sun"
     }
-
-
 }

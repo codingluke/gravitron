@@ -6,13 +6,24 @@ Rectangle {
 
     id: spacecraft
     color: "#00000000"
+    objectName: identifier
 
     Image {
         id: image1
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter
         source: "qrc:/img/spacecraft"
-
     }
-    transform: Rotation { origin.x: width / 2; origin.y: height / 2 ; angle: spacecraft.angle - 90}
+    
+    Text {
+         id: buttonLabel
+         anchors.centerIn: parent
+         text: parent.objectName
+    }
+
+    transform: Rotation { 
+        origin.x: width / 2
+        origin.y: height / 2
+        angle: spacecraft.angle - 90
+    }
 }

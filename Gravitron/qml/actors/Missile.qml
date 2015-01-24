@@ -4,6 +4,7 @@ Rectangle {
     property int identifier
     property  real angle
     id: missile
+    objectName: identifier
     color: "#00000000"
 
     Image {

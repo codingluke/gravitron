@@ -5,8 +5,11 @@
 #include "headers/Physics.h"
 #include <math.h>
 
+int GameActor::id = 0;
+
 void GameActor::initialize(Vec3f position, double mass, float gravitationRange, float g, int health, GameField &field, float maxSpeed, vector<GameActor*> *actors)
 {
+    identifier = GameActor::id++;
     killed = false;
 	  velocity = Vec3f();
     acceleration = Vec3f();
@@ -22,6 +25,7 @@ void GameActor::initialize(Vec3f position, double mass, float gravitationRange, 
 
 void GameActor::initialize(const GameActor &actor)
 {
+    identifier = GameActor::id++;
     killed = false;
 	  position = actor.getPosition();
     acceleration = actor.getAcceleration();
@@ -266,7 +270,9 @@ GameActorView* GameActor::getView() const
     x << position[0];
     y << position[1];
     GameActorView *view = new GameActorView("qrc:/qml/actor");
-    view->setProperty("identifier", "10");
+    std::ostringstream identifiy;
+    identifiy << identifier;
+    view->setProperty("identifier", identifiy.str());
     view->setProperty("x", x.str());
     view->setProperty("y", y.str());
     if (killed) {
@@ -315,21 +321,21 @@ void GameActor::handleKill()
 float GameActor::calculateRotation() const
 {
     float res = 0;
-    if (abs(velocity[0]) < 0.0001) 
+    if (abs(velocity[0]) < 0.0001)
     {
         if (abs(velocity[1]) < 0)
             res = 90;
         else
             res = 270;
     }
-    else if (abs(velocity[1]) < 0.0001) 
+    else if (abs(velocity[1]) < 0.0001)
     {
         if (abs(velocity[0]) > 0)
             res = 0;
         else
             res = 180;
     }
-    else 
+    else
     {
         res = atan(velocity[1] / velocity[0]);
         res = radToDeg(res);

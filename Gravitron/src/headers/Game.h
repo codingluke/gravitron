@@ -46,7 +46,7 @@ class Game: public QObject
         Q_INVOKABLE void inputEvents(int code);
 
     private:
-        void clearScene();
+        void clearScene(vector<GameActorView*> *views);
 };
 
 #endif
