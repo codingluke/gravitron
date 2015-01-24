@@ -11,7 +11,12 @@ public:
     AimMissile(GameActor &actor, GameField &field, GameActor &friendly, vector<GameActor*> *actors);
     AimMissile(const Missile &projectile);
     ~AimMissile();
+    void update();
     void handleCollision(GameActor &other);
+
+private:
+    int target;
+    void setRandomTarget();
 };
 
 #endif // AIMMISSILE_H

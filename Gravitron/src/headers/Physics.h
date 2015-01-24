@@ -12,6 +12,7 @@ class Physics
         static Vec3f calculateGravitationForce(GameActor *from, GameActor *to);
         static bool collisionDetection(Vec3f vec1, float rad1,
                                        Vec3f vec2, float rad2);
+        static float distance(Vec3f vec1, Vec3f vec2);
 };
 
 #endif // PHYSICS_H

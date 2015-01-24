@@ -21,8 +21,12 @@ Vec3f Physics::calculateGravitationForce(GameActor *from, GameActor *to) {
 bool Physics::collisionDetection(Vec3f vec1, float rad1,
                                  Vec3f vec2, float rad2)
 {
-    Vec3f force = vec1 - vec2;
-    float distance = force.magnitude();
+    float d = distance(vec1, vec2);
     //cerr << distance << "\n";
-    return distance <= (rad1 + rad2);
+    return d <= (rad1 + rad2);
+}
+
+float Physics::distance(Vec3f vec1, Vec3f vec2) {
+    Vec3f force = vec1 - vec2;
+    return force.magnitude();
 }

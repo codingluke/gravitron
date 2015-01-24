@@ -8,27 +8,27 @@
 Spacecraft::Spacecraft() : GameActor()
 {
     g = 0;
-    weapon = 1;
+    weapon = 3;
 }
 
 Spacecraft::Spacecraft(Vec3f position, double mass, float gravitationRange, float g, GameField &field, vector<GameActor*> *actors) :
     GameActor(position, mass, gravitationRange, g, 100, field, actors)
 {
     g = 0;
-    weapon = 1;
+    weapon = 3;
 }
 
 Spacecraft::Spacecraft(Vec3f position, double mass, float gravitationRange, float g, GameField &field, float maxSpeed, vector<GameActor*> *actors) :
     GameActor(position, mass, gravitationRange, g, 100, field, maxSpeed, actors)
 {
     g = 0;
-    weapon = 1;
+    weapon = 3;
 }
 
 Spacecraft::Spacecraft(const Spacecraft &spacecraft) : GameActor(spacecraft)
 {
     g = 0;
-    weapon = 1;
+    weapon = 3;
 }
 
 Spacecraft::~Spacecraft() {
