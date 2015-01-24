@@ -13,6 +13,11 @@ class TcpServer: public QObject
 {
     Q_OBJECT
 
+    private:
+        QTcpServer server;
+        QTcpSocket* client = NULL;
+        QString buffer;
+
     public:
         TcpServer(QObject * parent = 0);
         ~TcpServer();
@@ -27,9 +32,6 @@ class TcpServer: public QObject
     signals:
         void received(QString message);
 
-    private:
-        QTcpServer server;
-        QTcpSocket* client = NULL;
 };
 
 #endif

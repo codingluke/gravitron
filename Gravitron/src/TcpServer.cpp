@@ -44,5 +44,9 @@ void TcpServer::transfer(QString message)
 
 void TcpServer::startRead()
 {
-    emit received(client->readAll());
+    buffer += client->readAll();
+    if (buffer.endsWith("\n")) {
+        emit received(buffer);
+        buffer = "";
+    }
 }

@@ -15,6 +15,7 @@ class TcpClient: public QObject
 
     private:
         QTcpSocket client;
+        QString buffer;
 
     public:
         TcpClient(QObject* parent = 0);

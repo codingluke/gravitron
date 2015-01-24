@@ -47,7 +47,7 @@ void NetworkInputHandler::removeInputCode(int code)
 void NetworkInputHandler::receive(QString message)
 {
     set<int> codes;
-    QStringList messages = message.split(";", QString::SkipEmptyParts);
+    QStringList messages = message.split("\n", QString::SkipEmptyParts);
     for (int i = 0; i < messages.size(); ++i) {
         if (messages.at(i).startsWith('i')) {
             setInputsFromString(messages.at(i));

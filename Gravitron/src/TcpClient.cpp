@@ -46,7 +46,7 @@ void TcpClient::transfer(set<int> inputs)
             x << ",";
         }
     }
-    x << ";";
+    x << "\n";
     transfer(QString::fromStdString(x.str()));
 }
 
@@ -58,6 +58,10 @@ void TcpClient::startTransfer()
 
 void TcpClient::startRead()
 {
-    emit received(client.readAll());
+    buffer += client.readAll();
+    if (buffer.endsWith("\n")) {
+        emit received(buffer);
+        buffer = "";
+    }
 }
 
