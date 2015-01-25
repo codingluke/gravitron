@@ -58,8 +58,7 @@ void AimMissile::update() {
         setRandomTarget();
     }
     Vec3f d = position - actors->at(target)->getPosition();
-    applyForce(d.normalize());
-
+    applyForce(d.normalize() * 0.1);
     Projectile::update();
 }
 
@@ -70,7 +69,7 @@ void AimMissile::setRandomTarget() {
         vector<GameActor*>::iterator it;
         for (it = friendly.begin(); it != friendly.end(); it++)
         {
-            if (*it == actors->at(target)) {
+            if (*(*it) == *(actors->at(target))) {
                 otherIsFriendly = true;
             }
         }

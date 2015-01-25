@@ -171,14 +171,15 @@ void GameActor::update(double radius)
 bool GameActor::operator== (GameActor& right)
 {
 	bool equals = true;
-	if (position != right.getPosition())
+    if (position != right.getPosition()) {
 		equals = false;
-	else if (velocity != right.getVelocity())
+    } else if (velocity != right.getVelocity()) {
 		equals = false;
-	else if (acceleration != right.getAcceleration())
+    } else if (acceleration != right.getAcceleration()) {
 		equals = false;
-	else if (mass != right.getMass())
+    } else if (mass != right.getMass()) {
 		equals = false;
+    }
 	return equals;
 }
 
