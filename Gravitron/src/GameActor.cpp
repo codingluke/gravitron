@@ -323,17 +323,17 @@ float GameActor::calculateRotation() const
     float res = 0;
     if (abs(velocity[0]) < 0.0001)
     {
-        if (abs(velocity[1]) < 0)
+        if (velocity[1] < 0)
             res = 90;
         else
             res = 270;
     }
     else if (abs(velocity[1]) < 0.0001)
     {
-        if (abs(velocity[0]) > 0)
-            res = 0;
-        else
+        if (velocity[0] > 0)
             res = 180;
+        else
+            res = 0;
     }
     else
     {
