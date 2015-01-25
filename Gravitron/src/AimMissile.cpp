@@ -1,34 +1,40 @@
 #include "headers/AimMissile.h"
 #include "headers/ActorsAdjustments.h"
+#include "headers/Physics.h"
+
 AimMissile::AimMissile() : Missile()
 {
+    target = -1;
 }
 
 AimMissile::AimMissile(Vec3f position, Vec3f velocity, GameField &field, GameActor &friendly, vector<GameActor*> *actors) :
     Missile(position, velocity, field, friendly, actors)
 {
+    target = -1;
 }
 
 AimMissile::AimMissile(GameActor &actor, Vec3f velocity, GameField &field, GameActor &friendly, vector<GameActor*> *actors) :
     Missile(actor.getPosition(), velocity, field, friendly, actors)
 {
+    target = -1;
 }
 
 
 AimMissile::AimMissile(GameActor &actor, GameField &field, GameActor &friendly, vector<GameActor*> *actors) :
     Missile(actor, field, friendly, actors)
 {
+    target = -1;
 }
 
 AimMissile::AimMissile(const Missile &projectile) :
     Missile(projectile)
 {
-
+    target = -1;
 }
 
 AimMissile::~AimMissile()
 {
-
+    target = -1;
 }
 
 void AimMissile::handleCollision(GameActor &other)
@@ -42,9 +48,36 @@ void AimMissile::handleCollision(GameActor &other)
     }
     if (!otherIsFriendly)
     {
-        other.dealDamage(AIM_MISSILE_DAMAGE);
+        other.dealDamage(LASER_DAMAGE);
         kill();
     }
+}
+
+void AimMissile::update() {
+    if(target == -1 || target >= actors->size()) {
+        setRandomTarget();
+    }
+    Vec3f d = position - actors->at(target)->getPosition();
+    applyForce(d.normalize() * 2);
+    Projectile::update();
+}
+
+void AimMissile::setRandomTarget() {
+    int otherIsFriendly = 0;
+    do {
+        target = rand() % actors->size();
+        vector<GameActor*>::iterator it;
+        for (it = friendly.begin(); it != friendly.end(); it++)
+        {
+            bool e = *(*it) == *(actors->at(target));
+            std::cout << e << std::endl;
+            if (e == true) {
+                otherIsFriendly = 1;
+            } else {
+                otherIsFriendly = 0;
+            }
+        }
+    } while (otherIsFriendly || target == -1);
 }
 
 

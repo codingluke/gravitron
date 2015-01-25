@@ -126,8 +126,9 @@ bool Vec3f::operator==(const Vec3f &other) const
     bool equal = true;
     for (int i = 0; i < 3; i++)
     {
-        if (v[i] != other[i])
+        if (v[i] != other[i]) {
             equal = false;
+        }
     }
     return equal;
 }
