@@ -58,19 +58,23 @@ void AimMissile::update() {
         setRandomTarget();
     }
     Vec3f d = position - actors->at(target)->getPosition();
-    applyForce(d.normalize() * 0.1);
+    applyForce(d.normalize() * 2);
     Projectile::update();
 }
 
 void AimMissile::setRandomTarget() {
-    bool otherIsFriendly = false;
+    int otherIsFriendly = 0;
     do {
         target = rand() % actors->size();
         vector<GameActor*>::iterator it;
         for (it = friendly.begin(); it != friendly.end(); it++)
         {
-            if (*(*it) == *(actors->at(target))) {
-                otherIsFriendly = true;
+            bool e = *(*it) == *(actors->at(target));
+            std::cout << e << std::endl;
+            if (e == true) {
+                otherIsFriendly = 1;
+            } else {
+                otherIsFriendly = 0;
             }
         }
     } while (otherIsFriendly || target == -1);
