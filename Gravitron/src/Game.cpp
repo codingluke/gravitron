@@ -2,7 +2,7 @@
 #include "headers/GameActorView.h"
 #include "headers/InputHandler.h"
 #include "headers/NetworkInputHandler.h"
-
+#include <sstream>
 #include <QDebug>
 #include <iostream>
 
@@ -25,23 +25,23 @@ Game::Game(QQmlApplicationEngine *theEngine, GravitronSettings *theSettings)
  *
  * @param theQmlParent
  */
-void Game::setQmlParent(QQuickItem *theQmlParent)
-{
+ void Game::setQmlParent(QQuickItem *theQmlParent)
+ {
     qmlParent = theQmlParent;
 }
 
 /**
  * Initializes the GameLoop in a own thread and connects the singnals/slots.
  */
-void Game::start()
-{
-    field = new GameField(1000 , 1000);
+ void Game::start()
+ {
+    field = new GameField(2000 , 2000);
     settings->setNetwork(false);
     gameLoop = new GameLoop(GameGenerator(settings, field));
     connect(gameLoop, SIGNAL(renderObject(vector<GameActorView*>*)),
-            this, SLOT(render(vector<GameActorView*>*)));
+        this, SLOT(render(vector<GameActorView*>*)));
     connect(gameLoop, SIGNAL(activeWeaponGame(int)),
-            this, SLOT(setActiveWeapon(int)));
+        this, SLOT(setActiveWeapon(int)));
     gameLoop->start();
 }
 
@@ -52,22 +52,22 @@ void Game::startClient(TcpClient *client)
     QCoreApplication::instance()->installEventFilter(iHandler);
 
     connect(iHandler, SIGNAL(inputsChanged(set<int>)),
-            client, SLOT(transfer(set<int>)));
+        client, SLOT(transfer(set<int>)));
     connect(client, SIGNAL(received(QString)),
-            this, SLOT(renderRemote(QString)));
+        this, SLOT(renderRemote(QString)));
 }
 
 void Game::startServer(TcpServer *server)
 {
     qDebug() << "Game: start server";
-    field = new GameField(1000 , 1000);
+    field = new GameField(2000 , 2000);
     settings->setNetwork(true);
     gameLoop = new GameLoop(GameGenerator(settings, field, server));
 
     connect(gameLoop, SIGNAL(renderObject(vector<GameActorView*>*)),
-            this, SLOT(render(vector<GameActorView*>*)));
+        this, SLOT(render(vector<GameActorView*>*)));
     connect(gameLoop, SIGNAL(sendViewlist(QString)),
-            server, SLOT(transfer(QString)));
+        server, SLOT(transfer(QString)));
 
     gameLoop->start();
     gameLoop->setPriority(QThread::LowPriority);
@@ -78,7 +78,7 @@ void Game::stop()
     if (gameLoop) {
         gameLoop->stop();
         while(!gameLoop->isFinished()){} // dirty hack!
-        delete gameLoop;
+            delete gameLoop;
         gameLoop = NULL;
         delete field;
     }
@@ -94,8 +94,8 @@ Game::~Game()
  * The "identifier" property is a self defined property to identify
  * self created QQuickItems.
  */
-void Game::clearScene(vector<GameActorView*> *views)
-{
+ void Game::clearScene(vector<GameActorView*> *views)
+ {
     vector<GameActorView*>::iterator it;
     QList<QQuickItem*> children = qmlParent->childItems();
     QListIterator<QQuickItem*> itc(children);
@@ -108,13 +108,13 @@ void Game::clearScene(vector<GameActorView*> *views)
                 if ((*it)->getProperties()["identifier"] ==
                     id.toString().toStdString()) {
                     exists = true;
-                }
-            }
-            if (!exists) {
-                delete itm;
             }
         }
+        if (!exists) {
+            delete itm;
+        }
     }
+}
 }
 
 /**
@@ -123,8 +123,8 @@ void Game::clearScene(vector<GameActorView*> *views)
  *
  * @param Qstring of the serializedViewlist over the network.
  */
-void Game::renderRemote(QString serializedViewlist)
-{
+ void Game::renderRemote(QString serializedViewlist)
+ {
     // qDebug() << serializedViewlist << "\n";
     QStringList vList = serializedViewlist.split("\n", QString::SkipEmptyParts);
     for (int i = 0; i < vList.size(); ++i) {
@@ -149,12 +149,13 @@ void Game::renderRemote(QString serializedViewlist)
  *
  * @param views pointer to a vector of pointers to GameActorView's
  */
-void Game::render(vector<GameActorView*> *views)
-{
+ void Game::render(vector<GameActorView*> *views)
+ {
     clearScene(views);
     vector<GameActorView*>::iterator it;
     for (it = views->begin(); it < views->end(); it++)
-    {
+    {   
+        setRelativePosition(window_width / 2, window_height / 2, *it);
         map<string, string> props = (*it)->getProperties();
         map<string, string>::iterator pit;
         QString id = QString::fromStdString(props["identifier"]);
@@ -206,3 +207,22 @@ void Game::setActiveWeapon(int weaponNumber) {
     }
 }
 
+void Game::setRelativePosition(float anchor_x, float anchor_y, GameActorView *view)
+{
+    float x;
+    std::stringstream sstr_x; 
+    sstr_x << view->getPropterty("x"); 
+    sstr_x >> x;
+    std::ostringstream ostr_x;
+    x = anchor_x - x;
+    ostr_x << x;
+    view->setProperty("x", ostr_x.str());
+    float y;
+    std::stringstream sstr_y;
+    sstr_y << view->getPropterty("y");
+    sstr_y >> y;
+    y = anchor_y - y;
+    std::ostringstream ostr_y;
+    ostr_y << y;
+    view->setProperty("y", ostr_y.str());
+}

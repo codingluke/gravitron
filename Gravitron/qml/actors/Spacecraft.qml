@@ -3,11 +3,11 @@ import QtQuick 2.3
 Rectangle {
     property int identifier 
     property real angle
+    property int controllingPlayerID
 
     id: spacecraft
     color: "#00000000"
     objectName: identifier
-
     Image {
         id: image1
         anchors.horizontalCenter: parent.horizontalCenter

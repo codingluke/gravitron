@@ -23,6 +23,11 @@ void GameActorView::setProperty(string key, string value)
     properties[key] = value;
 }
 
+string GameActorView::getPropterty(string key)
+{
+    return properties[key];
+}
+
 map<string, string> GameActorView::getProperties() const
 {
     return properties;

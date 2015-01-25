@@ -19,6 +19,7 @@ class GameActorView
 
         string getQmlPath() const;
         void setProperty(string key, string value);
+        string getPropterty(string key);
         map<string, string> getProperties() const;
         string toString() const;
         void fromString(string serialized);

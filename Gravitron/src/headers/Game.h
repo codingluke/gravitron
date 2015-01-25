@@ -25,6 +25,8 @@ class Game: public QObject
         GameLoop *gameLoop;
         GravitronSettings *settings;
         GameField *field;
+        float window_width = 1000;
+        float window_height = 1000;
 
     public:
         Game(QObject *parent = 0);
@@ -47,6 +49,7 @@ class Game: public QObject
 
     private:
         void clearScene(vector<GameActorView*> *views);
+        void setRelativePosition(float anchor_x, float anchor_y, GameActorView *view);
 };
 
 #endif

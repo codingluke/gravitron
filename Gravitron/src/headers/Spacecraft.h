@@ -9,6 +9,7 @@ class Spacecraft : public GameActor
 {
     private:
         int weapon;
+        int controllingPlayerID;
 
     public:
         Spacecraft();
@@ -20,6 +21,9 @@ class Spacecraft : public GameActor
         Spacecraft(const Spacecraft &spacecraft);
         void handleCollision(GameActor &other);
         virtual ~Spacecraft();
+
+        void setControllingPlayer(int controllingPlayerID);
+        int getControllingPlayer() const;
 
         GameActorView* getView() const override;
 

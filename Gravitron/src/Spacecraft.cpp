@@ -49,6 +49,9 @@ GameActorView* Spacecraft::getView() const {
     std::ostringstream rot;
     rot << calculateRotation();
     view->setProperty("angle", rot.str());
+    std::ostringstream playerID;
+    playerID << controllingPlayerID;
+    view->setProperty("controllingPlayerID", playerID.str());
     return view;
 }
 
@@ -141,6 +144,16 @@ void Spacecraft::handleCollision(GameActor &other)
 
 void Spacecraft::setWeapon(int weaponNumber) {
     this->weapon = weaponNumber;
+}
+
+void Spacecraft::setControllingPlayer(int controllingPlayerID)
+{
+    this->controllingPlayerID = controllingPlayerID;
+}
+
+int Spacecraft::getControllingPlayer() const
+{
+    return this->controllingPlayerID;
 }
 
 

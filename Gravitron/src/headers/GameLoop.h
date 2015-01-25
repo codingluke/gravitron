@@ -60,6 +60,8 @@ class GameLoop : public QThread
         void deletePlayer();
         void deleteActors();
         void remapActorsReferences();
+        float getRelativePositionX(GameActor &anchor, GameActor &other) const;
+        float getRelativePositionY(GameActor &anchor, GameActor &other) const;
 
     signals:
         void renderObject(vector<GameActorView*> *views);
