@@ -80,6 +80,13 @@ void GameActor::applyForce(Vec3f force)
 void GameActor::update()
 {
 	velocity += acceleration;
+    if (maxSpeed != -1) {
+        if (velocity.magnitude() > maxSpeed) {
+            velocity = velocity.normalize() * maxSpeed;
+            acceleration = acceleration.normalize() * maxSpeed;
+        }
+    }
+
     //add velocity limitation
 	position += velocity;
     if (position.v[0] > field->getWidth())
@@ -90,10 +97,6 @@ void GameActor::update()
         position.v[1] = position.v[1] - field->getHeight();
     if (position.v[1] < 0)
         position.v[1] = field->getHeight() - position.v[1];
-    if (maxSpeed != -1) {
-        if (velocity.magnitude() > maxSpeed)
-            velocity = velocity.normalize() * maxSpeed;
-    }
 }
 
 void GameActor::updateAll()

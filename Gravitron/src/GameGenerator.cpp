@@ -47,13 +47,17 @@ GameGenerator::~GameGenerator()
 
 void GameGenerator::generateGame(GameLoop* g) {
     srand(time(NULL));
-    //generateBots();
+    generateBots();
     generateSun();
     generateRandomPowerUps();
     generateRandomScrap();
     generatePlanets();
     generateAstroids();
     generatePlayer(g);
+
+    for (int i = 0; i < bots.size(); i++) {
+        bots[i]->setActors(actors);
+    }
 
     g->setBots(bots);
     g->setPlayer(humanPlayer);
@@ -62,9 +66,10 @@ void GameGenerator::generateGame(GameLoop* g) {
 }
 
 void GameGenerator::generateBots() {
-    Spacecraft* sc = generateNewSpacecraft();
-    actors.push_back(sc);
-    for(int i = 0; i < settings->botsCount(); i++) {
+    //settings->botsCount();
+    for(int i = 0; i < 2; i++) {
+        Spacecraft* sc = generateNewSpacecraft();
+        actors.push_back(sc);
         if (settings->network()) {
             bots.push_back(new KiNetworkPlayer(sc, settings->frag(), settings->difficulty()));
         } else {
@@ -94,7 +99,7 @@ Spacecraft* GameGenerator::generateNewSpacecraft() {
     float mass = fmod(rand(), SPACECRAFT_MAX_MASS - (SPACECRAFT_MIN_MASS - 1)) + SPACECRAFT_MIN_MASS;
     float g = fmod(rand(), PLANET_MAX_G - (PLANET_MIN_G - 1)) + PLANET_MIN_G;
     float gravitationRange = fmod(rand(), PLANET_MAX_GRAVITATION_RANGE - (PLANET_MIN_GRAVITATION_RANGE - 1)) + PLANET_MIN_GRAVITATION_RANGE;
-    return new Spacecraft(position, mass, 0, 0, *field, 10, &actors);
+    return new Spacecraft(position, mass, 0, 0, *field, SPACECRAFT_MAX_MAXSPEED, &actors);
 }
 
 
