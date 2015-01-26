@@ -25,16 +25,8 @@ Window {
        //autoPlay: true
        //loops: Audio.Infinite
     //}
-
+    
     Menus.Main { id: mainMenu }
-    Menus.NewGame { id: newGameMenu }
-    Menus.Credits { id: creditsMenu }
-    Menus.StartGame { id: startGameMenu }
-    Menus.GlobalSettings{ id: globalSettingsMenu }
-    Menus.MultiPlayer{ id: multiPlayerMenu }
-    Menus.Server { id: serverMenu }
-    Menus.Client { id: clientMenu }
-
 
     ScrollView {
         id: scrollView
@@ -44,6 +36,7 @@ Window {
 
         ListView {
             id: main_list
+            model: mainMenu
             header: Text {
                 anchors.horizontalCenter: parent.horizontalCenter
                 font.bold: true
@@ -54,16 +47,22 @@ Window {
             footer: Item {
                 height: 50
             }
+            contentItem: Item {
+                anchors.horizontalCenter: main_list.horizontalCenter
+            }
             anchors.topMargin: 20
             anchors.bottomMargin: 20
-            anchors.fill: parent
-            anchors.bottom: parent.bottom
-            width: parent.width
-            height: parent.height
             spacing: 10
-            model: mainMenu
         }
     }
+    
+    Menus.NewGame { id: newGameMenu }
+    Menus.Credits { id: creditsMenu }
+    Menus.StartGame { id: startGameMenu }
+    Menus.GlobalSettings{ id: globalSettingsMenu }
+    Menus.MultiPlayer{ id: multiPlayerMenu }
+    Menus.Server { id: serverMenu }
+    Menus.Client { id: clientMenu }
 
     Loader {
         visible: false

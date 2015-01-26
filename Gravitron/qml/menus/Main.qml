@@ -7,8 +7,8 @@ import "functions.js" as Functions
 
 VisualItemModel {
     Column {
-        anchors.horizontalCenter: parent.horizontalCenter
-        anchors.verticalCenter: parent.verticalCenter
+        //anchors.horizontalCenter: parent.horizontalCenter
+        //anchors.verticalCenter: parent.verticalCenter
         spacing: 10
 
         Button {

@@ -9,8 +9,8 @@ import "functions.js" as Functions
 VisualItemModel {
     Column {
         id: col_creditsSubMenu
-        anchors.horizontalCenter: parent.horizontalCenter
-        anchors.verticalCenter: parent.verticalCenter
+        //anchors.horizontalCenter: main_list.horizontalCenter
+        //anchors.verticalCenter: main_list.verticalCenter
 
         Button {
             id: btn_back
