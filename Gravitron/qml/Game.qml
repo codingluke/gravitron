@@ -20,6 +20,14 @@ Rectangle {
         }
     }
 
+    Text {
+        id: infoBox 
+        objectName: "Infobox"
+        anchors.centerIn: parent
+        text: "Waiting for the Server"
+        color: "#ffffff"
+    }
+
     Rectangle {
         z: 1000
         id: rec_selectLaser

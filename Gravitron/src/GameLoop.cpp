@@ -140,21 +140,21 @@ void GameLoop::render()
             std::ostringstream x;
             std::ostringstream y;
             if (player.size() == 2)
-            {                
+            {
                 x << getRelativePositionX(*(player[1]->spacecraft), **it);
                 y << getRelativePositionY(*(player[1]->spacecraft), **it);
                 view->setProperty("x", x.str());
-                view->setProperty("y", y.str());                
+                view->setProperty("y", y.str());
                 serializedViewlist += QString::fromStdString(view->toString());
                 serializedViewlist += ";";
-                x.str("");                
-                y.str("");                
+                x.str("");
+                y.str("");
                 x << getRelativePositionX(*(player[0]->spacecraft), **it);
                 y << getRelativePositionY(*(player[0]->spacecraft), **it);
                 view->setProperty("x", x.str());
-                view->setProperty("y", y.str()); 
-                viewlist->push_back(view);      
-            } 
+                view->setProperty("y", y.str());
+                viewlist->push_back(view);
+            }
             else
             {
                 x << getRelativePositionX(*localPlayer, **it);
@@ -167,6 +167,7 @@ void GameLoop::render()
             }
         }
         serializedViewlist += "\n";
+        serializedViewlist += "cmessage for the infobox\n";
         emit sendViewlist(serializedViewlist);
         emit renderObject(viewlist);
         QThread::msleep(5);
@@ -183,6 +184,6 @@ float GameLoop::getRelativePositionX(Spacecraft &anchor, GameActor &other) const
 float GameLoop::getRelativePositionY(Spacecraft &anchor, GameActor  &other) const
 {
     return anchor.getPosition()[1] - other.getPosition()[1];
-} 
+}
 
 

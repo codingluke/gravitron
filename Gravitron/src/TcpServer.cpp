@@ -26,10 +26,11 @@ void TcpServer::startListen(int port)
 
 void TcpServer::acceptConnection()
 {
-    qDebug() << "AcceptConnection";
     client = server.nextPendingConnection();
     connect(client, SIGNAL(readyRead()),
             this, SLOT(startRead()));
+    emit clientConnected();
+    transfer("helloclient\n");
 }
 
 void TcpServer::transfer(QString message)

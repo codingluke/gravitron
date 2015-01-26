@@ -53,6 +53,16 @@ Window {
         }
     }
 
+    Connections {
+        target: Server
+        onClientConnected: btn_startMultiplayerGame.enabled = true
+    }
+    
+    Connections {
+        target: Client
+        onConnected: console.log("connection successfull")
+    }
+
     Loader {
         visible: false
         id: loader

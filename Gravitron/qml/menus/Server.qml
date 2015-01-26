@@ -5,7 +5,6 @@ import "constants.js" as Global
 import "functions.js" as Functions
 
 VisualItemModel {
-
     Column {
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter
@@ -61,5 +60,6 @@ VisualItemModel {
             text: qsTr("Start")
             onClicked: Functions.btn_startMultiplayerGameClicked();
         }
+
     }
 }

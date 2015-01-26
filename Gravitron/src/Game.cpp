@@ -137,6 +137,8 @@ Game::~Game()
                 viewlist->push_back(v);
             }
             render(viewlist);
+        } else if (vList.at(i).startsWith("c")) {
+
         }
     }
 }
@@ -154,7 +156,7 @@ Game::~Game()
     clearScene(views);
     vector<GameActorView*>::iterator it;
     for (it = views->begin(); it < views->end(); it++)
-    {   
+    {
         setRelativePosition(window_width / 2, window_height / 2, *it);
         map<string, string> props = (*it)->getProperties();
         map<string, string>::iterator pit;
@@ -181,6 +183,11 @@ Game::~Game()
     }
     delete views;
 }
+
+//void Gmae::setInfoBox(QString message) {
+    //qmlParent->
+
+//}
 
 void Game::setActiveWeapon(int weaponNumber) {
     if(weaponNumber == 1) {
@@ -210,8 +217,8 @@ void Game::setActiveWeapon(int weaponNumber) {
 void Game::setRelativePosition(float anchor_x, float anchor_y, GameActorView *view)
 {
     float x;
-    std::stringstream sstr_x; 
-    sstr_x << view->getPropterty("x"); 
+    std::stringstream sstr_x;
+    sstr_x << view->getPropterty("x");
     sstr_x >> x;
     std::ostringstream ostr_x;
     x = anchor_x - x;

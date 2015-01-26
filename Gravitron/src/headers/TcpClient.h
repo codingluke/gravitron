@@ -31,6 +31,7 @@ class TcpClient: public QObject
 
     signals:
         void received(QString message);
+        void connected();
 };
 
 #endif

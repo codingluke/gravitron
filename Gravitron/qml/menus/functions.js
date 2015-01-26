@@ -3,7 +3,6 @@ function btn_newGameClicked(){
 }
 
 function btn_startGameClicked() {
-    //showSubMenu("Game.qml");
     scrollView.visible = false;
     loader.visible = true;
     loader.source = "../Game.qml";

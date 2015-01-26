@@ -52,8 +52,8 @@ void TcpClient::transfer(set<int> inputs)
 
 void TcpClient::startTransfer()
 {
-    qDebug() << "TcpClient: startTransfer";
-    transfer("hello");
+    emit connected();
+    //transfer("hello");
 }
 
 void TcpClient::startRead()
