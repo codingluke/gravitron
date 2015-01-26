@@ -47,13 +47,17 @@ GameGenerator::~GameGenerator()
 
 void GameGenerator::generateGame(GameLoop* g) {
     srand(time(NULL));
-    //generateBots();
+    generateBots();
     generateSun();
     generateRandomPowerUps();
     generateRandomScrap();
     generatePlanets();
     generateAstroids();
     generatePlayer(g);
+
+    for (int i = 0; i < bots.size(); i++) {
+        bots[i]->setActors(actors);
+    }
 
     g->setBots(bots);
     g->setPlayer(humanPlayer);
@@ -62,9 +66,10 @@ void GameGenerator::generateGame(GameLoop* g) {
 }
 
 void GameGenerator::generateBots() {
-    Spacecraft* sc = generateNewSpacecraft();
-    actors.push_back(sc);
-    for(int i = 0; i < settings->botsCount(); i++) {
+    //settings->botsCount();
+    for(int i = 0; i < 2; i++) {
+        Spacecraft* sc = generateNewSpacecraft();
+        actors.push_back(sc);
         if (settings->network()) {
             bots.push_back(new KiNetworkPlayer(sc, settings->frag(), settings->difficulty()));
         } else {

@@ -151,6 +151,8 @@ Game::~Game()
  */
  void Game::render(vector<GameActorView*> *views)
  {
+    window_width = qmlParent->width();
+    window_height = qmlParent->height();
     clearScene(views);
     vector<GameActorView*>::iterator it;
     for (it = views->begin(); it < views->end(); it++)
