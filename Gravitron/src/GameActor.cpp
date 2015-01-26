@@ -169,17 +169,7 @@ void GameActor::update(double radius)
 }
 
 bool GameActor::operator== (GameActor& right) {
-    int equals = 1;
-    if(position != right.getPosition()) {
-        equals = 0;
-    } else if (velocity != right.getVelocity()) {
-        equals = 0;
-    } else if (acceleration != right.getAcceleration()) {
-        equals = 0;
-    } else if (mass != right.getMass()) {
-        equals = 0;
-    }
-    return equals;
+    return (*this == right);
 }
 
 GameActor &GameActor::operator= (const GameActor &right)
