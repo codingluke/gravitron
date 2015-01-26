@@ -3,33 +3,36 @@
 #include "headers/AimMissile.h"
 #include "headers/Missile.h"
 #include "headers/PowerUp.h"
+#include "headers/ActorsAdjustments.h"
 #include <sstream>
 #include <iostream>
 
 Spacecraft::Spacecraft() : GameActor()
 {
-    g = 0;
-    weapon = 1;
+    init();
 }
 
 Spacecraft::Spacecraft(Vec3f position, double mass, float gravitationRange, float g, GameField &field, vector<GameActor*> *actors) :
     GameActor(position, mass, gravitationRange, g, 100, field, actors)
 {
-    g = 0;
-    weapon = 1;
+    init();
 }
 
 Spacecraft::Spacecraft(Vec3f position, double mass, float gravitationRange, float g, GameField &field, float maxSpeed, vector<GameActor*> *actors) :
     GameActor(position, mass, gravitationRange, g, 100, field, maxSpeed, actors)
 {
-    g = 0;
-    weapon = 1;
+    init();
 }
 
 Spacecraft::Spacecraft(const Spacecraft &spacecraft) : GameActor(spacecraft)
 {
+    init();
+}
+
+void Spacecraft::init() {
     g = 0;
     weapon = 1;
+    accelerationFactor = 0.5;
 }
 
 Spacecraft::~Spacecraft() {
@@ -58,22 +61,22 @@ GameActorView* Spacecraft::getView() const {
 
 void Spacecraft::forceAhead()
 {
-    applyForce(Vec3f(0.,-0.1,0.));
+    applyForce(Vec3f(0.,-1 * accelerationFactor ,0.));
 }
 
 void Spacecraft::forceBack()
 {
-    applyForce(Vec3f(0.,0.1,0.));
+    applyForce(Vec3f(0.,accelerationFactor,0.));
 }
 
 void Spacecraft::forceLeft()
 {
-    applyForce(Vec3f(-0.1,0.,0.));
+    applyForce(Vec3f(-1 * accelerationFactor,0.,0.));
 }
 
 void Spacecraft::forceRight()
 {
-    applyForce(Vec3f(0.1,0.,0.));
+    applyForce(Vec3f(accelerationFactor,0.,0.));
 }
 
 Projectile &Spacecraft::shootUp()

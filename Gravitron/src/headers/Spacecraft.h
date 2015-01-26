@@ -10,6 +10,10 @@ class Spacecraft : public GameActor
     private:
         int weapon;
         int controllingPlayerID;
+        float accelerationFactor;
+
+    private:
+        void init();
 
     public:
         Spacecraft();
