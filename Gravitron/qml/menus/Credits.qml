@@ -19,6 +19,7 @@ VisualItemModel {
             //: The back to the main menu
             text: qsTr("Back")
             onClicked: Functions.btn_backClicked()
+            style: BtnStyle { text: btn_back.text }
         }
 
         Text {

@@ -22,6 +22,7 @@ ObjectModel {
             //: Button bach to the new game menu
             text: qsTr("Back")
             onClicked: Functions.btn_backToNewGameClicked()
+            style: BtnStyle { text: btn_back.text }
         }
 
         Button {
@@ -29,8 +30,9 @@ ObjectModel {
             width: Global.buttonWidth
             height: Global.buttonHeight
             //: Button to create a multiplayergame
-            text: qsTr("Create new Multiplayer Game")
+            text: qsTr("Create Game")
             onClicked: Functions.btn_createMultiplayerGameClicked()
+            style: BtnStyle { text: btn_createMultiplayerGame.text }
         }
 
         Button {
@@ -38,16 +40,9 @@ ObjectModel {
             width: Global.buttonWidth
             height: Global.buttonHeight
             //: Button to join a multiplayergame
-            text: qsTr("Join Multiplayer Game")
+            text: qsTr("Join Game")
             onClicked: Functions.btn_joinGameClicked()
+            style: BtnStyle { text: btn_joinGame.text }
         }
-
-        //Button {
-            //id: btn_startSinglePlayer
-            //width: Global.buttonWidth
-            //height: Global.buttonHeight
-            ////: Button to start a multiplayergame
-            //text: qsTr("startMultiPlayerGame")
-        //}
     }
 }

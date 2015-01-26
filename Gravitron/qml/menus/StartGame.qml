@@ -19,116 +19,86 @@ VisualItemModel {
             //: Button bach to the new game menu
             text: qsTr("Back")
             onClicked: Functions.btn_backToNewGameClicked()
+            style: BtnStyle { text: btn_backToNewGame.text }
         }
 
-        Text {
-            height: Global.textHeight
-            width: Global.textWidth
-            //: Lable for the game settings
-            text: qsTr("Game Settings")
-        }
-
-        Text {
-            height: Global.textHeight
-            width: Global.textWidth
-            //: Label for the palying field size slider
-            text: qsTr("Playing Area Size")
-        }
-
+        Text { text: qsTr("Playing Area Size") } 
         Slider {
             id: slide_playingFieldSize
             width: Global.sliderWidth
             height: Global.sliderHeigt
+            value: Settings.playingFieldSize
+            onPressedChanged: {
+                Settings.setPlayingFieldSize(slide_playingFieldSize.value)
+            }
         }
 
-        Text {
-            height: Global.textHeight
-            width: Global.textWidth
-            //: Label for the number of enemies slider
-            text: qsTr("Number of Enemies")
-        }
-
+        Text { text: qsTr("Number of Enemies") } 
         Slider {
             id: slide_botsCount
             width: Global.sliderWidth
             height: Global.sliderHeigt
+            value: Settings.botsCount
+            onPressedChanged: {
+                Settings.setBotsCount(slide_botsCount.value)
+            }
         }
 
-        Text {
-            height: Global.textHeight
-            width: Global.textWidth
-            //: Label for the amount of planets slider
-            text: qsTr("Planet Amount")
-        }
-
+        Text { text: qsTr("Planet Amount") } 
         Slider {
             id: slide_planetCount
             width: Global.sliderWidth
             height: Global.sliderHeigt
             value: Settings.planetCount
-            onPressedChanged: Settings.setPlanetCount(slide_planetCount.value)
+            onPressedChanged: {
+                Settings.setPlanetCount(slide_planetCount.value)
+            }
             minimumValue: 1
             maximumValue: 20
         }
 
-        Text {
-            height: Global.textHeight
-            width: Global.textWidth
-            //: Label for the amount of astorieds slider
-            text: qsTr("Asteroid Amount")
-        }
-
+        Text { text: qsTr("Asteroid Amount") } 
         Slider {
             id: slide_astroidCount
             width: Global.sliderWidth
             height: Global.sliderHeigt
             value: Settings.astroidCount
-            onPressedChanged: Settings.setAstroidCount(slide_astroidCount.value)
+            onPressedChanged: {
+                Settings.setAstroidCount(slide_astroidCount.value)
+            }
             minimumValue: 1
             maximumValue: 20
         }
 
-        Text {
-            height: Global.textHeight
-            width: Global.textWidth
-            //: Label for the frag limit slider
-            text: qsTr("Frag Limit")
-        }
-
+        Text { text: qsTr("Frag Limit") }
         Slider {
             id: slide_frag
             width: Global.sliderWidth
             height: Global.sliderHeigt
+            value: Settings.frag
+            onPressedChanged: {
+                Settings.setFrag(slide_frag.value)
+            }
         }
 
-        Text {
-            height: Global.textHeight
-            width: Global.textWidth
-            //: Label for the respawn time slider
-            text: qsTr("Respawn Time")
-        }
-
+        Text { text: qsTr("Respawn Time") } 
         Slider {
             id: slide_respawTime
             width: Global.sliderWidth
             height: Global.sliderHeigt
-        }
-
-        Text {
-            height: Global.textHeight
-            width: Global.textWidth
-            //:Label for the PowerUp settings
-            text: qsTr("Power-Up Settings")
+            value: Settings.respawTime
+            onPressedChanged: {
+                Settings.setRespawTime(slide_respawTime.value)
+            }
         }
 
         Button {
             id: btn_startSinglePlayer
             width: Global.buttonWidth
             height: Global.buttonHeight
-            //: Button to start a single player game
             text: qsTr("Start")
-            //onClicked: MListener.startSinglePlayerGame();
             onClicked: Functions.btn_startGameClicked();
+            style: BtnStyle { text: btn_startSinglePlayer.text }
         }
     }
 }

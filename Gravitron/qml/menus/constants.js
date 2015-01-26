@@ -2,7 +2,7 @@
 //change this variable from multiple qml files
 .pragma library
 var buttonWidth = 300;
-var buttonHeight = 30;
+var buttonHeight = 45;
 var textWidth = buttonHeight
 var textHeight = buttonHeight
 var sliderWidth = buttonWidth
