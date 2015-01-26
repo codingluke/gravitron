@@ -48,8 +48,8 @@ int main(int argc, char *argv[])
     // Add TCP
     TcpServer server;
     TcpClient client;
-    engine.rootContext()->setContextProperty("Server", &server);
-    engine.rootContext()->setContextProperty("Client", &client);
+    engine.rootContext()->setContextProperty("TcpServer", &server);
+    engine.rootContext()->setContextProperty("TcpClient", &client);
 
     Locater l(settings, app);
     l.loadLanguare(settings.languare());

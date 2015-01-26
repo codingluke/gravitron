@@ -40,20 +40,12 @@ VisualItemModel {
             width: Global.buttonWidth
             height: Global.buttonHeight
             //: Button to start a single player game
-            text: "Create Server"
+            text: qsTr("Create Server")
             onClicked: Functions.btn_createServerClicked();
         }
         
         Button {
-            id: btn_sendMessageFromServer
-            width: Global.buttonWidth
-            height: Global.buttonHeight
-            //: Button to start a single player game
-            text: "Send test"
-            onClicked: Functions.btn_sendMessageFromServer()
-        }
-
-        Button {
+            enabled: false
             id: btn_startMultiplayerGame
             width: Global.buttonWidth
             height: Global.buttonHeight
@@ -61,5 +53,10 @@ VisualItemModel {
             onClicked: Functions.btn_startMultiplayerGameClicked();
         }
 
+    }
+
+    Connections {
+        target: TcpServer
+        onClientConnected: btn_startMultiplayerGame.enabled = true
     }
 }

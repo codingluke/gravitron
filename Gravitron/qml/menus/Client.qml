@@ -57,12 +57,17 @@ VisualItemModel {
             onClicked: Functions.btn_connectToServerClicked();
         }
 
-        Button {
-            id: btn_joinMulitplayerGame
-            width: Global.buttonWidth
-            height: Global.buttonHeight
-            text: qsTr("Start")
-            onClicked: Functions.btn_joinMultiplayerGameClicked()
+        //Button {
+            //id: btn_joinMulitplayerGame
+            //width: Global.buttonWidth
+            //height: Global.buttonHeight
+            //text: qsTr("Start")
+            //onClicked: Functions.btn_joinMultiplayerGameClicked()
+        //}
+
+        Connections {
+            target: TcpClient
+            onConnected: Functions.btn_joinMultiplayerGameClicked();
         }
     }
 }

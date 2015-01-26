@@ -16,7 +16,7 @@ function btn_startMultiplayerGameClicked() {
     loader.visible = true;
     loader.source = "../Game.qml";
     Game.setQmlParent(loader.item);
-    Game.startServer(Server);
+    Game.startServer(TcpServer);
 }
 
 function btn_joinMultiplayerGameClicked() {
@@ -25,7 +25,7 @@ function btn_joinMultiplayerGameClicked() {
     loader.visible = true;
     loader.source = "../Game.qml";
     Game.setQmlParent(loader.item);
-    Game.startClient(Client);
+    Game.startClient(TcpClient);
 }
 
 function btn_settingsClicked() {
@@ -41,11 +41,7 @@ function btn_createMultiplayerGameClicked() {
 }
 
 function btn_createServerClicked() {
-    Server.startListen(txt_serverPort.value);
-}
-
-function btn_sendMessageFromServer() {
-    Server.transfer("i am the server");
+    TcpServer.startListen(txt_serverPort.value);
 }
 
 function btn_joinGameClicked() {
@@ -53,7 +49,7 @@ function btn_joinGameClicked() {
 }
 
 function btn_connectToServerClicked() {
-    Client.start(txt_serverHost.text, txt_clientServerPort.value);
+    TcpClient.start(txt_serverHost.text, txt_clientServerPort.value);
 }
 
 function btn_statsClicked() {
