@@ -22,8 +22,8 @@ class HumanPlayer : public Player
     protected:
         virtual void execAction(int code);
 
-    private slots:
-        void setActiveWeapon(int weaponNumber);
+    /*private slots:
+        void setActiveWeapon(int weaponNumber);*/
 
 };
 

@@ -12,14 +12,14 @@ Missile::Missile(Vec3f position, Vec3f velocity, GameField &field, GameActor &fr
     Projectile(position, 0, 0, 0, 300, 1, field, friendly, actors)
 {
     applyForce(velocity);
-    this->maxSpeed = velocity.magnitude() + 5;
+    this->maxSpeed = MISSILE_MAX_MAXSPEED;
 }
 
 Missile::Missile(GameActor &actor, Vec3f velocity, GameField &field, GameActor &friendly, vector<GameActor*> *actors) :
     Projectile(actor.getPosition(), 0, 0, 0, 300, 1, field, friendly, actors)
 {
     applyForce(velocity);
-    this->maxSpeed = velocity.magnitude() + 5;
+    this->maxSpeed = MISSILE_MAX_MAXSPEED;
 }
 
 
@@ -27,7 +27,7 @@ Missile::Missile(GameActor &actor, GameField &field, GameActor &friendly, vector
     Projectile(actor.getPosition(), 0, 0, 0, 300, 1, field, friendly, actors)
 {
     applyForce(actor.getVelocity());
-    this->maxSpeed = actor.getVelocity().magnitude() + 5;
+    this->maxSpeed = MISSILE_MAX_MAXSPEED;
 }
 
 Missile::Missile(const Missile &projectile) :

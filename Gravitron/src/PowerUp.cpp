@@ -1,4 +1,5 @@
 #include "headers/PowerUp.h"
+#include "headers/Spacecraft.h"
 #include <iostream>
 #include <sstream>
 
@@ -8,7 +9,10 @@ PowerUp::PowerUp(Vec3f position, GameField &field, vector<GameActor*> *actors) :
 
 void PowerUp::handleCollision(GameActor &other)
 {
-
+    if (Spacecraft* isSpacecraft = dynamic_cast<Spacecraft*>(&other)) {
+        isSpacecraft->upgradeWeapon();
+        kill();
+    }
 }
 
 GameActorView* PowerUp::getView() const
