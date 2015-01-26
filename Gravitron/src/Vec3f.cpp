@@ -126,7 +126,7 @@ bool Vec3f::operator==(const Vec3f &other) const
     bool equal = true;
     for (int i = 0; i < 3; i++)
     {
-        if (v[i] != other[i]) {
+        if (abs(v[i] - other[i]) > precision)  {
             equal = false;
         }
     }

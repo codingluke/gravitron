@@ -3,9 +3,6 @@
 
 #include <iostream>
 #include <cmath>
-/**
-*   part source: programmng-techniques.com
-*/
 
 using std::ostream;
 using std::cout;
@@ -14,6 +11,7 @@ using std::endl;
 class Vec3f {
     public:
         float v[3];
+        const float precision = 0.0000001;
     public:
         Vec3f();
         Vec3f(float x, float y, float z); 
