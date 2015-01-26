@@ -87,10 +87,9 @@ VisualItemModel {
             id: txt_playerName
             height: Global.textFieldHeight
             width: Global.textFieldWidth
-            //: Placeholder for the playername input
             placeholderText: qsTr("Name")
             text: SettingsFunctions.getTxtPlayerNameText()
-            onTextChanged: SettingsFunctions.txt_playerNameChanged()
+            onEditingFinished: SettingsFunctions.txt_playerNameChanged()
         }
 
         Button {
