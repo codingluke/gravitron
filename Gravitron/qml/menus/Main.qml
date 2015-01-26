@@ -7,9 +7,6 @@ import "functions.js" as Functions
 
 VisualItemModel {
     Column {
-        onChanged {
-
-        }
         spacing: 10
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter
