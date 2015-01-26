@@ -42,6 +42,9 @@ Window {
         width: parent.width
 
         ListView {
+            header: Text {
+                 text: "kukuk"
+            }
             id: main_list
             anchors.fill: parent
             anchors.bottom: parent.bottom
