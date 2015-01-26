@@ -52,11 +52,6 @@ function btn_connectToServerClicked() {
     TcpClient.start(txt_serverHost.text, txt_clientServerPort.value);
 }
 
-function btn_statsClicked() {
-    //showSubMenu("StatsSubMenu.qml");
-    main_list.model = statsMenu
-}
-
 function showSubMenu(name) {
     load_subMenu.source = name;
 }

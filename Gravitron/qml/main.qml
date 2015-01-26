@@ -31,7 +31,6 @@ Window {
     Menus.Credits { id: creditsMenu }
     Menus.StartGame { id: startGameMenu }
     Menus.GlobalSettings{ id: globalSettingsMenu }
-    Menus.Stats { id: statsMenu }
     Menus.MultiPlayer{ id: multiPlayerMenu }
     Menus.Server { id: serverMenu }
     Menus.Client { id: clientMenu }

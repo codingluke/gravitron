@@ -28,9 +28,11 @@ function getBtnFullScreenText() {
     if(Settings.fullScreen === true) {
         //: fullscreen on
         text += qsTr("on")
+        win_startWindow.visibility = "FullScreen"
     } else {
         //: fullscreen off
         text += qsTr("off");
+        win_startWindow.visibility = "Windowed"
     }
     return text;
 }

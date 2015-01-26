@@ -42,19 +42,8 @@ VisualItemModel {
             //: Button to the credits menu
             text: qsTr("Credits")
             KeyNavigation.up: btn_settings
-            KeyNavigation.down: btn_stats
-            onClicked: Functions.btn_creditsClicked()
-        }
-
-        Button {
-            id: btn_stats
-            width: Global.buttonWidth
-            height: Global.buttonHeight
-            //: Button to the statics menu
-            text: qsTr("Stats")
-            KeyNavigation.up: btn_credits
             KeyNavigation.down: btn_exit
-            onClicked: Functions.btn_statsClicked()
+            onClicked: Functions.btn_creditsClicked()
         }
 
         Button {
