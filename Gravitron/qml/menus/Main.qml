@@ -7,9 +7,12 @@ import "functions.js" as Functions
 
 VisualItemModel {
     Column {
-        //anchors.horizontalCenter: parent.horizontalCenter
-        //anchors.verticalCenter: parent.verticalCenter
+        onChanged {
+
+        }
         spacing: 10
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.verticalCenter: parent.verticalCenter
 
         Button {
             id: btn_newGame

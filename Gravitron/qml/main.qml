@@ -31,8 +31,8 @@ Window {
     ScrollView {
         id: scrollView
         anchors.fill: parent
-        height: parent.height
-        width: parent.width
+        //height: parent.height
+        //width: parent.width
 
         ListView {
             id: main_list
@@ -47,9 +47,7 @@ Window {
             footer: Item {
                 height: 50
             }
-            contentItem: Item {
-                anchors.horizontalCenter: main_list.horizontalCenter
-            }
+            anchors.fill: parent
             anchors.topMargin: 20
             anchors.bottomMargin: 20
             spacing: 10
