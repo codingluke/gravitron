@@ -12,6 +12,7 @@
 #include "InputHandler.h"
 #include "GameGenerator.h"
 #include "Player.h"
+#include "KiPlayer.h"
 #include "NetworkInputHandler.h"
 
 class GameGenerator; // <<== Forward declare the class. Because of circular definitions.
@@ -29,7 +30,7 @@ class GameLoop : public QThread
         QQmlApplicationEngine *engine;
         vector<GameActor*> actors;
         Spacecraft *localPlayer;
-        vector<Player*> bots;
+        vector<KiPlayer*> bots;
         vector<Player*> player;
         int respawnTime;
         GameField *field;
@@ -41,7 +42,7 @@ class GameLoop : public QThread
 
         virtual ~GameLoop();
 
-        void setBots(vector<Player*> bots);
+        void setBots(vector<KiPlayer*> bots);
         void setPlayer(vector<Player*> player);
         void setActors(vector<GameActor*> actors);
         void setGameField(GameField* newField);
