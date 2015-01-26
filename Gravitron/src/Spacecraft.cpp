@@ -2,33 +2,34 @@
 #include "headers/Laser.h"
 #include "headers/AimMissile.h"
 #include "headers/Missile.h"
+#include "headers/PowerUp.h"
 #include <sstream>
 #include <iostream>
 
 Spacecraft::Spacecraft() : GameActor()
 {
     g = 0;
-    weapon = 3;
+    weapon = 1;
 }
 
 Spacecraft::Spacecraft(Vec3f position, double mass, float gravitationRange, float g, GameField &field, vector<GameActor*> *actors) :
     GameActor(position, mass, gravitationRange, g, 100, field, actors)
 {
     g = 0;
-    weapon = 3;
+    weapon = 1;
 }
 
 Spacecraft::Spacecraft(Vec3f position, double mass, float gravitationRange, float g, GameField &field, float maxSpeed, vector<GameActor*> *actors) :
     GameActor(position, mass, gravitationRange, g, 100, field, maxSpeed, actors)
 {
     g = 0;
-    weapon = 3;
+    weapon = 1;
 }
 
 Spacecraft::Spacecraft(const Spacecraft &spacecraft) : GameActor(spacecraft)
 {
     g = 0;
-    weapon = 3;
+    weapon = 1;
 }
 
 Spacecraft::~Spacecraft() {
@@ -142,8 +143,10 @@ void Spacecraft::handleCollision(GameActor &other)
     //dealDamage(5);
 }
 
-void Spacecraft::setWeapon(int weaponNumber) {
-    this->weapon = weaponNumber;
+void Spacecraft::upgradeWeapon() {
+    if (weapon < 3) {
+        this->weapon++;
+    }
 }
 
 void Spacecraft::setControllingPlayer(int controllingPlayerID)

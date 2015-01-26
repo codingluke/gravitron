@@ -6,7 +6,6 @@ HumanPlayer::HumanPlayer(Spacecraft *spacecraft, int frag) : Player(spacecraft, 
 {
     inputHandler = new InputHandler();
     QCoreApplication::instance()->installEventFilter(inputHandler);
-    this->spacecraft->setWeapon(3);
 }
 
 HumanPlayer::~HumanPlayer()
@@ -45,16 +44,17 @@ void HumanPlayer::execAction(int code)
     } else if (code == Qt::Key_D) {
         spacecraft->shootRight();
         dynamic_cast<InputHandler*>(inputHandler)->removeInputCode(Qt::Key_D);
-    } else if (code == Qt::Key_1) {
+    }
+    /*else if (code == Qt::Key_1) {
         spacecraft->setWeapon(1);
     } else if (code == Qt::Key_2) {
         spacecraft->setWeapon(2);
     } else if (code == Qt::Key_3) {
         spacecraft->setWeapon(3);
-    }
+    }*/
 }
 
-void HumanPlayer::setActiveWeapon(int weaponNumber)
+/*void HumanPlayer::setActiveWeapon(int weaponNumber)
 {
     this->spacecraft->setWeapon(weaponNumber);
-}
+}*/
