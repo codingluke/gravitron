@@ -20,23 +20,22 @@ VisualItemModel {
             id: btn_back
             width: Global.buttonWidth
             height: Global.buttonHeight
-            //: Button bach to the mainmenu
             text: qsTr("Back")
             onClicked: Functions.btn_backClicked()
+            style: BtnStyle { text: btn_back.text }
         }
 
-        Text {
-            id: txt_settingsHeadline
-            //: Label for the settings menu
-            text: qsTr("Settings")
+        Text { 
+          id: txt_settingsHeadline
+          text: qsTr("Settings")
         }
-
         Button {
             id: btn_difficulty
             width: Global.buttonWidth
             height: Global.buttonHeight
             text: SettingsFunctions.getBtnDifficultyText()
             onClicked: SettingsFunctions.btn_difficultyClicked()
+            style: BtnStyle { text: btn_difficulty.text }
         }
 
         Button {
@@ -45,17 +44,14 @@ VisualItemModel {
             height: Global.buttonHeight
             text: SettingsFunctions.getBtnFullScreenText()
             onClicked: SettingsFunctions.btn_fullScreenClicked()
+            style: BtnStyle { text: btn_fullScreen.text }
         }
 
         Text {
             id: lbl_volume
-            height: Global.textHeight
-            width: Global.textWidth
-            //: Label for the music and sounds volume slider
             text: qsTr("Volume")
             font.pixelSize: 12
         }
-
         Slider {
             id: slide_musicSoundVolume
             width: Global.sliderWidth
@@ -75,6 +71,7 @@ VisualItemModel {
             height: Global.buttonHeight
             text: SettingsFunctions.getBtnPlayMusicText()
             onClicked: SettingsFunctions.btn_playMusicClicked()
+            style: BtnStyle { text: btn_playMusic.text }
         }
 
         Button {
@@ -83,6 +80,7 @@ VisualItemModel {
             height: Global.buttonHeight
             text: SettingsFunctions.getBtnPlaySoundsText()
             onClicked: SettingsFunctions.btn_playSoundsClicked()
+            style: BtnStyle { text: btn_playSounds.text }
         }
 
         TextField {
@@ -96,11 +94,12 @@ VisualItemModel {
         }
 
         Button {
-            id: btn_languare
+            id: btn_language
             text: SettingsFunctions.getLanguare()
             width: Global.buttonWidth
             height: Global.buttonHeight
-            onClicked: SettingsFunctions.btn_languareClicked()
+            onClicked: SettingsFunctions.btn_languageClicked()
+            style: BtnStyle { text: btn_language.text }
         }
     }
 }

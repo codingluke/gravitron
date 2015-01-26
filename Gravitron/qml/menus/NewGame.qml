@@ -17,6 +17,7 @@ VisualItemModel {
             height: Global.buttonHeight
             text: qsTr("Back")
             onClicked: Functions.btn_backClicked()
+            style: BtnStyle { text: btn_back.text }
         }
 
         Button {
@@ -28,6 +29,7 @@ VisualItemModel {
             KeyNavigation.up: btn_multiPlayer
             KeyNavigation.down: btn_multiPlayer
             onClicked: Functions.btn_singlePlayerClicked()
+            style: BtnStyle { text: btn_singlePlayer.text }
         }
 
         Button {
@@ -39,6 +41,7 @@ VisualItemModel {
             KeyNavigation.up: btn_singlePlayer
             KeyNavigation.down: btn_singlePlayer
             onClicked: Functions.btn_multiPlayerClicked()
+            style: BtnStyle { text: btn_multiPlayer.text }
         }
     }
 }

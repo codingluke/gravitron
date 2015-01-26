@@ -105,7 +105,7 @@ function getLanguare() {
     return lang;
 }
 
-function btn_languareClicked() {
+function btn_languageClicked() {
    if(currentLanguare == "de") {
         Settings.setLanguare("en");
    } else if (currentLanguare == "en") {

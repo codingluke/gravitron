@@ -47,7 +47,7 @@ GameGenerator::~GameGenerator()
 
 void GameGenerator::generateGame(GameLoop* g) {
     srand(time(NULL));
-    generateBots();
+    //generateBots();
     generateSun();
     generateRandomPowerUps();
     generateRandomScrap();

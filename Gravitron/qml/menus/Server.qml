@@ -17,6 +17,7 @@ VisualItemModel {
             //: Button bach to the new game menu
             text: qsTr("Back")
             onClicked: Functions.btn_backToNewGameClicked()
+            style: BtnStyle { text: btn_backToNewGame.text }
         }
 
         Text {
@@ -42,6 +43,7 @@ VisualItemModel {
             //: Button to start a single player game
             text: qsTr("Create Server")
             onClicked: Functions.btn_createServerClicked();
+            style: BtnStyle { text: btn_createServer.text }
         }
         
         Button {
@@ -51,8 +53,8 @@ VisualItemModel {
             height: Global.buttonHeight
             text: qsTr("Start")
             onClicked: Functions.btn_startMultiplayerGameClicked();
+            style: BtnStyle { text: btn_startMultiplayerGame.text }
         }
-
     }
 
     Connections {

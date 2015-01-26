@@ -35,6 +35,7 @@ Window {
     Menus.Server { id: serverMenu }
     Menus.Client { id: clientMenu }
 
+
     ScrollView {
         id: scrollView
         anchors.fill: parent
@@ -42,15 +43,19 @@ Window {
         width: parent.width
 
         ListView {
-            anchors.topMargin: 20
+            id: main_list
             header: Text {
+                anchors.horizontalCenter: parent.horizontalCenter
                 font.bold: true
                 font.pixelSize: 30
-                anchors.centerIn: parent
                 text: "Gravitron"
                 height: 50
             }
-            id: main_list
+            footer: Item {
+                height: 50
+            }
+            anchors.topMargin: 20
+            anchors.bottomMargin: 20
             anchors.fill: parent
             anchors.bottom: parent.bottom
             width: parent.width

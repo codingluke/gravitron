@@ -24,6 +24,7 @@
         <file>menus/MultiPlayer.qml</file>
         <file>menus/Server.qml</file>
         <file>menus/Client.qml</file>
+        <file>menus/BtnStyle.qml</file>
         <file alias="planet">actors/Planet.qml</file>
         <file alias="asteroid">actors/Asteroid.qml</file>
         <file alias="powerUp">actors/PowerUp.qml</file>
