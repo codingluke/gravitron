@@ -42,8 +42,13 @@ Window {
         width: parent.width
 
         ListView {
+            anchors.topMargin: 20
             header: Text {
-                 text: "kukuk"
+                font.bold: true
+                font.pixelSize: 30
+                anchors.centerIn: parent
+                text: "Gravitron"
+                height: 50
             }
             id: main_list
             anchors.fill: parent
