@@ -110,6 +110,8 @@ class GameActor
         vector<GameActor*> *getActors() const;
         void setActors(vector<GameActor*> *actors);
 
+        float getDistance(GameActor &to) const;
+
         void kill();
         bool isKilled();
 

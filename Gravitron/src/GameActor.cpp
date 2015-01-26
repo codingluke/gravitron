@@ -349,3 +349,8 @@ float GameActor::radToDeg(float radians) const
 {
     return radians * 180 / M_PI;
 }
+
+float GameActor::getDistance(GameActor &to) const
+{
+    return Physics::distance(position, to.getPosition());
+}

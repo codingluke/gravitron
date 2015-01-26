@@ -15,8 +15,9 @@ public:
     void handleCollision(GameActor &other);
 
 private:
-    int target;
+    GameActor *target;
     void setRandomTarget();
+    void setNearestTarget();
 };
 
 #endif // AIMMISSILE_H

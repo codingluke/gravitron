@@ -4,37 +4,37 @@
 
 AimMissile::AimMissile() : Missile()
 {
-    target = -1;
+    target = NULL;
 }
 
 AimMissile::AimMissile(Vec3f position, Vec3f velocity, GameField &field, GameActor &friendly, vector<GameActor*> *actors) :
     Missile(position, velocity, field, friendly, actors)
 {
-    target = -1;
+    target = NULL;
 }
 
 AimMissile::AimMissile(GameActor &actor, Vec3f velocity, GameField &field, GameActor &friendly, vector<GameActor*> *actors) :
     Missile(actor.getPosition(), velocity, field, friendly, actors)
 {
-    target = -1;
+    target = NULL;
 }
 
 
 AimMissile::AimMissile(GameActor &actor, GameField &field, GameActor &friendly, vector<GameActor*> *actors) :
     Missile(actor, field, friendly, actors)
 {
-    target = -1;
+    target = NULL;
 }
 
 AimMissile::AimMissile(const Missile &projectile) :
     Missile(projectile)
 {
-    target = -1;
+    target = NULL;
 }
 
 AimMissile::~AimMissile()
 {
-    target = -1;
+    target = NULL;
 }
 
 void AimMissile::handleCollision(GameActor &other)
@@ -54,30 +54,75 @@ void AimMissile::handleCollision(GameActor &other)
 }
 
 void AimMissile::update() {
-    if(target == -1 || target >= actors->size()) {
-        setRandomTarget();
+    GameActor* test = dynamic_cast<GameActor*>(target);
+    if (test == 0)
+    {
+        setNearestTarget();
     }
-    Vec3f d = position - actors->at(target)->getPosition();
-    applyForce(d.normalize() * 2);
+    test = dynamic_cast<GameActor*>(target);
+    if (test != 0)
+    {
+        Vec3f d = target->getPosition() - position;
+        applyForce(d.normalize() * 2);
+    }
     Projectile::update();
 }
 
 void AimMissile::setRandomTarget() {
-    int otherIsFriendly = 0;
-    do {
-        target = rand() % actors->size();
-        vector<GameActor*>::iterator it;
-        for (it = friendly.begin(); it != friendly.end(); it++)
+    if (actors->size() > 1)
+    {
+        bool otherIsFriendly = false;
+        do {
+            target = actors->at(rand() % actors->size());
+            vector<GameActor*>::iterator it;
+            for (it = friendly.begin(); it != friendly.end(); it++)
+            {
+                bool e = (*it) == target;
+                std::cout << e << std::endl;
+                if (e == true) {
+                    otherIsFriendly = true;
+                } else {
+                    otherIsFriendly = false;
+                }
+            }
+        } while (otherIsFriendly);
+    }
+}
+
+void AimMissile::setNearestTarget() 
+{
+    if (actors->size() > 1)
+    {
+        GameActor* candidate;
+        float minDistance = -1;
+        for (GameActor* act : *actors)
         {
-            bool e = *(*it) == *(actors->at(target));
-            std::cout << e << std::endl;
-            if (e == true) {
-                otherIsFriendly = 1;
-            } else {
-                otherIsFriendly = 0;
+            bool otherIsFriendly = false;
+            for (GameActor* fr : friendly)
+            {
+                if (fr == act)
+                    otherIsFriendly = true;
+            }
+            if (!otherIsFriendly && (act != this))
+            {
+                if (minDistance > 0)
+                {
+                    if (this->getDistance(*act) < minDistance)
+                    {
+                        candidate = act;
+                        minDistance = this->getDistance(*act);
+                    }
+                }
+                else
+                {
+                    minDistance = this->getDistance(*act);
+                }
             }
         }
-    } while (otherIsFriendly || target == -1);
+        GameActor* finalTarget = dynamic_cast<GameActor*>(candidate);
+        if (finalTarget != 0)
+            target = finalTarget;
+    }   
 }
 
 

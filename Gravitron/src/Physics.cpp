@@ -27,6 +27,6 @@ bool Physics::collisionDetection(Vec3f vec1, float rad1,
 }
 
 float Physics::distance(Vec3f vec1, Vec3f vec2) {
-    Vec3f force = vec1 - vec2;
-    return force.magnitude();
+    Vec3f distance = vec1 - vec2;
+    return distance.magnitude();
 }
