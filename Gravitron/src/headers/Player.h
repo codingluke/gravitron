@@ -20,8 +20,10 @@ class Player : public QObject
         virtual void processInput();
         void respawn();
 
+    public:
         int getWeapon() const;
         int getHealth() const;
+        int getHealthPercentage() const;
         Spacecraft* getSpacecraft() const;
 };
 #endif // PLAYER_H

@@ -53,7 +53,6 @@ void TcpClient::transfer(set<int> inputs)
 void TcpClient::startTransfer()
 {
     emit connected();
-    //transfer("hello");
 }
 
 void TcpClient::startRead()

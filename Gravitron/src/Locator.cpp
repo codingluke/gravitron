@@ -18,7 +18,6 @@ void Locater::loadLanguare(const QString& source) {
     if(translator->load(locale, ":/translations")) {
         app.installTranslator(translator);
     } else {
-        //qWarning() << "No languare for your loaction.";
         translator->load("gravitron_"+settings.languare(), ":/translations");
         app.installTranslator(translator);
     }

@@ -1,8 +1,8 @@
 #include "headers/Scrap.h"
+#include "headers/ActorsAdjustments.h"
 #include <iostream>
 #include <sstream>
 
-//GameActor::GameActor(Vec3f position, double mass, float gravitationRange, float g, int health, GameField &field, float maxSpeed)
 Scrap::Scrap(Vec3f position, float mass, float gravitationRange, float g, GameField &field, vector<GameActor*> *actors) :
     GameActor(position, mass, gravitationRange, g, 20, field, 0.3, actors)
 {
@@ -20,7 +20,7 @@ Scrap::Scrap(Vec3f position, float mass, float gravitationRange, float g, GameFi
 
 void Scrap::handleCollision(GameActor &other)
 {
-
+    other.dealDamage(SCRAP_DAMAGE);
 }
 
 GameActorView* Scrap::getView() const {

@@ -46,4 +46,3 @@ void HumanPlayer::execAction(int code)
         dynamic_cast<InputHandler*>(inputHandler)->removeInputCode(Qt::Key_D);
     }
 }
-

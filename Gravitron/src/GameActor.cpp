@@ -111,8 +111,7 @@ void GameActor::updateAll()
 		          other->getPosition(), 20.0f);
     	    if (collision)
             {
-    		        handleCollision(*other);
-                other->handleCollision(*this);
+                handleCollision(*other);
             }
     	    // Update Gravitation
     	    Vec3f f = Physics::calculateGravitationForce(this, actors->at(i));
