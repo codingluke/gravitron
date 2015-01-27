@@ -153,7 +153,7 @@ Game::~Game()
         } else if (vList.at(i).startsWith("cweapon")) {
             QStringList vL = vList.at(i).split(":", QString::SkipEmptyParts);
             setActiveWeapon(vL.at(vL.size() - 1).toInt());
-        } else if (vList.at(i).startsWith("xbackgroundPos")) {
+        } else if (vList.at(i).startsWith("backgroundPos")) {
             QStringList vL = vList.at(i).split(":", QString::SkipEmptyParts);
             setBackgroundPosition(vL.at(vL.size() - 4).toInt(), vL.at(vL.size() - 3).toInt(), 
                 vL.at(vL.size() - 2).toInt(), vL.at(vL.size() - 1).toInt());
