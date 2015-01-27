@@ -57,7 +57,7 @@ void GameGenerator::generateGame(GameLoop* g) {
     generateAstroids();
     generatePlayer();
 
-    //g->setBots(bots);
+    g->setBots(bots);
     g->setPlayer(humanPlayer);
     g->setRespawTime(settings->respawTime());
 }
