@@ -6,6 +6,9 @@
 Scrap::Scrap(Vec3f position, float mass, float gravitationRange, float g, GameField &field, vector<GameActor*> *actors) :
     GameActor(position, mass, gravitationRange, g, 20, field, 0.3, actors)
 {
+    Vec3f startAcceleration(rand() % 5, rand() % 5, 0);
+    acceleration = startAcceleration;
+
     int imgNumber = rand() % 3;
     img = "scrap3";
     if(imgNumber == 1) {

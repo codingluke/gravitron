@@ -105,7 +105,11 @@ TRANSLATIONS = gravitron_de.ts \
 
 lupdate_only {
     SOURCES = qml/*.qml \
-              qml/*.js
+              qml/menus/*.qml \
+              qml/actors/*.qml \
+              qml/*.js \
+              qml/menus/*.js \
+              qml/actors/*.js
 }
 
 # Additional import path used to resolve QML modules in Qt Creator's code model

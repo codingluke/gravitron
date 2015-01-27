@@ -21,7 +21,7 @@ Column {
         id: lbl_serverPort
         width: Global.textWidth
         //: Label for the music and sounds volume slider
-        text: "Port"
+        text: qsTr("Port")
         font.pixelSize: 12
     }
 

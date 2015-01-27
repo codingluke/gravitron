@@ -47,7 +47,7 @@ GameGenerator::~GameGenerator()
 
 void GameGenerator::generateGame(GameLoop* g) {
     srand(time(NULL));
-    //generateBots();
+    generateBots();
     generateSun();
     generateRandomPowerUps();
     generateRandomScrap();
@@ -59,15 +59,14 @@ void GameGenerator::generateGame(GameLoop* g) {
         bots[i]->setActors(actors);
     }
 
-    // g->setBots(bots);
+    g->setBots(bots);
     g->setPlayer(humanPlayer);
     g->setActors(actors);
     g->setRespawTime(settings->respawTime());
 }
 
 void GameGenerator::generateBots() {
-    //settings->botsCount();
-    for(int i = 0; i < 2; i++) {
+    for(int i = 0; i < settings->botsCount(); i++) {
         Spacecraft* sc = generateNewSpacecraft();
         actors.push_back(sc);
         if (settings->network()) {

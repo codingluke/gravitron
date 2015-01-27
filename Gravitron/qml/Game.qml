@@ -52,8 +52,8 @@ Rectangle {
         id: infoBox 
         objectName: "Infobox"
         anchors.centerIn: parent
-        text: "Waiting for the Server"
         font.pixelSize: 30
+        text: qsTr("Waiting for the Server")
         color: "#ffffff"
     }
 
