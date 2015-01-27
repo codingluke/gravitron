@@ -8,7 +8,7 @@ Physics::Physics()
 Vec3f Physics::calculateGravitationForce(GameActor *from, GameActor *to) {
     Vec3f force = from->getPosition() - to->getPosition();
     float distance = force.magnitude();
-    if (distance <= from->getGravitationRange()) {
+    if (distance <= from->getGravitationRange() && distance != 0) { //can have same position
         force.normalize();
         float strength = (from->getG() * from->getMass() * to->getMass()) / (distance * distance);
         force = force * strength;

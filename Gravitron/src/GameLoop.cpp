@@ -116,9 +116,8 @@ void GameLoop::processInput()
 
 void GameLoop::update()
 {
-    vector<GameActor*>::iterator it;
-    for(it = actors.begin(); it != actors.end(); it++) {
-        (*it)->updateAll();
+    for(int i = 0; i < (int) actors.size(); i++) {
+        actors[i]->updateAll();
     }
     for (int i = 0; i < (int) actors.size(); i++)
     {

@@ -38,14 +38,11 @@ void Planet::handleCollision(GameActor &other)
 
 void Planet::handleKill()
 {
-    // for(int i = 0; i < 3; i++) {
-    //     Vec3f position(this->position);
-    //     float mass = fmod(rand(), ASTEROID_MAX_MASS - (ASTEROID_MIN_MASS - 1)) + ASTEROID_MIN_MASS;
-    //     float g = fmod(rand(), ASTEROID_MAX_G - (ASTEROID_MIN_G - 1)) + ASTEROID_MIN_G;
-    //     float gravitationRange = fmod(rand(), ASTEROID_MAX_GRAVITATION_RANGE - (ASTEROID_MIN_GRAVITATION_RANGE - 1)) + ASTEROID_MIN_GRAVITATION_RANGE;
-    //     // Asteroid *asteroid = ;
-    //     actors->push_back(new Asteroid(position, mass, gravitationRange, g, *field, 7, actors));
-    //     Vec3f direction(rand(), rand(), 0);
-    //     actors->back()->applyForce(direction);
-    // }
+    for(int i = 0; i < 3; i++) {
+         Vec3f pos(position);
+         float mass = fmod(rand(), ASTEROID_MAX_MASS - (ASTEROID_MIN_MASS - 1)) + ASTEROID_MIN_MASS;
+         float g = fmod(rand(), ASTEROID_MAX_G - (ASTEROID_MIN_G - 1)) + ASTEROID_MIN_G;
+         float gravitationRange = fmod(rand(), ASTEROID_MAX_GRAVITATION_RANGE - (ASTEROID_MIN_GRAVITATION_RANGE - 1)) + ASTEROID_MIN_GRAVITATION_RANGE;
+         actors->push_back(new Asteroid(pos, mass, gravitationRange, g, *field, 7, actors));
+    }
 }
