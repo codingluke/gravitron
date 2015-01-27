@@ -1,20 +1,13 @@
 <RCC>
     <qresource prefix="/qml">
         <file>main.qml</file>
-        <file>main2.qml</file>
         <file>Game.qml</file>
-        <file>NewGameSubMenu.qml</file>
-        <file>CreditsSubMenu.qml</file>
         <file alias="actor">actors/Actor.qml</file>
         <file alias="spacecraft">actors/Spacecraft.qml</file>
         <file>menus/constants.js</file>
-        <file>SinglePlayerSubMenu.qml</file>
-        <file>MultiPlayerSubMenu.qml</file>
-        <file>StatsSubMenu.qml</file>
         <file>menus/functions.js</file>
         <file>menus/GlobalSettingsActions.js</file>
         <file>menus/GameSettingsActions.js</file>
-        <file>MultiplayerJoin.qml</file>
         <file>menus/Main.qml</file>
         <file>menus/NewGame.qml</file>
         <file>menus/Credits.qml</file>

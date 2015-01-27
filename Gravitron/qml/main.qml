@@ -26,17 +26,25 @@ Window {
        //loops: Audio.Infinite
     //}
     
-    Menus.Main { id: mainMenu }
+    VisualItemModel {
+        id: theModel
+        Item {
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.verticalCenter: parent.horizontalCenter
+            Loader { 
+                id: modelLoader
+                source: "menus/Main.qml" 
+            }
+        }
+    }
 
     ScrollView {
         id: scrollView
         anchors.fill: parent
-        //height: parent.height
-        //width: parent.width
 
         ListView {
             id: main_list
-            model: mainMenu
+            model: theModel
             header: Text {
                 anchors.horizontalCenter: parent.horizontalCenter
                 font.bold: true
@@ -44,23 +52,13 @@ Window {
                 text: "Gravitron"
                 height: 50
             }
-            footer: Item {
-                height: 50
-            }
+            footer: Item { height: 50 }
             anchors.fill: parent
             anchors.topMargin: 20
             anchors.bottomMargin: 20
             spacing: 10
         }
     }
-    
-    Menus.NewGame { id: newGameMenu }
-    Menus.Credits { id: creditsMenu }
-    Menus.StartGame { id: startGameMenu }
-    Menus.GlobalSettings{ id: globalSettingsMenu }
-    Menus.MultiPlayer{ id: multiPlayerMenu }
-    Menus.Server { id: serverMenu }
-    Menus.Client { id: clientMenu }
 
     Loader {
         visible: false

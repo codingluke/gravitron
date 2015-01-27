@@ -1,5 +1,5 @@
 function btn_newGameClicked(){
-    main_list.model = newGameMenu;
+    modelLoader.source = "NewGame.qml"
 }
 
 function btn_startGameClicked() {
@@ -29,15 +29,15 @@ function btn_joinMultiplayerGameClicked() {
 }
 
 function btn_settingsClicked() {
-    main_list.model = globalSettingsMenu;
+    modelLoader.source = "GlobalSettings.qml"
 }
 
 function btn_creditsClicked() {
-    main_list.model = creditsMenu;
+    modelLoader.source = "Credits.qml"
 }
 
 function btn_createMultiplayerGameClicked() {
-    main_list.model = serverMenu;
+    modelLoader.source = "Server.qml"
 }
 
 function btn_createServerClicked() {
@@ -45,7 +45,7 @@ function btn_createServerClicked() {
 }
 
 function btn_joinGameClicked() {
-    main_list.model = clientMenu;
+    modelLoader.source = "Client.qml"
 }
 
 function btn_connectToServerClicked() {
@@ -57,26 +57,18 @@ function showSubMenu(name) {
 }
 
 function btn_backClicked() {
-    main_list.model = mainMenu;
-    scrollView.visible = true;
-    loader.visible = false;
+    modelLoader.source = "Main.qml"
 }
 
 function btn_backToNewGameClicked() {
-    main_list.model = newGameMenu
+    modelLoader.source = "NewGame.qml"
 }
 
 function btn_singlePlayerClicked() {
-    main_list.model = startGameMenu;
+    modelLoader.source = "StartGame.qml"
 }
 
 function btn_multiPlayerClicked(){
-    //showNewGameSubMenu("MultiPlayerSubMenu.qml")
-    main_list.model = multiPlayerMenu;
+    modelLoader.source = "MultiPlayer.qml"
 }
 
-function showNewGameSubMenu(name) {
-    col_newGameSubMenu.visible = false;
-    load_singlePlayerSubMenu.source = name;
-    load_singlePlayerSubMenu.visible = true;
-}
