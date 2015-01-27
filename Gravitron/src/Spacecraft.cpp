@@ -59,6 +59,12 @@ GameActorView* Spacecraft::getView() const {
     return view;
 }
 
+
+int Spacecraft::getWeapon() const
+{
+    return weapon;
+}
+
 void Spacecraft::forceAhead()
 {
     applyForce(Vec3f(0.,-1 * accelerationFactor ,0.));

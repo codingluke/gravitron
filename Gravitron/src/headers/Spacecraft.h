@@ -18,7 +18,8 @@ class Spacecraft : public GameActor
     public:
         Spacecraft();
         Spacecraft(Vec3f position, double mass,
-                   float gravitationRange, float g, GameField &field, vector<GameActor*> *actors);
+                   float gravitationRange, float g, GameField &field,
+                   vector<GameActor*> *actors);
         Spacecraft(Vec3f position, double mass,
                    float gravitationRange, float g, GameField &field,
                    float maxSpeed, vector<GameActor*> *actors);
@@ -30,6 +31,7 @@ class Spacecraft : public GameActor
         int getControllingPlayer() const;
 
         GameActorView* getView() const override;
+        int getWeapon() const;
 
         void forceAhead();
         void forceBack();

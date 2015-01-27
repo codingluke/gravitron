@@ -43,9 +43,7 @@ class Game: public QObject
         void render(vector<GameActorView*> *views);
         void renderRemote(QString views);
         void setActiveWeapon(int weaponNumber);
-
-    signals:
-        Q_INVOKABLE void inputEvents(int code);
+        void setLifepoints(int lifepoints);
 
     private:
         void clearScene(vector<GameActorView*> *views);

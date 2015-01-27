@@ -20,6 +20,8 @@ class Player : public QObject
         Spacecraft* spacecraft;
         int frag;
 
+        int getWeapon() const;
+
 
 };
 #endif // PLAYER_H

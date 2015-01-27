@@ -68,7 +68,7 @@ class GameLoop : public QThread
         void renderObject(vector<GameActorView*> *views);
         void sendViewlist(QString viewlist);
         void activeWeaponGame(int weaponNumber);
-        void activeWeaponPlayer(int weaponNumber);
+        void lifepoints(int lifepoints);
 };
 
 #endif

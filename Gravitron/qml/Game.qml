@@ -4,12 +4,12 @@ import QtQuick.Controls 1.2
 import "menus/functions.js" as Functions
 
 Rectangle {
+    property int maxLifepoints: 20
     id: game_scene
     width: parent.width
     height: parent.height
     color: "black"
     z: 3
-
 
     Button {
         z: 1000
@@ -24,13 +24,39 @@ Rectangle {
         }
     }
 
+    Rectangle {
+        property int identity: -1;
+        property int lifepoints: 20;
+
+        objectName: "gameStatus"
+        
+        id: gameStatus
+        width: 200
+        height: 40
+        anchors.topMargin: 5
+        anchors.rightMargin: 5
+        anchors.top: parent.top;
+        anchors.right: parent.right;
+
+        Rectangle {
+            width: (parent.width - 2) / (20 / parent.lifepoints)
+            height: (parent.height - 2)
+            color: "lightgreen"
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.rightMargin: 1
+            anchors.right: parent.right
+        }
+    }
+
     Text {
         id: infoBox 
         objectName: "Infobox"
         anchors.centerIn: parent
         text: "Waiting for the Server"
+        font.pixelSize: 30
         color: "#ffffff"
     }
+
 
     Rectangle {
         z: 1000
@@ -51,8 +77,6 @@ Rectangle {
             source: "qrc:/img/selectLaser"
         }
     }
-
-
 
     Rectangle {
         objectName: "rec_selectMissile"

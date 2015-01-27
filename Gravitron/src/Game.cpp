@@ -42,6 +42,8 @@ Game::Game(QQmlApplicationEngine *theEngine, GravitronSettings *theSettings)
         this, SLOT(render(vector<GameActorView*>*)));
     connect(gameLoop, SIGNAL(activeWeaponGame(int)),
         this, SLOT(setActiveWeapon(int)));
+    connect(gameLoop, SIGNAL(lifepoints(int)),
+        this, SLOT(setLifepoints(int)));
     gameLoop->start();
 }
 
@@ -68,6 +70,10 @@ void Game::startServer(TcpServer *server)
         this, SLOT(render(vector<GameActorView*>*)));
     connect(gameLoop, SIGNAL(sendViewlist(QString)),
         server, SLOT(transfer(QString)));
+    connect(gameLoop, SIGNAL(lifepoints(int)),
+        this, SLOT(setLifepoints(int)));
+    connect(gameLoop, SIGNAL(activeWeaponGame(int)),
+        this, SLOT(setActiveWeapon(int)));
 
     gameLoop->start();
     gameLoop->setPriority(QThread::LowPriority);
@@ -108,13 +114,15 @@ Game::~Game()
                 if ((*it)->getProperties()["identifier"] ==
                     id.toString().toStdString()) {
                     exists = true;
+                }
             }
-        }
-        if (!exists) {
-            delete itm;
+            if (!exists) {
+                delete itm;
+            }
+        } else if (itm->property("objectName").toString() == "Infobox") {
+            itm->setProperty("visible", false);
         }
     }
-}
 }
 
 /**
@@ -137,8 +145,12 @@ Game::~Game()
                 viewlist->push_back(v);
             }
             render(viewlist);
-        } else if (vList.at(i).startsWith("c")) {
-
+        } else if (vList.at(i).startsWith("clifepoints")) {
+            QStringList vL = vList.at(i).split(":", QString::SkipEmptyParts);
+            setLifepoints(vL.at(vL.size() - 1).toInt());
+        } else if (vList.at(i).startsWith("cwapon")) {
+            QStringList vL = vList.at(i).split(":", QString::SkipEmptyParts);
+            setActiveWeapon(vL.at(vL.size() - 1).toInt());
         }
     }
 }
@@ -186,12 +198,14 @@ Game::~Game()
     delete views;
 }
 
-//void Gmae::setInfoBox(QString message) {
-    //qmlParent->
+void Game::setLifepoints(int lifepoints)
+{
+    QQuickItem *statusBar = qmlParent->findChild<QQuickItem*>("gameStatus");
+    statusBar->setProperty("lifepoints", lifepoints);
+}
 
-//}
-
-void Game::setActiveWeapon(int weaponNumber) {
+void Game::setActiveWeapon(int weaponNumber)
+{
     if(weaponNumber == 1) {
         QQuickItem *laser = qmlParent->findChild<QQuickItem*>("rec_selectLaser");
         laser->setProperty("focus",QVariant(true));

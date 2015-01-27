@@ -79,7 +79,7 @@ void GameLoop::setRespawTime(int respawnTime) {
 void GameLoop::run()
 {
     int lag = 0;
-    ms_per_update = 30;
+    ms_per_update = 16;
     running = true;
     QTime t;
     t.start();
@@ -138,6 +138,7 @@ void GameLoop::render()
         vector<GameActorView*> *viewlist = new vector<GameActorView*>;
         vector<GameActor*>::iterator it;
         QString serializedViewlist("v");
+
         for(it = actors.begin(); it != actors.end(); it++) {
             GameActorView *view = (*it)->getView();
             std::ostringstream x;
@@ -170,10 +171,12 @@ void GameLoop::render()
             }
         }
         serializedViewlist += "\n";
-        serializedViewlist += "cmessage for the infobox\n";
+        serializedViewlist += "clifepoints:17\n";
+        serializedViewlist += "cwapon:2\n";
+        emit lifepoints(12);
         emit sendViewlist(serializedViewlist);
         emit renderObject(viewlist);
-        QThread::msleep(5);
+        emit activeWeaponGame(1);
     } else {
         stop();
     }
