@@ -44,8 +44,8 @@ Game::Game(QQmlApplicationEngine *theEngine, GravitronSettings *theSettings)
         this, SLOT(setActiveWeapon(int)));
     connect(gameLoop, SIGNAL(lifepoints(int)),
         this, SLOT(setLifepoints(int)));
-    connect(gameLoop, SIGNAL(backgroundPos(float, float)),
-        this, SLOT(setBackgroundPosition(float, float)));
+    connect(gameLoop, SIGNAL(backgroundPos(float, float, float, float)),
+        this, SLOT(setBackgroundPosition(float, float, float, float)));
     gameLoop->start();
 }
 
@@ -155,7 +155,8 @@ Game::~Game()
             setActiveWeapon(vL.at(vL.size() - 1).toInt());
         } else if (vList.at(i).startsWith("xbackgroundPos")) {
             QStringList vL = vList.at(i).split(":", QString::SkipEmptyParts);
-            setBackgroundPosition(vL.at(vL.size() - 2).toInt(), vL.at(vL.size() - 1).toInt());
+            setBackgroundPosition(vL.at(vL.size() - 4).toInt(), vL.at(vL.size() - 3).toInt(), 
+                vL.at(vL.size() - 2).toInt(), vL.at(vL.size() - 1).toInt());
         }
     }
 }
@@ -203,13 +204,13 @@ Game::~Game()
     delete views;
 }
 
-void Game::setBackgroundPosition(float x, float y)
+void Game::setBackgroundPosition(float x, float y, float fieldWidth, float fieldHeight)
 {
     QQuickItem *background = qmlParent->findChild<QQuickItem*>("background");
     background->setProperty("x", window_width / 2 - x);
     background->setProperty("y", window_height / 2 - y);
-    background->setProperty("width", field->getWidth());
-    background->setProperty("height", field->getHeight());
+    background->setProperty("width", fieldWidth);
+    background->setProperty("height", fieldHeight);
 }
 
 void Game::setLifepoints(int lifepoints)

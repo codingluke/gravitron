@@ -59,6 +59,7 @@ void GameGenerator::generateGame(GameLoop* g) {
     g->setBots(bots);
     g->setPlayer(humanPlayer);
     g->setRespawTime(settings->respawTime());
+    g->setGameField(field);
 }
 
 void GameGenerator::generateBots() 
