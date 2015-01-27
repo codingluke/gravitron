@@ -25,13 +25,28 @@ Window {
        //autoPlay: true
        //loops: Audio.Infinite
     //}
+
+    Rectangle {
+      color: "#ccc"
+      width: parent.width
+      //anchors.top: parent
+      height: 60
+      z: 2
+
+      Text {
+          anchors.centerIn: parent
+          font.bold: true
+          font.pixelSize: 30
+          color: "white"
+          text: "Gravitron"
+      }
+    }
     
     VisualItemModel {
         id: theModel
         Column {
-            spacing: 10
             anchors.horizontalCenter: parent.horizontalCenter
-            anchors.verticalCenter: parent.horizontalCenter
+            anchors.verticalCenter: parent.verticalCenter
             Loader { 
                 id: modelLoader
                 source: "menus/Main.qml" 
@@ -40,28 +55,21 @@ Window {
     }
 
     ScrollView {
+        z: 1
         id: scrollView
         anchors.fill: parent
 
         ListView {
             id: main_list
             model: theModel
-            header: Text {
-                anchors.horizontalCenter: parent.horizontalCenter
-                font.bold: true
-                font.pixelSize: 30
-                text: "Gravitron"
-                height: 50
-            }
+            header: Item { height: 70 }
             footer: Item { height: 50 }
             anchors.fill: parent
-            anchors.topMargin: 20
-            anchors.bottomMargin: 20
-            spacing: 10
         }
     }
 
     Loader {
+        z: 3
         visible: false
         id: loader
         width: parent.width

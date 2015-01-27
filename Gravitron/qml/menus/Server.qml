@@ -52,9 +52,10 @@ Column {
         onClicked: Functions.btn_startMultiplayerGameClicked();
         style: BtnStyle { text: btn_startMultiplayerGame.text }
     }
+
+    Connections {
+        target: TcpServer
+        onClientConnected: btn_startMultiplayerGame.enabled = true
+    }
 }
 
-Connections {
-    target: TcpServer
-    onClientConnected: btn_startMultiplayerGame.enabled = true
-}

@@ -8,6 +8,8 @@ Rectangle {
     width: parent.width
     height: parent.height
     color: "black"
+    z: 3
+
 
     Button {
         z: 1000
@@ -15,8 +17,10 @@ Rectangle {
         text: qsTr("stopGame")
         focus: true
         onClicked: {
-            Game.stop();
             Functions.btn_backClicked();
+            Game.stop();
+            scrollView.visible = true;
+            loader.visible = false;
         }
     }
 
