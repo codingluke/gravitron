@@ -3,6 +3,8 @@
 #include "headers/Projectile.h"
 #include "headers/InputHandler.h"
 #include "headers/Laser.h"
+#include "headers/HumanPlayer.h"
+#include "headers/HumanNetworkPlayer.h"
 #include <QTime>
 #include <QDebug>
 #include <math.h>
@@ -79,7 +81,7 @@ void GameLoop::setRespawTime(int respawnTime) {
 void GameLoop::run()
 {
     int lag = 0;
-    ms_per_update = 16;
+    ms_per_update = 30;
     running = true;
     QTime t;
     t.start();
@@ -171,12 +173,20 @@ void GameLoop::render()
             }
         }
         serializedViewlist += "\n";
-        serializedViewlist += "clifepoints:17\n";
-        serializedViewlist += "cwapon:2\n";
-        emit lifepoints(12);
-        emit sendViewlist(serializedViewlist);
-        emit renderObject(viewlist);
-        emit activeWeaponGame(1);
+        vector<Player*>::iterator playit;
+        for(playit = player.begin(); playit != player.end(); playit++) {
+            if (!dynamic_cast<HumanNetworkPlayer*>(*playit)) {
+                emit lifepoints(12);
+                emit renderObject(viewlist);
+                emit activeWeaponGame((*playit)->getWeapon());
+            } else {
+                std::ostringstream weapon;
+                serializedViewlist += "clifepoints:17\n";
+                serializedViewlist += "cwapon:" +
+                                      QString::number((*playit)->getWeapon()) + "\n";
+                emit sendViewlist(serializedViewlist);
+            }
+        }
     } else {
         stop();
     }
