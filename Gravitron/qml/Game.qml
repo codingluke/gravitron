@@ -4,7 +4,7 @@ import QtQuick.Controls 1.2
 import "menus/functions.js" as Functions
 
 Rectangle {
-    property int maxLifepoints: 20
+    property int maxLifepoints: 100
     id: game_scene
     width: parent.width
     height: parent.height
@@ -26,7 +26,7 @@ Rectangle {
 
     Rectangle {
         property int identity: -1;
-        property int lifepoints: 20;
+        property int lifepoints: 100;
 
         objectName: "gameStatus"
         
@@ -39,7 +39,7 @@ Rectangle {
         anchors.right: parent.right;
 
         Rectangle {
-            width: (parent.width - 2) / (20 / parent.lifepoints)
+            width: (parent.width - 2) / (game_scene.maxLifepoints / parent.lifepoints)
             height: (parent.height - 2)
             color: "lightgreen"
             anchors.verticalCenter: parent.verticalCenter

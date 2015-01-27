@@ -57,7 +57,7 @@ void GameLoop::setBots(vector<KiPlayer*> bots) {
 void GameLoop::setPlayer(vector<Player*> player) {
     deletePlayer();
     this->player = player;
-    this->localPlayer = this->player[0]->spacecraft;
+    //this->localPlayer = this->player[0]->spacecraft;
 }
 
 void GameLoop::setActors(vector<GameActor*> actors) {
@@ -147,24 +147,24 @@ void GameLoop::render()
             std::ostringstream y;
             if (player.size() == 2)
             {
-                x << getRelativePositionX(*(player[1]->spacecraft), **it);
-                y << getRelativePositionY(*(player[1]->spacecraft), **it);
+                x << getRelativePositionX(*(player[1]->getSpacecraft()), **it);
+                y << getRelativePositionY(*(player[1]->getSpacecraft()), **it);
                 view->setProperty("x", x.str());
                 view->setProperty("y", y.str());
                 serializedViewlist += QString::fromStdString(view->toString());
                 serializedViewlist += ";";
                 x.str("");
                 y.str("");
-                x << getRelativePositionX(*(player[0]->spacecraft), **it);
-                y << getRelativePositionY(*(player[0]->spacecraft), **it);
+                x << getRelativePositionX(*(player[0]->getSpacecraft()), **it);
+                y << getRelativePositionY(*(player[0]->getSpacecraft()), **it);
                 view->setProperty("x", x.str());
                 view->setProperty("y", y.str());
                 viewlist->push_back(view);
             }
             else
             {
-                x << getRelativePositionX(*localPlayer, **it);
-                y << getRelativePositionY(*localPlayer, **it);
+                x << getRelativePositionX(*(player[0]->getSpacecraft()), **it);
+                y << getRelativePositionY(*(player[0]->getSpacecraft()), **it);
                 view->setProperty("x", x.str());
                 view->setProperty("y", y.str());
                 viewlist->push_back(view);
@@ -176,12 +176,12 @@ void GameLoop::render()
         vector<Player*>::iterator playit;
         for(playit = player.begin(); playit != player.end(); playit++) {
             if (!dynamic_cast<HumanNetworkPlayer*>(*playit)) {
-                emit lifepoints(12);
+                emit lifepoints((*playit)->getHealth());
                 emit renderObject(viewlist);
                 emit activeWeaponGame((*playit)->getWeapon());
             } else {
-                std::ostringstream weapon;
-                serializedViewlist += "clifepoints:17\n";
+                serializedViewlist += "clifepoints:" +
+                                      QString::number((*playit)->getHealth()) + "\n";
                 serializedViewlist += "cwapon:" +
                                       QString::number((*playit)->getWeapon()) + "\n";
                 emit sendViewlist(serializedViewlist);

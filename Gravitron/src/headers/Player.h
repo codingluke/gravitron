@@ -8,6 +8,10 @@ class Player : public QObject
 {
     Q_OBJECT
 
+    protected:
+        Spacecraft* spacecraft;
+        int frag;
+
     public:
         Player(QObject *parent = 0);
         Player(Spacecraft* spacecraft, int frag);
@@ -16,12 +20,8 @@ class Player : public QObject
         virtual void processInput();
         void respawn();
 
-    public:
-        Spacecraft* spacecraft;
-        int frag;
-
         int getWeapon() const;
-
-
+        int getHealth() const;
+        Spacecraft* getSpacecraft() const;
 };
 #endif // PLAYER_H

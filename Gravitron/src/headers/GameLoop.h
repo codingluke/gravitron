@@ -29,7 +29,7 @@ class GameLoop : public QThread
         QObject *game;
         QQmlApplicationEngine *engine;
         vector<GameActor*> actors;
-        Spacecraft *localPlayer;
+        //Spacecraft *localPlayer;
         vector<KiPlayer*> bots;
         vector<Player*> player;
         int respawnTime;

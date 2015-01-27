@@ -27,3 +27,14 @@ int Player::getWeapon() const
 {
     return spacecraft->getWeapon();
 }
+
+int Player::getHealth() const
+{
+    return spacecraft->getHealth();
+}
+
+
+Spacecraft* Player::getSpacecraft() const
+{
+    return spacecraft;
+}
