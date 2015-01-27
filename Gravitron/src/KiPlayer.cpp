@@ -59,12 +59,6 @@ void KiPlayer::findTarget() {
         PowerUp* isPowerUp = dynamic_cast<PowerUp*>(candidate);
         if ((isSpacecraft != 0) || (isPowerUp != 0))
             target = candidate;
-        if (isPowerUp != 0)
-            cerr << "target: PowerUp\n";
-        if (isSpacecraft)
-            cerr << "target: Spacecraft\n";
-        if ((isSpacecraft == 0) && (isPowerUp == 0)) 
-            cerr << "target: other\n";
     }
 }
 
@@ -90,13 +84,13 @@ void KiPlayer::followTarget(GameActor *toFollow) {
 }
 
 void KiPlayer::shoot() {
-    if(rand() % 10 == 0.1f) {
+    if(rand() % 10 <= 0.1f) {
         spacecraft->shootDown();
-    } else if(rand() % 10 == 0.1f) {
+    } else if(rand() % 10 <= 0.1f) {
         spacecraft->shootLeft();
-    } else if(rand() % 10 == 0.1f) {
+    } else if(rand() % 10 <= 0.1f) {
         spacecraft->shootRight();
-    } else if(rand() % 10 == 0.1f) {
+    } else if(rand() % 10 <= 0.1f) {
         spacecraft->shootUp();
     }
 }
