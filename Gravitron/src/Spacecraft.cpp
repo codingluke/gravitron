@@ -3,6 +3,8 @@
 #include "headers/AimMissile.h"
 #include "headers/Missile.h"
 #include "headers/PowerUp.h"
+#include "headers/Scrap.h"
+#include "headers/PowerUp.h"
 #include "headers/ActorsAdjustments.h"
 #include <sstream>
 #include <iostream>
@@ -31,8 +33,9 @@ Spacecraft::Spacecraft(const Spacecraft &spacecraft) : GameActor(spacecraft)
 
 void Spacecraft::init() {
     g = 0;
-    weapon = 1;
+    weapon = 3;
     accelerationFactor = 0.5;
+    maxSpeed = 0;
 }
 
 Spacecraft::~Spacecraft() {
@@ -50,6 +53,9 @@ GameActorView* Spacecraft::getView() const {
     view->setProperty("identifier", identifiy.str());
     view->setProperty("x", x.str());
     view->setProperty("y", y.str());
+    std::ostringstream isVisible;
+    isVisible << !killed;
+    view->setProperty("isVisible", isVisible.str());
     std::ostringstream rot;
     rot << calculateRotation();
     view->setProperty("angle", rot.str());
@@ -166,6 +172,21 @@ void Spacecraft::setControllingPlayer(int controllingPlayerID)
 int Spacecraft::getControllingPlayer() const
 {
     return this->controllingPlayerID;
+}
+
+void Spacecraft::handleKill()
+{
+    int numberRadomScrap = (rand() % 5) + 1;
+    for (int i = 0; i < numberRadomScrap; i++) {
+        Vec3f pos(position);
+        float mass = fmod(rand(), SCRAP_MAX_MASS - (SCRAP_MIN_MASS - 1)) + SCRAP_MIN_MASS;
+        float g = fmod(rand(), SCRAP_MAX_G - (SCRAP_MIN_G - 1)) + SCRAP_MIN_G;
+        float gravitationRange = fmod(rand(), SCRAP_MAX_GRAVITATION_RANGE - (SCRAP_MIN_GRAVITATION_RANGE - 1)) +SCRAP_MIN_GRAVITATION_RANGE;
+        actors->push_back(new Scrap(position, mass, gravitationRange, g, *field, actors));
+    }
+
+    Vec3f pos(position);
+    actors->push_back(new PowerUp(pos, *field, actors));
 }
 
 

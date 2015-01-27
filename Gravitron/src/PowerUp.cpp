@@ -11,7 +11,7 @@ void PowerUp::handleCollision(GameActor &other)
 {
     Spacecraft* isSpacecraft = dynamic_cast<Spacecraft*>(&other);
 
-    if (isSpacecraft != 0) {
+    if (isSpacecraft != 0 && !(isSpacecraft->isKilled())) {
         isSpacecraft->upgradeWeapon();
         kill();
     }

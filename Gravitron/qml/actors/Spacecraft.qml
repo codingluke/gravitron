@@ -4,10 +4,12 @@ Rectangle {
     property int identifier 
     property real angle
     property int controllingPlayerID
+    property bool isVisible: true
 
     id: spacecraft
     color: "#00000000"
     objectName: identifier
+    visible: isVisible
     Image {
         id: image1
         anchors.horizontalCenter: parent.horizontalCenter

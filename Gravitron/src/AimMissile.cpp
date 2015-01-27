@@ -46,7 +46,7 @@ void AimMissile::handleCollision(GameActor &other)
         if (*it == &other)
             otherIsFriendly = true;
     }
-    if (!otherIsFriendly)
+    if (!otherIsFriendly && !killed)
     {
         other.dealDamage(AIM_MISSILE_DAMAGE);
         kill();
