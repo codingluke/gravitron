@@ -18,7 +18,6 @@ using namespace std;
 GameLoop::GameLoop(GameGenerator gGenerator)
 {
     gGenerator.generateGame(this);
-    std::cout << "set up done" << std::endl;
 }
 
 GameLoop::~GameLoop() {
@@ -128,10 +127,11 @@ void GameLoop::update()
             actors.erase(actors.begin() + i);
         }
     }
+    actors.shrink_to_fit();
     for (int i = 0; i < bots.size(); i++){
         bots[i]->update();
     }
-    actors.shrink_to_fit();
+    
     QThread::msleep(5);
 }
 

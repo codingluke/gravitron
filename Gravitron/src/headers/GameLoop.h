@@ -28,16 +28,19 @@ class GameLoop : public QThread
         int ms_per_update;
         QObject *game;
         QQmlApplicationEngine *engine;
-        vector<GameActor*> actors;
+        
         Spacecraft *localPlayer;
-        vector<KiPlayer*> bots;
-        vector<Player*> player;
+        std::vector<KiPlayer*> bots;
+        std::vector<Player*> player;
         int respawnTime;
         GameField *field;
         //InputHandler *inputHandler;
 
     public:
+        std::vector<GameActor*> actors;
+
         GameLoop(GameGenerator gGenerator);
+
         //GameLoop(NetworkInputHandler *nHandler, GameGenerator gGenerator);
 
         virtual ~GameLoop();
