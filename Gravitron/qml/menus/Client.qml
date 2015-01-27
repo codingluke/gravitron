@@ -20,7 +20,7 @@ Column {
     Text {
         width: Global.textWidth
         //: Label for the music and sounds volume slider
-        text: "Host"
+        text: qsTr("Host")
         font.pixelSize: 12
     }
 
@@ -33,7 +33,7 @@ Column {
     Text {
         width: Global.textWidth
         //: Label for the music and sounds volume slider
-        text: "Port"
+        text: qsTr("Port")
         font.pixelSize: 12
     }
 
@@ -50,7 +50,7 @@ Column {
         width: Global.buttonWidth
         height: Global.buttonHeight
         //: Button to start a single player game
-        text: "Connect to Server"
+        text: qsTr("Connect to Server")
         onClicked: Functions.btn_connectToServerClicked();
         style: BtnStyle { text: btn_connectToServer.text }
     }

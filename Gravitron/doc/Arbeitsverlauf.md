@@ -62,5 +62,10 @@ GameLoop:
 - Qt verstehen
 	- mekrwürdiges / ungewohntes verhalten
 	-  
+
+
+
+- Settings persistent
+- 
 	
 
