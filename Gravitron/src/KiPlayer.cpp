@@ -16,8 +16,13 @@ KiPlayer::~KiPlayer() {
 }
 
 void KiPlayer::update() {
-    GameActor* isGameActor = dynamic_cast<GameActor*>(target);
-    if (isGameActor != 0 && !target->isKilled()) 
+    bool targetExists = false;
+    for (GameActor* act : *actors)
+    {
+        if (target == act)
+            targetExists = true;
+    }
+    if (targetExists && !target->isKilled()) 
     { 
             followTarget(target);
             shoot();

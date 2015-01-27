@@ -54,8 +54,13 @@ void AimMissile::handleCollision(GameActor &other)
 }
 
 void AimMissile::update() {
-    GameActor* test = dynamic_cast<GameActor*>(target);
-    if (test != 0)
+    bool targetExists = false;
+    for (GameActor* act : *actors)
+    {
+        if (target == act)
+            targetExists = true;
+    }
+    if (targetExists)
     {
         Vec3f d = target->getPosition() - position;
         applyForce(d.normalize() * 2);
