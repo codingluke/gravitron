@@ -47,7 +47,7 @@ GameGenerator::~GameGenerator()
 
 void GameGenerator::generateGame(GameLoop* g) {
     srand(time(NULL));
-    //generateBots();
+    generateBots();
     generateSun();
     generateRandomPowerUps();
     generateRandomScrap();
@@ -59,7 +59,7 @@ void GameGenerator::generateGame(GameLoop* g) {
         bots[i]->setActors(actors);
     }
 
-    // g->setBots(bots);
+    g->setBots(bots);
     g->setPlayer(humanPlayer);
     g->setActors(actors);
     g->setRespawTime(settings->respawTime());
@@ -69,11 +69,16 @@ void GameGenerator::generateBots() {
     //settings->botsCount();
     for(int i = 0; i < 2; i++) {
         Spacecraft* sc = generateNewSpacecraft();
-        actors.push_back(sc);
-        if (settings->network()) {
-            bots.push_back(new KiNetworkPlayer(sc, settings->frag(), settings->difficulty()));
-        } else {
-            bots.push_back(new KiPlayer(sc, settings->frag(), settings->difficulty()));
+        Spacecraft* test = dynamic_cast<Spacecraft*>(sc);
+        if (sc != 0)
+        {
+            actors.push_back(sc);
+            if (settings->network()) {
+                bots.push_back(new KiNetworkPlayer(sc, settings->frag(), settings->difficulty()));
+            } else {
+                bots.push_back(new KiPlayer(sc, settings->frag(), settings->difficulty()));
+            }
+            std::cout << bots.size() << std::endl;
         }
     }
 }

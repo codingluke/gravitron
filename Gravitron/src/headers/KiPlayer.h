@@ -10,7 +10,7 @@ class KiPlayer : public Player
 private:
     bool leftEnemys();
     void followTarget();
-    void shot();
+    void shoot();
     void findTarget();
 
 public:
@@ -21,7 +21,7 @@ public:
 
 protected:
    int difficulty;
-   int target;
+   GameActor* target;
    vector<GameActor*> actors;
 };
 

@@ -6,6 +6,7 @@
 KiPlayer::KiPlayer(Spacecraft *spacecraft, int frag, int difficulty) : Player(spacecraft, frag)
 {
     this->difficulty = difficulty;
+    target = NULL;
     findTarget();
 }
 
@@ -14,32 +15,49 @@ KiPlayer::~KiPlayer() {
 }
 
 void KiPlayer::update() {
-    Spacecraft* isSpacecraft = dynamic_cast<Spacecraft*>(actors[target]);
-    PowerUp* isPowerUp = dynamic_cast<PowerUp*>(actors[target]);
-    if(target < actors.size() &&
-       (isSpacecraft != NULL ||
-        isPowerUp != NULL)) {
+    Spacecraft* isSpacecraft = dynamic_cast<Spacecraft*>(target);
+    PowerUp* isPowerUp = dynamic_cast<PowerUp*>(target);
+    if((isSpacecraft != 0) || (isPowerUp != 0)) {
         followTarget();
-        shot();
+        shoot();
     } else {
         findTarget();
     }
 }
 
 void KiPlayer::findTarget() {
-    Spacecraft* isSpacecraft = NULL;
-    PowerUp* isPowerUp = NULL;
-    bool findEnemy = leftEnemys();
-    while ((isSpacecraft == NULL ||
-            isPowerUp == NULL) &&
-            findEnemy)
+    if (actors.size() > 1)
     {
-        target = rand() % actors.size();
-        isSpacecraft = dynamic_cast<Spacecraft*>(actors[target]);
-        if(isSpacecraft == spacecraft) {
-            isSpacecraft = NULL;
+        GameActor* candidate = NULL;
+        float minDistance = -1;
+        for (GameActor* act : actors)
+        {
+            Spacecraft* isSpacecraft = dynamic_cast<Spacecraft*>(act);
+            PowerUp* isPowerUp = dynamic_cast<PowerUp*>(act);
+            if (((isSpacecraft != 0) || (isPowerUp != 0)) && (act != this->spacecraft))
+            {
+                if (minDistance > 0)
+                {
+                    if (this->spacecraft->getDistance(*act) < minDistance)
+                    {
+                        candidate = act;
+                        minDistance = this->spacecraft->getDistance(*act);
+                    }
+                }
+                else
+                {
+                    minDistance = this->spacecraft->getDistance(*act);
+                }
+            }
         }
-        isPowerUp = dynamic_cast<PowerUp*>(actors[target]);
+        Spacecraft* isSpacecraft = dynamic_cast<Spacecraft*>(candidate);
+        PowerUp* isPowerUp = dynamic_cast<PowerUp*>(candidate);
+        if ((isSpacecraft != 0) || (isPowerUp != 0))
+            target = candidate;
+        if (isPowerUp != 0)
+            cerr << "target: PowerUp\n";
+        if (isSpacecraft)
+            cerr << "target: Spacecraft\n";
     }
 }
 
@@ -59,12 +77,16 @@ void KiPlayer::setActors(vector<GameActor*> actors) {
 }
 
 void KiPlayer::followTarget() {
-    Vec3f d = spacecraft->getPosition() - actors.at(target)->getPosition();
-    d = d.normalize();
-    spacecraft->applyForce(d);
+    GameActor* test = dynamic_cast<GameActor*>(target);
+    if (target != 0)
+    {
+        Vec3f d = target->getPosition() - spacecraft->getPosition();
+        d = d.normalize();
+        spacecraft->applyForce(d);
+    }
 }
 
-void KiPlayer::shot() {
+void KiPlayer::shoot() {
     if(rand() % 10 == 0.1f) {
         spacecraft->shootDown();
     } else if(rand() % 10 == 0.1f) {

@@ -55,15 +55,14 @@ void AimMissile::handleCollision(GameActor &other)
 
 void AimMissile::update() {
     GameActor* test = dynamic_cast<GameActor*>(target);
-    if (test == 0)
-    {
-        setNearestTarget();
-    }
-    test = dynamic_cast<GameActor*>(target);
     if (test != 0)
     {
         Vec3f d = target->getPosition() - position;
         applyForce(d.normalize() * 2);
+    }
+    else
+    {
+        setNearestTarget();
     }
     Projectile::update();
 }
