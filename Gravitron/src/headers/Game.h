@@ -44,6 +44,7 @@ class Game: public QObject
         void renderRemote(QString views);
         void setActiveWeapon(int weaponNumber);
         void setLifepoints(int lifepoints);
+        void setBackgroundPosition(float x, float y);
 
     private:
         void clearScene(vector<GameActorView*> *views);

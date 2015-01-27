@@ -143,6 +143,13 @@ void GameLoop::render()
         vector<GameActorView*> *viewlist = new vector<GameActorView*>;
         vector<GameActor*>::iterator it;
         QString serializedViewlist("v");
+        std::ostringstream x;
+        std::ostringstream y;
+        //GameActorView *bgrndView = new GameActorView("qrc:/qml/gameBackground");
+        GameActor bgrndUpperLeft = GameActor(Vec3f(0, 0, 0), 0, 0, 0, 0, *field, 0, NULL);
+        float bgrndX = getRelativePositionX(*(player[0]->spacecraft), bgrndUpperLeft);
+        float bgrndY = getRelativePositionY(*(player[0]->spacecraft), bgrndUpperLeft);
+        //viewlist->push_back(bgrndView);          
 
         for(it = actors.begin(); it != actors.end(); it++) {
             GameActorView *view = (*it)->getView();
@@ -171,22 +178,25 @@ void GameLoop::render()
                 view->setProperty("x", x.str());
                 view->setProperty("y", y.str());
                 viewlist->push_back(view);
-                serializedViewlist += QString::fromStdString(view->toString());
-                serializedViewlist += ";";
+                // serializedViewlist += QString::fromStdString(view->toString());
+                // serializedViewlist += ";";
             }
         }
         serializedViewlist += "\n";
         vector<Player*>::iterator playit;
         for(playit = player.begin(); playit != player.end(); playit++) {
             if (!dynamic_cast<HumanNetworkPlayer*>(*playit)) {
+                emit backgroundPos(bgrndX, bgrndY); 
                 emit lifepoints(12);
                 emit renderObject(viewlist);
-                emit activeWeaponGame((*playit)->getWeapon());
+                emit activeWeaponGame((*playit)->getWeapon());                     
             } else {
                 std::ostringstream weapon;
                 serializedViewlist += "clifepoints:17\n";
-                serializedViewlist += "cwapon:" +
+                serializedViewlist += "cweapon:" +
                                       QString::number((*playit)->getWeapon()) + "\n";
+                serializedViewlist += "backgroundPos:" + QString::number(bgrndX) + 
+                                        ":" + QString::number(bgrndY) + "\n";
                 emit sendViewlist(serializedViewlist);
             }
         }
