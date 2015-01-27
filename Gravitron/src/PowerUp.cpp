@@ -10,7 +10,8 @@ PowerUp::PowerUp(Vec3f position, GameField &field, vector<GameActor*> *actors) :
 void PowerUp::handleCollision(GameActor &other)
 {
     Spacecraft* isSpacecraft = dynamic_cast<Spacecraft*>(&other);
-    if (isSpacecraft != 0 && !killed) {
+
+    if (isSpacecraft != 0) {
         isSpacecraft->upgradeWeapon();
         kill();
     }

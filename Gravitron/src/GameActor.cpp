@@ -11,10 +11,10 @@ void GameActor::initialize(Vec3f position, double mass, float gravitationRange, 
 {
     identifier = GameActor::id++;
     killed = false;
-	  velocity = Vec3f();
+    velocity = Vec3f();
     acceleration = Vec3f();
     this->position = position;
-	  this->mass = mass;
+    this->mass = mass;
     this->gravitationRange = gravitationRange;
     this->g = g;
     this->field = &field;
