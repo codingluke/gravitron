@@ -11,11 +11,6 @@ Planet::Planet(Vec3f pos, float mass, float gravitationRange, float g, GameField
 {
 }
 
-// void Planet::kill() {
-//     qDebug() << "Planet: kill";
-
-// }
-
 GameActorView* Planet::getView() const {
     std::ostringstream identifiy;
     identifiy << identifier;
@@ -38,7 +33,7 @@ void Planet::update() {
 
 void Planet::handleCollision(GameActor &other)
 {
-
+    other.dealDamage(PLANET_DAMAGE);
 }
 
 void Planet::handleKill()

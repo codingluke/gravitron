@@ -38,8 +38,6 @@ void TcpServer::transfer(QString message)
     if (client && client->state() == QAbstractSocket::ConnectedState) {
         client->write(message.toStdString().c_str(), message.length());
         client->flush();
-    } else {
-        //qDebug() << "TcpServer: not connected!";
     }
 }
 

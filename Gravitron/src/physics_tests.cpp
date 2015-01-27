@@ -4,7 +4,6 @@
 
 void Physics_tests::initTestCase() {
     Vec3f pos(1.0f, 1.0f, 1.0f);
-    //GameActor(Vec3f position, double mass, float gravitationRange, float g, int health, GameField &field, float maxSpeed);
     gf = new GameField(1,1);
     actor1 = GameActor(pos, 1.0, 1.0f, 1.0f, 1, *gf, 1.0f, NULL);
     pos = Vec3f(2.0f, 2.0f, 2.0f);

@@ -27,11 +27,12 @@ Rectangle {
     Rectangle {
         property int identity: -1;
         property int lifepoints: 20;
+        property int lengthFactor: 2
 
         objectName: "gameStatus"
         
         id: gameStatus
-        width: 200
+        width: 100 * lengthFactor
         height: 40
         anchors.topMargin: 5
         anchors.rightMargin: 5
@@ -39,7 +40,7 @@ Rectangle {
         anchors.right: parent.right;
 
         Rectangle {
-            width: (parent.width - 2) / (20 / parent.lifepoints)
+            width: (parent.lifepoints * parent.lengthFactor)
             height: (parent.height - 2)
             color: "lightgreen"
             anchors.verticalCenter: parent.verticalCenter

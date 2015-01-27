@@ -13,13 +13,13 @@ Spacecraft::Spacecraft() : GameActor()
 }
 
 Spacecraft::Spacecraft(Vec3f position, double mass, float gravitationRange, float g, GameField &field, vector<GameActor*> *actors) :
-    GameActor(position, mass, gravitationRange, g, 100, field, actors)
+    GameActor(position, mass, gravitationRange, g, SPACECRAFT_MAX_HEALTH, field, actors)
 {
     init();
 }
 
 Spacecraft::Spacecraft(Vec3f position, double mass, float gravitationRange, float g, GameField &field, float maxSpeed, vector<GameActor*> *actors) :
-    GameActor(position, mass, gravitationRange, g, 100, field, maxSpeed, actors)
+    GameActor(position, mass, gravitationRange, g, SPACECRAFT_MAX_HEALTH, field, maxSpeed, actors)
 {
     init();
 }
@@ -87,7 +87,7 @@ void Spacecraft::forceRight()
 
 Projectile &Spacecraft::shootUp()
 {
-    Projectile* p;
+    Projectile* p = NULL;
     if (weapon == 1) {
         p = new Laser(this->getPosition() + Vec3f(0,-2.,0.), Vec3f(0., -50., 0.), *field, *this, actors);
     } else if (weapon == 2) {
@@ -101,12 +101,12 @@ Projectile &Spacecraft::shootUp()
 
 void Spacecraft::repair()
 {
-
+    health = SPACECRAFT_MAX_HEALTH;
 }
 
 Projectile &Spacecraft::shootDown()
 {
-    Projectile* p;
+    Projectile* p = NULL;
     if (weapon == 1) {
         p = new Laser(this->getPosition() + Vec3f(0., 2., 0.), Vec3f(0., 50., 0.), *field, *this, actors);
     } else if (weapon == 2) {
@@ -120,7 +120,7 @@ Projectile &Spacecraft::shootDown()
 
 Projectile &Spacecraft::shootLeft()
 {
-    Projectile* p;
+    Projectile* p = NULL;
     if (weapon == 1) {
         p = new Laser(this->getPosition() + Vec3f(-2., 0., 0.), Vec3f(-50., 0., 0.), *field, *this, actors);
     } else if (weapon == 2) {
@@ -134,7 +134,7 @@ Projectile &Spacecraft::shootLeft()
 
 Projectile &Spacecraft::shootRight()
 {
-    Projectile* p;
+    Projectile* p = NULL;
     if (weapon == 1) {
         p = new Laser(this->getPosition() + Vec3f(2., 0., 0.), Vec3f(50., 0., 0.), *field, *this, actors);
     } else if (weapon == 2) {

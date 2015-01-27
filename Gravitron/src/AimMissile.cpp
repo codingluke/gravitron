@@ -48,7 +48,7 @@ void AimMissile::handleCollision(GameActor &other)
     }
     if (!otherIsFriendly)
     {
-        other.dealDamage(LASER_DAMAGE);
+        other.dealDamage(AIM_MISSILE_DAMAGE);
         kill();
     }
 }

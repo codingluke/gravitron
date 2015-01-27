@@ -179,12 +179,12 @@ void GameLoop::render()
         vector<Player*>::iterator playit;
         for(playit = player.begin(); playit != player.end(); playit++) {
             if (!dynamic_cast<HumanNetworkPlayer*>(*playit)) {
-                emit lifepoints(12);
+                emit lifepoints((*playit)->getLifepoints());
                 emit renderObject(viewlist);
                 emit activeWeaponGame((*playit)->getWeapon());
             } else {
                 std::ostringstream weapon;
-                serializedViewlist += "clifepoints:17\n";
+                serializedViewlist += "clifepoints:" + QString::number((*playit)->getLifepoints()) + "\n";
                 serializedViewlist += "cwapon:" +
                                       QString::number((*playit)->getWeapon()) + "\n";
                 emit sendViewlist(serializedViewlist);

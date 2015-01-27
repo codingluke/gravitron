@@ -1,4 +1,5 @@
 #include "headers/Player.h"
+#include "headers/ActorsAdjustments.h"
 
 Player::Player(QObject *parent) : QObject(parent)
 {
@@ -26,4 +27,9 @@ void Player::respawn() {
 int Player::getWeapon() const
 {
     return spacecraft->getWeapon();
+}
+
+int Player::getLifepoints() const {
+    float percent = spacecraft->getHealth() * 100 / SPACECRAFT_MAX_HEALTH;
+    return percent;
 }

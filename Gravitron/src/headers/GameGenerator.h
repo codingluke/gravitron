@@ -38,7 +38,7 @@ class GameGenerator : public QObject
         void generateBots();
         void generatePlanets();
         void generateAstroids();
-        void generatePlayer(GameLoop* g);
+        void generatePlayer();
         void generateRandomPowerUps();
         void generateRandomScrap();
         void generateSun();

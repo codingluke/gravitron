@@ -11,6 +11,7 @@ static float SUN_MAX_MAXSPEED = 0;
 static float SUN_MIN_MAXSPEED = 0;
 static float SUN_MAX_RADIUS = 100;
 static float SUN_MIN_RADIUS = 100;
+static float SUN_DAMAGE = 10;
 static float SUN_MAX_HEALTH = -1;
 static float SUN_MIN_HEALTH = -1;
 
@@ -24,6 +25,7 @@ static float PLANET_MAX_MAXSPEED = 0;
 static float PLANET_MIN_MAXSPEED = 0;
 static float PLANET_MAX_RADIUS = 50;
 static float PLANET_MIN_RADIUS = 50;
+static float PLANET_DAMAGE = 5;
 static float PLANET_MAX_HEALTH = 3000;
 static float PLANET_MIN_HEALTH = 2000;
 
@@ -38,6 +40,7 @@ static float ASTEROID_MAX_MAXSPEED = 10;
 static float ASTEROID_MIN_MAXSPEED = 10;
 static float ASTEROID_MAX_RADIUS = 25;
 static float ASTEROID_MIN_RADIUS = 40;
+static float ASTEROID_DAMAGE = 2;
 static float ASTEROID_MAX_HEALTH = 150;
 static float ASTEROID_MIN_HEALTH = 20;
 
@@ -100,6 +103,7 @@ static float SCRAP_MAX_MAXSPEED = 0;
 static float SCRAP_MIN_MAXSPEED = 2;
 static float SCRAP_MAX_RADIUS = 2;
 static float SCRAP_MIN_RADIUS = 2;
+static float SCRAP_DAMAGE = 0.5;
 static float SCRAP_MAX_HEALTH = 5;
 static float SCRAP_MIN_HEALTH = 1;
 

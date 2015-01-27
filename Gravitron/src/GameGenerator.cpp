@@ -31,7 +31,8 @@ GameGenerator::GameGenerator(GravitronSettings *settings, GameField* field, TcpS
     this->server = server;
 }
 
-GameGenerator::GameGenerator(const GameGenerator& original)
+GameGenerator::GameGenerator(const GameGenerator& original) :
+    QObject(original.parent())
 {
     settings = original.settings;
     field = original.field;
@@ -54,9 +55,9 @@ void GameGenerator::generateGame(GameLoop* g) {
     generateRandomScrap();
     generatePlanets();
     generateAstroids();
-    generatePlayer(g);
+    generatePlayer();
 
-    g->setBots(bots);
+    //g->setBots(bots);
     g->setPlayer(humanPlayer);
     g->setRespawTime(settings->respawTime());
 }
@@ -74,7 +75,7 @@ void GameGenerator::generateBots()
     }
 }
 
-void GameGenerator::generatePlayer(GameLoop* g) {
+void GameGenerator::generatePlayer() {
     if (settings->network()) {
         Spacecraft* sc = generateNewSpacecraft();
         Spacecraft* sc2 = generateNewSpacecraft();
@@ -92,8 +93,6 @@ void GameGenerator::generatePlayer(GameLoop* g) {
 Spacecraft* GameGenerator::generateNewSpacecraft() {
     Vec3f position(rand() % field->getWidth(),rand() % field->getHeight(), 0);
     float mass = fmod(rand(), SPACECRAFT_MAX_MASS - (SPACECRAFT_MIN_MASS - 1)) + SPACECRAFT_MIN_MASS;
-    float g = fmod(rand(), PLANET_MAX_G - (PLANET_MIN_G - 1)) + PLANET_MIN_G;
-    float gravitationRange = fmod(rand(), PLANET_MAX_GRAVITATION_RANGE - (PLANET_MIN_GRAVITATION_RANGE - 1)) + PLANET_MIN_GRAVITATION_RANGE;
     return new Spacecraft(position, mass, 0, 0, *field, SPACECRAFT_MAX_MAXSPEED, actors);
 }
 

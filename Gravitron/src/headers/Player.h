@@ -20,6 +20,7 @@ class Player : public QObject
         Spacecraft* spacecraft;
         int frag;
 
+        int getLifepoints() const;
         int getWeapon() const;
 
 

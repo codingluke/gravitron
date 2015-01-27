@@ -1,4 +1,5 @@
 #include "headers/Asteroid.h"
+#include "headers/ActorsAdjustments.h"
 #include <sstream>
 #include <iostream>
 
@@ -29,5 +30,5 @@ GameActorView* Asteroid::getView() const {
 
 void Asteroid::handleCollision(GameActor &other)
 {
-
+    other.dealDamage(ASTEROID_DAMAGE);
 }

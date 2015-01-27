@@ -50,11 +50,4 @@ void HumanNetworkPlayer::execAction(int code)
         spacecraft->shootRight();
         dynamic_cast<NetworkInputHandler*>(inputHandler)->removeInputCode(Qt::Key_D);
     }
-    /*else if (code == Qt::Key_1) {
-        spacecraft->setWeapon(1);
-    } else if (code == Qt::Key_2) {
-        spacecraft->setWeapon(2);
-    } else if (code == Qt::Key_3) {
-        spacecraft->setWeapon(3);
-    }*/
 }
