@@ -4,8 +4,8 @@ import QtQuick.Controls 1.2
 import "constants.js" as Global
 import "functions.js" as Functions
 
-Column {
-    spacing: 10
+//Column {
+    //spacing: 10
 
     Button {
         //: Button back to the mainmenu
@@ -40,4 +40,4 @@ Column {
         onClicked: Functions.btn_multiPlayerClicked()
         style: BtnStyle { text: btn_multiPlayer.text }
     }
-}
+//}

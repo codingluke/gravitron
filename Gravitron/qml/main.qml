@@ -28,7 +28,8 @@ Window {
     
     VisualItemModel {
         id: theModel
-        Item {
+        Column {
+            spacing: 10
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.verticalCenter: parent.horizontalCenter
             Loader { 
