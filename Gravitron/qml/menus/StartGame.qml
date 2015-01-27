@@ -23,7 +23,10 @@ Column {
         id: slide_playingFieldSize
         width: Global.sliderWidth
         height: Global.sliderHeigt
+        stepSize: 0.1
         value: Settings.playingFieldSize
+        minimumValue: 1
+        maximumValue: 5
         onPressedChanged: {
             Settings.setPlayingFieldSize(slide_playingFieldSize.value)
         }
@@ -34,7 +37,11 @@ Column {
         id: slide_botsCount
         width: Global.sliderWidth
         height: Global.sliderHeigt
-        value: Settings.botsCount
+        updateValueWhileDragging: true
+        stepSize: 1
+        maximumValue: 8
+        minimumValue: 1
+        value: 1
         onPressedChanged: {
             Settings.setBotsCount(slide_botsCount.value)
         }
@@ -45,6 +52,7 @@ Column {
         id: slide_planetCount
         width: Global.sliderWidth
         height: Global.sliderHeigt
+        stepSize: 1
         value: Settings.planetCount
         onPressedChanged: {
             Settings.setPlanetCount(slide_planetCount.value)
@@ -58,6 +66,7 @@ Column {
         id: slide_astroidCount
         width: Global.sliderWidth
         height: Global.sliderHeigt
+        stepSize: 1
         value: Settings.astroidCount
         onPressedChanged: {
             Settings.setAstroidCount(slide_astroidCount.value)
@@ -71,7 +80,9 @@ Column {
         id: slide_frag
         width: Global.sliderWidth
         height: Global.sliderHeigt
-        value: Settings.frag
+        stepSize: 1
+        minimumValue: 32
+        value: 32
         onPressedChanged: {
             Settings.setFrag(slide_frag.value)
         }
@@ -82,7 +93,10 @@ Column {
         id: slide_respawTime
         width: Global.sliderWidth
         height: Global.sliderHeigt
-        value: Settings.respawTime
+        stepSize: 1
+        minimumValue: 12
+        value: 12
+        maximumValue: 3
         onPressedChanged: {
             Settings.setRespawTime(slide_respawTime.value)
         }

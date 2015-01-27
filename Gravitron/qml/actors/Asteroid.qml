@@ -2,7 +2,7 @@ import QtQuick 2.3
 
 Rectangle {
     property int identifier
-    property real planet
+    property real angle
 
     id: asteroid
     objectName: identifier
@@ -20,4 +20,5 @@ Rectangle {
       origin.y: height / 2 ; 
       angle: asteroid.angle - 90
     }
+
 }
