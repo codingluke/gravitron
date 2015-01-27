@@ -3,9 +3,11 @@
 #include <iostream>
 #include <QDebug>
 
-KiPlayer::KiPlayer(Spacecraft *spacecraft, int frag, int difficulty) : Player(spacecraft, frag)
+KiPlayer::KiPlayer(Spacecraft *spacecraft, int frag, int difficulty, std::vector<GameActor*> *actors) : Player(spacecraft, frag)
 {
     this->difficulty = difficulty;
+    this->actors = actors;
+    target = NULL;
     findTarget();
 }
 
@@ -14,64 +16,86 @@ KiPlayer::~KiPlayer() {
 }
 
 void KiPlayer::update() {
-    Spacecraft* isSpacecraft = dynamic_cast<Spacecraft*>(actors[target]);
-    PowerUp* isPowerUp = dynamic_cast<PowerUp*>(actors[target]);
-    if(target < actors.size() &&
-       (isSpacecraft != NULL ||
-        isPowerUp != NULL)) {
-        followTarget();
-        shot();
-    } else {
-        findTarget();
+    bool targetExists = false;
+    for (GameActor* act : *actors)
+    {
+        if (target == act)
+            targetExists = true;
     }
+    if (targetExists && !target->isKilled()) 
+    { 
+            followTarget(target);
+            shoot();
+    } 
+    else
+        findTarget();
 }
 
 void KiPlayer::findTarget() {
-    Spacecraft* isSpacecraft = NULL;
-    PowerUp* isPowerUp = NULL;
-    bool findEnemy = leftEnemys();
-    while ((isSpacecraft == NULL ||
-            isPowerUp == NULL) &&
-            findEnemy)
+    if (actors->size() > 1)
     {
-        target = rand() % actors.size();
-        isSpacecraft = dynamic_cast<Spacecraft*>(actors[target]);
-        if(isSpacecraft == spacecraft) {
-            isSpacecraft = NULL;
+        GameActor* candidate = NULL;
+        float minDistance = -1;
+        for (GameActor* act : *actors)
+        {
+            if (act != this->spacecraft)
+            {
+                Spacecraft* isSpacecraft = dynamic_cast<Spacecraft*>(act);
+                PowerUp* isPowerUp = dynamic_cast<PowerUp*>(act);
+                if ((isSpacecraft) || (isPowerUp != 0))
+                {
+                    if (minDistance != -1)
+                    {
+                        if (this->spacecraft->getDistance(*act) < minDistance)
+                        {
+                            candidate = act;
+                            minDistance = this->spacecraft->getDistance(*candidate);
+                        }
+                    }
+                    else
+                    {
+                        candidate = act;
+                        minDistance = this->spacecraft->getDistance(*act);
+                    }
+                }
+            }
         }
-        isPowerUp = dynamic_cast<PowerUp*>(actors[target]);
+        Spacecraft* isSpacecraft = dynamic_cast<Spacecraft*>(candidate);
+        PowerUp* isPowerUp = dynamic_cast<PowerUp*>(candidate);
+        if ((isSpacecraft != 0) || (isPowerUp != 0))
+            target = candidate;
     }
 }
 
 bool KiPlayer::leftEnemys() {
     bool leftEnemeys = false;
-    for (int i = 0; i < actors.size(); i++){
-        if (Spacecraft* isSpacecraft = dynamic_cast<Spacecraft*>(actors[i])) {
+    for (int i = 0; i < actors->size(); i++){
+        if (Spacecraft* isSpacecraft = dynamic_cast<Spacecraft*>(actors->at(i))) {
             leftEnemeys = true;
-            i = actors.size();
+            i = actors->size();
         }
     }
     return leftEnemeys;
 }
 
-void KiPlayer::setActors(vector<GameActor*> actors) {
-    this->actors = actors;
+void KiPlayer::followTarget(GameActor *toFollow) {
+    GameActor* test = dynamic_cast<GameActor*>(toFollow);
+    if (test != 0)
+    {
+        Vec3f d = test->getPosition() - spacecraft->getPosition();
+        d = d.normalize();
+        spacecraft->applyForce(d);
+    }
 }
 
-void KiPlayer::followTarget() {
-    Vec3f d = spacecraft->getPosition() - actors.at(target)->getPosition();
-    d = d.normalize();
-    spacecraft->applyForce(d);
-}
-
-void KiPlayer::shot() {
-    if(rand() % 10 == 0.1f) {
+void KiPlayer::shoot() {
+    if(rand() % 10 <= 0.1f) {
         spacecraft->shootDown();
-    } else if(rand() % 10 == 0.1f) {
+    } else if(rand() % 10 <= 0.1f) {
         spacecraft->shootLeft();
-    } else if(rand() % 10 == 0.1f) {
+    } else if(rand() % 10 <= 0.1f) {
         spacecraft->shootRight();
-    } else if(rand() % 10 == 0.1f) {
+    } else if(rand() % 10 <= 0.1f) {
         spacecraft->shootUp();
     }
 }

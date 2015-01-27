@@ -41,7 +41,7 @@ Column {
         stepSize: 1
         maximumValue: 8
         minimumValue: 1
-        value: 1
+        value: Settings.botsCount
         onPressedChanged: {
             Settings.setBotsCount(slide_botsCount.value)
         }
@@ -81,8 +81,9 @@ Column {
         width: Global.sliderWidth
         height: Global.sliderHeigt
         stepSize: 1
-        minimumValue: 32
-        value: 32
+        minimumValue: 2
+        maximumValue: 32
+        value: Settings.frag
         onPressedChanged: {
             Settings.setFrag(slide_frag.value)
         }
@@ -94,9 +95,9 @@ Column {
         width: Global.sliderWidth
         height: Global.sliderHeigt
         stepSize: 1
-        minimumValue: 12
-        value: 12
-        maximumValue: 3
+        minimumValue: 3
+        maximumValue: 12
+        value: Settings.respawTime
         onPressedChanged: {
             Settings.setRespawTime(slide_respawTime.value)
         }

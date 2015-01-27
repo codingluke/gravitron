@@ -54,16 +54,20 @@ void AimMissile::handleCollision(GameActor &other)
 }
 
 void AimMissile::update() {
-    GameActor* test = dynamic_cast<GameActor*>(target);
-    if (test == 0)
+    bool targetExists = false;
+    for (GameActor* act : *actors)
     {
-        setNearestTarget();
+        if (target == act)
+            targetExists = true;
     }
-    test = dynamic_cast<GameActor*>(target);
-    if (test != 0)
+    if (targetExists)
     {
         Vec3f d = target->getPosition() - position;
         applyForce(d.normalize() * 2);
+    }
+    else
+    {
+        setNearestTarget();
     }
     Projectile::update();
 }
@@ -93,7 +97,7 @@ void AimMissile::setNearestTarget()
 {
     if (actors->size() > 1)
     {
-        GameActor* candidate;
+        GameActor* candidate = NULL;
         float minDistance = -1;
         for (GameActor* act : *actors)
         {
@@ -105,7 +109,7 @@ void AimMissile::setNearestTarget()
             }
             if (!otherIsFriendly && (act != this))
             {
-                if (minDistance > 0)
+                if (minDistance != -1)
                 {
                     if (this->getDistance(*act) < minDistance)
                     {
@@ -115,6 +119,7 @@ void AimMissile::setNearestTarget()
                 }
                 else
                 {
+                    candidate = act;
                     minDistance = this->getDistance(*act);
                 }
             }

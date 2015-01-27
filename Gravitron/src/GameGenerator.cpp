@@ -46,6 +46,7 @@ GameGenerator::~GameGenerator()
 }
 
 void GameGenerator::generateGame(GameLoop* g) {
+    this->actors = &(g->actors);
     srand(time(NULL));
     generateBots();
     generateSun();
@@ -55,24 +56,20 @@ void GameGenerator::generateGame(GameLoop* g) {
     generateAstroids();
     generatePlayer(g);
 
-    for (int i = 0; i < bots.size(); i++) {
-        bots[i]->setActors(actors);
-    }
-
     g->setBots(bots);
     g->setPlayer(humanPlayer);
-    g->setActors(actors);
     g->setRespawTime(settings->respawTime());
 }
 
-void GameGenerator::generateBots() {
+void GameGenerator::generateBots() 
+{
     for(int i = 0; i < settings->botsCount(); i++) {
-        Spacecraft* sc = generateNewSpacecraft();
-        actors.push_back(sc);
+        Spacecraft* sc = generateNewSpacecraft();    
+        actors->push_back(sc);
         if (settings->network()) {
-            bots.push_back(new KiNetworkPlayer(sc, settings->frag(), settings->difficulty()));
+            bots.push_back(new KiNetworkPlayer(sc, settings->frag(), settings->difficulty(), actors));
         } else {
-            bots.push_back(new KiPlayer(sc, settings->frag(), settings->difficulty()));
+            bots.push_back(new KiPlayer(sc, settings->frag(), settings->difficulty(), actors));
         }
     }
 }
@@ -81,14 +78,13 @@ void GameGenerator::generatePlayer(GameLoop* g) {
     if (settings->network()) {
         Spacecraft* sc = generateNewSpacecraft();
         Spacecraft* sc2 = generateNewSpacecraft();
-        actors.push_back(sc);
-        actors.push_back(sc2);
+        actors->push_back(sc);
+        actors->push_back(sc2);
         humanPlayer.push_back(new HumanPlayer(sc, settings->frag()));
         humanPlayer.push_back(new HumanNetworkPlayer(sc2, settings->frag(), server));
     } else {
-        cerr << "GameGenerator: singlePlayer\n";
         Spacecraft* sc = generateNewSpacecraft();
-        actors.push_back(sc);
+        actors->push_back(sc);
         humanPlayer.push_back(new HumanPlayer(sc, settings->frag()));
     }
 }
@@ -98,7 +94,7 @@ Spacecraft* GameGenerator::generateNewSpacecraft() {
     float mass = fmod(rand(), SPACECRAFT_MAX_MASS - (SPACECRAFT_MIN_MASS - 1)) + SPACECRAFT_MIN_MASS;
     float g = fmod(rand(), PLANET_MAX_G - (PLANET_MIN_G - 1)) + PLANET_MIN_G;
     float gravitationRange = fmod(rand(), PLANET_MAX_GRAVITATION_RANGE - (PLANET_MIN_GRAVITATION_RANGE - 1)) + PLANET_MIN_GRAVITATION_RANGE;
-    return new Spacecraft(position, mass, 0, 0, *field, SPACECRAFT_MAX_MAXSPEED, &actors);
+    return new Spacecraft(position, mass, 0, 0, *field, SPACECRAFT_MAX_MAXSPEED, actors);
 }
 
 
@@ -109,7 +105,7 @@ void GameGenerator::generatePlanets() {
         float mass = fmod(rand(), PLANET_MAX_MASS - (PLANET_MIN_MASS - 1)) + PLANET_MIN_MASS;
         float g = fmod(rand(), PLANET_MAX_G - (PLANET_MIN_G - 1)) + PLANET_MIN_G;
         float gravitationRange = fmod(rand(), PLANET_MAX_GRAVITATION_RANGE - (PLANET_MIN_GRAVITATION_RANGE - 1)) + PLANET_MIN_GRAVITATION_RANGE;
-        actors.push_back(new Planet(position, mass, gravitationRange, g, *field, &actors));
+        actors->push_back(new Planet(position, mass, gravitationRange, g, *field, actors));
     }
 }
 
@@ -119,7 +115,7 @@ void GameGenerator::generateAstroids() {
         float mass = fmod(rand(), ASTEROID_MAX_MASS - (ASTEROID_MIN_MASS - 1)) + ASTEROID_MIN_MASS;
         float g = fmod(rand(), ASTEROID_MAX_G - (ASTEROID_MIN_G - 1)) + ASTEROID_MIN_G;
         float gravitationRange = fmod(rand(), ASTEROID_MAX_GRAVITATION_RANGE - (ASTEROID_MIN_GRAVITATION_RANGE - 1)) + ASTEROID_MIN_GRAVITATION_RANGE;
-        actors.push_back(new Asteroid(position, mass, gravitationRange, g, *field, 7, &actors));
+        actors->push_back(new Asteroid(position, mass, gravitationRange, g, *field, 7, actors));
     }
 }
 
@@ -133,12 +129,12 @@ void GameGenerator::generateRandomPowerUps() {
 
     for (int i = 0; i < numberRadomPowerUps; i++) {
         Vec3f position(rand() % field->getWidth(),rand() % field->getHeight(), 0);
-        actors.push_back(generateNewPowerUp(position));
+        actors->push_back(generateNewPowerUp(position));
     }
 }
 
 GameActor* GameGenerator::generateNewPowerUp(Vec3f position) {
-    return new PowerUp(position, *field, &actors);
+    return new PowerUp(position, *field, actors);
 }
 
 void GameGenerator::generateRandomScrap() {
@@ -151,7 +147,7 @@ void GameGenerator::generateRandomScrap() {
 
     for (int i = 0; i < numberRadomScrap; i++) {
         Vec3f position(rand() % field->getWidth(),rand() % field->getHeight(), 0);
-        actors.push_back(generateNewScrap(position));
+        actors->push_back(generateNewScrap(position));
     }
 }
 
@@ -159,7 +155,7 @@ GameActor* GameGenerator::generateNewScrap(Vec3f position) {
     float mass = fmod(rand(), SCRAP_MAX_MASS - (SCRAP_MIN_MASS - 1)) + SCRAP_MIN_MASS;
     float g = fmod(rand(), SCRAP_MAX_G - (SCRAP_MIN_G - 1)) + SCRAP_MIN_G;
     float gravitationRange = fmod(rand(), SCRAP_MAX_GRAVITATION_RANGE - (SCRAP_MIN_GRAVITATION_RANGE - 1)) +SCRAP_MIN_GRAVITATION_RANGE;
-    return new Scrap(position, mass, gravitationRange, g, *field, &actors);
+    return new Scrap(position, mass, gravitationRange, g, *field, actors);
 }
 
 void GameGenerator::generateSun() {
@@ -167,5 +163,5 @@ void GameGenerator::generateSun() {
     float mass = fmod(rand(), SUN_MAX_MASS - (SUN_MIN_MASS - 1)) + SUN_MIN_MASS;
     float g = fmod(rand(), SUN_MAX_G - (SUN_MIN_G - 1)) + SUN_MIN_G;
     float gravitationRange = fmod(rand(), SUN_MAX_GRAVITATION_RANGE - (SUN_MIN_GRAVITATION_RANGE - 1)) + SUN_MIN_GRAVITATION_RANGE;
-    actors.push_back(new Sun(position, mass, gravitationRange, g, *field, &actors));
+    actors->push_back(new Sun(position, mass, gravitationRange, g, *field, actors));
 }

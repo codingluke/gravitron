@@ -22,7 +22,6 @@ bool Physics::collisionDetection(Vec3f vec1, float rad1,
                                  Vec3f vec2, float rad2)
 {
     float d = distance(vec1, vec2);
-    //cerr << distance << "\n";
     return d <= (rad1 + rad2);
 }
 

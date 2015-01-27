@@ -51,7 +51,10 @@ void GameLoop::deletePlayer() {
 
 void GameLoop::setBots(vector<KiPlayer*> bots) {
     deleteBots();
-    this->bots = bots;
+    for (KiPlayer* kp : bots)
+    {
+        this->bots.push_back(kp);
+    }
 }
 
 void GameLoop::setPlayer(vector<Player*> player) {
@@ -126,11 +129,11 @@ void GameLoop::update()
             actors.erase(actors.begin() + i);
         }
     }
+    actors.shrink_to_fit();
     for (int i = 0; i < bots.size(); i++){
         bots[i]->update();
     }
-
-    actors.shrink_to_fit();
+    
     QThread::msleep(5);
 }
 

@@ -7,7 +7,7 @@
 class KiNetworkPlayer : public KiPlayer
 {
 public:
-    KiNetworkPlayer(Spacecraft* spacecraft, int frag, int difficulty);
+    KiNetworkPlayer(Spacecraft* spacecraft, int frag, int difficulty, std::vector<GameActor*> *actors);
     virtual ~KiNetworkPlayer();
 };
 

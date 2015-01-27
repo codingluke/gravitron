@@ -18,7 +18,7 @@ class GameGenerator : public QObject
         GravitronSettings *settings;
         GameField* field;
         TcpServer* server;
-        std::vector<GameActor*> actors;
+        std::vector<GameActor*> *actors;
         std::vector<KiPlayer*> bots;
         std::vector<Player*> humanPlayer;
 

@@ -9,20 +9,20 @@ class KiPlayer : public Player
 {
 private:
     bool leftEnemys();
-    void followTarget();
-    void shot();
+    void followTarget(GameActor *toFollow);
+    void shoot();
     void findTarget();
 
 public:
-    KiPlayer(Spacecraft* spacecraft, int frag, int difficulty);
+    KiPlayer(Spacecraft* spacecraft, int frag, int difficulty, std::vector<GameActor*> *actors);
     virtual ~KiPlayer();
     void update();
-    void setActors(vector<GameActor*> actors);
+    void setActors(vector<GameActor*> *actors);
 
 protected:
    int difficulty;
-   int target;
-   vector<GameActor*> actors;
+   GameActor* target;
+   vector<GameActor*> *actors;
 };
 
 #endif // KIPLAYER_H
