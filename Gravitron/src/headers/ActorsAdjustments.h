@@ -57,7 +57,7 @@ static float SPACECRAFT_MAX_RADIUS = 25;
 static float SPACECRAFT_MIN_RADIUS = 25;
 static float SPACECRAFT_MAX_HEALTH = 300;
 static float SPACECRAFT_MIN_HEALTH = 300;
-
+static float SPACECRAFT_COLLISION_DAMAGE = 10;
 
 static float MISSILE_MAX_MASS = 0.5;
 static float MISSILE_MIN_MASS = 0.5;

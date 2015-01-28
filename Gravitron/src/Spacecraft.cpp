@@ -151,6 +151,8 @@ Projectile &Spacecraft::shootRight()
 
 void Spacecraft::handleCollision(GameActor &other)
 {
+    if (dynamic_cast<Spacecraft*>(&other))
+        other.dealDamage(SPACECRAFT_COLLISION_DAMAGE);
 }
 
 void Spacecraft::handleKill()
