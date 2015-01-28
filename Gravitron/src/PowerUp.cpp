@@ -1,9 +1,10 @@
 #include "headers/PowerUp.h"
 #include "headers/Spacecraft.h"
+#include "headers/ActorsAdjustments.h"
 #include <iostream>
 #include <sstream>
 
-PowerUp::PowerUp(Vec3f position, GameField &field, vector<GameActor*> *actors) : GameActor(position, 0.0, 0.0, 0.0, 0, field, actors)
+PowerUp::PowerUp(Vec3f position, GameField &field, vector<GameActor*> *actors) : GameActor(position, POWERUP_MAX_MASS, POWERUP_MAX_GRAVITATION_RANGE, POWERUP_MIN_G, POWERUP_MAX_HEALTH, field, actors)
 {
 }
 
