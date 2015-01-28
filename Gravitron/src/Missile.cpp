@@ -10,14 +10,14 @@ Missile::Missile() : Projectile()
 }
 
 Missile::Missile(Vec3f position, Vec3f velocity, GameField &field, GameActor &friendly, vector<GameActor*> *actors) :
-    Projectile(position, 0, 0, 0, 300, 1, field, friendly, actors)
+Projectile(position, 0, 0, 0, 300, 1, field, friendly, actors)
 {
     applyForce(velocity);
     this->maxSpeed = MISSILE_MAX_MAXSPEED;
 }
 
 Missile::Missile(GameActor &actor, Vec3f velocity, GameField &field, GameActor &friendly, vector<GameActor*> *actors) :
-    Projectile(actor.getPosition(), 0, 0, 0, 300, 1, field, friendly, actors)
+Projectile(actor.getPosition(), 0, 0, 0, 300, 1, field, friendly, actors)
 {
     applyForce(velocity);
     this->maxSpeed = MISSILE_MAX_MAXSPEED;
@@ -25,14 +25,14 @@ Missile::Missile(GameActor &actor, Vec3f velocity, GameField &field, GameActor &
 
 
 Missile::Missile(GameActor &actor, GameField &field, GameActor &friendly, vector<GameActor*> *actors) :
-    Projectile(actor.getPosition(), 0, 0, 0, 300, 1, field, friendly, actors)
+Projectile(actor.getPosition(), 0, 0, 0, 300, 1, field, friendly, actors)
 {
     applyForce(actor.getVelocity());
     this->maxSpeed = MISSILE_MAX_MAXSPEED;
 }
 
 Missile::Missile(const Missile &projectile) :
-    Projectile(projectile)
+Projectile(projectile)
 {
 
 }
@@ -60,23 +60,15 @@ void Missile::handleCollision(GameActor &other)
 }
 
 GameActorView* Missile::getView() const {
-    std::ostringstream identifiy;
-    identifiy << identifier;
-    std::ostringstream x;
-    std::ostringstream y;
-    x << position[0];
-    y << position[1];
     GameActorView *view = new GameActorView("qrc:/qml/missile");
-    view->setProperty("identifier", identifiy.str());
-    view->setProperty("x", x.str());
-    view->setProperty("y", y.str());
+    view->setProperty("identifier", identifier);
+    view->setProperty("x", position[0]);
+    view->setProperty("y", position[1]);
+    view->setProperty("angle", calculateRotation());
     if (killed) {
         view->setProperty("color", "red");
     } else {
         view->setProperty("color", "blue");
     }
-    std::ostringstream rot;
-    rot << calculateRotation();
-    view->setProperty("angle", rot.str());
     return view;
 }

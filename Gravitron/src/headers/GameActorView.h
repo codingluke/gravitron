@@ -20,6 +20,8 @@ class GameActorView
         string getQmlPath() const;
         void setProperty(string key, string value);
         void setProperty(string key, float value);
+        void setProperty(string key, bool value);
+        void setProperty(string key, int value);
         string getPropterty(string key);
         map<string, string> getProperties() const;
         string toString() const;

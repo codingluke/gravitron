@@ -40,25 +40,13 @@ Spacecraft::~Spacecraft() {
 }
 
 GameActorView* Spacecraft::getView() const {
-    std::ostringstream identifiy;
-    identifiy << identifier;
-    std::ostringstream x;
-    std::ostringstream y;
-    std::ostringstream visible;
-    x << position[0];
-    y << position[1];
-    (killed) ? visible << "false" : visible << "true";
     GameActorView *view = new GameActorView("qrc:/qml/spacecraft");
-    view->setProperty("identifier", identifiy.str());
-    view->setProperty("x", x.str());
-    view->setProperty("y", y.str());
-    view->setProperty("visible", visible.str());
-    std::ostringstream rot;
-    rot << calculateRotation();
-    view->setProperty("angle", rot.str());
-    std::ostringstream playerID;
-    playerID << controllingPlayerID;
-    view->setProperty("controllingPlayerID", playerID.str());
+    view->setProperty("identifier", identifier);
+    view->setProperty("x", position[0]);
+    view->setProperty("y", position[1]);
+    view->setProperty("visible", !killed);
+    view->setProperty("angle", calculateRotation());
+    view->setProperty("controllingPlayerID", controllingPlayerID);
     return view;
 }
 

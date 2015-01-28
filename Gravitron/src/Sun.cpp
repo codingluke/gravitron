@@ -14,16 +14,11 @@ void Sun::handleCollision(GameActor &other)
 }
 
 GameActorView* Sun::getView() const {
-    std::ostringstream identifiy;
-    identifiy << identifier;
-    std::ostringstream x;
-    std::ostringstream y;
-    x << position[0];
-    y << position[1];
     GameActorView *view = new GameActorView("qrc:/qml/sun");
-    view->setProperty("identifier", identifiy.str());
-    view->setProperty("x", x.str());
-    view->setProperty("y", y.str());
+    view->setProperty("identifier", identifier);
+    view->setProperty("x", position[0]);
+    view->setProperty("y", position[1]);
+    view->setProperty("angle", calculateRotation());
     return view;
 }
 

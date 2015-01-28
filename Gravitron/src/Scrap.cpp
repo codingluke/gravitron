@@ -24,19 +24,11 @@ void Scrap::handleCollision(GameActor &other)
 }
 
 GameActorView* Scrap::getView() const {
-    std::ostringstream identifiy;
-    identifiy << identifier;
-    std::ostringstream x;
-    std::ostringstream y;
-    x << position[0];
-    y << position[1];
     GameActorView *view = new GameActorView("qrc:/qml/scrap");
-    view->setProperty("identifier", identifiy.str());
-    view->setProperty("x", x.str());
-    view->setProperty("y", y.str());
     view->setProperty("scrapImg", img);
-    std::ostringstream rot;
-    rot << calculateRotation();
-    view->setProperty("angle", rot.str());
+    view->setProperty("identifier", identifier);
+    view->setProperty("x", position[0]);
+    view->setProperty("y", position[1]);
+    view->setProperty("angle", calculateRotation());
     return view;
 }

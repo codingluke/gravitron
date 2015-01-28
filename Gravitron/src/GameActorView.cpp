@@ -30,6 +30,19 @@ void GameActorView::setProperty(string key, float value)
     setProperty(key, os.str());
 }
 
+void GameActorView::setProperty(string key, bool value)
+{
+    ostringstream os;
+    os << value;
+    setProperty(key, os.str());
+}
+
+void GameActorView::setProperty(string key, int value)
+{
+    ostringstream os;
+    os << value;
+    setProperty(key, os.str());
+}
 
 string GameActorView::getPropterty(string key)
 {
