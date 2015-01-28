@@ -1,5 +1,6 @@
 #include "headers/Missile.h"
 #include "headers/ActorsAdjustments.h"
+#include "headers/Spacecraft.h"
 #include <sstream>
 #include <iostream>
 #include <QDebug>
@@ -45,14 +46,15 @@ void Missile::handleCollision(GameActor &other)
 {
     vector<GameActor*>::iterator it;
     bool otherIsFriendly = false;
-    for (it = friendly.begin(); it != friendly.end(); it++)
-    {
+    for (it = friendly.begin(); it != friendly.end(); it++) {
         if (*it == &other)
             otherIsFriendly = true;
     }
-    if (!otherIsFriendly)
-    {
+    if (!otherIsFriendly) {
         other.dealDamage(MISSILE_DAMAGE);
+        if (other.isKilled() && dynamic_cast<Spacecraft*>(&other)) {
+            incKillPointsOfFriends();
+        }
         kill();
     }
 }

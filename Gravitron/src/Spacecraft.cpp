@@ -68,6 +68,17 @@ int Spacecraft::getWeapon() const
     return weapon;
 }
 
+int Spacecraft::getKillPoints() const
+{
+    return killPoints;
+}
+
+void Spacecraft::incKillPoints()
+{
+    killPoints++;
+    cerr << "Spacecraft Killpoints: " << killPoints << "\n";
+}
+
 void Spacecraft::forceAhead()
 {
     applyForce(Vec3f(0.,-1 * accelerationFactor ,0.));
@@ -153,8 +164,6 @@ Projectile &Spacecraft::shootRight()
 
 void Spacecraft::handleCollision(GameActor &other)
 {
-    //other.dealDamage(10);
-    //dealDamage(5);
 }
 
 void Spacecraft::handleKill()
@@ -162,6 +171,7 @@ void Spacecraft::handleKill()
     cerr << "Spacecraft: handleKill\n";
     velocity = Vec3f();
     acceleration = Vec3f();
+    weapon = 1;
 }
 
 void Spacecraft::upgradeWeapon() {

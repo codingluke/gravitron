@@ -1,5 +1,6 @@
 #include "headers/AimMissile.h"
 #include "headers/ActorsAdjustments.h"
+#include "headers/Spacecraft.h"
 #include "headers/Physics.h"
 
 AimMissile::AimMissile() : Missile()
@@ -41,14 +42,15 @@ void AimMissile::handleCollision(GameActor &other)
 {
     vector<GameActor*>::iterator it;
     bool otherIsFriendly = false;
-    for (it = friendly.begin(); it != friendly.end(); it++)
-    {
+    for (it = friendly.begin(); it != friendly.end(); it++) {
         if (*it == &other)
             otherIsFriendly = true;
     }
-    if (!otherIsFriendly)
-    {
+    if (!otherIsFriendly) {
         other.dealDamage(AIM_MISSILE_DAMAGE);
+        if (other.isKilled() && dynamic_cast<Spacecraft*>(&other)) {
+            incKillPointsOfFriends();
+        }
         kill();
     }
 }
@@ -93,7 +95,7 @@ void AimMissile::setRandomTarget() {
     }
 }
 
-void AimMissile::setNearestTarget() 
+void AimMissile::setNearestTarget()
 {
     if (actors->size() > 1)
     {
@@ -127,7 +129,7 @@ void AimMissile::setNearestTarget()
         GameActor* finalTarget = dynamic_cast<GameActor*>(candidate);
         if (finalTarget != 0)
             target = finalTarget;
-    }   
+    }
 }
 
 

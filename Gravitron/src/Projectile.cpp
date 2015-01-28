@@ -1,4 +1,5 @@
 #include "headers/Projectile.h"
+#include "headers/Spacecraft.h"
 #include <sstream>
 #include <iostream>
 #include <QDebug>
@@ -34,13 +35,23 @@ Projectile::Projectile(const Projectile &projectile) : GameActor(projectile)
     g = 0;
 }
 
-Projectile::~Projectile() 
+Projectile::~Projectile()
 {
 }
 
 int Projectile::getTimeToLive() const
 {
     return timeToLive;
+}
+
+void Projectile::incKillPointsOfFriends()
+{
+    for(GameActor* ga : friendly) {
+        Spacecraft* sc = dynamic_cast<Spacecraft*>(ga);
+        if (sc) {
+            sc->incKillPoints();
+        }
+    }
 }
 
 
@@ -59,7 +70,7 @@ void Projectile::update()
     //qDebug() << "Updating projectile.\n";
 }
 
-void Projectile::handleCollision(GameActor &other) 
+void Projectile::handleCollision(GameActor &other)
 {
 
 }
