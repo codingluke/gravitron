@@ -88,16 +88,40 @@ void GameActor::update()
             }
         }
 
-        //add velocity limitation
+      //add velocity limitation
       position += velocity;
-        if (position.v[0] > field->getWidth())
-            position.v[0] = position.v[0] - field->getWidth();
-        if (position.v[0] < 0)
-            position.v[0] = field->getWidth() - position.v[0];
-        if (position.v[1] > field->getHeight())
-            position.v[1] = position.v[1] - field->getHeight();
-        if (position.v[1] < 0)
-            position.v[1] = field->getHeight() - position.v[1];
+      // if (position.v[0] > field->getWidth())
+      //     position.v[0] = position.v[0] - field->getWidth();
+      // if (position.v[0] < 0)
+      //     position.v[0] = field->getWidth() - position.v[0];
+      // if (position.v[1] > field->getHeight())
+      //     position.v[1] = position.v[1] - field->getHeight();
+      // if (position.v[1] < 0)
+      //     position.v[1] = field->getHeight() - position.v[1];
+      if (position.v[0] > field->getWidth())
+      {
+          position.v[0] = field->getWidth() - 1;
+          velocity.v[0] = velocity.v[0] * (-1);
+          acceleration.v[0] = acceleration.v[0] * (-1);
+      }
+      if (position.v[0] < 0)
+      {
+          position.v[0] = 1;
+          velocity.v[0] = velocity.v[0] * (-1);
+          acceleration.v[0] = acceleration.v[0] * (-1);
+      }
+      if (position.v[1] > field->getHeight())
+      {
+          position.v[1] = field->getHeight() - 1;
+          velocity.v[1] = velocity.v[1] * (-1);
+          acceleration.v[1] = acceleration.v[1] * (-1);
+      }
+      if (position.v[1] < 0)
+      {
+          position.v[1] = 1;
+          velocity.v[1] = velocity.v[1] * (-1);
+          acceleration.v[1] = acceleration.v[1] * (-1);
+      }
   }
 }
 

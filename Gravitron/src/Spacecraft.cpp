@@ -76,7 +76,6 @@ int Spacecraft::getKillPoints() const
 void Spacecraft::incKillPoints()
 {
     killPoints++;
-    cerr << "Spacecraft Killpoints: " << killPoints << "\n";
 }
 
 void Spacecraft::forceAhead()
@@ -168,7 +167,6 @@ void Spacecraft::handleCollision(GameActor &other)
 
 void Spacecraft::handleKill()
 {
-    cerr << "Spacecraft: handleKill\n";
     velocity = Vec3f();
     acceleration = Vec3f();
     weapon = 1;

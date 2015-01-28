@@ -41,9 +41,7 @@ void HumanNetworkPlayer::execAction(int code)
         spacecraft->forceBack();
     } else if (code == Qt::Key_W) {
         spacecraft->shootUp();
-        cerr << "HumanPlayer: shootUp before remove\n";
         dynamic_cast<NetworkInputHandler*>(inputHandler)->removeInputCode(Qt::Key_W);
-        cerr << "HumanPlayer: shootUp after remove\n";
     } else if (code == Qt::Key_S) {
         spacecraft->shootDown();
         dynamic_cast<NetworkInputHandler*>(inputHandler)->removeInputCode(Qt::Key_S);
