@@ -44,12 +44,15 @@ GameActorView* Spacecraft::getView() const {
     identifiy << identifier;
     std::ostringstream x;
     std::ostringstream y;
+    std::ostringstream visible;
     x << position[0];
     y << position[1];
+    (killed) ? visible << "false" : visible << "true";
     GameActorView *view = new GameActorView("qrc:/qml/spacecraft");
     view->setProperty("identifier", identifiy.str());
     view->setProperty("x", x.str());
     view->setProperty("y", y.str());
+    view->setProperty("visible", visible.str());
     std::ostringstream rot;
     rot << calculateRotation();
     view->setProperty("angle", rot.str());
@@ -63,6 +66,16 @@ GameActorView* Spacecraft::getView() const {
 int Spacecraft::getWeapon() const
 {
     return weapon;
+}
+
+int Spacecraft::getKillPoints() const
+{
+    return killPoints;
+}
+
+void Spacecraft::incKillPoints()
+{
+    killPoints++;
 }
 
 void Spacecraft::forceAhead()
@@ -101,7 +114,9 @@ Projectile &Spacecraft::shootUp()
 
 void Spacecraft::repair()
 {
+    position = Vec3f(rand() % field->getWidth(), rand() % field->getHeight(), 0);
     health = SPACECRAFT_MAX_HEALTH;
+    killed = false;
 }
 
 Projectile &Spacecraft::shootDown()
@@ -148,8 +163,13 @@ Projectile &Spacecraft::shootRight()
 
 void Spacecraft::handleCollision(GameActor &other)
 {
-    //other.dealDamage(10);
-    //dealDamage(5);
+}
+
+void Spacecraft::handleKill()
+{
+    velocity = Vec3f();
+    acceleration = Vec3f();
+    weapon = 1;
 }
 
 void Spacecraft::upgradeWeapon() {

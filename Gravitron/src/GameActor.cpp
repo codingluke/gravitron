@@ -79,48 +79,50 @@ void GameActor::applyForce(Vec3f force)
 
 void GameActor::update()
 {
-	velocity += acceleration;
-    if (maxSpeed != -1) {
-        if (velocity.magnitude() > maxSpeed) {
-            velocity = velocity.normalize() * maxSpeed;
-            acceleration = acceleration.normalize() * maxSpeed;
+  if (!isKilled()) {
+      velocity += acceleration;
+        if (maxSpeed != -1) {
+            if (velocity.magnitude() > maxSpeed) {
+                velocity = velocity.normalize() * maxSpeed;
+                acceleration = acceleration.normalize() * maxSpeed;
+            }
         }
-    }
 
-    //add velocity limitation
-	position += velocity;
-    // if (position.v[0] > field->getWidth())
-    //     position.v[0] = position.v[0] - field->getWidth();
-    // if (position.v[0] < 0)
-    //     position.v[0] = field->getWidth() - position.v[0];
-    // if (position.v[1] > field->getHeight())
-    //     position.v[1] = position.v[1] - field->getHeight();
-    // if (position.v[1] < 0)
-    //     position.v[1] = field->getHeight() - position.v[1];
-    if (position.v[0] > field->getWidth())
-    {
-        position.v[0] = field->getWidth() - 1;
-        velocity.v[0] = velocity.v[0] * (-1);
-        acceleration.v[0] = acceleration.v[0] * (-1);
-    }
-    if (position.v[0] < 0)
-    {
-        position.v[0] = 1;
-        velocity.v[0] = velocity.v[0] * (-1);
-        acceleration.v[0] = acceleration.v[0] * (-1);
-    }
-    if (position.v[1] > field->getHeight())
-    {
-        position.v[1] = field->getHeight() - 1;
-        velocity.v[1] = velocity.v[1] * (-1);
-        acceleration.v[1] = acceleration.v[1] * (-1);
-    }
-    if (position.v[1] < 0)
-    {
-        position.v[1] = 1;
-        velocity.v[1] = velocity.v[1] * (-1);
-        acceleration.v[1] = acceleration.v[1] * (-1);
-    }
+      //add velocity limitation
+      position += velocity;
+      // if (position.v[0] > field->getWidth())
+      //     position.v[0] = position.v[0] - field->getWidth();
+      // if (position.v[0] < 0)
+      //     position.v[0] = field->getWidth() - position.v[0];
+      // if (position.v[1] > field->getHeight())
+      //     position.v[1] = position.v[1] - field->getHeight();
+      // if (position.v[1] < 0)
+      //     position.v[1] = field->getHeight() - position.v[1];
+      if (position.v[0] > field->getWidth())
+      {
+          position.v[0] = field->getWidth() - 1;
+          velocity.v[0] = velocity.v[0] * (-1);
+          acceleration.v[0] = acceleration.v[0] * (-1);
+      }
+      if (position.v[0] < 0)
+      {
+          position.v[0] = 1;
+          velocity.v[0] = velocity.v[0] * (-1);
+          acceleration.v[0] = acceleration.v[0] * (-1);
+      }
+      if (position.v[1] > field->getHeight())
+      {
+          position.v[1] = field->getHeight() - 1;
+          velocity.v[1] = velocity.v[1] * (-1);
+          acceleration.v[1] = acceleration.v[1] * (-1);
+      }
+      if (position.v[1] < 0)
+      {
+          position.v[1] = 1;
+          velocity.v[1] = velocity.v[1] * (-1);
+          acceleration.v[1] = acceleration.v[1] * (-1);
+      }
+  }
 }
 
 void GameActor::updateAll()
@@ -128,8 +130,7 @@ void GameActor::updateAll()
     GameActor *other;
     for (unsigned int i = 0; i < actors->size(); i++) {
     	other = actors->at(i);
-    	if (other != this)
-    	{
+    	if (other != this && !other->isKilled()) {
     	    // Collision Detection
     	    bool collision = Physics::collisionDetection(position, 20.0f,
 		          other->getPosition(), 20.0f);
@@ -265,8 +266,7 @@ void GameActor::dealDamage(int damage)
 {
     if (health != -1)
     {
-        if (health <= damage)
-        {
+        if (health <= damage) {
             health = 0;
             kill();
         }

@@ -1,5 +1,6 @@
 #include "headers/Laser.h"
 #include "headers/ActorsAdjustments.h"
+#include "headers/Spacecraft.h"
 #include <sstream>
 #include <iostream>
 #include <QDebug>
@@ -59,6 +60,9 @@ void Laser::handleCollision(GameActor &other)
     if (!otherIsFriendly)
     {
         other.dealDamage(LASER_DAMAGE);
+        if (other.isKilled() && dynamic_cast<Spacecraft*>(&other)) {
+            incKillPointsOfFriends();
+        }
         kill();
     }
 }

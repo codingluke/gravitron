@@ -3,6 +3,7 @@
 
 Player::Player(QObject *parent) : QObject(parent)
 {
+    respawnCounter = roundsToRespawn;
 }
 
 
@@ -10,6 +11,7 @@ Player::Player(Spacecraft* spacecraft, int frag)
 {
     this->spacecraft = spacecraft;
     this->frag = frag;
+    respawnCounter = roundsToRespawn;
 }
 
 Player::~Player() {
@@ -20,13 +22,33 @@ void Player::processInput()
 {
 }
 
+void Player::setRoundsToRespawn(int roundsToRespawn)
+{
+    this->roundsToRespawn = roundsToRespawn;
+}
+
+void Player::pollRespawn()
+{
+    if (respawnCounter == 0) {
+        spacecraft->repair();
+        respawnCounter = roundsToRespawn;
+    } else if (spacecraft->isKilled()) {
+        respawnCounter--;
+    }
+}
+
 void Player::respawn() {
-    this->spacecraft->repair();
+    spacecraft->repair();
 }
 
 int Player::getWeapon() const
 {
     return spacecraft->getWeapon();
+}
+
+int Player::getRespawnCounter() const
+{
+    return respawnCounter;
 }
 
 int Player::getHealth() const

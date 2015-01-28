@@ -16,10 +16,14 @@ HumanNetworkPlayer::~HumanNetworkPlayer() {
 
 void HumanNetworkPlayer::processInput()
 {
-    set<int> codes = dynamic_cast<NetworkInputHandler*>(inputHandler)->getInputs();
-    for(set<int>::iterator it = codes.begin(); it != codes.end(); it++) {
-        if (*it != 0) {
-            execAction(*it);
+    if (spacecraft->isKilled()){
+        pollRespawn();
+    } else {
+        set<int> codes = dynamic_cast<NetworkInputHandler*>(inputHandler)->getInputs();
+        for(set<int>::iterator it = codes.begin(); it != codes.end(); it++) {
+            if (*it != 0) {
+                execAction(*it);
+            }
         }
     }
 }
@@ -37,9 +41,7 @@ void HumanNetworkPlayer::execAction(int code)
         spacecraft->forceBack();
     } else if (code == Qt::Key_W) {
         spacecraft->shootUp();
-        cerr << "HumanPlayer: shootUp before remove\n";
         dynamic_cast<NetworkInputHandler*>(inputHandler)->removeInputCode(Qt::Key_W);
-        cerr << "HumanPlayer: shootUp after remove\n";
     } else if (code == Qt::Key_S) {
         spacecraft->shootDown();
         dynamic_cast<NetworkInputHandler*>(inputHandler)->removeInputCode(Qt::Key_S);

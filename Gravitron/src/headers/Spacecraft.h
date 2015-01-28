@@ -11,6 +11,7 @@ class Spacecraft : public GameActor
         int weapon;
         int controllingPlayerID;
         float accelerationFactor;
+        int killPoints = 0;
 
     private:
         void init();
@@ -32,6 +33,9 @@ class Spacecraft : public GameActor
 
         GameActorView* getView() const override;
         int getWeapon() const;
+        int getKillPoints() const;
+        void incKillPoints();
+        void handleKill();
 
         void forceAhead();
         void forceBack();
