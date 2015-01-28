@@ -11,6 +11,8 @@ class Player : public QObject
     protected:
         Spacecraft* spacecraft;
         int frag;
+        int roundsToRespawn = 150;
+        int respawnCounter;
 
     public:
         Player(QObject *parent = 0);
@@ -20,10 +22,13 @@ class Player : public QObject
         virtual void processInput();
         void respawn();
 
-    public:
         int getWeapon() const;
         int getHealth() const;
         int getHealthPercentage() const;
+        int getRespawnCounter() const;
+        void setRoundsToRespawn(int roundsToRespawn);
+        void pollRespawn();
+
         Spacecraft* getSpacecraft() const;
 };
 #endif // PLAYER_H

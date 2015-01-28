@@ -16,10 +16,14 @@ HumanNetworkPlayer::~HumanNetworkPlayer() {
 
 void HumanNetworkPlayer::processInput()
 {
-    set<int> codes = dynamic_cast<NetworkInputHandler*>(inputHandler)->getInputs();
-    for(set<int>::iterator it = codes.begin(); it != codes.end(); it++) {
-        if (*it != 0) {
-            execAction(*it);
+    if (spacecraft->isKilled()){
+        pollRespawn();
+    } else {
+        set<int> codes = dynamic_cast<NetworkInputHandler*>(inputHandler)->getInputs();
+        for(set<int>::iterator it = codes.begin(); it != codes.end(); it++) {
+            if (*it != 0) {
+                execAction(*it);
+            }
         }
     }
 }

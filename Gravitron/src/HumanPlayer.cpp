@@ -16,9 +16,13 @@ HumanPlayer::~HumanPlayer()
 
 void HumanPlayer::processInput()
 {
-    set<int> codes = dynamic_cast<InputHandler*>(inputHandler)->getInputs();
-    for(set<int>::iterator it = codes.begin(); it != codes.end(); it++) {
-        execAction(*it);
+    if (spacecraft->isKilled()){
+        pollRespawn();
+    } else {
+        set<int> codes = dynamic_cast<InputHandler*>(inputHandler)->getInputs();
+        for(set<int>::iterator it = codes.begin(); it != codes.end(); it++) {
+            execAction(*it);
+        }
     }
 }
 

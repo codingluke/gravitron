@@ -16,19 +16,22 @@ KiPlayer::~KiPlayer() {
 }
 
 void KiPlayer::update() {
-    bool targetExists = false;
-    for (GameActor* act : *actors)
-    {
-        if (target == act)
-            targetExists = true;
+    if (!spacecraft->isKilled()) {
+        bool targetExists = false;
+        for (GameActor* act : *actors) {
+            if (target == act)
+                targetExists = true;
+        }
+        if (targetExists && !target->isKilled()) {
+                followTarget(target);
+                shoot();
+        }
+        else {
+            findTarget();
+        }
+    } else {
+        pollRespawn();
     }
-    if (targetExists && !target->isKilled()) 
-    { 
-            followTarget(target);
-            shoot();
-    } 
-    else
-        findTarget();
 }
 
 void KiPlayer::findTarget() {
