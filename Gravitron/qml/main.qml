@@ -37,7 +37,7 @@ Window {
           anchors.centerIn: parent
           font.bold: true
           font.pixelSize: 30
-          color: "white"
+          color: "#CD3333"
           text: "Gravitron"
       }
     }

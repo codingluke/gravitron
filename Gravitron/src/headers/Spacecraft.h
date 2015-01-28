@@ -32,6 +32,7 @@ class Spacecraft : public GameActor
 
         GameActorView* getView() const override;
         int getWeapon() const;
+        void handleKill();
 
         void forceAhead();
         void forceBack();

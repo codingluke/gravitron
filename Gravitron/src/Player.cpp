@@ -21,7 +21,7 @@ void Player::processInput()
 }
 
 void Player::respawn() {
-    this->spacecraft->repair();
+    spacecraft->repair();
 }
 
 int Player::getWeapon() const
