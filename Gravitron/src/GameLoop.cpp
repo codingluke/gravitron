@@ -148,36 +148,18 @@ void GameLoop::render()
         vector<GameActorView*> *viewlist = new vector<GameActorView*>;
         vector<GameActor*>::iterator it;
         QString serializedViewlist("v");
-        std::ostringstream x;
-        std::ostringstream y;
         for(it = actors.begin(); it != actors.end(); it++) {
             GameActorView *view = (*it)->getView();
-            std::ostringstream x;
-            std::ostringstream y;
             if (player.size() == 2)
             {
-                x << getRelativePositionX(*(player[1]->getSpacecraft()), **it);
-                y << getRelativePositionY(*(player[1]->getSpacecraft()), **it);
-                view->setProperty("x", x.str());
-                view->setProperty("y", y.str());
+                view->setProperty("x", getRelativePositionX(*(player[1]->getSpacecraft()), **it));
+                view->setProperty("y", getRelativePositionY(*(player[1]->getSpacecraft()), **it));
                 serializedViewlist += QString::fromStdString(view->toString());
                 serializedViewlist += ";";
-                x.str("");
-                y.str("");
-                x << getRelativePositionX(*(player[0]->getSpacecraft()), **it);
-                y << getRelativePositionY(*(player[0]->getSpacecraft()), **it);
-                view->setProperty("x", x.str());
-                view->setProperty("y", y.str());
-                viewlist->push_back(view);
             }
-            else
-            {
-                x << getRelativePositionX(*(player[0]->getSpacecraft()), **it);
-                y << getRelativePositionY(*(player[0]->getSpacecraft()), **it);
-                view->setProperty("x", x.str());
-                view->setProperty("y", y.str());
+                view->setProperty("x", getRelativePositionX(*(player[0]->getSpacecraft()), **it));
+                view->setProperty("y", getRelativePositionY(*(player[0]->getSpacecraft()), **it));
                 viewlist->push_back(view);
-            }
         }
         serializedViewlist += "\n";
         vector<Player*>::iterator playit;

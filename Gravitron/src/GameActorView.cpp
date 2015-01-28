@@ -23,6 +23,14 @@ void GameActorView::setProperty(string key, string value)
     properties[key] = value;
 }
 
+void GameActorView::setProperty(string key, float value) 
+{
+    ostringstream os;
+    os << value;
+    setProperty(key, os.str());
+}
+
+
 string GameActorView::getPropterty(string key)
 {
     return properties[key];

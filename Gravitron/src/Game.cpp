@@ -253,16 +253,12 @@ void Game::setRelativePosition(float anchor_x, float anchor_y, GameActorView *vi
     std::stringstream sstr_x;
     sstr_x << view->getPropterty("x");
     sstr_x >> x;
-    std::ostringstream ostr_x;
     x = anchor_x - x;
-    ostr_x << x;
-    view->setProperty("x", ostr_x.str());
+    view->setProperty("x", x);
     float y;
     std::stringstream sstr_y;
     sstr_y << view->getPropterty("y");
     sstr_y >> y;
     y = anchor_y - y;
-    std::ostringstream ostr_y;
-    ostr_y << y;
-    view->setProperty("y", ostr_y.str());
+    view->setProperty("y", y);
 }
