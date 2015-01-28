@@ -92,13 +92,13 @@ void KiPlayer::followTarget(GameActor *toFollow) {
 }
 
 void KiPlayer::shoot() {
-    if(rand() % 10 <= 0.1f) {
+    if(rand() % 100 <= 1) {
         spacecraft->shootDown();
-    } else if(rand() % 10 <= 0.1f) {
+    } else if(rand() % 100 <= 1) {
         spacecraft->shootLeft();
-    } else if(rand() % 10 <= 0.1f) {
+    } else if(rand() % 100 <= 1) {
         spacecraft->shootRight();
-    } else if(rand() % 10 <= 0.1f) {
+    } else if(rand() % 100 <= 1) {
         spacecraft->shootUp();
     }
 }

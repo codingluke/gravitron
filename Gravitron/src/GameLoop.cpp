@@ -104,7 +104,7 @@ void GameLoop::run()
         checkWinner();
     }
 }
-
+ 
 void GameLoop::stop()
 {
     running = false;

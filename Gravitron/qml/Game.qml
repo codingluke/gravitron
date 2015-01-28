@@ -126,8 +126,6 @@ Rectangle {
         id: background
         objectName: "background"
        
-        width: 100
-        height: 100
         Image {
             id: img_background
             height: parent.height
