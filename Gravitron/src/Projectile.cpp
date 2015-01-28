@@ -56,7 +56,6 @@ void Projectile::update()
         kill();
     else if (timeToLive != -1 && !isKilled())
         timeToLive--;
-    //qDebug() << "Updating projectile.\n";
 }
 
 void Projectile::handleCollision(GameActor &other) 
