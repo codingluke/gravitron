@@ -3,6 +3,7 @@
 
 #include "Spacecraft.h"
 #include <QObject>
+#include <QString>
 
 class Player : public QObject
 {
@@ -30,7 +31,7 @@ class Player : public QObject
         void pollRespawn();
         bool isWinner() const;
         int getKillPoints() const;
-
+        QString getPlayerName() const;
         Spacecraft* getSpacecraft() const;
 };
 #endif // PLAYER_H

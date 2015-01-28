@@ -46,6 +46,8 @@ Game::Game(QQmlApplicationEngine *theEngine, GravitronSettings *theSettings)
         this, SLOT(setLifepoints(int)));
     connect(gameLoop, SIGNAL(backgroundPos(float, float, float, float)),
         this, SLOT(setBackgroundPosition(float, float, float, float)));
+    connect(gameLoop, SIGNAL(theWinnerIs(QString)),
+        this, SLOT(setInfoboxMessage(QString)));
     gameLoop->start();
 }
 
@@ -78,6 +80,8 @@ void Game::startServer(TcpServer *server)
         this, SLOT(setActiveWeapon(int)));
     connect(gameLoop, SIGNAL(backgroundPos(float, float, float, float)),
         this, SLOT(setBackgroundPosition(float, float, float, float)));
+    connect(gameLoop, SIGNAL(theWinnerIs(QString)),
+        this, SLOT(setInfoboxMessage(QString)));
 
     gameLoop->start();
     gameLoop->setPriority(QThread::LowPriority);
@@ -123,8 +127,6 @@ Game::~Game()
             if (!exists) {
                 delete itm;
             }
-        } else if (itm->property("objectName").toString() == "Infobox") {
-            itm->setProperty("visible", false);
         }
     }
 }
@@ -157,8 +159,11 @@ Game::~Game()
             setActiveWeapon(vL.at(vL.size() - 1).toInt());
         } else if (vList.at(i).startsWith("cbackgroundPos")) {
             QStringList vL = vList.at(i).split(":", QString::SkipEmptyParts);
-            setBackgroundPosition(vL.at(vL.size() - 4).toFloat(), vL.at(vL.size() - 3).toFloat(), 
+            setBackgroundPosition(vL.at(vL.size() - 4).toFloat(), vL.at(vL.size() - 3).toFloat(),
                 vL.at(vL.size() - 2).toFloat(), vL.at(vL.size() - 1).toFloat());
+        } else if (vList.at(i).startsWith("cwinner")) {
+            QStringList vL = vList.at(i).split(":", QString::SkipEmptyParts);
+            setInfoboxMessage(vL.at(vL.size() - 1));
         }
     }
 }
@@ -173,6 +178,7 @@ Game::~Game()
  */
  void Game::render(vector<GameActorView*> *views)
  {
+    setInfoboxMessage("");
     window_width = qmlParent->width();
     window_height = qmlParent->height();
     clearScene(views);
@@ -219,6 +225,17 @@ void Game::setLifepoints(int lifepoints)
 {
     QQuickItem *statusBar = qmlParent->findChild<QQuickItem*>("gameStatus");
     statusBar->setProperty("lifepoints", lifepoints);
+}
+
+void Game::setInfoboxMessage(QString message)
+{
+    QObject *infoBox = qmlParent->findChild<QQuickItem*>("Infobox");
+    if (message == "") {
+        infoBox->setProperty("visible", false);
+    } else {
+        infoBox->setProperty("visible", true);
+        infoBox->setProperty("text", message);
+    }
 }
 
 void Game::setActiveWeapon(int weaponNumber)

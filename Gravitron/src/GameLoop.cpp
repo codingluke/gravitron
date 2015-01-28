@@ -51,8 +51,7 @@ void GameLoop::deletePlayer() {
 
 void GameLoop::setBots(vector<KiPlayer*> bots) {
     deleteBots();
-    for (KiPlayer* kp : bots)
-    {
+    for (KiPlayer* kp : bots) {
         this->bots.push_back(kp);
     }
 }
@@ -60,7 +59,6 @@ void GameLoop::setBots(vector<KiPlayer*> bots) {
 void GameLoop::setPlayer(vector<Player*> player) {
     deletePlayer();
     this->player = player;
-    //this->localPlayer = this->player[0]->spacecraft;
 }
 
 void GameLoop::setActors(vector<GameActor*> actors) {
@@ -86,7 +84,6 @@ void GameLoop::setGameField(GameField* newField)
     this->field = newField;
 }
 
-
 void GameLoop::run()
 {
     int lag = 0;
@@ -99,15 +96,12 @@ void GameLoop::run()
         t.restart();
         processInput();
         update();
-        if(checkWinner()) {
-            stop();
-        } else {
-            render();
-        }
+        render();
         lag = ms_per_update - t.elapsed();
         if (lag > 0) {
             QThread::msleep(lag);
         }
+        checkWinner();
     }
 }
 
@@ -116,15 +110,16 @@ void GameLoop::stop()
     running = false;
 }
 
-Player* GameLoop::checkWinner() const
+void GameLoop::checkWinner()
 {
-    Player *winner = NULL;
     for (Player* p : player) {
         if (p->isWinner()) {
-            winner = p;
+            emit theWinnerIs("The Winner is " + p->getPlayerName());
+            emit sendViewlist("cwinner:The Winner Is " + p->getPlayerName() + "\n");
+            QThread::msleep(10);
+            stop();
         }
     }
-    return winner;
 }
 
 void GameLoop::processInput()
@@ -153,8 +148,6 @@ void GameLoop::update()
     for (int i = 0; i < bots.size(); i++){
         bots[i]->update();
     }
-
-    QThread::msleep(5);
 }
 
 void GameLoop::render()

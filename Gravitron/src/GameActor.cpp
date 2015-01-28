@@ -232,6 +232,11 @@ float GameActor::getG() const
     return g;
 }
 
+int GameActor::getIdentifier() const
+{
+    return identifier;
+}
+
 void GameActor::setG(float g)
 {
     this->g = g;

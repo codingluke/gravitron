@@ -45,6 +45,7 @@ class Game: public QObject
         void setActiveWeapon(int weaponNumber);
         void setLifepoints(int lifepoints);
         void setBackgroundPosition(float x, float y, float fieldWidth, float fieldHeight);
+        void setInfoboxMessage(QString message);
 
     private:
         void clearScene(vector<GameActorView*> *views);

@@ -50,9 +50,12 @@ Rectangle {
     }
 
     Text {
+        z: 10
         id: infoBox 
         objectName: "Infobox"
-        anchors.centerIn: parent
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.top: parent.top
+        anchors.topMargin: (parent.height / 2) + 50
         font.pixelSize: 30
         text: qsTr("Waiting for the Server")
         color: "#ffffff"

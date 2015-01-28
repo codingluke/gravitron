@@ -61,7 +61,7 @@ class GameLoop : public QThread
         void remapActorsReferences();
         float getRelativePositionX(Spacecraft &anchor, GameActor &other) const;
         float getRelativePositionY(Spacecraft &anchor, GameActor &other) const;
-        Player* checkWinner() const;
+        void checkWinner();
 
     signals:
         void renderObject(vector<GameActorView*> *views);
@@ -69,6 +69,7 @@ class GameLoop : public QThread
         void activeWeaponGame(int weaponNumber);
         void lifepoints(int lifepoints);
         void backgroundPos(float x, float y, float fieldWidth, float fieldHeight);
+        void theWinnerIs(QString winnerName);
 };
 
 #endif

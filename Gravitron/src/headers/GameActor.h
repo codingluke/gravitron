@@ -109,6 +109,7 @@ class GameActor
         GameField* getField() const;
         vector<GameActor*> *getActors() const;
         void setActors(vector<GameActor*> *actors);
+        int getIdentifier() const;
 
         float getDistance(GameActor &to) const;
 

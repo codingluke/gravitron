@@ -1,5 +1,6 @@
 #include "headers/Player.h"
 #include "headers/ActorsAdjustments.h"
+#include <QString>
 
 Player::Player(QObject *parent) : QObject(parent)
 {
@@ -70,6 +71,11 @@ int Player::getHealthPercentage() const
         percent = spacecraft->getHealth() * 100 / SPACECRAFT_MAX_HEALTH;
     }
     return percent;
+}
+
+QString Player::getPlayerName() const
+{
+    return QString::number(spacecraft->getIdentifier());
 }
 
 bool Player::isWinner() const
