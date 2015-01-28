@@ -132,7 +132,10 @@ void GameLoop::processInput()
 
 void GameLoop::update()
 {
+    int lastActorIndexToUpdate = actors.size();
     for(int i = 0; i < (int) actors.size(); i++) {
+    //for(int i = 0; i < lastActorIndexToUpdate; i++) {
+        cerr << i << std::endl;
         actors[i]->updateAll();
     }
     for (int i = 0; i < (int) actors.size(); i++)

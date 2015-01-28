@@ -134,7 +134,7 @@ void GameActor::updateAll()
     	    // Collision Detection
     	    bool collision = Physics::collisionDetection(position, 20.0f,
 		          other->getPosition(), 20.0f);
-            if (collision && !killed) // no double kill; if kill generate new actors at the same position a killing loop starts
+            if (collision && !killed && !other->isKilled()) // no double kill; if kill generate new actors at the same position a killing loop starts
             {
                 other->handleCollision(*this);
                 //handleCollision(*other);

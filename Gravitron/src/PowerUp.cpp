@@ -4,7 +4,11 @@
 #include <iostream>
 #include <sstream>
 
+<<<<<<< HEAD
 PowerUp::PowerUp(Vec3f position, GameField &field, vector<GameActor*> *actors) : GameActor(position, POWERUP_MAX_MASS, POWERUP_MAX_GRAVITATION_RANGE, POWERUP_MIN_G, POWERUP_MAX_HEALTH, field, actors)
+=======
+PowerUp::PowerUp(Vec3f position, GameField &field, vector<GameActor*> *actors) : GameActor(position, 0.0, 0.0, 0.0, POWERUP_MAX_HEALTH, field, actors)
+>>>>>>> deathAction
 {
 }
 
@@ -12,7 +16,7 @@ void PowerUp::handleCollision(GameActor &other)
 {
     Spacecraft* isSpacecraft = dynamic_cast<Spacecraft*>(&other);
 
-    if (isSpacecraft != 0) {
+    if (isSpacecraft != 0 && !(isSpacecraft->isKilled())) {
         isSpacecraft->upgradeWeapon();
         kill();
     }
