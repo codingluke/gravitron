@@ -67,6 +67,7 @@ class GameLoop : public QThread
         void sendViewlist(QString viewlist);
         void activeWeaponGame(int weaponNumber);
         void lifepoints(int lifepoints);
+        void backgroundPos(float x, float y, float fieldWidth, float fieldHeight);
 };
 
 #endif

@@ -44,6 +44,8 @@ Game::Game(QQmlApplicationEngine *theEngine, GravitronSettings *theSettings)
         this, SLOT(setActiveWeapon(int)));
     connect(gameLoop, SIGNAL(lifepoints(int)),
         this, SLOT(setLifepoints(int)));
+    connect(gameLoop, SIGNAL(backgroundPos(float, float, float, float)),
+        this, SLOT(setBackgroundPosition(float, float, float, float)));
     gameLoop->start();
 }
 
@@ -74,6 +76,8 @@ void Game::startServer(TcpServer *server)
         this, SLOT(setLifepoints(int)));
     connect(gameLoop, SIGNAL(activeWeaponGame(int)),
         this, SLOT(setActiveWeapon(int)));
+    connect(gameLoop, SIGNAL(backgroundPos(float, float, float, float)),
+        this, SLOT(setBackgroundPosition(float, float, float, float)));
 
     gameLoop->start();
     gameLoop->setPriority(QThread::LowPriority);
@@ -148,9 +152,13 @@ Game::~Game()
         } else if (vList.at(i).startsWith("clifepoints")) {
             QStringList vL = vList.at(i).split(":", QString::SkipEmptyParts);
             setLifepoints(vL.at(vL.size() - 1).toInt());
-        } else if (vList.at(i).startsWith("cwapon")) {
+        } else if (vList.at(i).startsWith("cweapon")) {
             QStringList vL = vList.at(i).split(":", QString::SkipEmptyParts);
             setActiveWeapon(vL.at(vL.size() - 1).toInt());
+        } else if (vList.at(i).startsWith("cbackgroundPos")) {
+            QStringList vL = vList.at(i).split(":", QString::SkipEmptyParts);
+            setBackgroundPosition(vL.at(vL.size() - 4).toFloat(), vL.at(vL.size() - 3).toFloat(), 
+                vL.at(vL.size() - 2).toFloat(), vL.at(vL.size() - 1).toFloat());
         }
     }
 }
@@ -196,6 +204,15 @@ Game::~Game()
         delete (*it);
     }
     delete views;
+}
+
+void Game::setBackgroundPosition(float x, float y, float fieldWidth, float fieldHeight)
+{
+    QQuickItem *background = qmlParent->findChild<QQuickItem*>("background");
+    background->setProperty("x", window_width / 2 - x);
+    background->setProperty("y", window_height / 2 - y);
+    background->setProperty("width", fieldWidth);
+    background->setProperty("height", fieldHeight);
 }
 
 void Game::setLifepoints(int lifepoints)

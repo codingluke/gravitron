@@ -28,7 +28,7 @@ Rectangle {
         property int identity: -1;
         property int lifepoints: 20;
         property int lengthFactor: 2
-
+        z: 1000
         objectName: "gameStatus"
         
         id: gameStatus
@@ -118,5 +118,20 @@ Rectangle {
         }
     }
 
-
+    Rectangle {
+       z: 0
+        id: background
+        objectName: "background"
+       
+        width: 100
+        height: 100
+        Image {
+            id: img_background
+            height: parent.height
+            width: parent.width
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.horizontalCenter: parent.horizontalCenter
+            source: "qrc:/img/gameBackground"
+        }
+    }
 }
