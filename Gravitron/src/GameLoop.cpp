@@ -151,10 +151,6 @@ void GameLoop::render()
         QString serializedViewlist("v");
         std::ostringstream x;
         std::ostringstream y;
-        //GameActorView *bgrndView = new GameActorView("qrc:/qml/gameBackground");
-        
-        //viewlist->push_back(bgrndView);          
-
         for(it = actors.begin(); it != actors.end(); it++) {
             GameActorView *view = (*it)->getView();
             std::ostringstream x;
@@ -182,8 +178,6 @@ void GameLoop::render()
                 view->setProperty("x", x.str());
                 view->setProperty("y", y.str());
                 viewlist->push_back(view);
-                // serializedViewlist += QString::fromStdString(view->toString());
-                // serializedViewlist += ";";
             }
         }
         serializedViewlist += "\n";

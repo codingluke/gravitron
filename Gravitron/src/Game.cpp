@@ -76,6 +76,8 @@ void Game::startServer(TcpServer *server)
         this, SLOT(setLifepoints(int)));
     connect(gameLoop, SIGNAL(activeWeaponGame(int)),
         this, SLOT(setActiveWeapon(int)));
+    connect(gameLoop, SIGNAL(backgroundPos(float, float, float, float)),
+        this, SLOT(setBackgroundPosition(float, float, float, float)));
 
     gameLoop->start();
     gameLoop->setPriority(QThread::LowPriority);
@@ -155,8 +157,8 @@ Game::~Game()
             setActiveWeapon(vL.at(vL.size() - 1).toInt());
         } else if (vList.at(i).startsWith("backgroundPos")) {
             QStringList vL = vList.at(i).split(":", QString::SkipEmptyParts);
-            setBackgroundPosition(vL.at(vL.size() - 4).toInt(), vL.at(vL.size() - 3).toInt(), 
-                vL.at(vL.size() - 2).toInt(), vL.at(vL.size() - 1).toInt());
+            setBackgroundPosition(vL.at(vL.size() - 4).toFloat(), vL.at(vL.size() - 3).toFloat(), 
+                vL.at(vL.size() - 2).toFloat(), vL.at(vL.size() - 1).toFloat());
         }
     }
 }
