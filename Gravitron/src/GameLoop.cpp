@@ -99,7 +99,11 @@ void GameLoop::run()
         t.restart();
         processInput();
         update();
-        render();
+        if(checkWinner()) {
+            stop();
+        } else {
+            render();
+        }
         lag = ms_per_update - t.elapsed();
         if (lag > 0) {
             QThread::msleep(lag);
@@ -110,6 +114,17 @@ void GameLoop::run()
 void GameLoop::stop()
 {
     running = false;
+}
+
+Player* GameLoop::checkWinner() const
+{
+    Player *winner = NULL;
+    for (Player* p : player) {
+        if (p->isWinner()) {
+            winner = p;
+        }
+    }
+    return winner;
 }
 
 void GameLoop::processInput()
@@ -138,7 +153,7 @@ void GameLoop::update()
     for (int i = 0; i < bots.size(); i++){
         bots[i]->update();
     }
-    
+
     QThread::msleep(5);
 }
 
@@ -187,18 +202,18 @@ void GameLoop::render()
             float bgrndY = getRelativePositionY(*((*playit)->getSpacecraft()), bgrndUpperLeft);
             if (!dynamic_cast<HumanNetworkPlayer*>(*playit)) {
                 emit lifepoints((*playit)->getHealthPercentage());
-                emit backgroundPos(bgrndX, bgrndY, field->getWidth(), field->getHeight()); 
+                emit backgroundPos(bgrndX, bgrndY, field->getWidth(), field->getHeight());
                 emit renderObject(viewlist);
-                emit activeWeaponGame((*playit)->getWeapon());                     
+                emit activeWeaponGame((*playit)->getWeapon());
             } else {
                 serializedViewlist += "clifepoints:" +
                                       QString::number((*playit)->getHealthPercentage()) + "\n";
                 serializedViewlist += "cweapon:" +
                                       QString::number((*playit)->getWeapon()) + "\n";
-                serializedViewlist += "cbackgroundPos:" + QString::number(bgrndX) + 
-                                        ":" + QString::number(bgrndY) + 
-                                        ":" + QString::number(field->getWidth()) + 
-                                        ":" + QString::number(field->getHeight()) + 
+                serializedViewlist += "cbackgroundPos:" + QString::number(bgrndX) +
+                                        ":" + QString::number(bgrndY) +
+                                        ":" + QString::number(field->getWidth()) +
+                                        ":" + QString::number(field->getHeight()) +
                                         "\n";
                 emit sendViewlist(serializedViewlist);
             }

@@ -61,6 +61,7 @@ class GameLoop : public QThread
         void remapActorsReferences();
         float getRelativePositionX(Spacecraft &anchor, GameActor &other) const;
         float getRelativePositionY(Spacecraft &anchor, GameActor &other) const;
+        Player* checkWinner() const;
 
     signals:
         void renderObject(vector<GameActorView*> *views);

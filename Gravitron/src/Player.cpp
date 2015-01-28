@@ -61,7 +61,23 @@ Spacecraft* Player::getSpacecraft() const
     return spacecraft;
 }
 
-int Player::getHealthPercentage() const {
-    float percent = spacecraft->getHealth() * 100 / SPACECRAFT_MAX_HEALTH;
+int Player::getHealthPercentage() const
+{
+    float percent = 0;
+    if (spacecraft->isKilled()) {
+        percent = (roundsToRespawn - respawnCounter) * 100 / roundsToRespawn;
+    } else {
+        percent = spacecraft->getHealth() * 100 / SPACECRAFT_MAX_HEALTH;
+    }
     return percent;
+}
+
+bool Player::isWinner() const
+{
+    return (spacecraft->getKillPoints() == frag);
+}
+
+int Player::getKillPoints() const
+{
+    return spacecraft->getKillPoints();
 }

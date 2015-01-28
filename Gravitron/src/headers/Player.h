@@ -28,6 +28,8 @@ class Player : public QObject
         int getRespawnCounter() const;
         void setRoundsToRespawn(int roundsToRespawn);
         void pollRespawn();
+        bool isWinner() const;
+        int getKillPoints() const;
 
         Spacecraft* getSpacecraft() const;
 };
