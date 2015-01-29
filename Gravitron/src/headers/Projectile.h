@@ -24,8 +24,6 @@ class Projectile : public GameActor
 
         int getTimeToLive() const;
         void incKillPointsOfFriends();
-        virtual void handleCollision(GameActor &other);
-
         void update() override;
 };
 

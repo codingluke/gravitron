@@ -34,7 +34,3 @@ GameActorView* PowerUp::getView() const
 
     return view;
 }
-
-void PowerUp::applyForce(Vec3f force) {}
-void PowerUp::update() {}
-void PowerUp::update(vector<GameActor*> actors) {}

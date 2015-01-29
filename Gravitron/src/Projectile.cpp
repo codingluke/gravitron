@@ -90,8 +90,5 @@ void Projectile::incKillPointsOfFriends()
 }
 }
 
-void Projectile::handleCollision(GameActor &other)
-{
 
-}
 
