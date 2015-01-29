@@ -8,12 +8,23 @@
 /**
  * This represents all objects within the game area. An ArrayList of
  * all GameActors will be handled by the main loop; adding, deleting
- * and updating all actors individually.
+ * and updating all actors individually. Each GameActor has a pointer
+ * to that list, enabling it, to add new GameActors on its own.
  */
 class GameActor
 {
     protected:
+
+        /**
+         *  A global counter representing the number of all GameActors. It will
+         *  be increased, whenever a new GameActor is instantiated.
+         */
         static int id;
+
+        /**
+         *  The identifier of this GameActor. Equals the id field at the time
+         *  of instantiation of this very GameActor.
+         */
         int identifier;
 
         /**
@@ -28,7 +39,7 @@ class GameActor
 
         Vec3f acceleration;
         /**
-         * The current position of the GameActor in a 3-dimensional kartesian
+         * The current position of the GameActor in a 3-dimensional Cartesian
          * space.
          */
 
@@ -41,21 +52,30 @@ class GameActor
         float mass;
         /**
          * The health points of this GameActor, 0 indicating a dead GameActor
-         * and -1 indicating an invincible GameActor.
+         * and -1 indicating an immortal GameActor.
          */
         int health;
 
+        /**
+         * The range over which this GameActor can apply its own gravitational
+         * pull to other GameActors.
+         */
         float gravitationRange;
 
+        /**
+         * Defines whether this GameActor counts as killed or not. This will 
+         * have implications on both the effects of other GameActors and the 
+         * updating process.
+         */
         bool killed;
 
         /**
-         * The gravitation acceleration.
+         * The gravitational force or pull of this GameActor.
          */
         float g;
 
         /**
-         * The maximum speed.
+         * The maximum speed this GameActor can acquire.
          */
         float maxSpeed;
 
@@ -77,21 +97,10 @@ class GameActor
                   int health, GameField &field, float maxSpeed,
                   vector<GameActor*> *actors);
         GameActor(const GameActor &actor);
-        virtual ~GameActor();
 
-        virtual void applyForce(Vec3f force);
-        virtual void update();
-        virtual void updateAll();
-        virtual void update(vector<GameActor*> actors);
         void update(double radius);
-
-        virtual void handleCollision(GameActor &other);
-
-        virtual void handleKill();
-
         bool operator== (GameActor& right);
         GameActor &operator= (const GameActor &right);
-
         Vec3f getPosition() const;
         Vec3f getAcceleration() const;
         Vec3f getVelocity() const;
@@ -105,17 +114,22 @@ class GameActor
         void setHealth(int health);
         void dealDamage(int damage);
         void addHealth(int health);
-        virtual GameActorView* getView() const;
         GameField* getField() const;
         vector<GameActor*> *getActors() const;
         void setActors(vector<GameActor*> *actors);
         int getIdentifier() const;
-
         float getDistance(GameActor &to) const;
-
         void kill();
         bool isKilled();
 
+        virtual ~GameActor();
+        virtual void applyForce(Vec3f force);
+        virtual void update();
+        virtual void updateAll();
+        virtual void update(vector<GameActor*> actors);
+        virtual void handleCollision(GameActor &other);
+        virtual void handleKill();
+        virtual GameActorView* getView() const;
         virtual std::string toString() const;
 
     private:
@@ -123,6 +137,7 @@ class GameActor
                         float g, int health, GameField &field, float maxSpeed,
                         vector<GameActor*> *actors);
         void initialize(const GameActor &actor);
+
     protected:
         float calculateRotation() const;
         float radToDeg(float radians) const;

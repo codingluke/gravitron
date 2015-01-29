@@ -7,8 +7,19 @@
 
 int GameActor::id = 0;
 
-void GameActor::initialize(Vec3f position, double mass, float gravitationRange, float g, int health, GameField &field, float maxSpeed, vector<GameActor*> *actors)
-{
+/**
+ * Initializer method for the constructor.
+ * @param position         the position
+ * @param mass             the mass
+ * @param gravitationRange the gravitational pull range
+ * @param g                the gravitational force
+ * @param health           the health
+ * @param field            the game area
+ * @param maxSpeed         the the maximum speed 
+ * @param actors           the the other actors
+ */
+ void GameActor::initialize(Vec3f position, double mass, float gravitationRange, float g, int health, GameField &field, float maxSpeed, vector<GameActor*> *actors)
+ {
     identifier = GameActor::id++;
     killed = false;
     velocity = Vec3f();
@@ -23,11 +34,15 @@ void GameActor::initialize(Vec3f position, double mass, float gravitationRange, 
     this->actors = actors;
 }
 
-void GameActor::initialize(const GameActor &actor)
-{
+/**
+ * The initializer for the copy constructor.    
+ * @param actor the original GameActor
+ */
+ void GameActor::initialize(const GameActor &actor)
+ {
     identifier = GameActor::id++;
     killed = false;
-	  position = actor.getPosition();
+    position = actor.getPosition();
     acceleration = actor.getAcceleration();
     velocity = actor.getVelocity();
     mass = actor.getMass();
@@ -39,20 +54,39 @@ void GameActor::initialize(const GameActor &actor)
     actors = actor.getActors();
 }
 
-GameActor::GameActor()
-{
-	//Vec3f in = Vec3f();
-    //GameField *f = new GameField();
-    //initialize(Vec3f(), 1., 1., 1., -1, GameField(), -1);
-}
+/**
+ * The default constructor.
+ */
+ GameActor::GameActor() {}
 
-GameActor::GameActor(Vec3f position, double mass, float gravitationRange, float g, int health, GameField &field, vector<GameActor*> *actors)
-{
+/**
+ * The constructor for a GameActor without speed limitation.
+ * @param position         the position
+ * @param mass             the mass
+ * @param gravitationRange the gravitational pull range
+ * @param g                the gravitational force
+ * @param health           the health
+ * @param field            the game area
+ * @param actors           the the other actors
+ */
+ GameActor::GameActor(Vec3f position, double mass, float gravitationRange, float g, int health, GameField &field, vector<GameActor*> *actors)
+ {
     initialize(position, mass, gravitationRange, g, health, field, -1, actors);
 }
 
-GameActor::GameActor(Vec3f position, double mass, float gravitationRange, float g, int health, GameField &field, float maxSpeed, vector<GameActor*> *actors)
-{
+/**
+ * The constructor.
+ * @param position         the position
+ * @param mass             the mass
+ * @param gravitationRange the gravitational pull range
+ * @param g                the gravitational force
+ * @param health           the health
+ * @param field            the game area
+ * @param maxSpeed         the the maximum speed 
+ * @param actors           the the other actors
+ */
+ GameActor::GameActor(Vec3f position, double mass, float gravitationRange, float g, int health, GameField &field, float maxSpeed, vector<GameActor*> *actors)
+ {
     initialize(position, mass, gravitationRange, g, health, field, maxSpeed, actors);
 }
 
@@ -61,9 +95,10 @@ GameActor::GameActor(const GameActor &actor)
 	initialize(actor);
 }
 
-GameActor::~GameActor()
-{
-}
+/**
+ * The destructor.
+ */
+ GameActor::~GameActor() {}
 
 /**
  * This method will be used, to apply any kind of force to the GameActor.
@@ -72,23 +107,23 @@ GameActor::~GameActor()
  * be called.
  * @param force the force to apply to this GameActor
  */
-void GameActor::applyForce(Vec3f force)
-{
-	acceleration += force;
+ void GameActor::applyForce(Vec3f force)
+ {
+   acceleration += force;
 }
 
 void GameActor::update()
 {
   if (!isKilled()) {
       velocity += acceleration;
-        if (maxSpeed != -1) {
-            if (velocity.magnitude() > maxSpeed) {
-                velocity = velocity.normalize() * maxSpeed;
-                acceleration = acceleration.normalize() * maxSpeed;
-            }
+      if (maxSpeed != -1) {
+        if (velocity.magnitude() > maxSpeed) {
+            velocity = velocity.normalize() * maxSpeed;
+            acceleration = acceleration.normalize() * maxSpeed;
         }
+    }
 
-      position += velocity;
+    position += velocity;
       // if (position.v[0] > field->getWidth())
       //     position.v[0] = position.v[0] - field->getWidth();
       // if (position.v[0] < 0)
@@ -97,31 +132,31 @@ void GameActor::update()
       //     position.v[1] = position.v[1] - field->getHeight();
       // if (position.v[1] < 0)
       //     position.v[1] = field->getHeight() - position.v[1];
-      if (position.v[0] > field->getWidth())
-      {
-          position.v[0] = field->getWidth() - 1;
-          velocity.v[0] = velocity.v[0] * (-1);
-          acceleration.v[0] = acceleration.v[0] * (-1);
-      }
-      if (position.v[0] < 0)
-      {
-          position.v[0] = 1;
-          velocity.v[0] = velocity.v[0] * (-1);
-          acceleration.v[0] = acceleration.v[0] * (-1);
-      }
-      if (position.v[1] > field->getHeight())
-      {
-          position.v[1] = field->getHeight() - 1;
-          velocity.v[1] = velocity.v[1] * (-1);
-          acceleration.v[1] = acceleration.v[1] * (-1);
-      }
-      if (position.v[1] < 0)
-      {
-          position.v[1] = 1;
-          velocity.v[1] = velocity.v[1] * (-1);
-          acceleration.v[1] = acceleration.v[1] * (-1);
-      }
+    if (position.v[0] > field->getWidth())
+    {
+      position.v[0] = field->getWidth() - 1;
+      velocity.v[0] = velocity.v[0] * (-1);
+      acceleration.v[0] = acceleration.v[0] * (-1);
   }
+  if (position.v[0] < 0)
+  {
+      position.v[0] = 1;
+      velocity.v[0] = velocity.v[0] * (-1);
+      acceleration.v[0] = acceleration.v[0] * (-1);
+  }
+  if (position.v[1] > field->getHeight())
+  {
+      position.v[1] = field->getHeight() - 1;
+      velocity.v[1] = velocity.v[1] * (-1);
+      acceleration.v[1] = acceleration.v[1] * (-1);
+  }
+  if (position.v[1] < 0)
+  {
+      position.v[1] = 1;
+      velocity.v[1] = velocity.v[1] * (-1);
+      acceleration.v[1] = acceleration.v[1] * (-1);
+  }
+}
 }
 
 void GameActor::updateAll()
@@ -131,15 +166,15 @@ void GameActor::updateAll()
     	other = actors->at(i);
     	if (other != this && !other->isKilled()) {
     	    // Collision Detection
-    	    bool collision = Physics::collisionDetection(position, 20.0f,
-		          other->getPosition(), 20.0f);
+           bool collision = Physics::collisionDetection(position, 20.0f,
+            other->getPosition(), 20.0f);
             if (collision && !killed && !other->isKilled()) // no double kill; if kill generate new actors at the same position a killing loop starts
             {
                 other->handleCollision(*this);
                 //handleCollision(*other);
             }
     	    // Update Gravitation
-    	    Vec3f f = Physics::calculateGravitationForce(this, actors->at(i));
+            Vec3f f = Physics::calculateGravitationForce(this, actors->at(i));
             other->applyForce(f);
         }
     }
@@ -155,10 +190,10 @@ void GameActor::update(vector<GameActor*> actors)
         {
             // Collision Detection
             bool collision = Physics::collisionDetection(position, 20.0f,
-                                      other->getPosition(), 20.0f);
+              other->getPosition(), 20.0f);
             if (collision)
             {
-                    handleCollision(*other);
+                handleCollision(*other);
             }
             // Update Gravitation
             Vec3f f = Physics::calculateGravitationForce(this, actors.at(i));
@@ -185,10 +220,10 @@ bool GameActor::isKilled()
  * of the given radius.
  * @param radius the radius of the sphere
  */
-void GameActor::update(double radius)
-{
-	update();
-	position = position.normalize() * radius;
+ void GameActor::update(double radius)
+ {
+   update();
+   position = position.normalize() * radius;
 }
 
 bool GameActor::operator== (GameActor& right) {
@@ -293,9 +328,9 @@ GameActorView* GameActor::getView() const
     view->setProperty("x", x.str());
     view->setProperty("y", y.str());
     if (killed) {
-    view->setProperty("color", "red");
+        view->setProperty("color", "red");
     } else {
-    view->setProperty("color", "yellow");
+        view->setProperty("color", "yellow");
     }
     std::ostringstream rot;
     rot << calculateRotation();

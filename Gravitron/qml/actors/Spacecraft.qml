@@ -5,7 +5,7 @@ Rectangle {
     property real angle
     property int controllingPlayerID
     property bool isVisible: true
-    property string name: "Johon doo"
+    property string name: "John doe"
 
     width: 83
     height: 64 
