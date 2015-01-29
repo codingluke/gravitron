@@ -12,10 +12,13 @@ Game::Game(QObject *parent) : QObject(parent)
 {
 }
 
-Game::Game(QQmlApplicationEngine *theEngine, GravitronSettings *theSettings)
+Game::Game(QQmlApplicationEngine *theEngine, GravitronSettings *theSettings,
+           TcpClient *client, TcpServer *server)
 {
     engine = theEngine;
     settings = theSettings;
+    this->server = server;
+    this->client = client;
     gameLoop = NULL;
     field = NULL;
 }
@@ -42,19 +45,18 @@ void Game::setQmlParent(QQuickItem *theQmlParent)
     gameLoop->start();
 }
 
-void Game::startClient(TcpClient *client)
+void Game::startClient()
 {
     InputHandler *iHandler = new InputHandler();
     QCoreApplication::instance()->installEventFilter(iHandler);
 
-    client->transfer("cname:" + settings->playerName());
     connect(iHandler, SIGNAL(inputsChanged(set<int>)),
         client, SLOT(transfer(set<int>)));
     connect(client, SIGNAL(received(QString)),
         this, SLOT(renderRemote(QString)));
 }
 
-void Game::startServer(TcpServer *server)
+void Game::startServer()
 {
     field = new GameField(2000 * settings->playingFieldSize(),
                           1300 * settings->playingFieldSize());
@@ -65,6 +67,7 @@ void Game::startServer(TcpServer *server)
         server, SLOT(transfer(QString)));
     gameLoop->start();
     gameLoop->setPriority(QThread::LowPriority);
+    server->transfer("cstart\n");
 }
 
 void Game::connectGameloop()
@@ -163,6 +166,8 @@ Game::~Game()
             QStringList vL = vList.at(i).split(":", QString::SkipEmptyParts);
             vL = vL.at(vL.size() - 1).split(",", QString::SkipEmptyParts);
             setFrag(vL.at(0).toInt(), vL.at(1).toInt());
+        } else if (vList.at(i).startsWith("cstart")) {
+            client->transfer("cname:" + settings->playerName() + "\n");
         }
     }
 }

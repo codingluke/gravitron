@@ -27,16 +27,19 @@ class Game: public QObject
         GameField *field;
         float window_width = 1000;
         float window_height = 1000;
+        TcpClient *client;
+        TcpServer *server;
 
     public:
         Game(QObject *parent = 0);
-        Game(QQmlApplicationEngine *theEngine, GravitronSettings *theSettings);
+        Game(QQmlApplicationEngine *theEngine, GravitronSettings *theSettings,
+             TcpClient *client, TcpServer *server);
         ~Game();
 
         Q_INVOKABLE void setQmlParent(QQuickItem *theQmlParent);
         Q_INVOKABLE void start();
-        Q_INVOKABLE void startClient(TcpClient *client);
-        Q_INVOKABLE void startServer(TcpServer *server);
+        Q_INVOKABLE void startClient();
+        Q_INVOKABLE void startServer();
         Q_INVOKABLE void stop();
 
     public slots:

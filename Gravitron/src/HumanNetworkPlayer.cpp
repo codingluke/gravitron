@@ -19,10 +19,12 @@ HumanNetworkPlayer::~HumanNetworkPlayer() {
 
 void HumanNetworkPlayer::setNameFromNetwork(QString message)
 {
-    if (message.startsWith("cname")) {
-        QStringList l = message.split("\n", QString::SkipEmptyParts);
-        QString name = l.at(0).split(":", QString::SkipEmptyParts)[1];
-        setPlayerName(name);
+    QStringList l = message.split("\n", QString::SkipEmptyParts);
+    for (QString s : l) {
+        if (s.startsWith("cname")) {
+            QString name = s.split(":", QString::SkipEmptyParts)[1];
+            setPlayerName(name);
+        }
     }
 }
 

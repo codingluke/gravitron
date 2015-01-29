@@ -11,21 +11,19 @@ function btn_startGameClicked() {
 }
 
 function btn_startMultiplayerGameClicked() {
-    console.log("start game");
     scrollView.visible = false;
     loader.visible = true;
     loader.source = "../Game.qml";
     Game.setQmlParent(loader.item);
-    Game.startServer(TcpServer);
+    Game.startServer();
 }
 
 function btn_joinMultiplayerGameClicked() {
-    console.log("join game");
     scrollView.visible = false;
     loader.visible = true;
     loader.source = "../Game.qml";
     Game.setQmlParent(loader.item);
-    Game.startClient(TcpClient);
+    Game.startClient();
 }
 
 function btn_settingsClicked() {

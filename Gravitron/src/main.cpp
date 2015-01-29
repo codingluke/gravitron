@@ -41,15 +41,16 @@ int main(int argc, char *argv[])
     engine.rootContext()->setContextProperty("Settings", &settings);
     engine.rootContext()->setContextProperty("MListener", &mListener);
 
-    // Add Game
-    Game game(&engine, &settings);
-    engine.rootContext()->setContextProperty("Game", &game);
 
     // Add TCP
     TcpServer server;
     TcpClient client;
     engine.rootContext()->setContextProperty("TcpServer", &server);
     engine.rootContext()->setContextProperty("TcpClient", &client);
+
+    // Add Game
+    Game game(&engine, &settings, &client, &server);
+    engine.rootContext()->setContextProperty("Game", &game);
 
     Locater l(settings, app);
     l.loadLanguare(settings.languare());
