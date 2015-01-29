@@ -104,7 +104,7 @@ void AimMissile::setNearestTarget()
         float minDistance = -1;
         for (GameActor* act : *actors)
         {
-            if (dynamic_cast<Spacecraft*>(act))
+            if (dynamic_cast<Spacecraft*>(act) && !act->isKilled())
             {
                 bool otherIsFriendly = false;
                 for (GameActor* fr : friendly)

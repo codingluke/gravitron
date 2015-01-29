@@ -21,3 +21,5 @@ GameActorView* Sun::getView() const {
     view->setProperty("angle", calculateRotation());
     return view;
 }
+
+void Sun::update() {}
