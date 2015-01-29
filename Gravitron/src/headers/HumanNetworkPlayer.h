@@ -8,10 +8,14 @@
 class HumanNetworkPlayer : public HumanPlayer
 {
   public:
-      HumanNetworkPlayer(Spacecraft* spacecraft, int frag, TcpServer *server);
+      HumanNetworkPlayer(Spacecraft* spacecraft, int frag,
+                         TcpServer *server, QString name);
 
       virtual ~HumanNetworkPlayer();
       void processInput();
+
+  public slots:
+      void setNameFromNetwork(QString message);
 
   protected:
       virtual void execAction(int code);

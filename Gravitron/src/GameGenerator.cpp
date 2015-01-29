@@ -4,7 +4,6 @@
 #include "headers/Asteroid.h"
 #include "headers/Spacecraft.h"
 #include "headers/KiPlayer.h"
-#include "headers/KiNetworkPlayer.h"
 #include "headers/HumanPlayer.h"
 #include "headers/HumanNetworkPlayer.h"
 #include "headers/GameField.h"
@@ -63,16 +62,14 @@ void GameGenerator::generateGame(GameLoop* g) {
     g->setGameField(field);
 }
 
-void GameGenerator::generateBots() 
+void GameGenerator::generateBots()
 {
     for(int i = 0; i < settings->botsCount(); i++) {
-        Spacecraft* sc = generateNewSpacecraft();    
+        Spacecraft* sc = generateNewSpacecraft();
         actors->push_back(sc);
-        if (settings->network()) {
-            bots.push_back(new KiNetworkPlayer(sc, settings->frag(), settings->difficulty(), actors));
-        } else {
-            bots.push_back(new KiPlayer(sc, settings->frag(), settings->difficulty(), actors));
-        }
+        bots.push_back(new KiPlayer(
+            sc, settings->frag(), settings->difficulty(), actors, "KI Player"
+        ));
     }
 }
 
@@ -82,12 +79,18 @@ void GameGenerator::generatePlayer() {
         Spacecraft* sc2 = generateNewSpacecraft();
         actors->push_back(sc);
         actors->push_back(sc2);
-        humanPlayer.push_back(new HumanPlayer(sc, settings->frag()));
-        humanPlayer.push_back(new HumanNetworkPlayer(sc2, settings->frag(), server));
+        humanPlayer.push_back(new HumanPlayer(
+            sc, settings->frag(), settings->playerName()
+        ));
+        humanPlayer.push_back( new HumanNetworkPlayer(
+            sc2, settings->frag(), server, "Network"
+        ));
     } else {
         Spacecraft* sc = generateNewSpacecraft();
         actors->push_back(sc);
-        humanPlayer.push_back(new HumanPlayer(sc, settings->frag()));
+        humanPlayer.push_back(new HumanPlayer(
+            sc, settings->frag(), settings->playerName()
+        ));
     }
 }
 

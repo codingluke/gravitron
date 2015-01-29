@@ -14,7 +14,7 @@ class KiPlayer : public Player
 
     public:
         KiPlayer(Spacecraft* spacecraft, int frag, int difficulty,
-                 std::vector<GameActor*> *actors);
+                 std::vector<GameActor*> *actors, QString name);
         virtual ~KiPlayer();
 
         void update();

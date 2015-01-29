@@ -47,6 +47,7 @@ void Game::startClient(TcpClient *client)
     InputHandler *iHandler = new InputHandler();
     QCoreApplication::instance()->installEventFilter(iHandler);
 
+    client->transfer("cname:" + settings->playerName());
     connect(iHandler, SIGNAL(inputsChanged(set<int>)),
         client, SLOT(transfer(set<int>)));
     connect(client, SIGNAL(received(QString)),

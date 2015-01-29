@@ -49,9 +49,14 @@ GameActorView* Spacecraft::getView() const {
     view->setProperty("visible", !killed);
     view->setProperty("angle", calculateRotation());
     view->setProperty("controllingPlayerID", controllingPlayerID);
+    view->setProperty("name", name);
     return view;
 }
 
+string Spacecraft::getName() const
+{
+    return name;
+}
 
 int Spacecraft::getWeapon() const
 {
@@ -166,6 +171,11 @@ void Spacecraft::upgradeWeapon() {
 void Spacecraft::setControllingPlayer(int controllingPlayerID)
 {
     this->controllingPlayerID = controllingPlayerID;
+}
+
+void Spacecraft::setName(string name)
+{
+    this->name = name;
 }
 
 int Spacecraft::getControllingPlayer() const

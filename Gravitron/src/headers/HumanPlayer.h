@@ -14,7 +14,7 @@ class HumanPlayer : public Player
       QObject *inputHandler;
 
     public:
-        HumanPlayer(Spacecraft* spacecraft, int frag);
+        HumanPlayer(Spacecraft* spacecraft, int frag, QString name);
         virtual ~HumanPlayer();
 
         virtual void processInput();

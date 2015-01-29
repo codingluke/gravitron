@@ -3,7 +3,9 @@
 #include <iostream>
 #include <QDebug>
 
-KiPlayer::KiPlayer(Spacecraft *spacecraft, int frag, int difficulty, std::vector<GameActor*> *actors) : Player(spacecraft, frag)
+KiPlayer::KiPlayer(Spacecraft *spacecraft, int frag, int difficulty,
+                   std::vector<GameActor*> *actors, QString name)
+         : Player(spacecraft, frag, name)
 {
     this->difficulty = difficulty;
     this->actors = actors;

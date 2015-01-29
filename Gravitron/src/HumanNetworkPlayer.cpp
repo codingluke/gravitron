@@ -1,17 +1,29 @@
 #include "headers/HumanNetworkPlayer.h"
 #include "headers/GameLoop.h"
 
-HumanNetworkPlayer::HumanNetworkPlayer(Spacecraft* spacecraft,
-                                       int frag, TcpServer *server)
-                   : HumanPlayer(spacecraft, frag)
+HumanNetworkPlayer::HumanNetworkPlayer(Spacecraft* spacecraft, int frag,
+                                       TcpServer *server, QString name)
+                   : HumanPlayer(spacecraft, frag, name)
 {
     inputHandler = new NetworkInputHandler();
     connect(server, SIGNAL(received(QString)),
             inputHandler, SLOT(receive(QString)));
+    connect(server, SIGNAL(received(QString)),
+            this, SLOT(setNameFromNetwork(QString)));
 }
+
 
 HumanNetworkPlayer::~HumanNetworkPlayer() {
 
+}
+
+void HumanNetworkPlayer::setNameFromNetwork(QString message)
+{
+    if (message.startsWith("cname")) {
+        QStringList l = message.split("\n", QString::SkipEmptyParts);
+        QString name = l.at(0).split(":", QString::SkipEmptyParts)[1];
+        setPlayerName(name);
+    }
 }
 
 void HumanNetworkPlayer::processInput()

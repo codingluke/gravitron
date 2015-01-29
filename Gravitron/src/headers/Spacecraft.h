@@ -1,9 +1,10 @@
 #ifndef SPACECRAFT_H
 #define SPACECRAFT_H
+
 #include "GameActor.h"
 #include "GameField.h"
 #include "Projectile.h"
-
+#include <string>
 
 class Spacecraft : public GameActor
 {
@@ -12,6 +13,7 @@ class Spacecraft : public GameActor
         int controllingPlayerID;
         float accelerationFactor;
         int killPoints = 0;
+        string name;
 
     private:
         void init();
@@ -25,17 +27,20 @@ class Spacecraft : public GameActor
                    float gravitationRange, float g, GameField &field,
                    float maxSpeed, vector<GameActor*> *actors);
         Spacecraft(const Spacecraft &spacecraft);
-        void handleCollision(GameActor &other);
+
         virtual ~Spacecraft();
 
-        void setControllingPlayer(int controllingPlayerID);
+        void handleCollision(GameActor &other);
         int getControllingPlayer() const;
-
+        string getName() const;
         GameActorView* getView() const override;
         int getWeapon() const;
         int getKillPoints() const;
+
         void incKillPoints();
         void handleKill();
+        void setName(string name);
+        void setControllingPlayer(int controllingPlayerID);
 
         void forceAhead();
         void forceBack();

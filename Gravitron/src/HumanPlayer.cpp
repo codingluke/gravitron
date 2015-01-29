@@ -2,7 +2,8 @@
 #include "headers/GameLoop.h"
 #include <QDebug>
 
-HumanPlayer::HumanPlayer(Spacecraft *spacecraft, int frag) : Player(spacecraft, frag)
+HumanPlayer::HumanPlayer(Spacecraft *spacecraft, int frag, QString name)
+  : Player(spacecraft, frag, name)
 {
     inputHandler = new InputHandler();
     QCoreApplication::instance()->installEventFilter(inputHandler);

@@ -8,10 +8,12 @@ Player::Player(QObject *parent) : QObject(parent)
 }
 
 
-Player::Player(Spacecraft* spacecraft, int frag)
+Player::Player(Spacecraft* spacecraft, int frag, QString name)
 {
     this->spacecraft = spacecraft;
     this->frag = frag;
+    this->name = name;
+    spacecraft->setName(name.toStdString());
     respawnCounter = roundsToRespawn;
 }
 
@@ -75,8 +77,19 @@ int Player::getHealthPercentage() const
 
 QString Player::getPlayerName() const
 {
-    return QString::number(spacecraft->getIdentifier());
+    if (name != "") {
+        return name;
+    } else {
+        return QString::number(spacecraft->getIdentifier());
+    }
 }
+
+void Player::setPlayerName(QString name)
+{
+    this->name = name;
+    spacecraft->setName(name.toStdString());
+}
+
 
 bool Player::isWinner() const
 {
