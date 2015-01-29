@@ -33,9 +33,8 @@ Spacecraft::Spacecraft(const Spacecraft &spacecraft) : GameActor(spacecraft)
 
 void Spacecraft::init() {
     g = 0;
-    weapon = 3;
+    weapon = 1;
     accelerationFactor = 0.5;
-    maxSpeed = 0;
 }
 
 Spacecraft::~Spacecraft() {

@@ -14,6 +14,6 @@
         <file alias="selectMissile">selectMissile.png</file>
         <file alias="selectAimMissile">selectAimMissile.png</file>
         <file alias="selectLaser">selcetLaser.png</file>
-        <file alias="gameBackground">gameBackground.png</file>
+        <file alias="gameBackground">gameBackground.jpg</file>
     </qresource>
 </RCC>

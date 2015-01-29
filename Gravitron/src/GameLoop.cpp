@@ -132,13 +132,10 @@ void GameLoop::processInput()
 
 void GameLoop::update()
 {
-    int lastActorIndexToUpdate = actors.size();
-    for(int i = 0; i < (int) actors.size(); i++) {
-    //for(int i = 0; i < lastActorIndexToUpdate; i++) {
-        cerr << i << std::endl;
+    for(unsigned int i = 0; i < actors.size(); i++) {
         actors[i]->updateAll();
     }
-    for (int i = 0; i < (int) actors.size(); i++)
+    for (unsigned int i = 0; i < actors.size(); i++)
     {
         Spacecraft* isSpacecraft = NULL;
         isSpacecraft = dynamic_cast<Spacecraft*>(actors[i]);
@@ -148,7 +145,7 @@ void GameLoop::update()
         }
     }
     actors.shrink_to_fit();
-    for (int i = 0; i < bots.size(); i++){
+    for (unsigned int i = 0; i < bots.size(); i++){
         bots[i]->update();
     }
 }
