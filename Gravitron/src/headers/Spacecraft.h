@@ -6,10 +6,20 @@
 #include "Projectile.h"
 #include <string>
 
+/**
+ * The spacecraft is a player controlled entity. It may be controlled by either a human 
+ * player or by the AI.
+ */
 class Spacecraft : public GameActor
 {
     private:
+        /**
+         * This represents the currently equipped weapon.
+         */
         int weapon;
+        /**
+         * The id of the controlling player.
+         */
         int controllingPlayerID;
         float accelerationFactor;
         int killPoints = 0;
