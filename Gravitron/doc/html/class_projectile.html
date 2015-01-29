@@ -233,7 +233,9 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:a07be525e1e463a4f437dba30f0173b6c inherit pro_static_attribs_class_game_actor"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_actor.html#a07be525e1e463a4f437dba30f0173b6c">id</a> = 0</td></tr>
 <tr class="separator:a07be525e1e463a4f437dba30f0173b6c inherit pro_static_attribs_class_game_actor"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>This (abstract) class represents any kind of projectile, laser beam, bomb or mine that can be produced by a weapon. Since projectiles generally damage things on impact, any effects that are triggered by such, should be implemented by implementing GameActors virtual methods <a class="el" href="class_game_actor.html#aba8cfb1004bf6fc17681cd595b706ada">handleCollision()</a> and <a class="el" href="class_game_actor.html#a00cdd692fae4de9fb4ce6b2748754744">handleKill()</a> in any inheriting objects. Also a rocket or a laser might not travel for eternity, so its time to live (in rendering cycles) may be defined and would be decreased with every call of <a class="el" href="class_projectile.html#ac41ad56034b53e739619fabbd5e49652">update()</a>. This also prevents a cluttering of the game area. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="ac536ed2aad56af866a2078b9a85aa16d"></a>
 <div class="memitem">
 <div class="memproto">
@@ -246,7 +248,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p><a class="el" href="class_projectile.html">Projectile</a> will be the SuperClass of all kinds of weapon projectiles, space Debris and temporary area effects. To avoid a cluttering of the game area, most projectiles should have a limited timeToLive. </p>
+<p>Default constructor. </p>
 
 </div>
 </div>
@@ -315,6 +317,20 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Creates a new <a class="el" href="class_projectile.html">Projectile</a> with a given postion, mass, gravitational range, gravitational pull, time to live health and a given set of friendly GameActors whithin a given game field. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">position</td><td>the position </td></tr>
+    <tr><td class="paramname">mass</td><td>the mass </td></tr>
+    <tr><td class="paramname">gravitationRange</td><td>the gravitational range </td></tr>
+    <tr><td class="paramname">g</td><td>the gravitational force </td></tr>
+    <tr><td class="paramname">timeToLive</td><td>the time to live </td></tr>
+    <tr><td class="paramname">health</td><td>the total health points </td></tr>
+    <tr><td class="paramname">field</td><td>the game field </td></tr>
+    <tr><td class="paramname">friendly</td><td>a set of friendly actors </td></tr>
+    <tr><td class="paramname">actors</td><td>a set of all actors </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -377,6 +393,19 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Creates a new <a class="el" href="class_projectile.html">Projectile</a> with a given postion, mass, gravitational range, gravitational pull, time to live health whithin a given game field. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">position</td><td>the position </td></tr>
+    <tr><td class="paramname">mass</td><td>the mass </td></tr>
+    <tr><td class="paramname">gravitationRange</td><td>the gravitational range </td></tr>
+    <tr><td class="paramname">g</td><td>the gravitational force </td></tr>
+    <tr><td class="paramname">timeToLive</td><td>the time to live </td></tr>
+    <tr><td class="paramname">health</td><td>the total health points </td></tr>
+    <tr><td class="paramname">field</td><td>the game field </td></tr>
+    <tr><td class="paramname">actors</td><td>a set of all actors </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -393,6 +422,12 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>The copy constructor. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">projectile</td><td>the original </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -417,6 +452,7 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>The destructor. </p>
 
 </div>
 </div>
@@ -433,6 +469,7 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Determines the current time to live (in rendering cycles). </p><dl class="section return"><dt>Returns</dt><dd>current time to live </dd></dl>
 
 </div>
 </div>
@@ -448,6 +485,7 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>This increases the score (kill points, frags) of all Spacecrafts that are included in the set of friendly GameActors of this <a class="el" href="class_projectile.html">Projectile</a>. </p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -480,7 +518,7 @@ Here is the call graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Loses one unit of timeToLive per frame. If the TTL equals 0, the <a class="el" href="class_projectile.html">Projectile</a> will die. Projectiles with a TTL of -1 are considered "immortal". </p>
+<p>This will calculate the condition of this <a class="el" href="class_projectile.html">Projectile</a> for the next cycle, meaning the position and acceleration will be updated and the time to live will be decreased by 1. Additionally the <a class="el" href="class_projectile.html">Projectile</a> will be killed, if it touches the borders of the game area. </p>
 
 <p>Reimplemented from <a class="el" href="class_game_actor.html#ab70229c740251fb7c4222bf579c59393">GameActor</a>.</p>
 
@@ -513,6 +551,7 @@ Here is the call graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>All GameActors which shall not be affected by this projectile. </p>
 
 </div>
 </div>
@@ -523,7 +562,7 @@ Here is the call graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jan 29 2015 16:03:00 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jan 29 2015 21:36:00 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

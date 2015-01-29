@@ -45,7 +45,7 @@ void \hyperlink{class_game_a8cbceafcfbb9fe7d67827c428f8f0ee6}{set\+Frag} (int mu
 \item 
 \hyperlink{class_game_a1875963fc898101a29d47084aebffa28}{Game} (Q\+Object $\ast$parent=0)
 \item 
-\hyperlink{class_game_ad313f2a005b48ec21f3c56b8b9ed0fe4}{Game} (Q\+Qml\+Application\+Engine $\ast$the\+Engine, \hyperlink{class_gravitron_settings}{Gravitron\+Settings} $\ast$the\+Settings)
+\hyperlink{class_game_afeda9924813b108f34ca94e1d5ead7c9}{Game} (Q\+Qml\+Application\+Engine $\ast$the\+Engine, \hyperlink{class_gravitron_settings}{Gravitron\+Settings} $\ast$the\+Settings, \hyperlink{class_tcp_client}{Tcp\+Client} $\ast$client, \hyperlink{class_tcp_server}{Tcp\+Server} $\ast$server)
 \item 
 \hyperlink{class_game_ae3d112ca6e0e55150d2fdbc704474530}{$\sim$\+Game} ()
 \item 
@@ -53,9 +53,9 @@ Q\+\_\+\+I\+N\+V\+O\+K\+A\+B\+L\+E void \hyperlink{class_game_ac7edf2d1ecf3e7e45
 \item 
 Q\+\_\+\+I\+N\+V\+O\+K\+A\+B\+L\+E void \hyperlink{class_game_a3d9b98f7c4a96ecf578f75b96c9f0e90}{start} ()
 \item 
-Q\+\_\+\+I\+N\+V\+O\+K\+A\+B\+L\+E void \hyperlink{class_game_a887fc8d85fac4fa26587bd2adb2d3ba0}{start\+Client} (\hyperlink{class_tcp_client}{Tcp\+Client} $\ast$client)
+Q\+\_\+\+I\+N\+V\+O\+K\+A\+B\+L\+E void \hyperlink{class_game_a25c97b9eb158946f4b10993dfc3cf6f3}{start\+Client} ()
 \item 
-Q\+\_\+\+I\+N\+V\+O\+K\+A\+B\+L\+E void \hyperlink{class_game_aacc6760ef923294d17927557faa3826f}{start\+Server} (\hyperlink{class_tcp_server}{Tcp\+Server} $\ast$server)
+Q\+\_\+\+I\+N\+V\+O\+K\+A\+B\+L\+E void \hyperlink{class_game_aed51d3d3760d9c052cdf33144ead0fba}{start\+Server} ()
 \item 
 Q\+\_\+\+I\+N\+V\+O\+K\+A\+B\+L\+E void \hyperlink{class_game_a17fbb36fd4a2085f9ff4f1fa93d7d08b}{stop} ()
 \end{DoxyCompactItemize}
@@ -69,14 +69,16 @@ Q\+\_\+\+I\+N\+V\+O\+K\+A\+B\+L\+E void \hyperlink{class_game_a17fbb36fd4a2085f9
 \item[{Q\+Object $\ast$}]{parent = {\ttfamily 0}}
 \end{DoxyParamCaption}
 )}}\label{class_game_a1875963fc898101a29d47084aebffa28}
-\hypertarget{class_game_ad313f2a005b48ec21f3c56b8b9ed0fe4}{\index{Game@{Game}!Game@{Game}}
+\hypertarget{class_game_afeda9924813b108f34ca94e1d5ead7c9}{\index{Game@{Game}!Game@{Game}}
 \index{Game@{Game}!Game@{Game}}
 \subsubsection[{Game}]{\setlength{\rightskip}{0pt plus 5cm}Game\+::\+Game (
 \begin{DoxyParamCaption}
 \item[{Q\+Qml\+Application\+Engine $\ast$}]{the\+Engine, }
-\item[{{\bf Gravitron\+Settings} $\ast$}]{the\+Settings}
+\item[{{\bf Gravitron\+Settings} $\ast$}]{the\+Settings, }
+\item[{{\bf Tcp\+Client} $\ast$}]{client, }
+\item[{{\bf Tcp\+Server} $\ast$}]{server}
 \end{DoxyParamCaption}
-)}}\label{class_game_ad313f2a005b48ec21f3c56b8b9ed0fe4}
+)}}\label{class_game_afeda9924813b108f34ca94e1d5ead7c9}
 \hypertarget{class_game_ae3d112ca6e0e55150d2fdbc704474530}{\index{Game@{Game}!````~Game@{$\sim$\+Game}}
 \index{````~Game@{$\sim$\+Game}!Game@{Game}}
 \subsubsection[{$\sim$\+Game}]{\setlength{\rightskip}{0pt plus 5cm}Game\+::$\sim$\+Game (
@@ -136,7 +138,7 @@ Deserializes the serialized Views, generates a viewlist and sends them to the re
 
 
 \begin{DoxyParams}{Parameters}
-{\em Qstring} & of the serialized\+Viewlist over the network. \\
+{\em serialized\+Viewlist} & Qstring of the serialized\+Viewlist over the network. \\
 \hline
 \end{DoxyParams}
 
@@ -221,38 +223,38 @@ Here is the call graph for this function\+:\nopagebreak
 \end{figure}
 
 
-\hypertarget{class_game_a887fc8d85fac4fa26587bd2adb2d3ba0}{\index{Game@{Game}!start\+Client@{start\+Client}}
+\hypertarget{class_game_a25c97b9eb158946f4b10993dfc3cf6f3}{\index{Game@{Game}!start\+Client@{start\+Client}}
 \index{start\+Client@{start\+Client}!Game@{Game}}
 \subsubsection[{start\+Client}]{\setlength{\rightskip}{0pt plus 5cm}void Game\+::start\+Client (
 \begin{DoxyParamCaption}
-\item[{{\bf Tcp\+Client} $\ast$}]{client}
+{}
 \end{DoxyParamCaption}
-)}}\label{class_game_a887fc8d85fac4fa26587bd2adb2d3ba0}
+)}}\label{class_game_a25c97b9eb158946f4b10993dfc3cf6f3}
 
 
 Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{class_game_a887fc8d85fac4fa26587bd2adb2d3ba0_cgraph}
+\includegraphics[width=350pt]{class_game_a25c97b9eb158946f4b10993dfc3cf6f3_cgraph}
 \end{center}
 \end{figure}
 
 
-\hypertarget{class_game_aacc6760ef923294d17927557faa3826f}{\index{Game@{Game}!start\+Server@{start\+Server}}
+\hypertarget{class_game_aed51d3d3760d9c052cdf33144ead0fba}{\index{Game@{Game}!start\+Server@{start\+Server}}
 \index{start\+Server@{start\+Server}!Game@{Game}}
 \subsubsection[{start\+Server}]{\setlength{\rightskip}{0pt plus 5cm}void Game\+::start\+Server (
 \begin{DoxyParamCaption}
-\item[{{\bf Tcp\+Server} $\ast$}]{server}
+{}
 \end{DoxyParamCaption}
-)}}\label{class_game_aacc6760ef923294d17927557faa3826f}
+)}}\label{class_game_aed51d3d3760d9c052cdf33144ead0fba}
 
 
 Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{class_game_aacc6760ef923294d17927557faa3826f_cgraph}
+\includegraphics[width=350pt]{class_game_aed51d3d3760d9c052cdf33144ead0fba_cgraph}
 \end{center}
 \end{figure}
 

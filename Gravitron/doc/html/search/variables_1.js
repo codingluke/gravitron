@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['difficulty',['difficulty',['../class_ki_player.html#af7ba0444a46f7d46b6af4b31a2808c2a',1,'KiPlayer']]]
+  ['difficulty',['difficulty',['../class_a_i_player.html#ae4bc7d7fef8e20ac68867af09b365e21',1,'AIPlayer']]]
 ];

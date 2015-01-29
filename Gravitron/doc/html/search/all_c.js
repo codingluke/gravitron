@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['name',['name',['../class_player.html#ac41b72814d9c41222dac999bc874280b',1,'Player']]],
   ['network',['network',['../class_gravitron_settings.html#aab42e5f608b9e46d077a1418cd9d709d',1,'GravitronSettings']]],
   ['networkinputhandler',['NetworkInputHandler',['../class_network_input_handler.html',1,'NetworkInputHandler'],['../class_network_input_handler.html#a9b26c8fa6b0b3578a87c2610df2a44e4',1,'NetworkInputHandler::NetworkInputHandler()']]],
   ['networkinputhandler_2ecpp',['NetworkInputHandler.cpp',['../_network_input_handler_8cpp.html',1,'']]],

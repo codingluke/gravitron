@@ -24,7 +24,7 @@ HEADERS += src/headers/GameActor.h \
     src/headers/Game.h \
     src/headers/GameActorView.h \
     src/headers/MenuListener.h \ 
-    src/headers/Locater.h \
+    src/headers/Locator.h \
     src/headers/Physics.h \
     src/headers/Spacecraft.h \
     src/headers/Projectile.h \ 

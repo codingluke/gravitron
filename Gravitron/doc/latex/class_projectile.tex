@@ -50,6 +50,9 @@ vector$<$ \hyperlink{class_game_actor}{Game\+Actor} $\ast$ $>$ \hyperlink{class_
 \subsection*{Additional Inherited Members}
 
 
+\subsection{Detailed Description}
+This (abstract) class represents any kind of projectile, laser beam, bomb or mine that can be produced by a weapon. Since projectiles generally damage things on impact, any effects that are triggered by such, should be implemented by implementing Game\+Actors virtual methods \hyperlink{class_game_actor_aba8cfb1004bf6fc17681cd595b706ada}{handle\+Collision()} and \hyperlink{class_game_actor_a00cdd692fae4de9fb4ce6b2748754744}{handle\+Kill()} in any inheriting objects. Also a rocket or a laser might not travel for eternity, so its time to live (in rendering cycles) may be defined and would be decreased with every call of \hyperlink{class_projectile_ac41ad56034b53e739619fabbd5e49652}{update()}. This also prevents a cluttering of the game area. 
+
 \subsection{Constructor \& Destructor Documentation}
 \hypertarget{class_projectile_ac536ed2aad56af866a2078b9a85aa16d}{\index{Projectile@{Projectile}!Projectile@{Projectile}}
 \index{Projectile@{Projectile}!Projectile@{Projectile}}
@@ -58,7 +61,7 @@ vector$<$ \hyperlink{class_game_actor}{Game\+Actor} $\ast$ $>$ \hyperlink{class_
 {}
 \end{DoxyParamCaption}
 )}}\label{class_projectile_ac536ed2aad56af866a2078b9a85aa16d}
-\hyperlink{class_projectile}{Projectile} will be the Super\+Class of all kinds of weapon projectiles, space Debris and temporary area effects. To avoid a cluttering of the game area, most projectiles should have a limited time\+To\+Live. \hypertarget{class_projectile_a608ed7a66fa509787307bedbdc0a7754}{\index{Projectile@{Projectile}!Projectile@{Projectile}}
+Default constructor. \hypertarget{class_projectile_a608ed7a66fa509787307bedbdc0a7754}{\index{Projectile@{Projectile}!Projectile@{Projectile}}
 \index{Projectile@{Projectile}!Projectile@{Projectile}}
 \subsubsection[{Projectile}]{\setlength{\rightskip}{0pt plus 5cm}Projectile\+::\+Projectile (
 \begin{DoxyParamCaption}
@@ -73,6 +76,27 @@ vector$<$ \hyperlink{class_game_actor}{Game\+Actor} $\ast$ $>$ \hyperlink{class_
 \item[{vector$<$ {\bf Game\+Actor} $\ast$ $>$ $\ast$}]{actors}
 \end{DoxyParamCaption}
 )}}\label{class_projectile_a608ed7a66fa509787307bedbdc0a7754}
+Creates a new \hyperlink{class_projectile}{Projectile} with a given postion, mass, gravitational range, gravitational pull, time to live health and a given set of friendly Game\+Actors whithin a given game field. 
+\begin{DoxyParams}{Parameters}
+{\em position} & the position \\
+\hline
+{\em mass} & the mass \\
+\hline
+{\em gravitation\+Range} & the gravitational range \\
+\hline
+{\em g} & the gravitational force \\
+\hline
+{\em time\+To\+Live} & the time to live \\
+\hline
+{\em health} & the total health points \\
+\hline
+{\em field} & the game field \\
+\hline
+{\em friendly} & a set of friendly actors \\
+\hline
+{\em actors} & a set of all actors \\
+\hline
+\end{DoxyParams}
 \hypertarget{class_projectile_ae701fc61b95ef80941fcffd2b31c6d6c}{\index{Projectile@{Projectile}!Projectile@{Projectile}}
 \index{Projectile@{Projectile}!Projectile@{Projectile}}
 \subsubsection[{Projectile}]{\setlength{\rightskip}{0pt plus 5cm}Projectile\+::\+Projectile (
@@ -87,6 +111,25 @@ vector$<$ \hyperlink{class_game_actor}{Game\+Actor} $\ast$ $>$ \hyperlink{class_
 \item[{vector$<$ {\bf Game\+Actor} $\ast$ $>$ $\ast$}]{actors}
 \end{DoxyParamCaption}
 )}}\label{class_projectile_ae701fc61b95ef80941fcffd2b31c6d6c}
+Creates a new \hyperlink{class_projectile}{Projectile} with a given postion, mass, gravitational range, gravitational pull, time to live health whithin a given game field. 
+\begin{DoxyParams}{Parameters}
+{\em position} & the position \\
+\hline
+{\em mass} & the mass \\
+\hline
+{\em gravitation\+Range} & the gravitational range \\
+\hline
+{\em g} & the gravitational force \\
+\hline
+{\em time\+To\+Live} & the time to live \\
+\hline
+{\em health} & the total health points \\
+\hline
+{\em field} & the game field \\
+\hline
+{\em actors} & a set of all actors \\
+\hline
+\end{DoxyParams}
 \hypertarget{class_projectile_a7bdfb6d482c18c62594d431c14512148}{\index{Projectile@{Projectile}!Projectile@{Projectile}}
 \index{Projectile@{Projectile}!Projectile@{Projectile}}
 \subsubsection[{Projectile}]{\setlength{\rightskip}{0pt plus 5cm}Projectile\+::\+Projectile (
@@ -94,6 +137,11 @@ vector$<$ \hyperlink{class_game_actor}{Game\+Actor} $\ast$ $>$ \hyperlink{class_
 \item[{const {\bf Projectile} \&}]{projectile}
 \end{DoxyParamCaption}
 )}}\label{class_projectile_a7bdfb6d482c18c62594d431c14512148}
+The copy constructor. 
+\begin{DoxyParams}{Parameters}
+{\em projectile} & the original \\
+\hline
+\end{DoxyParams}
 
 
 Here is the call graph for this function\+:\nopagebreak
@@ -112,7 +160,7 @@ Here is the call graph for this function\+:\nopagebreak
 {}
 \end{DoxyParamCaption}
 )}}\label{class_projectile_a94903e021fa2edab60ba3836ca0b937d}
-
+The destructor. 
 
 \subsection{Member Function Documentation}
 \hypertarget{class_projectile_aa565568bc9ac03608c39092b653b082e}{\index{Projectile@{Projectile}!get\+Time\+To\+Live@{get\+Time\+To\+Live}}
@@ -122,6 +170,9 @@ Here is the call graph for this function\+:\nopagebreak
 {}
 \end{DoxyParamCaption}
 ) const}}\label{class_projectile_aa565568bc9ac03608c39092b653b082e}
+Determines the current time to live (in rendering cycles). \begin{DoxyReturn}{Returns}
+current time to live 
+\end{DoxyReturn}
 \hypertarget{class_projectile_a387fe8b69d5de229b8f26d21856cf463}{\index{Projectile@{Projectile}!inc\+Kill\+Points\+Of\+Friends@{inc\+Kill\+Points\+Of\+Friends}}
 \index{inc\+Kill\+Points\+Of\+Friends@{inc\+Kill\+Points\+Of\+Friends}!Projectile@{Projectile}}
 \subsubsection[{inc\+Kill\+Points\+Of\+Friends}]{\setlength{\rightskip}{0pt plus 5cm}void Projectile\+::inc\+Kill\+Points\+Of\+Friends (
@@ -129,7 +180,7 @@ Here is the call graph for this function\+:\nopagebreak
 {}
 \end{DoxyParamCaption}
 )}}\label{class_projectile_a387fe8b69d5de229b8f26d21856cf463}
-
+This increases the score (kill points, frags) of all Spacecrafts that are included in the set of friendly Game\+Actors of this \hyperlink{class_projectile}{Projectile}. 
 
 Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
@@ -147,7 +198,7 @@ Here is the call graph for this function\+:\nopagebreak
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}}\label{class_projectile_ac41ad56034b53e739619fabbd5e49652}
-Loses one unit of time\+To\+Live per frame. If the T\+T\+L equals 0, the \hyperlink{class_projectile}{Projectile} will die. Projectiles with a T\+T\+L of -\/1 are considered \char`\"{}immortal\char`\"{}. 
+This will calculate the condition of this \hyperlink{class_projectile}{Projectile} for the next cycle, meaning the position and acceleration will be updated and the time to live will be decreased by 1. Additionally the \hyperlink{class_projectile}{Projectile} will be killed, if it touches the borders of the game area. 
 
 Reimplemented from \hyperlink{class_game_actor_ab70229c740251fb7c4222bf579c59393}{Game\+Actor}.
 
@@ -168,7 +219,7 @@ Here is the call graph for this function\+:\nopagebreak
 \hypertarget{class_projectile_a54dec73f149e6619fac8f5cf8910edcc}{\index{Projectile@{Projectile}!friendly@{friendly}}
 \index{friendly@{friendly}!Projectile@{Projectile}}
 \subsubsection[{friendly}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf Game\+Actor}$\ast$$>$ Projectile\+::friendly\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_projectile_a54dec73f149e6619fac8f5cf8910edcc}
-
+All Game\+Actors which shall not be affected by this projectile. 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

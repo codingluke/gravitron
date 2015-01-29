@@ -94,7 +94,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_gravitron_settings_8h.html">GravitronSettings.h</a>&quot;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_game_loop_8h.html">GameLoop.h</a>&quot;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_player_8h.html">Player.h</a>&quot;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_ki_player_8h.html">KiPlayer.h</a>&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_a_i_player_8h.html">AIPlayer.h</a>&quot;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_tcp_server_8h.html">TcpServer.h</a>&quot;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
@@ -108,7 +108,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <a class="code" href="class_game_field.html">GameField</a>* field;</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <a class="code" href="class_tcp_server.html">TcpServer</a>* server;</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        std::vector&lt;GameActor*&gt; *actors;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        std::vector&lt;KiPlayer*&gt; bots;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        std::vector&lt;AIPlayer*&gt; bots;</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        std::vector&lt;Player*&gt; humanPlayer;</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">public</span>:</div>
@@ -137,26 +137,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">#endif // GAMEGENERATOR_H</span></div>
 <div class="ttc" id="class_game_loop_html"><div class="ttname"><a href="class_game_loop.html">GameLoop</a></div><div class="ttdef"><b>Definition:</b> GameLoop.h:22</div></div>
 <div class="ttc" id="class_game_field_html"><div class="ttname"><a href="class_game_field.html">GameField</a></div><div class="ttdef"><b>Definition:</b> GameField.h:4</div></div>
-<div class="ttc" id="class_game_generator_html_acd01e34ebb3653724b238c5e1fedc3ad"><div class="ttname"><a href="class_game_generator.html#acd01e34ebb3653724b238c5e1fedc3ad">GameGenerator::generateNewPowerUp</a></div><div class="ttdeci">GameActor * generateNewPowerUp(Vec3f position)</div><div class="ttdef"><b>Definition:</b> GameGenerator.cpp:136</div></div>
-<div class="ttc" id="class_game_generator_html_a2376a3b5b93faf7c1c592cb70297fd7c"><div class="ttname"><a href="class_game_generator.html#a2376a3b5b93faf7c1c592cb70297fd7c">GameGenerator::~GameGenerator</a></div><div class="ttdeci">~GameGenerator()</div><div class="ttdef"><b>Definition:</b> GameGenerator.cpp:45</div></div>
+<div class="ttc" id="class_game_generator_html_acd01e34ebb3653724b238c5e1fedc3ad"><div class="ttname"><a href="class_game_generator.html#acd01e34ebb3653724b238c5e1fedc3ad">GameGenerator::generateNewPowerUp</a></div><div class="ttdeci">GameActor * generateNewPowerUp(Vec3f position)</div><div class="ttdef"><b>Definition:</b> GameGenerator.cpp:139</div></div>
+<div class="ttc" id="class_game_generator_html_a2376a3b5b93faf7c1c592cb70297fd7c"><div class="ttname"><a href="class_game_generator.html#a2376a3b5b93faf7c1c592cb70297fd7c">GameGenerator::~GameGenerator</a></div><div class="ttdeci">~GameGenerator()</div><div class="ttdef"><b>Definition:</b> GameGenerator.cpp:44</div></div>
 <div class="ttc" id="_player_8h_html"><div class="ttname"><a href="_player_8h.html">Player.h</a></div></div>
 <div class="ttc" id="class_gravitron_settings_html"><div class="ttname"><a href="class_gravitron_settings.html">GravitronSettings</a></div><div class="ttdef"><b>Definition:</b> GravitronSettings.h:9</div></div>
 <div class="ttc" id="class_game_actor_html"><div class="ttname"><a href="class_game_actor.html">GameActor</a></div><div class="ttdef"><b>Definition:</b> GameActor.h:14</div></div>
-<div class="ttc" id="class_game_generator_html_a13f50521a481baafdae183e44d410977"><div class="ttname"><a href="class_game_generator.html#a13f50521a481baafdae183e44d410977">GameGenerator::generateGame</a></div><div class="ttdeci">void generateGame(GameLoop *g)</div><div class="ttdef"><b>Definition:</b> GameGenerator.cpp:49</div></div>
-<div class="ttc" id="class_vec3f_html"><div class="ttname"><a href="class_vec3f.html">Vec3f</a></div><div class="ttdef"><b>Definition:</b> Vec3f.h:11</div></div>
+<div class="ttc" id="class_game_generator_html_a13f50521a481baafdae183e44d410977"><div class="ttname"><a href="class_game_generator.html#a13f50521a481baafdae183e44d410977">GameGenerator::generateGame</a></div><div class="ttdeci">void generateGame(GameLoop *g)</div><div class="ttdef"><b>Definition:</b> GameGenerator.cpp:48</div></div>
+<div class="ttc" id="class_vec3f_html"><div class="ttname"><a href="class_vec3f.html">Vec3f</a></div><div class="ttdef"><b>Definition:</b> Vec3f.h:19</div></div>
 <div class="ttc" id="_game_loop_8h_html"><div class="ttname"><a href="_game_loop_8h.html">GameLoop.h</a></div></div>
 <div class="ttc" id="class_tcp_server_html"><div class="ttname"><a href="class_tcp_server.html">TcpServer</a></div><div class="ttdef"><b>Definition:</b> TcpServer.h:12</div></div>
 <div class="ttc" id="_gravitron_settings_8h_html"><div class="ttname"><a href="_gravitron_settings_8h.html">GravitronSettings.h</a></div></div>
+<div class="ttc" id="_a_i_player_8h_html"><div class="ttname"><a href="_a_i_player_8h.html">AIPlayer.h</a></div></div>
 <div class="ttc" id="class_game_generator_html"><div class="ttname"><a href="class_game_generator.html">GameGenerator</a></div><div class="ttdef"><b>Definition:</b> GameGenerator.h:14</div></div>
-<div class="ttc" id="class_spacecraft_html"><div class="ttname"><a href="class_spacecraft.html">Spacecraft</a></div><div class="ttdef"><b>Definition:</b> Spacecraft.h:8</div></div>
-<div class="ttc" id="_ki_player_8h_html"><div class="ttname"><a href="_ki_player_8h.html">KiPlayer.h</a></div></div>
-<div class="ttc" id="class_game_generator_html_a6d2a4240e25126da4a6646835f7b1a28"><div class="ttname"><a href="class_game_generator.html#a6d2a4240e25126da4a6646835f7b1a28">GameGenerator::GameGenerator</a></div><div class="ttdeci">GameGenerator(QObject *parent=0)</div><div class="ttdef"><b>Definition:</b> GameGenerator.cpp:16</div></div>
-<div class="ttc" id="class_game_generator_html_a8b44d635c748aaf630afb41ad21a368e"><div class="ttname"><a href="class_game_generator.html#a8b44d635c748aaf630afb41ad21a368e">GameGenerator::generateNewScrap</a></div><div class="ttdeci">GameActor * generateNewScrap(Vec3f position)</div><div class="ttdef"><b>Definition:</b> GameGenerator.cpp:154</div></div>
+<div class="ttc" id="class_spacecraft_html"><div class="ttname"><a href="class_spacecraft.html">Spacecraft</a></div><div class="ttdef"><b>Definition:</b> Spacecraft.h:13</div></div>
+<div class="ttc" id="class_game_generator_html_a6d2a4240e25126da4a6646835f7b1a28"><div class="ttname"><a href="class_game_generator.html#a6d2a4240e25126da4a6646835f7b1a28">GameGenerator::GameGenerator</a></div><div class="ttdeci">GameGenerator(QObject *parent=0)</div><div class="ttdef"><b>Definition:</b> GameGenerator.cpp:15</div></div>
+<div class="ttc" id="class_game_generator_html_a8b44d635c748aaf630afb41ad21a368e"><div class="ttname"><a href="class_game_generator.html#a8b44d635c748aaf630afb41ad21a368e">GameGenerator::generateNewScrap</a></div><div class="ttdeci">GameActor * generateNewScrap(Vec3f position)</div><div class="ttdef"><b>Definition:</b> GameGenerator.cpp:157</div></div>
 <div class="ttc" id="_tcp_server_8h_html"><div class="ttname"><a href="_tcp_server_8h.html">TcpServer.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jan 29 2015 16:02:57 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jan 29 2015 21:35:59 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

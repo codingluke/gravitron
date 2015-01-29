@@ -7,7 +7,7 @@
 #include "headers/GravitronSettings.h"
 #include "headers/Game.h"
 #include "headers/MenuListener.h"
-#include "headers/Locater.h"
+#include "headers/Locator.h"
 #include "headers/TcpClient.h"
 #include "headers/TcpServer.h"
 #include "headers/GameGenerator.h"
@@ -54,8 +54,8 @@ int main(int argc, char *argv[])
     Game game(&engine, &settings, &client, &server);
     engine.rootContext()->setContextProperty("Game", &game);
 
-    Locater l(settings, app);
-    l.loadLanguare(settings.languare());
+    Locator l(settings, app);
+    l.loadLanguage(settings.language());
 
     engine.load(QUrl(QStringLiteral("qrc:/qml/main.qml")));
 

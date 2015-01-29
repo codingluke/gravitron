@@ -1,17 +1,17 @@
 <map id="src/headers/Game.h" name="src/headers/Game.h">
-<area shape="rect" id="node5" href="$_game_loop_8h.html" title="GameLoop.h" alt="" coords="1013,79,1112,104"/>
-<area shape="rect" id="node12" href="$_game_actor_view_8h.html" title="GameActorView.h" alt="" coords="440,592,568,617"/>
-<area shape="rect" id="node22" href="$_game_generator_8h.html" title="GameGenerator.h" alt="" coords="507,152,635,177"/>
-<area shape="rect" id="node23" href="$_gravitron_settings_8h.html" title="GravitronSettings.h" alt="" coords="530,299,665,324"/>
-<area shape="rect" id="node27" href="$_tcp_server_8h.html" title="TcpServer.h" alt="" coords="150,299,242,324"/>
-<area shape="rect" id="node32" href="$_tcp_client_8h.html" title="TcpClient.h" alt="" coords="316,299,404,324"/>
-<area shape="rect" id="node8" href="$_game_actor_8h.html" title="GameActor.h" alt="" coords="872,519,971,544"/>
-<area shape="rect" id="node15" href="$_game_field_8h.html" title="GameField.h" alt="" coords="1513,592,1610,617"/>
-<area shape="rect" id="node17" href="$_input_handler_8h.html" title="InputHandler.h" alt="" coords="1037,299,1145,324"/>
-<area shape="rect" id="node25" href="$_player_8h.html" title="Player.h" alt="" coords="892,299,961,324"/>
-<area shape="rect" id="node26" href="$_ki_player_8h.html" title="KiPlayer.h" alt="" coords="921,225,1002,251"/>
-<area shape="rect" id="node31" href="$_network_input_handler_8h.html" title="NetworkInputHandler.h" alt="" coords="638,225,794,251"/>
-<area shape="rect" id="node9" href="$_vec3f_8h.html" title="Vec3f.h" alt="" coords="880,592,946,617"/>
-<area shape="rect" id="node20" href="$_spacecraft_8h.html" title="Spacecraft.h" alt="" coords="1051,372,1147,397"/>
-<area shape="rect" id="node21" href="$_projectile_8h.html" title="Projectile.h" alt="" coords="878,445,965,471"/>
+<area shape="rect" id="node5" href="$_game_loop_8h.html" title="GameLoop.h" alt="" coords="931,79,1029,104"/>
+<area shape="rect" id="node12" href="$_game_actor_view_8h.html" title="GameActorView.h" alt="" coords="768,592,896,617"/>
+<area shape="rect" id="node22" href="$_game_generator_8h.html" title="GameGenerator.h" alt="" coords="1017,152,1145,177"/>
+<area shape="rect" id="node23" href="$_gravitron_settings_8h.html" title="GravitronSettings.h" alt="" coords="572,299,708,324"/>
+<area shape="rect" id="node27" href="$_tcp_server_8h.html" title="TcpServer.h" alt="" coords="173,299,265,324"/>
+<area shape="rect" id="node32" href="$_tcp_client_8h.html" title="TcpClient.h" alt="" coords="410,299,497,324"/>
+<area shape="rect" id="node8" href="$_game_actor_8h.html" title="GameActor.h" alt="" coords="942,519,1042,544"/>
+<area shape="rect" id="node15" href="$_game_field_8h.html" title="GameField.h" alt="" coords="1126,592,1223,617"/>
+<area shape="rect" id="node17" href="$_input_handler_8h.html" title="InputHandler.h" alt="" coords="1079,299,1187,324"/>
+<area shape="rect" id="node25" href="$_player_8h.html" title="Player.h" alt="" coords="935,299,1004,324"/>
+<area shape="rect" id="node26" href="$_a_i_player_8h.html" title="AIPlayer.h" alt="" coords="1106,225,1188,251"/>
+<area shape="rect" id="node31" href="$_network_input_handler_8h.html" title="NetworkInputHandler.h" alt="" coords="542,225,698,251"/>
+<area shape="rect" id="node9" href="$_vec3f_8h.html" title="Vec3f.h" alt="" coords="678,592,744,617"/>
+<area shape="rect" id="node20" href="$_spacecraft_8h.html" title="Spacecraft.h" alt="" coords="1101,372,1197,397"/>
+<area shape="rect" id="node21" href="$_projectile_8h.html" title="Projectile.h" alt="" coords="1050,445,1137,471"/>
 </map>

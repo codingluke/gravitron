@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['game',['Game',['../class_game.html#a1875963fc898101a29d47084aebffa28',1,'Game::Game(QObject *parent=0)'],['../class_game.html#ad313f2a005b48ec21f3c56b8b9ed0fe4',1,'Game::Game(QQmlApplicationEngine *theEngine, GravitronSettings *theSettings)']]],
+  ['game',['Game',['../class_game.html#a1875963fc898101a29d47084aebffa28',1,'Game::Game(QObject *parent=0)'],['../class_game.html#afeda9924813b108f34ca94e1d5ead7c9',1,'Game::Game(QQmlApplicationEngine *theEngine, GravitronSettings *theSettings, TcpClient *client, TcpServer *server)']]],
   ['gameactor',['GameActor',['../class_game_actor.html#a15b04d8c6628c4d004573c3facfdb418',1,'GameActor::GameActor()'],['../class_game_actor.html#a8419e87ea13e15b82ed1564e477377ac',1,'GameActor::GameActor(Vec3f position, double mass, float gravitationRange, float g, int health, GameField &amp;field, vector&lt; GameActor * &gt; *actors)'],['../class_game_actor.html#aad104099e725fa6224de80dbaf52f2b1',1,'GameActor::GameActor(Vec3f position, double mass, float gravitationRange, float g, int health, GameField &amp;field, float maxSpeed, vector&lt; GameActor * &gt; *actors)'],['../class_game_actor.html#a305c6d8136305e8bfc72e2b64f44f549',1,'GameActor::GameActor(const GameActor &amp;actor)']]],
   ['gameactorview',['GameActorView',['../class_game_actor_view.html#ac364ad4b8b84afeb3646afb2c9595315',1,'GameActorView::GameActorView()'],['../class_game_actor_view.html#a701bf0bc7aa6ef90cd96afbcdca731da',1,'GameActorView::GameActorView(string theQmlPath)']]],
   ['gamefield',['GameField',['../class_game_field.html#ad86d2092617bbda4da40b8d6a14f892d',1,'GameField::GameField()'],['../class_game_field.html#a76c70cb4fb981de20995e4486c727a47',1,'GameField::GameField(int, int)']]],
@@ -27,6 +27,7 @@ var searchData=
   ['getkillpoints',['getKillPoints',['../class_player.html#ae8e78a997352c717189cb5379fd9e70a',1,'Player::getKillPoints()'],['../class_spacecraft.html#a3e86b132718ae9644846005f0368d65e',1,'Spacecraft::getKillPoints()']]],
   ['getmass',['getMass',['../class_game_actor.html#ac19034996d2c622f4f2fd5870d43c9cd',1,'GameActor']]],
   ['getmaxspeed',['getMaxSpeed',['../class_game_actor.html#a13cec4e211c56989b4ef58ead7c31e17',1,'GameActor']]],
+  ['getname',['getName',['../class_spacecraft.html#aa20e2bdf2564ac896e0889cf621321ae',1,'Spacecraft']]],
   ['getnormal',['getNormal',['../class_plane.html#ab14973049815c46e1d795498dc8a8ece',1,'Plane']]],
   ['getplayername',['getPlayerName',['../class_player.html#a978a40d6cca433896cc4ea63cb55b596',1,'Player']]],
   ['getposition',['getPosition',['../class_game_actor.html#a8a0ca1b6866225d66df2381649bdc601',1,'GameActor']]],

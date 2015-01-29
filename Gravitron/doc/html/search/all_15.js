@@ -1,14 +1,13 @@
 var searchData=
 [
   ['_7eaimmissile',['~AimMissile',['../class_aim_missile.html#af79533845bd96620371edc6b97c4963f',1,'AimMissile']]],
+  ['_7eaiplayer',['~AIPlayer',['../class_a_i_player.html#a2d879575d692d246da3890b6234104b8',1,'AIPlayer']]],
   ['_7egame',['~Game',['../class_game.html#ae3d112ca6e0e55150d2fdbc704474530',1,'Game']]],
   ['_7egameactor',['~GameActor',['../class_game_actor.html#a7becf6889c14e7df17e31ba0a3329d32',1,'GameActor']]],
   ['_7egamegenerator',['~GameGenerator',['../class_game_generator.html#a2376a3b5b93faf7c1c592cb70297fd7c',1,'GameGenerator']]],
   ['_7egameloop',['~GameLoop',['../class_game_loop.html#ae6c558d0d751a068dbafe2cae465ec1f',1,'GameLoop']]],
   ['_7ehumannetworkplayer',['~HumanNetworkPlayer',['../class_human_network_player.html#ab8d3f49f7ab1c7157efdd0b949a52045',1,'HumanNetworkPlayer']]],
   ['_7ehumanplayer',['~HumanPlayer',['../class_human_player.html#abdeb9d120fc74c8d82ec0c688883f16f',1,'HumanPlayer']]],
-  ['_7ekinetworkplayer',['~KiNetworkPlayer',['../class_ki_network_player.html#a17b29f3b7e63969d96ab0e5328c932c9',1,'KiNetworkPlayer']]],
-  ['_7ekiplayer',['~KiPlayer',['../class_ki_player.html#a39d044891328faf5729f51da98a243da',1,'KiPlayer']]],
   ['_7elaser',['~Laser',['../class_laser.html#aa9baee5ed9775426e0b1d563c4687711',1,'Laser']]],
   ['_7elocater',['~Locater',['../class_locater.html#a53011545ad9a0d05c3ec5c615b4c8ad3',1,'Locater']]],
   ['_7emissile',['~Missile',['../class_missile.html#ad42379e48a46ec3556056f98ce8bd912',1,'Missile']]],

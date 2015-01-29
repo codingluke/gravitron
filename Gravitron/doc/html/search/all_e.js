@@ -27,7 +27,7 @@ var searchData=
   ['planet_5fmin_5fradius',['PLANET_MIN_RADIUS',['../class_act_conf.html#a1ea01a15c11eb92d06575f05eeb2943e',1,'ActConf']]],
   ['planetcount',['planetCount',['../class_gravitron_settings.html#aeb6526e7912b3aa7a402de993bb81981',1,'GravitronSettings']]],
   ['planetcountchanged',['planetCountChanged',['../class_gravitron_settings.html#ac4b5df1b082308bd710280080f1caee6',1,'GravitronSettings']]],
-  ['player',['Player',['../class_player.html',1,'Player'],['../class_player.html#a5c2a46dbacbc28b7cfbe352b6c0db644',1,'Player::Player(QObject *parent=0)'],['../class_player.html#aee70fa970d83920997e0b67e29fc080d',1,'Player::Player(Spacecraft *spacecraft, int frag)']]],
+  ['player',['Player',['../class_player.html',1,'Player'],['../class_player.html#a5c2a46dbacbc28b7cfbe352b6c0db644',1,'Player::Player(QObject *parent=0)'],['../class_player.html#af4f9da1b1dcb53008b915a83480c79c7',1,'Player::Player(Spacecraft *spacecraft, int frag, QString name)']]],
   ['player_2ecpp',['Player.cpp',['../_player_8cpp.html',1,'']]],
   ['player_2eh',['Player.h',['../_player_8h.html',1,'']]],
   ['playername',['playerName',['../class_gravitron_settings.html#a8e707f83dc20e85cd0632a858787cf7d',1,'GravitronSettings']]],

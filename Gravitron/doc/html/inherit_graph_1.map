@@ -9,12 +9,11 @@
 <area shape="rect" id="node9" href="$class_network_input_handler.html" title="NetworkInputHandler" alt="" coords="124,351,270,376"/>
 <area shape="rect" id="node10" href="$class_physics__tests.html" title="Physics_tests" alt="" coords="145,400,248,425"/>
 <area shape="rect" id="node11" href="$class_player.html" title="Player" alt="" coords="167,449,226,475"/>
-<area shape="rect" id="node16" href="$class_q_m_l_file_reader.html" title="QMLFileReader" alt="" coords="139,499,255,524"/>
-<area shape="rect" id="node17" href="$class_tcp_client.html" title="TcpClient" alt="" coords="159,548,235,573"/>
-<area shape="rect" id="node18" href="$class_tcp_server.html" title="TcpServer" alt="" coords="156,597,238,623"/>
-<area shape="rect" id="node19" href="$class_vec3_f___tests.html" title="Vec3F_Tests" alt="" coords="148,647,246,672"/>
-<area shape="rect" id="node12" href="$class_human_player.html" title="HumanPlayer" alt="" coords="318,425,420,451"/>
-<area shape="rect" id="node14" href="$class_ki_player.html" title="KiPlayer" alt="" coords="334,475,405,500"/>
-<area shape="rect" id="node13" href="$class_human_network_player.html" title="HumanNetworkPlayer" alt="" coords="468,425,619,451"/>
-<area shape="rect" id="node15" href="$class_ki_network_player.html" title="KiNetworkPlayer" alt="" coords="484,475,604,500"/>
+<area shape="rect" id="node15" href="$class_q_m_l_file_reader.html" title="QMLFileReader" alt="" coords="139,499,255,524"/>
+<area shape="rect" id="node16" href="$class_tcp_client.html" title="TcpClient" alt="" coords="159,548,235,573"/>
+<area shape="rect" id="node17" href="$class_tcp_server.html" title="TcpServer" alt="" coords="156,597,238,623"/>
+<area shape="rect" id="node18" href="$class_vec3_f___tests.html" title="Vec3F_Tests" alt="" coords="148,647,246,672"/>
+<area shape="rect" id="node12" href="$class_a_i_player.html" title="AIPlayer" alt="" coords="333,425,405,451"/>
+<area shape="rect" id="node13" href="$class_human_player.html" title="HumanPlayer" alt="" coords="318,475,420,500"/>
+<area shape="rect" id="node14" href="$class_human_network_player.html" title="HumanNetworkPlayer" alt="" coords="468,475,619,500"/>
 </map>

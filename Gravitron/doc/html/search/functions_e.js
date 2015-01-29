@@ -5,7 +5,7 @@ var searchData=
   ['planet',['Planet',['../class_planet.html#ac88200b337a62e1377858e3116f9412b',1,'Planet::Planet()'],['../class_planet.html#a87570708b07580b08d884b6a9731503f',1,'Planet::Planet(Vec3f pos, float mass, float gravitationRange, float g, GameField &amp;field, vector&lt; GameActor * &gt; *actors)']]],
   ['planetcount',['planetCount',['../class_gravitron_settings.html#aeb6526e7912b3aa7a402de993bb81981',1,'GravitronSettings']]],
   ['planetcountchanged',['planetCountChanged',['../class_gravitron_settings.html#ac4b5df1b082308bd710280080f1caee6',1,'GravitronSettings']]],
-  ['player',['Player',['../class_player.html#a5c2a46dbacbc28b7cfbe352b6c0db644',1,'Player::Player(QObject *parent=0)'],['../class_player.html#aee70fa970d83920997e0b67e29fc080d',1,'Player::Player(Spacecraft *spacecraft, int frag)']]],
+  ['player',['Player',['../class_player.html#a5c2a46dbacbc28b7cfbe352b6c0db644',1,'Player::Player(QObject *parent=0)'],['../class_player.html#af4f9da1b1dcb53008b915a83480c79c7',1,'Player::Player(Spacecraft *spacecraft, int frag, QString name)']]],
   ['playername',['playerName',['../class_gravitron_settings.html#a8e707f83dc20e85cd0632a858787cf7d',1,'GravitronSettings']]],
   ['playernamechanged',['playerNameChanged',['../class_gravitron_settings.html#ab12347fa7a95663bf557d703d82d980f',1,'GravitronSettings']]],
   ['playingfieldsize',['playingFieldSize',['../class_gravitron_settings.html#ac42974dae44eec47f9188ead3b950251',1,'GravitronSettings']]],

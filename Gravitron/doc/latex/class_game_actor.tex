@@ -136,7 +136,7 @@ static int \hyperlink{class_game_actor_a07be525e1e463a4f437dba30f0173b6c}{id} = 
 
 
 \subsection{Detailed Description}
-This represents all objects within the game area. An Array\+List of all Game\+Actors will be handled by the main loop; adding, deleting and updating all actors individually. Each \hyperlink{class_game_actor}{Game\+Actor} has a pointer to that list, enabling it, to add new Game\+Actors on its own. 
+This (abstract) class represents all objects within the game area. An Array\+List of all Game\+Actors will be handled by the main loop; adding, deleting and updating all actors individually. Each \hyperlink{class_game_actor}{Game\+Actor} has a pointer to that list, enabling it, to add new Game\+Actors on its own. 
 
 \subsection{Constructor \& Destructor Documentation}
 \hypertarget{class_game_actor_a15b04d8c6628c4d004573c3facfdb418}{\index{Game\+Actor@{Game\+Actor}!Game\+Actor@{Game\+Actor}}
@@ -576,9 +576,9 @@ Sets the gravitational force to a given value.
 \item[{int}]{health}
 \end{DoxyParamCaption}
 )}}\label{class_game_actor_ace7f2c9f95ac3c39acbb88a3c31240b4}
-Sets the to a given value. 
+Sets the health to a given value. 
 \begin{DoxyParams}{Parameters}
-{\em g} & the value to set \\
+{\em health} & the value to set \\
 \hline
 \end{DoxyParams}
 \hypertarget{class_game_actor_a33f79600c44e3372a23c3ca2ee880704}{\index{Game\+Actor@{Game\+Actor}!set\+Max\+Speed@{set\+Max\+Speed}}
@@ -590,7 +590,7 @@ Sets the to a given value.
 )}}\label{class_game_actor_a33f79600c44e3372a23c3ca2ee880704}
 Sets the maximum speed to a given value. 
 \begin{DoxyParams}{Parameters}
-{\em g} & the value to set \\
+{\em max\+Speed} & the value to set \\
 \hline
 \end{DoxyParams}
 \hypertarget{class_game_actor_a10bb2f607937d5b376c4e0d9bc304d1c}{\index{Game\+Actor@{Game\+Actor}!to\+String@{to\+String}}

@@ -1,12 +1,12 @@
 
-#ifndef LOCATER_H
-#define LOCATER_H
+#ifndef LOCATOR_H
+#define LOCATOR_H
 
 #include "GravitronSettings.h"
 #include <QObject>
 #include <QGuiApplication>
 
-class Locater : public QObject {
+class Locator : public QObject {
 
     Q_OBJECT
 
@@ -16,11 +16,11 @@ class Locater : public QObject {
         QTranslator *translator;
 
     public:
-        Locater(GravitronSettings& settings, QGuiApplication& app);
-        ~Locater();
+        Locator(GravitronSettings& settings, QGuiApplication& app);
+        ~Locator();
 
     public slots:
-        void loadLanguare(const QString& source);
+        void loadLanguage(const QString& source);
 };
 
-#endif // LOCATER_H
+#endif // LOCATOR_H

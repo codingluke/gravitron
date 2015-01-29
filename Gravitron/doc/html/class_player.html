@@ -96,7 +96,7 @@ Inheritance diagram for Player:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_player__inherit__graph.png" border="0" usemap="#_player_inherit__map" alt="Inheritance graph"/></div>
 <map name="_player_inherit__map" id="_player_inherit__map">
-<area shape="rect" id="node3" href="class_human_player.html" title="HumanPlayer" alt="" coords="42,152,144,177"/><area shape="rect" id="node5" href="class_ki_player.html" title="KiPlayer" alt="" coords="192,152,263,177"/><area shape="rect" id="node4" href="class_human_network_player.html" title="HumanNetworkPlayer" alt="" coords="5,225,156,251"/><area shape="rect" id="node6" href="class_ki_network_player.html" title="KiNetworkPlayer" alt="" coords="181,225,301,251"/></map>
+<area shape="rect" id="node3" href="class_a_i_player.html" title="AIPlayer" alt="" coords="5,152,77,177"/><area shape="rect" id="node4" href="class_human_player.html" title="HumanPlayer" alt="" coords="101,152,203,177"/><area shape="rect" id="node5" href="class_human_network_player.html" title="HumanNetworkPlayer" alt="" coords="76,225,227,251"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
 Collaboration diagram for Player:</div>
@@ -110,8 +110,8 @@ Collaboration diagram for Player:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a5c2a46dbacbc28b7cfbe352b6c0db644"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player.html#a5c2a46dbacbc28b7cfbe352b6c0db644">Player</a> (QObject *parent=0)</td></tr>
 <tr class="separator:a5c2a46dbacbc28b7cfbe352b6c0db644"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee70fa970d83920997e0b67e29fc080d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player.html#aee70fa970d83920997e0b67e29fc080d">Player</a> (<a class="el" href="class_spacecraft.html">Spacecraft</a> *<a class="el" href="class_player.html#a7cc88a054d2329b1ca7472a86b2030ca">spacecraft</a>, int <a class="el" href="class_player.html#a9528a6db252f2fe947fd7d9189837aec">frag</a>)</td></tr>
-<tr class="separator:aee70fa970d83920997e0b67e29fc080d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4f9da1b1dcb53008b915a83480c79c7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player.html#af4f9da1b1dcb53008b915a83480c79c7">Player</a> (<a class="el" href="class_spacecraft.html">Spacecraft</a> *<a class="el" href="class_player.html#a7cc88a054d2329b1ca7472a86b2030ca">spacecraft</a>, int <a class="el" href="class_player.html#a9528a6db252f2fe947fd7d9189837aec">frag</a>, QString <a class="el" href="class_player.html#ac41b72814d9c41222dac999bc874280b">name</a>)</td></tr>
+<tr class="separator:af4f9da1b1dcb53008b915a83480c79c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a749d2c00e1fe0f5c2746f7505a58c062"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player.html#a749d2c00e1fe0f5c2746f7505a58c062">~Player</a> ()</td></tr>
 <tr class="separator:a749d2c00e1fe0f5c2746f7505a58c062"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab8afa8b779cc8b9defcb232e8365d556"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player.html#ab8afa8b779cc8b9defcb232e8365d556">processInput</a> ()</td></tr>
@@ -126,12 +126,6 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a9f08c60ca4a4eae56edfc4bbadd63cef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae3fa0766b5a82c905b7c5e48fc5a9c8c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player.html#ae3fa0766b5a82c905b7c5e48fc5a9c8c">getRespawnCounter</a> () const </td></tr>
 <tr class="separator:ae3fa0766b5a82c905b7c5e48fc5a9c8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a083c1b12bc175c6226666be2c93b95ef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player.html#a083c1b12bc175c6226666be2c93b95ef">setRoundsToRespawn</a> (int <a class="el" href="class_player.html#a205c4499cffb2d684d5ff48dd1713d11">roundsToRespawn</a>)</td></tr>
-<tr class="separator:a083c1b12bc175c6226666be2c93b95ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a98fe6e2e7fa090a26a0afafb647e9710"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player.html#a98fe6e2e7fa090a26a0afafb647e9710">pollRespawn</a> ()</td></tr>
-<tr class="separator:a98fe6e2e7fa090a26a0afafb647e9710"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3827333b1bd0af0be428c6e1e03df24f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player.html#a3827333b1bd0af0be428c6e1e03df24f">isWinner</a> () const </td></tr>
-<tr class="separator:a3827333b1bd0af0be428c6e1e03df24f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae8e78a997352c717189cb5379fd9e70a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player.html#ae8e78a997352c717189cb5379fd9e70a">getKillPoints</a> () const </td></tr>
 <tr class="separator:ae8e78a997352c717189cb5379fd9e70a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a706d0a53dbdf713727d67123d1b05df5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player.html#a706d0a53dbdf713727d67123d1b05df5">getFrag</a> () const </td></tr>
@@ -140,6 +134,14 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a978a40d6cca433896cc4ea63cb55b596"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3e2f165ad67adec865a4a4a9bfb23463"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_spacecraft.html">Spacecraft</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player.html#a3e2f165ad67adec865a4a4a9bfb23463">getSpacecraft</a> () const </td></tr>
 <tr class="separator:a3e2f165ad67adec865a4a4a9bfb23463"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88887d3b662e42909bdd0d5d19898935"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player.html#a88887d3b662e42909bdd0d5d19898935">setPlayerName</a> (QString <a class="el" href="class_player.html#ac41b72814d9c41222dac999bc874280b">name</a>)</td></tr>
+<tr class="separator:a88887d3b662e42909bdd0d5d19898935"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a083c1b12bc175c6226666be2c93b95ef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player.html#a083c1b12bc175c6226666be2c93b95ef">setRoundsToRespawn</a> (int <a class="el" href="class_player.html#a205c4499cffb2d684d5ff48dd1713d11">roundsToRespawn</a>)</td></tr>
+<tr class="separator:a083c1b12bc175c6226666be2c93b95ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98fe6e2e7fa090a26a0afafb647e9710"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player.html#a98fe6e2e7fa090a26a0afafb647e9710">pollRespawn</a> ()</td></tr>
+<tr class="separator:a98fe6e2e7fa090a26a0afafb647e9710"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3827333b1bd0af0be428c6e1e03df24f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player.html#a3827333b1bd0af0be428c6e1e03df24f">isWinner</a> () const </td></tr>
+<tr class="separator:a3827333b1bd0af0be428c6e1e03df24f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -151,6 +153,8 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:a205c4499cffb2d684d5ff48dd1713d11"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a942ba87d06e5be3a238229a0d152654c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player.html#a942ba87d06e5be3a238229a0d152654c">respawnCounter</a></td></tr>
 <tr class="separator:a942ba87d06e5be3a238229a0d152654c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac41b72814d9c41222dac999bc874280b"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player.html#ac41b72814d9c41222dac999bc874280b">name</a> = &quot;&quot;</td></tr>
+<tr class="separator:ac41b72814d9c41222dac999bc874280b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a5c2a46dbacbc28b7cfbe352b6c0db644"></a>
@@ -169,7 +173,7 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="aee70fa970d83920997e0b67e29fc080d"></a>
+<a class="anchor" id="af4f9da1b1dcb53008b915a83480c79c7"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -183,7 +187,13 @@ Protected Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>frag</em>&#160;</td>
+          <td class="paramname"><em>frag</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>name</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -192,6 +202,15 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_player_af4f9da1b1dcb53008b915a83480c79c7_cgraph.png" border="0" usemap="#class_player_af4f9da1b1dcb53008b915a83480c79c7_cgraph" alt=""/></div>
+<map name="class_player_af4f9da1b1dcb53008b915a83480c79c7_cgraph" id="class_player_af4f9da1b1dcb53008b915a83480c79c7_cgraph">
+<area shape="rect" id="node2" href="class_spacecraft.html#a138a3946f5c1453613c681e990b73feb" title="Spacecraft::setName" alt="" coords="158,5,303,31"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -481,6 +500,31 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
+<a class="anchor" id="a88887d3b662e42909bdd0d5d19898935"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Player::setPlayerName </td>
+          <td>(</td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_player_a88887d3b662e42909bdd0d5d19898935_cgraph.png" border="0" usemap="#class_player_a88887d3b662e42909bdd0d5d19898935_cgraph" alt=""/></div>
+<map name="class_player_a88887d3b662e42909bdd0d5d19898935_cgraph" id="class_player_a88887d3b662e42909bdd0d5d19898935_cgraph">
+<area shape="rect" id="node2" href="class_spacecraft.html#a138a3946f5c1453613c681e990b73feb" title="Spacecraft::setName" alt="" coords="211,5,357,31"/></map>
+</div>
+</p>
+
+</div>
+</div>
 <a class="anchor" id="a083c1b12bc175c6226666be2c93b95ef"></a>
 <div class="memitem">
 <div class="memproto">
@@ -507,6 +551,26 @@ Here is the call graph for this function:</div>
       <table class="memname">
         <tr>
           <td class="memname">int Player::frag</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ac41b72814d9c41222dac999bc874280b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QString Player::name = &quot;&quot;</td>
         </tr>
       </table>
   </td>
@@ -585,7 +649,7 @@ Here is the call graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jan 29 2015 16:02:59 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jan 29 2015 21:36:00 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

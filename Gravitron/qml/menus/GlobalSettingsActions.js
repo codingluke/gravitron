@@ -92,24 +92,24 @@ function txt_playerNameChanged() {
 }
 
 
-var currentLanguare;
-function getLanguare() {
-    var languare = Settings.languare;
-    currentLanguare = languare;
+var currentLanguage;
+function getLanguage() {
+    var language = Settings.language;
+    currentLanguage = language;
     var lang = 0;
-    if(languare == "de") {
+    if(language == "de") {
         lang = qsTr("langGerman");
-    } else if (languare == "en") {
+    } else if (language == "en") {
         lang = qsTr("langEnglish");
     }
     return lang;
 }
 
 function btn_languageClicked() {
-   if(currentLanguare == "de") {
-        Settings.setLanguare("en");
-   } else if (currentLanguare == "en") {
-        Settings.setLanguare("de");
+   if(currentLanguage == "de") {
+        Settings.setLanguage("en");
+   } else if (currentLanguage == "en") {
+        Settings.setLanguage("de");
    }
    modelLoader.source = "";
    modelLoader.source = "GlobalSettings.qml"

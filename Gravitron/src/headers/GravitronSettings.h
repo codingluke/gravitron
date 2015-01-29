@@ -69,10 +69,10 @@ class GravitronSettings : public QObject
        WRITE setRespawTime
        NOTIFY respawTimeChanged)
 
-    Q_PROPERTY(QString languare
-       READ languare
-       WRITE setLanguare
-       NOTIFY languareChanged)
+    Q_PROPERTY(QString language
+       READ language
+       WRITE setLanguage
+       NOTIFY languageChanged)
 
     Q_PROPERTY(bool network
        READ network
@@ -105,8 +105,8 @@ class GravitronSettings : public QObject
         Q_INVOKABLE void setFrag(const int& source);
         Q_INVOKABLE int respawTime() const;
         Q_INVOKABLE void setRespawTime(const int& source);
-        Q_INVOKABLE QString languare() const;
-        Q_INVOKABLE void setLanguare(const QString& source);
+        Q_INVOKABLE QString language() const;
+        Q_INVOKABLE void setLanguage(const QString& source);
         Q_INVOKABLE bool network() const;
         Q_INVOKABLE void setNetwork(const bool& source);
 
@@ -131,7 +131,7 @@ class GravitronSettings : public QObject
         void astroidCountChanged(const int& source);
         void fragChanged(const int& source);
         void respawTimeChanged(const int& source);
-        void languareChanged(const QString& source);
+        void languageChanged(const QString& source);
         void error(const QString& msg);
 
     private:
@@ -147,7 +147,7 @@ class GravitronSettings : public QObject
         int mAstroidCount;
         int mFrag;
         int mRespawTime;
-        QString mLanguare;
+        QString mLanguage;
         bool mNetwork;
 };
 

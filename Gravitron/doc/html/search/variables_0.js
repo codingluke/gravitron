@@ -1,7 +1,7 @@
 var searchData=
 [
   ['acceleration',['acceleration',['../class_game_actor.html#aa62fdbdad09045bcd6f3a150c3a0038b',1,'GameActor']]],
-  ['actors',['actors',['../class_game_actor.html#a2405618d895f5143b42ae9e94d20e693',1,'GameActor::actors()'],['../class_game_loop.html#a22d3c6823c5f67eccd389db6f5c2eb10',1,'GameLoop::actors()'],['../class_ki_player.html#a0da596a3550eaccd42d70c915b588303',1,'KiPlayer::actors()']]],
+  ['actors',['actors',['../class_a_i_player.html#a624129174d82f2462320badcd3bfa598',1,'AIPlayer::actors()'],['../class_game_actor.html#a2405618d895f5143b42ae9e94d20e693',1,'GameActor::actors()'],['../class_game_loop.html#a22d3c6823c5f67eccd389db6f5c2eb10',1,'GameLoop::actors()']]],
   ['aim_5fmissile_5fdamage',['AIM_MISSILE_DAMAGE',['../class_act_conf.html#ab5b9504a164684a3184baa14ca2ff23f',1,'ActConf']]],
   ['aim_5fmissile_5fmax_5fg',['AIM_MISSILE_MAX_G',['../class_act_conf.html#a5fc2b902e93d5fa994576d61c1da7d4b',1,'ActConf']]],
   ['aim_5fmissile_5fmax_5fgravitation_5frange',['AIM_MISSILE_MAX_GRAVITATION_RANGE',['../class_act_conf.html#a7cfde462f70f9ccadfb3f8de92f3892e',1,'ActConf']]],

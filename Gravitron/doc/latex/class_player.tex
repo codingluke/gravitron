@@ -11,7 +11,7 @@ Inheritance diagram for Player\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=302pt]{class_player__inherit__graph}
+\includegraphics[width=247pt]{class_player__inherit__graph}
 \end{center}
 \end{figure}
 
@@ -28,7 +28,7 @@ Collaboration diagram for Player\+:\nopagebreak
 \item 
 \hyperlink{class_player_a5c2a46dbacbc28b7cfbe352b6c0db644}{Player} (Q\+Object $\ast$parent=0)
 \item 
-\hyperlink{class_player_aee70fa970d83920997e0b67e29fc080d}{Player} (\hyperlink{class_spacecraft}{Spacecraft} $\ast$\hyperlink{class_player_a7cc88a054d2329b1ca7472a86b2030ca}{spacecraft}, int \hyperlink{class_player_a9528a6db252f2fe947fd7d9189837aec}{frag})
+\hyperlink{class_player_af4f9da1b1dcb53008b915a83480c79c7}{Player} (\hyperlink{class_spacecraft}{Spacecraft} $\ast$\hyperlink{class_player_a7cc88a054d2329b1ca7472a86b2030ca}{spacecraft}, int \hyperlink{class_player_a9528a6db252f2fe947fd7d9189837aec}{frag}, Q\+String \hyperlink{class_player_ac41b72814d9c41222dac999bc874280b}{name})
 \item 
 virtual \hyperlink{class_player_a749d2c00e1fe0f5c2746f7505a58c062}{$\sim$\+Player} ()
 \item 
@@ -44,12 +44,6 @@ int \hyperlink{class_player_a9f08c60ca4a4eae56edfc4bbadd63cef}{get\+Health\+Perc
 \item 
 int \hyperlink{class_player_ae3fa0766b5a82c905b7c5e48fc5a9c8c}{get\+Respawn\+Counter} () const 
 \item 
-void \hyperlink{class_player_a083c1b12bc175c6226666be2c93b95ef}{set\+Rounds\+To\+Respawn} (int \hyperlink{class_player_a205c4499cffb2d684d5ff48dd1713d11}{rounds\+To\+Respawn})
-\item 
-void \hyperlink{class_player_a98fe6e2e7fa090a26a0afafb647e9710}{poll\+Respawn} ()
-\item 
-bool \hyperlink{class_player_a3827333b1bd0af0be428c6e1e03df24f}{is\+Winner} () const 
-\item 
 int \hyperlink{class_player_ae8e78a997352c717189cb5379fd9e70a}{get\+Kill\+Points} () const 
 \item 
 int \hyperlink{class_player_a706d0a53dbdf713727d67123d1b05df5}{get\+Frag} () const 
@@ -57,6 +51,14 @@ int \hyperlink{class_player_a706d0a53dbdf713727d67123d1b05df5}{get\+Frag} () con
 Q\+String \hyperlink{class_player_a978a40d6cca433896cc4ea63cb55b596}{get\+Player\+Name} () const 
 \item 
 \hyperlink{class_spacecraft}{Spacecraft} $\ast$ \hyperlink{class_player_a3e2f165ad67adec865a4a4a9bfb23463}{get\+Spacecraft} () const 
+\item 
+void \hyperlink{class_player_a88887d3b662e42909bdd0d5d19898935}{set\+Player\+Name} (Q\+String \hyperlink{class_player_ac41b72814d9c41222dac999bc874280b}{name})
+\item 
+void \hyperlink{class_player_a083c1b12bc175c6226666be2c93b95ef}{set\+Rounds\+To\+Respawn} (int \hyperlink{class_player_a205c4499cffb2d684d5ff48dd1713d11}{rounds\+To\+Respawn})
+\item 
+void \hyperlink{class_player_a98fe6e2e7fa090a26a0afafb647e9710}{poll\+Respawn} ()
+\item 
+bool \hyperlink{class_player_a3827333b1bd0af0be428c6e1e03df24f}{is\+Winner} () const 
 \end{DoxyCompactItemize}
 \subsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
@@ -68,6 +70,8 @@ int \hyperlink{class_player_a9528a6db252f2fe947fd7d9189837aec}{frag}
 int \hyperlink{class_player_a205c4499cffb2d684d5ff48dd1713d11}{rounds\+To\+Respawn} = 150
 \item 
 int \hyperlink{class_player_a942ba87d06e5be3a238229a0d152654c}{respawn\+Counter}
+\item 
+Q\+String \hyperlink{class_player_ac41b72814d9c41222dac999bc874280b}{name} = \char`\"{}\char`\"{}
 \end{DoxyCompactItemize}
 
 
@@ -79,14 +83,26 @@ int \hyperlink{class_player_a942ba87d06e5be3a238229a0d152654c}{respawn\+Counter}
 \item[{Q\+Object $\ast$}]{parent = {\ttfamily 0}}
 \end{DoxyParamCaption}
 )}}\label{class_player_a5c2a46dbacbc28b7cfbe352b6c0db644}
-\hypertarget{class_player_aee70fa970d83920997e0b67e29fc080d}{\index{Player@{Player}!Player@{Player}}
+\hypertarget{class_player_af4f9da1b1dcb53008b915a83480c79c7}{\index{Player@{Player}!Player@{Player}}
 \index{Player@{Player}!Player@{Player}}
 \subsubsection[{Player}]{\setlength{\rightskip}{0pt plus 5cm}Player\+::\+Player (
 \begin{DoxyParamCaption}
 \item[{{\bf Spacecraft} $\ast$}]{spacecraft, }
-\item[{int}]{frag}
+\item[{int}]{frag, }
+\item[{Q\+String}]{name}
 \end{DoxyParamCaption}
-)}}\label{class_player_aee70fa970d83920997e0b67e29fc080d}
+)}}\label{class_player_af4f9da1b1dcb53008b915a83480c79c7}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=304pt]{class_player_af4f9da1b1dcb53008b915a83480c79c7_cgraph}
+\end{center}
+\end{figure}
+
+
 \hypertarget{class_player_a749d2c00e1fe0f5c2746f7505a58c062}{\index{Player@{Player}!````~Player@{$\sim$\+Player}}
 \index{````~Player@{$\sim$\+Player}!Player@{Player}}
 \subsubsection[{$\sim$\+Player}]{\setlength{\rightskip}{0pt plus 5cm}Player\+::$\sim$\+Player (
@@ -273,6 +289,24 @@ Here is the call graph for this function\+:\nopagebreak
 \end{figure}
 
 
+\hypertarget{class_player_a88887d3b662e42909bdd0d5d19898935}{\index{Player@{Player}!set\+Player\+Name@{set\+Player\+Name}}
+\index{set\+Player\+Name@{set\+Player\+Name}!Player@{Player}}
+\subsubsection[{set\+Player\+Name}]{\setlength{\rightskip}{0pt plus 5cm}void Player\+::set\+Player\+Name (
+\begin{DoxyParamCaption}
+\item[{Q\+String}]{name}
+\end{DoxyParamCaption}
+)}}\label{class_player_a88887d3b662e42909bdd0d5d19898935}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=344pt]{class_player_a88887d3b662e42909bdd0d5d19898935_cgraph}
+\end{center}
+\end{figure}
+
+
 \hypertarget{class_player_a083c1b12bc175c6226666be2c93b95ef}{\index{Player@{Player}!set\+Rounds\+To\+Respawn@{set\+Rounds\+To\+Respawn}}
 \index{set\+Rounds\+To\+Respawn@{set\+Rounds\+To\+Respawn}!Player@{Player}}
 \subsubsection[{set\+Rounds\+To\+Respawn}]{\setlength{\rightskip}{0pt plus 5cm}void Player\+::set\+Rounds\+To\+Respawn (
@@ -286,6 +320,9 @@ Here is the call graph for this function\+:\nopagebreak
 \hypertarget{class_player_a9528a6db252f2fe947fd7d9189837aec}{\index{Player@{Player}!frag@{frag}}
 \index{frag@{frag}!Player@{Player}}
 \subsubsection[{frag}]{\setlength{\rightskip}{0pt plus 5cm}int Player\+::frag\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_player_a9528a6db252f2fe947fd7d9189837aec}
+\hypertarget{class_player_ac41b72814d9c41222dac999bc874280b}{\index{Player@{Player}!name@{name}}
+\index{name@{name}!Player@{Player}}
+\subsubsection[{name}]{\setlength{\rightskip}{0pt plus 5cm}Q\+String Player\+::name = \char`\"{}\char`\"{}\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_player_ac41b72814d9c41222dac999bc874280b}
 \hypertarget{class_player_a942ba87d06e5be3a238229a0d152654c}{\index{Player@{Player}!respawn\+Counter@{respawn\+Counter}}
 \index{respawn\+Counter@{respawn\+Counter}!Player@{Player}}
 \subsubsection[{respawn\+Counter}]{\setlength{\rightskip}{0pt plus 5cm}int Player\+::respawn\+Counter\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_player_a942ba87d06e5be3a238229a0d152654c}

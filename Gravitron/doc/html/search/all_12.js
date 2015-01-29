@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['target',['target',['../class_ki_player.html#ade46a263a1242d7fa6e20d72008437ab',1,'KiPlayer']]],
+  ['target',['target',['../class_a_i_player.html#a9380be8a90d97dc0419cb91dfd0e8918',1,'AIPlayer']]],
   ['tcpclient',['TcpClient',['../class_tcp_client.html',1,'TcpClient'],['../class_tcp_client.html#a4277813d59b83b9e2b0bfac368bae397',1,'TcpClient::TcpClient()']]],
   ['tcpclient_2ecpp',['TcpClient.cpp',['../_tcp_client_8cpp.html',1,'']]],
   ['tcpclient_2eh',['TcpClient.h',['../_tcp_client_8h.html',1,'']]],

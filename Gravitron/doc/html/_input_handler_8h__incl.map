@@ -1,8 +1,8 @@
 <map id="src/headers/InputHandler.h" name="src/headers/InputHandler.h">
-<area shape="rect" id="node5" href="$_spacecraft_8h.html" title="Spacecraft.h" alt="" coords="255,79,351,104"/>
-<area shape="rect" id="node6" href="$_game_actor_8h.html" title="GameActor.h" alt="" coords="204,225,303,251"/>
-<area shape="rect" id="node14" href="$_game_field_8h.html" title="GameField.h" alt="" coords="377,299,475,324"/>
-<area shape="rect" id="node15" href="$_projectile_8h.html" title="Projectile.h" alt="" coords="178,152,265,177"/>
-<area shape="rect" id="node7" href="$_vec3f_8h.html" title="Vec3f.h" alt="" coords="288,299,353,324"/>
-<area shape="rect" id="node10" href="$_game_actor_view_8h.html" title="GameActorView.h" alt="" coords="135,299,263,324"/>
+<area shape="rect" id="node5" href="$_spacecraft_8h.html" title="Spacecraft.h" alt="" coords="378,79,474,104"/>
+<area shape="rect" id="node6" href="$_game_actor_8h.html" title="GameActor.h" alt="" coords="235,225,334,251"/>
+<area shape="rect" id="node14" href="$_game_field_8h.html" title="GameField.h" alt="" coords="361,299,459,324"/>
+<area shape="rect" id="node15" href="$_projectile_8h.html" title="Projectile.h" alt="" coords="423,152,510,177"/>
+<area shape="rect" id="node7" href="$_vec3f_8h.html" title="Vec3f.h" alt="" coords="68,299,134,324"/>
+<area shape="rect" id="node10" href="$_game_actor_view_8h.html" title="GameActorView.h" alt="" coords="209,299,337,324"/>
 </map>

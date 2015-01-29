@@ -6,5 +6,6 @@
 <area shape="rect" id="node7" href="$class_game.html#a226a897819cb653c61868cbf96b90ad5" title="Game::setActiveWeapon" alt="" coords="220,205,389,231"/>
 <area shape="rect" id="node8" href="$class_game.html#a9955838a261e9c1aee21bc6746f11f4f" title="Game::setBackgroundPosition" alt="" coords="204,255,405,280"/>
 <area shape="rect" id="node9" href="$class_game.html#a8cbceafcfbb9fe7d67827c428f8f0ee6" title="Game::setFrag" alt="" coords="249,304,359,329"/>
+<area shape="rect" id="node10" href="$class_tcp_client.html#acfb86166367f64f015abb8f625559e78" title="TcpClient::transfer" alt="" coords="240,353,369,379"/>
 <area shape="rect" id="node3" href="$class_game_actor_view.html#a89d3c6c159128714e6780c4fda51fdcd" title="GameActorView::setProperty" alt="" coords="453,5,646,31"/>
 </map>

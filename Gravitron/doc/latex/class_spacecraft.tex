@@ -34,13 +34,13 @@ Collaboration diagram for Spacecraft\+:\nopagebreak
 \item 
 \hyperlink{class_spacecraft_aeb5ea1964f119583c0bccca819405ea1}{Spacecraft} (const \hyperlink{class_spacecraft}{Spacecraft} \&spacecraft)
 \item 
-void \hyperlink{class_spacecraft_a52608575fde91a502be1621b348884ec}{handle\+Collision} (\hyperlink{class_game_actor}{Game\+Actor} \&other)
-\item 
 virtual \hyperlink{class_spacecraft_ac0e87c9c8fae261371f401895e428f96}{$\sim$\+Spacecraft} ()
 \item 
-void \hyperlink{class_spacecraft_aba6f42e402bf71b69e1b750a20fc567f}{set\+Controlling\+Player} (int controlling\+Player\+I\+D)
+void \hyperlink{class_spacecraft_a52608575fde91a502be1621b348884ec}{handle\+Collision} (\hyperlink{class_game_actor}{Game\+Actor} \&other)
 \item 
 int \hyperlink{class_spacecraft_a9c5a89e4cf64d6fca1cfbd3f2fe6be2e}{get\+Controlling\+Player} () const 
+\item 
+string \hyperlink{class_spacecraft_aa20e2bdf2564ac896e0889cf621321ae}{get\+Name} () const 
 \item 
 \hyperlink{class_game_actor_view}{Game\+Actor\+View} $\ast$ \hyperlink{class_spacecraft_ada8aff4825d826f3b8ab6ef3b4430529}{get\+View} () const override
 \item 
@@ -51,6 +51,10 @@ int \hyperlink{class_spacecraft_a3e86b132718ae9644846005f0368d65e}{get\+Kill\+Po
 void \hyperlink{class_spacecraft_a47aa7a1409fbd782a9cc8fe172f9514b}{inc\+Kill\+Points} ()
 \item 
 void \hyperlink{class_spacecraft_a4609f3428987bc61e490519a8d1b9ccb}{handle\+Kill} ()
+\item 
+void \hyperlink{class_spacecraft_a138a3946f5c1453613c681e990b73feb}{set\+Name} (string name)
+\item 
+void \hyperlink{class_spacecraft_aba6f42e402bf71b69e1b750a20fc567f}{set\+Controlling\+Player} (int controlling\+Player\+I\+D)
 \item 
 void \hyperlink{class_spacecraft_a9f5f90ddf116970b2e0c194a5504aa76}{force\+Ahead} ()
 \item 
@@ -74,6 +78,9 @@ void \hyperlink{class_spacecraft_a41213c1017029fb0ff4c5d9b62b1591f}{upgrade\+Wea
 \end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
 
+
+\subsection{Detailed Description}
+The spacecraft is a player controlled entity. It may be controlled by either a human player or by the A\+I. 
 
 \subsection{Constructor \& Destructor Documentation}
 \hypertarget{class_spacecraft_a93c3e7d6d270c6efd9bec0f9229e688a}{\index{Spacecraft@{Spacecraft}!Spacecraft@{Spacecraft}}
@@ -211,6 +218,13 @@ Here is the call graph for this function\+:\nopagebreak
 {}
 \end{DoxyParamCaption}
 ) const}}\label{class_spacecraft_a3e86b132718ae9644846005f0368d65e}
+\hypertarget{class_spacecraft_aa20e2bdf2564ac896e0889cf621321ae}{\index{Spacecraft@{Spacecraft}!get\+Name@{get\+Name}}
+\index{get\+Name@{get\+Name}!Spacecraft@{Spacecraft}}
+\subsubsection[{get\+Name}]{\setlength{\rightskip}{0pt plus 5cm}string Spacecraft\+::get\+Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_spacecraft_aa20e2bdf2564ac896e0889cf621321ae}
 \hypertarget{class_spacecraft_ada8aff4825d826f3b8ab6ef3b4430529}{\index{Spacecraft@{Spacecraft}!get\+View@{get\+View}}
 \index{get\+View@{get\+View}!Spacecraft@{Spacecraft}}
 \subsubsection[{get\+View}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Game\+Actor\+View} $\ast$ Spacecraft\+::get\+View (
@@ -313,6 +327,13 @@ Here is the call graph for this function\+:\nopagebreak
 \item[{int}]{controlling\+Player\+I\+D}
 \end{DoxyParamCaption}
 )}}\label{class_spacecraft_aba6f42e402bf71b69e1b750a20fc567f}
+\hypertarget{class_spacecraft_a138a3946f5c1453613c681e990b73feb}{\index{Spacecraft@{Spacecraft}!set\+Name@{set\+Name}}
+\index{set\+Name@{set\+Name}!Spacecraft@{Spacecraft}}
+\subsubsection[{set\+Name}]{\setlength{\rightskip}{0pt plus 5cm}void Spacecraft\+::set\+Name (
+\begin{DoxyParamCaption}
+\item[{string}]{name}
+\end{DoxyParamCaption}
+)}}\label{class_spacecraft_a138a3946f5c1453613c681e990b73feb}
 \hypertarget{class_spacecraft_a611409c0d69415ada78ed98d187f0e34}{\index{Spacecraft@{Spacecraft}!shoot\+Down@{shoot\+Down}}
 \index{shoot\+Down@{shoot\+Down}!Spacecraft@{Spacecraft}}
 \subsubsection[{shoot\+Down}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Projectile} \& Spacecraft\+::shoot\+Down (

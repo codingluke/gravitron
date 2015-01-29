@@ -1,6 +1,6 @@
 <map id="src/headers/PowerUp.h" name="src/headers/PowerUp.h">
-<area shape="rect" id="node2" href="$_game_generator_8cpp.html" title="src/GameGenerator.cpp" alt="" coords="5,79,169,104"/>
-<area shape="rect" id="node3" href="$_ki_player_8cpp.html" title="src/KiPlayer.cpp" alt="" coords="193,79,310,104"/>
-<area shape="rect" id="node4" href="$_power_up_8cpp.html" title="src/PowerUp.cpp" alt="" coords="334,79,457,104"/>
-<area shape="rect" id="node5" href="$_spacecraft_8cpp.html" title="src/Spacecraft.cpp" alt="" coords="480,79,612,104"/>
+<area shape="rect" id="node2" href="$_a_i_player_8cpp.html" title="src/AIPlayer.cpp" alt="" coords="5,79,123,104"/>
+<area shape="rect" id="node3" href="$_game_generator_8cpp.html" title="src/GameGenerator.cpp" alt="" coords="146,79,310,104"/>
+<area shape="rect" id="node4" href="$_power_up_8cpp.html" title="src/PowerUp.cpp" alt="" coords="333,79,456,104"/>
+<area shape="rect" id="node5" href="$_spacecraft_8cpp.html" title="src/Spacecraft.cpp" alt="" coords="480,79,611,104"/>
 </map>
