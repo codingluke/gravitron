@@ -1,0 +1,12 @@
+<map id="Game::startClient" name="Game::startClient">
+<area shape="rect" id="node2" href="$class_game.html#aab513bbe5db45b1f9dba205d0ddec74e" title="Game::renderRemote" alt="" coords="178,181,329,207"/>
+<area shape="rect" id="node3" href="$class_game_actor_view.html#a36cb82690cbaf53296a1b24d32a36140" title="GameActorView::fromString" alt="" coords="384,5,571,31"/>
+<area shape="rect" id="node5" href="$class_game.html#a645389b61e4d2fb43691208651c5a4e2" title="Game::render" alt="" coords="426,55,529,80"/>
+<area shape="rect" id="node6" href="$class_game.html#a59f88c64cc14f60ec2d7d3f94d1e00e7" title="Game::setInfoboxMessage" alt="" coords="632,80,813,105"/>
+<area shape="rect" id="node7" href="$class_game.html#a60ef32ef5040d639aaae74c74466e186" title="Game::setLifepoints" alt="" coords="407,156,547,181"/>
+<area shape="rect" id="node8" href="$class_game.html#a226a897819cb653c61868cbf96b90ad5" title="Game::setActiveWeapon" alt="" coords="393,205,562,231"/>
+<area shape="rect" id="node9" href="$class_game.html#a9955838a261e9c1aee21bc6746f11f4f" title="Game::setBackgroundPosition" alt="" coords="377,255,578,280"/>
+<area shape="rect" id="node10" href="$class_game.html#a8cbceafcfbb9fe7d67827c428f8f0ee6" title="Game::setFrag" alt="" coords="422,304,533,329"/>
+<area shape="rect" id="node11" href="$class_tcp_client.html#acfb86166367f64f015abb8f625559e78" title="TcpClient::transfer" alt="" coords="413,353,542,379"/>
+<area shape="rect" id="node4" href="$class_game_actor_view.html#a89d3c6c159128714e6780c4fda51fdcd" title="GameActorView::setProperty" alt="" coords="626,5,819,31"/>
+</map>

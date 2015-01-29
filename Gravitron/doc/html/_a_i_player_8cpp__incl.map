@@ -1,0 +1,11 @@
+<map id="src/AIPlayer.cpp" name="src/AIPlayer.cpp">
+<area shape="rect" id="node2" href="$_a_i_player_8h.html" title="headers/AIPlayer.h" alt="" coords="211,79,345,104"/>
+<area shape="rect" id="node17" href="$_power_up_8h.html" title="headers/PowerUp.h" alt="" coords="80,152,219,177"/>
+<area shape="rect" id="node3" href="$_player_8h.html" title="Player.h" alt="" coords="252,152,322,177"/>
+<area shape="rect" id="node4" href="$_spacecraft_8h.html" title="Spacecraft.h" alt="" coords="361,225,458,251"/>
+<area shape="rect" id="node5" href="$_game_actor_8h.html" title="GameActor.h" alt="" coords="235,372,334,397"/>
+<area shape="rect" id="node13" href="$_game_field_8h.html" title="GameField.h" alt="" coords="423,445,521,471"/>
+<area shape="rect" id="node14" href="$_projectile_8h.html" title="Projectile.h" alt="" coords="241,299,328,324"/>
+<area shape="rect" id="node6" href="$_vec3f_8h.html" title="Vec3f.h" alt="" coords="79,445,145,471"/>
+<area shape="rect" id="node9" href="$_game_actor_view_8h.html" title="GameActorView.h" alt="" coords="271,445,399,471"/>
+</map>
