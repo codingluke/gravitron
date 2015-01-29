@@ -98,7 +98,6 @@ class GameActor
                   vector<GameActor*> *actors);
         GameActor(const GameActor &actor);
 
-        void update(double radius);
         bool operator== (GameActor& right);
         GameActor &operator= (const GameActor &right);
         Vec3f getPosition() const;
@@ -126,7 +125,6 @@ class GameActor
         virtual void applyForce(Vec3f force);
         virtual void update();
         virtual void updateAll();
-        virtual void update(vector<GameActor*> actors);
         virtual void handleCollision(GameActor &other);
         virtual void handleKill();
         virtual GameActorView* getView() const;
