@@ -35,7 +35,7 @@ var searchData=
   ['setinfoboxmessage',['setInfoboxMessage',['../class_game.html#a59f88c64cc14f60ec2d7d3f94d1e00e7',1,'Game']]],
   ['setinputs',['setInputs',['../class_network_input_handler.html#a61a08f5ee0d86ff5a2905f84bc90a535',1,'NetworkInputHandler']]],
   ['setinputsfromstring',['setInputsFromString',['../class_network_input_handler.html#abd648e91977ace9206053d7d0189ec8a',1,'NetworkInputHandler']]],
-  ['setlanguare',['setLanguare',['../class_gravitron_settings.html#a1c457b47d88c01a5c3541f3c861fcda6',1,'GravitronSettings']]],
+  ['setlanguage',['setLanguage',['../class_gravitron_settings.html#a32e3f5e0c2e9554ff0bbfbd58e39f091',1,'GravitronSettings']]],
   ['setlifepoints',['setLifepoints',['../class_game.html#a60ef32ef5040d639aaae74c74466e186',1,'Game']]],
   ['setmaxspeed',['setMaxSpeed',['../class_game_actor.html#a33f79600c44e3372a23c3ca2ee880704',1,'GameActor']]],
   ['setmusicsoundvolume',['setMusicSoundVolume',['../class_gravitron_settings.html#a19127cb8ad9035391cef6607ebfcfbd8',1,'GravitronSettings']]],

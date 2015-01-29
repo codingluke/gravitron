@@ -9,7 +9,7 @@ var searchData=
   ['_7ehumannetworkplayer',['~HumanNetworkPlayer',['../class_human_network_player.html#ab8d3f49f7ab1c7157efdd0b949a52045',1,'HumanNetworkPlayer']]],
   ['_7ehumanplayer',['~HumanPlayer',['../class_human_player.html#abdeb9d120fc74c8d82ec0c688883f16f',1,'HumanPlayer']]],
   ['_7elaser',['~Laser',['../class_laser.html#aa9baee5ed9775426e0b1d563c4687711',1,'Laser']]],
-  ['_7elocater',['~Locater',['../class_locater.html#a53011545ad9a0d05c3ec5c615b4c8ad3',1,'Locater']]],
+  ['_7elocator',['~Locator',['../class_locator.html#a6c06df85e150751b3eec6a53c80678d7',1,'Locator::~Locator()'],['../class_locator.html#a6c06df85e150751b3eec6a53c80678d7',1,'Locator::~Locator()']]],
   ['_7emissile',['~Missile',['../class_missile.html#ad42379e48a46ec3556056f98ce8bd912',1,'Missile']]],
   ['_7eplayer',['~Player',['../class_player.html#a749d2c00e1fe0f5c2746f7505a58c062',1,'Player']]],
   ['_7eprojectile',['~Projectile',['../class_projectile.html#a94903e021fa2edab60ba3836ca0b937d',1,'Projectile']]],

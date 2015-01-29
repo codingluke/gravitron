@@ -88,14 +88,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <a href="_locater_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#ifndef LOCATER_H</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#define LOCATER_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#ifndef LOCATOR_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#define LOCATOR_H</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_gravitron_settings_8h.html">GravitronSettings.h</a>&quot;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;QObject&gt;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;QGuiApplication&gt;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="class_locater.html">    9</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_locater.html">Locater</a> : <span class="keyword">public</span> QObject {</div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="class_locator.html">    9</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_locator.html">Locator</a> : <span class="keyword">public</span> QObject {</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    Q_OBJECT</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
@@ -105,24 +105,24 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        QTranslator *translator;</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <a class="code" href="class_locater.html#a556629bf0a3c075882fdfa2c1300f16e">Locater</a>(<a class="code" href="class_gravitron_settings.html">GravitronSettings</a>&amp; settings, QGuiApplication&amp; app);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <a class="code" href="class_locater.html#a53011545ad9a0d05c3ec5c615b4c8ad3">~Locater</a>();</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <a class="code" href="class_locator.html#a07d736ad7677b6e99c5129a6a21fe6df">Locator</a>(<a class="code" href="class_gravitron_settings.html">GravitronSettings</a>&amp; settings, QGuiApplication&amp; app);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <a class="code" href="class_locator.html#a6c06df85e150751b3eec6a53c80678d7">~Locator</a>();</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">public</span> slots:</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_locater.html#afb3362fcbc55531364483e24bb72b794">loadLanguare</a>(<span class="keyword">const</span> QString&amp; source);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_locator.html#ad169c76d74415a63ee31cc32f7b2b8d1">loadLanguage</a>(<span class="keyword">const</span> QString&amp; source);</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;};</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#endif // LOCATER_H</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#endif // LOCATOR_H</span></div>
 <div class="ttc" id="class_gravitron_settings_html"><div class="ttname"><a href="class_gravitron_settings.html">GravitronSettings</a></div><div class="ttdef"><b>Definition:</b> GravitronSettings.h:9</div></div>
-<div class="ttc" id="class_locater_html"><div class="ttname"><a href="class_locater.html">Locater</a></div><div class="ttdef"><b>Definition:</b> Locater.h:9</div></div>
-<div class="ttc" id="class_locater_html_a556629bf0a3c075882fdfa2c1300f16e"><div class="ttname"><a href="class_locater.html#a556629bf0a3c075882fdfa2c1300f16e">Locater::Locater</a></div><div class="ttdeci">Locater(GravitronSettings &amp;settings, QGuiApplication &amp;app)</div><div class="ttdef"><b>Definition:</b> Locator.cpp:6</div></div>
-<div class="ttc" id="class_locater_html_a53011545ad9a0d05c3ec5c615b4c8ad3"><div class="ttname"><a href="class_locater.html#a53011545ad9a0d05c3ec5c615b4c8ad3">Locater::~Locater</a></div><div class="ttdeci">~Locater()</div><div class="ttdef"><b>Definition:</b> Locator.cpp:11</div></div>
+<div class="ttc" id="class_locator_html_ad169c76d74415a63ee31cc32f7b2b8d1"><div class="ttname"><a href="class_locator.html#ad169c76d74415a63ee31cc32f7b2b8d1">Locator::loadLanguage</a></div><div class="ttdeci">void loadLanguage(const QString &amp;source)</div><div class="ttdef"><b>Definition:</b> Locator.cpp:15</div></div>
+<div class="ttc" id="class_locator_html_a6c06df85e150751b3eec6a53c80678d7"><div class="ttname"><a href="class_locator.html#a6c06df85e150751b3eec6a53c80678d7">Locator::~Locator</a></div><div class="ttdeci">~Locator()</div><div class="ttdef"><b>Definition:</b> Locator.cpp:11</div></div>
 <div class="ttc" id="_gravitron_settings_8h_html"><div class="ttname"><a href="_gravitron_settings_8h.html">GravitronSettings.h</a></div></div>
-<div class="ttc" id="class_locater_html_afb3362fcbc55531364483e24bb72b794"><div class="ttname"><a href="class_locater.html#afb3362fcbc55531364483e24bb72b794">Locater::loadLanguare</a></div><div class="ttdeci">void loadLanguare(const QString &amp;source)</div><div class="ttdef"><b>Definition:</b> Locator.cpp:15</div></div>
+<div class="ttc" id="class_locator_html_a07d736ad7677b6e99c5129a6a21fe6df"><div class="ttname"><a href="class_locator.html#a07d736ad7677b6e99c5129a6a21fe6df">Locator::Locator</a></div><div class="ttdeci">Locator(GravitronSettings &amp;settings, QGuiApplication &amp;app)</div><div class="ttdef"><b>Definition:</b> Locator.cpp:6</div></div>
+<div class="ttc" id="class_locator_html"><div class="ttname"><a href="class_locator.html">Locator</a></div><div class="ttdef"><b>Definition:</b> Locater.h:9</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jan 29 2015 21:35:59 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jan 29 2015 22:02:27 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

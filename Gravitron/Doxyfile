@@ -10,3 +10,5 @@ HAVE_DOT = YES
 # Die Aufrufhierarchie wird erstellt.
 CALL_GRAPH = YES
 
+GENERATE_LATEX = NO
+
