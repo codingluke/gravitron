@@ -5,7 +5,7 @@
 #include "GravitronSettings.h"
 #include "GameLoop.h"
 #include "Player.h"
-#include "KiPlayer.h"
+#include "AIPlayer.h"
 #include "TcpServer.h"
 #include <vector>
 
@@ -19,7 +19,7 @@ class GameGenerator : public QObject
         GameField* field;
         TcpServer* server;
         std::vector<GameActor*> *actors;
-        std::vector<KiPlayer*> bots;
+        std::vector<AIPlayer*> bots;
         std::vector<Player*> humanPlayer;
 
     public:

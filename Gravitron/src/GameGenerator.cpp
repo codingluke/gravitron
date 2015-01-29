@@ -3,7 +3,7 @@
 #include "headers/Planet.h"
 #include "headers/Asteroid.h"
 #include "headers/Spacecraft.h"
-#include "headers/KiPlayer.h"
+#include "headers/AIPlayer.h"
 #include "headers/HumanPlayer.h"
 #include "headers/HumanNetworkPlayer.h"
 #include "headers/GameField.h"
@@ -67,8 +67,8 @@ void GameGenerator::generateBots()
     for(int i = 0; i < settings->botsCount(); i++) {
         Spacecraft* sc = generateNewSpacecraft();
         actors->push_back(sc);
-        bots.push_back(new KiPlayer(
-            sc, settings->frag(), settings->difficulty(), actors, "KI Player"
+        bots.push_back(new AIPlayer(
+            sc, settings->frag(), settings->difficulty(), actors, "Bot"
         ));
     }
 }

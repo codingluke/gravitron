@@ -40,8 +40,8 @@ Qml, Bilder und Text sind in .qrc Dateien organisiert.
 -Player
 	- HumanPlayer
 		- HumanNetworkPlayer
-	- KiPlayer
-		- KiNetworkPlayer
+	- AIPlayer
+		- AINetworkPlayer
 
 Game <-> GameLoop
 Game: 

@@ -44,7 +44,7 @@ HEADERS += src/headers/GameActor.h \
     src/headers/Player.h \
     src/headers/HumanPlayer.h \
     src/headers/HumanNetworkPlayer.h \
-    src/headers/KiPlayer.h \
+    src/headers/AIPlayer.h \
     src/headers/GameGenerator.h \
     src/headers/ActorsAdjustments.h \
     src/headers/vec3f_tests.h \
@@ -85,7 +85,7 @@ SOURCES += src/main.cpp \
     src/Player.cpp \
     src/HumanPlayer.cpp \
     src/HumanNetworkPlayer.cpp \
-    src/KiPlayer.cpp \
+    src/AIPlayer.cpp \
     src/GameGenerator.cpp \
     src/vec3f_tests.cpp \
     src/physics_tests.cpp

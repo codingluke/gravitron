@@ -36,7 +36,7 @@ void GameLoop::deleteActors() {
 }
 
 void GameLoop::deleteBots() {
-    vector<KiPlayer*>::iterator it;
+    vector<AIPlayer*>::iterator it;
     for (it = bots.begin(); it < bots.end(); it++) {
         delete (*it);
     }
@@ -49,9 +49,9 @@ void GameLoop::deletePlayer() {
     }
 }
 
-void GameLoop::setBots(vector<KiPlayer*> bots) {
+void GameLoop::setBots(vector<AIPlayer*> bots) {
     deleteBots();
-    for (KiPlayer* kp : bots) {
+    for (AIPlayer* kp : bots) {
         this->bots.push_back(kp);
     }
 }
