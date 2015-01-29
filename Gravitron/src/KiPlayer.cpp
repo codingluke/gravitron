@@ -70,17 +70,6 @@ void KiPlayer::findTarget() {
     }
 }
 
-bool KiPlayer::leftEnemys() {
-    bool leftEnemeys = false;
-    for (int i = 0; i < actors->size(); i++){
-        if (Spacecraft* isSpacecraft = dynamic_cast<Spacecraft*>(actors->at(i))) {
-            leftEnemeys = true;
-            i = actors->size();
-        }
-    }
-    return leftEnemeys;
-}
-
 void KiPlayer::followTarget(GameActor *toFollow) {
     GameActor* test = dynamic_cast<GameActor*>(toFollow);
     if (test != 0)

@@ -8,7 +8,6 @@
 class KiPlayer : public Player
 {
     private:
-        bool leftEnemys();
         void followTarget(GameActor *toFollow);
         void shoot();
         void findTarget();

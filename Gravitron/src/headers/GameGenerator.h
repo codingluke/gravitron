@@ -26,7 +26,7 @@ class GameGenerator : public QObject
         explicit GameGenerator(QObject *parent = 0);
         GameGenerator(GravitronSettings *settings, GameField* field);
         GameGenerator(GravitronSettings *settings, GameField* field, TcpServer *server);
-        GameGenerator(const GameGenerator& original); // copy constructor
+        GameGenerator(const GameGenerator& original); 
 
         ~GameGenerator();
         void generateGame(GameLoop* g);
