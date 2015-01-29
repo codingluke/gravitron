@@ -1,0 +1,5 @@
+<map id="HumanNetworkPlayer::HumanNetworkPlayer" name="HumanNetworkPlayer::HumanNetworkPlayer">
+<area shape="rect" id="node2" href="$df/dba/class_human_network_player.html#abb9b853fc256cb883f4b39df825eaba5" title="HumanNetworkPlayer\l::setNameFromNetwork" alt="" coords="213,5,376,46"/>
+<area shape="rect" id="node3" href="$d8/d53/class_player.html#a88887d3b662e42909bdd0d5d19898935" title="Player::setPlayerName" alt="" coords="424,12,581,39"/>
+<area shape="rect" id="node4" href="$d9/d11/class_spacecraft.html#a138a3946f5c1453613c681e990b73feb" title="Spacecraft::setName" alt="" coords="629,12,776,39"/>
+</map>

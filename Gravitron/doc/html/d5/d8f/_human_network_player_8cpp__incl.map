@@ -1,0 +1,19 @@
+<map id="src/HumanNetworkPlayer.cpp" name="src/HumanNetworkPlayer.cpp">
+<area shape="rect" id="node2" href="$d8/d5c/_human_network_player_8h.html" title="headers/HumanNetworkPlayer.h" alt="" coords="985,80,1195,107"/>
+<area shape="rect" id="node18" href="$df/d64/_game_loop_8h.html" title="GameLoop.h" alt="" coords="780,229,876,256"/>
+<area shape="rect" id="node3" href="$d6/da5/_human_player_8h.html" title="HumanPlayer.h" alt="" coords="1055,155,1165,181"/>
+<area shape="rect" id="node5" href="$dd/d90/_spacecraft_8h.html" title="Spacecraft.h" alt="" coords="1216,528,1312,555"/>
+<area shape="rect" id="node29" href="$de/db2/_tcp_server_8h.html" title="TcpServer.h" alt="" coords="200,453,293,480"/>
+<area shape="rect" id="node4" href="$d1/d39/_player_8h.html" title="Player.h" alt="" coords="937,453,1007,480"/>
+<area shape="rect" id="node22" href="$df/dec/_input_handler_8h.html" title="InputHandler.h" alt="" coords="1104,379,1211,405"/>
+<area shape="rect" id="node6" href="$dd/deb/_game_actor_8h.html" title="GameActor.h" alt="" coords="953,677,1052,704"/>
+<area shape="rect" id="node14" href="$d0/db8/_game_field_8h.html" title="GameField.h" alt="" coords="1232,752,1328,779"/>
+<area shape="rect" id="node15" href="$d4/d0c/_projectile_8h.html" title="Projectile.h" alt="" coords="959,603,1045,629"/>
+<area shape="rect" id="node7" href="$d4/d45/_vec3f_8h.html" title="Vec3f.h" alt="" coords="899,752,965,779"/>
+<area shape="rect" id="node10" href="$db/da4/_game_actor_view_8h.html" title="GameActorView.h" alt="" coords="624,752,752,779"/>
+<area shape="rect" id="node25" href="$d5/d97/_game_generator_8h.html" title="GameGenerator.h" alt="" coords="745,304,871,331"/>
+<area shape="rect" id="node28" href="$d4/d21/_a_i_player_8h.html" title="AIPlayer.h" alt="" coords="945,379,1027,405"/>
+<area shape="rect" id="node33" href="$da/dc1/_network_input_handler_8h.html" title="NetworkInputHandler.h" alt="" coords="562,379,717,405"/>
+<area shape="rect" id="node26" href="$d7/d66/_gravitron_settings_8h.html" title="GravitronSettings.h" alt="" coords="533,453,667,480"/>
+<area shape="rect" id="node34" href="$d7/d66/_tcp_client_8h.html" title="TcpClient.h" alt="" coords="419,453,508,480"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="HumanNetworkPlayer" name="HumanNetworkPlayer">
+<area shape="rect" id="node2" href="$d4/dee/classHumanPlayer.html" title="{HumanPlayer\n|# inputHandler\l|+ HumanPlayer()\l+ ~HumanPlayer()\l+ processInput()\l# execAction()\l}" alt="" coords="30,462,159,583"/>
+<area shape="rect" id="node3" href="$d2/d4b/classPlayer.html" title="{Player\n|# spacecraft\l# frag\l# roundsToRespawn\l# respawnCounter\l# name\l|+ Player()\l+ Player()\l+ ~Player()\l+ processInput()\l+ respawn()\l+ getWeapon()\l+ getHealth()\l+ getHealthPercentage()\l+ getRespawnCounter()\l+ getKillPoints()\land 7 more...\l}" alt="" coords="13,131,176,413"/>
+</map>

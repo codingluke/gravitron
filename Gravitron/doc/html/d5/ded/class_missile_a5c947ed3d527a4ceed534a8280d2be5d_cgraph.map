@@ -1,0 +1,4 @@
+<map id="Missile::Missile" name="Missile::Missile">
+<area shape="rect" id="node2" href="$d2/d79/class_game_actor.html#ab7452d9bf99b4e6509ee96a717c992dd" title="GameActor::applyForce" alt="" coords="167,5,327,32"/>
+<area shape="rect" id="node3" href="$d2/d79/class_game_actor.html#a1f624837eac0fe9fe80bcb54cfe8b1cf" title="GameActor::getVelocity" alt="" coords="166,56,327,83"/>
+</map>

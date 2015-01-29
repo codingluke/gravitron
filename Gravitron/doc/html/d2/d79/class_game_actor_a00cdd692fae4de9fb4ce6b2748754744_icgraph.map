@@ -1,0 +1,15 @@
+<map id="GameActor::handleKill" name="GameActor::handleKill">
+<area shape="rect" id="node2" href="$d2/d79/class_game_actor.html#a633b34eb69ad05477fd1d5b5de3c17b8" title="GameActor::kill" alt="" coords="205,221,317,248"/>
+<area shape="rect" id="node3" href="$d2/d4c/class_aim_missile.html#aedbbc65c9b383913d3a401bfba40cd4e" title="AimMissile::handleCollision" alt="" coords="587,5,770,32"/>
+<area shape="rect" id="node4" href="$d2/d79/class_game_actor.html#a168ddb4dda02a8dd734f35d61e325de9" title="GameActor::dealDamage" alt="" coords="367,196,537,223"/>
+<area shape="rect" id="node6" href="$d9/d89/class_laser.html#a6c26eb024fd0ae01920c299d1af2679d" title="Laser::handleCollision" alt="" coords="603,56,754,83"/>
+<area shape="rect" id="node7" href="$d5/ded/class_missile.html#a08f4b7e58d9382c46263677ac57c1efe" title="Missile::handleCollision" alt="" coords="599,360,758,387"/>
+<area shape="rect" id="node12" href="$d0/ddd/class_power_up.html#adcd75e162366c12a062b915413ffff7a" title="PowerUp::handleCollision" alt="" coords="366,297,538,324"/>
+<area shape="rect" id="node13" href="$db/dbe/class_projectile.html#ac41ad56034b53e739619fabbd5e49652" title="Projectile::update" alt="" coords="391,373,513,400"/>
+<area shape="rect" id="node5" href="$db/dad/class_asteroid.html#ada68cafcbb9e41c90f3e372de1a4b0ba" title="Asteroid::handleCollision" alt="" coords="595,208,762,235"/>
+<area shape="rect" id="node8" href="$dd/d41/class_planet.html#a9dd66b259905d35fa4233bd469662627" title="Planet::handleCollision" alt="" coords="601,259,756,285"/>
+<area shape="rect" id="node9" href="$d9/df6/class_scrap.html#a6db3dbd17f6d653c17d3f17dfcd448c5" title="Scrap::handleCollision" alt="" coords="603,309,755,336"/>
+<area shape="rect" id="node10" href="$d9/d11/class_spacecraft.html#a52608575fde91a502be1621b348884ec" title="Spacecraft::handleCollision" alt="" coords="588,107,769,133"/>
+<area shape="rect" id="node11" href="$d6/d93/class_sun.html#a62d7b6c5a6089f29fc669240952a7362" title="Sun::handleCollision" alt="" coords="608,157,749,184"/>
+<area shape="rect" id="node14" href="$d2/d4c/class_aim_missile.html#a2723e6b87d30aa722b795e955a04ddfd" title="AimMissile::update" alt="" coords="612,411,745,437"/>
+</map>

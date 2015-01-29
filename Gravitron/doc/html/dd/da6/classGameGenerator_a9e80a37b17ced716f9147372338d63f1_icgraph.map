@@ -1,0 +1,6 @@
+<map id="GameGenerator::generateNewSpacecraft" name="GameGenerator::generateNewSpacecraft">
+<area shape="rect" id="node2" href="$dd/da6/classGameGenerator.html#ab67409d76a41fd3e4ccc369968e4d04a" title="GameGenerator::generateBots" alt="" coords="259,5,458,32"/>
+<area shape="rect" id="node5" href="$dd/da6/classGameGenerator.html#a664d5aab8ee9c6c4c524afe631c5ebfb" title="GameGenerator::generatePlayer" alt="" coords="254,56,463,83"/>
+<area shape="rect" id="node3" href="$dd/da6/classGameGenerator.html#a13f50521a481baafdae183e44d410977" title="GameGenerator::generateGame" alt="" coords="513,31,719,57"/>
+<area shape="rect" id="node4" href="$db/df6/classGameLoop.html#ae06492a249f44724b6781e414b282fbb" title="GameLoop::GameLoop" alt="" coords="769,31,925,57"/>
+</map>

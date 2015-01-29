@@ -1,0 +1,5 @@
+<map id="GameGenerator::generateNewScrap" name="GameGenerator::generateNewScrap">
+<area shape="rect" id="node2" href="$dd/da6/classGameGenerator.html#a9a62122ed137d2e6a3ba282efefb9bd3" title="GameGenerator::generateRandom\lScrap" alt="" coords="253,5,475,46"/>
+<area shape="rect" id="node3" href="$dd/da6/classGameGenerator.html#a13f50521a481baafdae183e44d410977" title="GameGenerator::generateGame" alt="" coords="523,12,730,39"/>
+<area shape="rect" id="node4" href="$db/df6/classGameLoop.html#ae06492a249f44724b6781e414b282fbb" title="GameLoop::GameLoop" alt="" coords="779,12,935,39"/>
+</map>

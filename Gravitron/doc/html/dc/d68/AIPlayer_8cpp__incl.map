@@ -1,0 +1,11 @@
+<map id="src/AIPlayer.cpp" name="src/AIPlayer.cpp">
+<area shape="rect" id="node2" href="$dc/d8d/AIPlayer_8h.html" title="headers/AIPlayer.h" alt="" coords="211,80,344,107"/>
+<area shape="rect" id="node17" href="$dc/d68/PowerUp_8h.html" title="headers/PowerUp.h" alt="" coords="79,155,216,181"/>
+<area shape="rect" id="node3" href="$da/dbf/Player_8h.html" title="Player.h" alt="" coords="251,155,321,181"/>
+<area shape="rect" id="node4" href="$dd/d53/Spacecraft_8h.html" title="Spacecraft.h" alt="" coords="363,229,459,256"/>
+<area shape="rect" id="node5" href="$d4/d8f/GameActor_8h.html" title="GameActor.h" alt="" coords="235,379,333,405"/>
+<area shape="rect" id="node13" href="$db/d6a/GameField_8h.html" title="GameField.h" alt="" coords="423,453,519,480"/>
+<area shape="rect" id="node14" href="$d5/d7c/Projectile_8h.html" title="Projectile.h" alt="" coords="241,304,327,331"/>
+<area shape="rect" id="node6" href="$dc/d4d/Vec3f_8h.html" title="Vec3f.h" alt="" coords="79,453,145,480"/>
+<area shape="rect" id="node9" href="$d3/dde/GameActorView_8h.html" title="GameActorView.h" alt="" coords="271,453,399,480"/>
+</map>

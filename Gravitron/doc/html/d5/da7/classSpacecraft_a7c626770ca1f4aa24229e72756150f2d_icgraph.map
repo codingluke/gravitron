@@ -1,0 +1,8 @@
+<map id="Spacecraft::shootRight" name="Spacecraft::shootRight">
+<area shape="rect" id="node2" href="$df/d27/classAIPlayer.html#ad8af867f88cffe0cf0ba7128989bf030" title="AIPlayer::shoot" alt="" coords="243,5,355,32"/>
+<area shape="rect" id="node4" href="$d7/dea/classHumanNetworkPlayer.html#a6faa3112587ecc9b16caa28782682976" title="HumanNetworkPlayer\l::execAction" alt="" coords="223,57,374,98"/>
+<area shape="rect" id="node6" href="$d4/dee/classHumanPlayer.html#a1fac561ab5995308892dd237b3b32645" title="HumanPlayer::execAction" alt="" coords="211,123,386,149"/>
+<area shape="rect" id="node3" href="$df/d27/classAIPlayer.html#a37a689ed5d72b91e9e1ea2465c9d9b33" title="AIPlayer::update" alt="" coords="467,5,586,32"/>
+<area shape="rect" id="node5" href="$d7/dea/classHumanNetworkPlayer.html#a3914e46fec4bd007fff44ec984599d94" title="HumanNetworkPlayer\l::processInput" alt="" coords="451,57,602,98"/>
+<area shape="rect" id="node7" href="$d4/dee/classHumanPlayer.html#a4298cb4a77be8ef79cc289baec199602" title="HumanPlayer::processInput" alt="" coords="435,123,619,149"/>
+</map>

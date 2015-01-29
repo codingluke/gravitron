@@ -1,0 +1,5 @@
+<map id="GameGenerator::generateBots" name="GameGenerator::generateBots">
+<area shape="rect" id="node2" href="$dd/da6/classGameGenerator.html#a9e80a37b17ced716f9147372338d63f1" title="GameGenerator::generateNew\lSpacecraft" alt="" coords="254,23,453,65"/>
+<area shape="rect" id="node3" href="$d7/d95/classGameField.html#a4e64e71ba15b89734e6bbed36b8936a2" title="GameField::getWidth" alt="" coords="503,5,649,32"/>
+<area shape="rect" id="node4" href="$d7/d95/classGameField.html#a7a551f2b02f8446903c636aa41c16341" title="GameField::getHeight" alt="" coords="501,56,651,83"/>
+</map>

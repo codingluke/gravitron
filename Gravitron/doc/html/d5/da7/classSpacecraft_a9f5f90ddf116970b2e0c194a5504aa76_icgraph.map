@@ -1,0 +1,6 @@
+<map id="Spacecraft::forceAhead" name="Spacecraft::forceAhead">
+<area shape="rect" id="node2" href="$d7/dea/classHumanNetworkPlayer.html#a6faa3112587ecc9b16caa28782682976" title="HumanNetworkPlayer\l::execAction" alt="" coords="226,5,377,46"/>
+<area shape="rect" id="node4" href="$d4/dee/classHumanPlayer.html#a1fac561ab5995308892dd237b3b32645" title="HumanPlayer::execAction" alt="" coords="214,71,389,97"/>
+<area shape="rect" id="node3" href="$d7/dea/classHumanNetworkPlayer.html#a3914e46fec4bd007fff44ec984599d94" title="HumanNetworkPlayer\l::processInput" alt="" coords="454,5,605,46"/>
+<area shape="rect" id="node5" href="$d4/dee/classHumanPlayer.html#a4298cb4a77be8ef79cc289baec199602" title="HumanPlayer::processInput" alt="" coords="437,71,621,97"/>
+</map>

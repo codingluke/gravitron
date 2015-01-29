@@ -1,0 +1,5 @@
+<map id="Planet::getView" name="Planet::getView">
+<area shape="rect" id="node2" href="$df/df7/class_game_actor_view.html#a89d3c6c159128714e6780c4fda51fdcd" title="GameActorView::setProperty" alt="" coords="171,5,363,32"/>
+<area shape="rect" id="node3" href="$d2/d79/class_game_actor.html#a9f520d6799654aefd20c7a73d6c00f12" title="GameActor::calculateRotation" alt="" coords="168,56,365,83"/>
+<area shape="rect" id="node4" href="$d2/d79/class_game_actor.html#aee1a09ea167d0cb5d7c2e9c381611405" title="GameActor::radToDeg" alt="" coords="414,56,567,83"/>
+</map>

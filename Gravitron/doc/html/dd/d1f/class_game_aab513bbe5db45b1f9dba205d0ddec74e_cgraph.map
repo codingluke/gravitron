@@ -1,0 +1,11 @@
+<map id="Game::renderRemote" name="Game::renderRemote">
+<area shape="rect" id="node2" href="$df/df7/class_game_actor_view.html#a36cb82690cbaf53296a1b24d32a36140" title="GameActorView::fromString" alt="" coords="207,5,393,32"/>
+<area shape="rect" id="node4" href="$dd/d1f/class_game.html#a645389b61e4d2fb43691208651c5a4e2" title="Game::render" alt="" coords="249,56,351,83"/>
+<area shape="rect" id="node5" href="$dd/d1f/class_game.html#a59f88c64cc14f60ec2d7d3f94d1e00e7" title="Game::setInfoboxMessage" alt="" coords="455,81,633,108"/>
+<area shape="rect" id="node6" href="$dd/d1f/class_game.html#a60ef32ef5040d639aaae74c74466e186" title="Game::setLifepoints" alt="" coords="231,157,369,184"/>
+<area shape="rect" id="node7" href="$dd/d1f/class_game.html#a226a897819cb653c61868cbf96b90ad5" title="Game::setActiveWeapon" alt="" coords="216,208,384,235"/>
+<area shape="rect" id="node8" href="$dd/d1f/class_game.html#a9955838a261e9c1aee21bc6746f11f4f" title="Game::setBackgroundPosition" alt="" coords="201,259,399,285"/>
+<area shape="rect" id="node9" href="$dd/d1f/class_game.html#a8cbceafcfbb9fe7d67827c428f8f0ee6" title="Game::setFrag" alt="" coords="245,309,355,336"/>
+<area shape="rect" id="node10" href="$d3/d4d/class_tcp_client.html#acfb86166367f64f015abb8f625559e78" title="TcpClient::transfer" alt="" coords="235,360,365,387"/>
+<area shape="rect" id="node3" href="$df/df7/class_game_actor_view.html#a89d3c6c159128714e6780c4fda51fdcd" title="GameActorView::setProperty" alt="" coords="448,5,640,32"/>
+</map>

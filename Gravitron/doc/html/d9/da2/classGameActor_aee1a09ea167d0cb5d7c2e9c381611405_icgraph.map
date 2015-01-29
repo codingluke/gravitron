@@ -1,0 +1,11 @@
+<map id="GameActor::radToDeg" name="GameActor::radToDeg">
+<area shape="rect" id="node2" href="$d9/da2/classGameActor.html#a9f520d6799654aefd20c7a73d6c00f12" title="GameActor::calculateRotation" alt="" coords="208,183,405,209"/>
+<area shape="rect" id="node3" href="$d6/d21/classAsteroid.html#a267c313e8759ca6091455616cc6c40f1" title="Asteroid::getView" alt="" coords="463,5,588,32"/>
+<area shape="rect" id="node4" href="$d9/da2/classGameActor.html#ae63b522db0d88f56e3c7a8cfb60d31a6" title="GameActor::getView" alt="" coords="454,56,597,83"/>
+<area shape="rect" id="node5" href="$d5/db6/classLaser.html#af00728fe7cabd4f63cb5ce66f4c50e86" title="Laser::getView" alt="" coords="471,107,580,133"/>
+<area shape="rect" id="node6" href="$df/d60/classMissile.html#a4ff3f60f70f5b4f8cf8ab3f0f6f509b6" title="Missile::getView" alt="" coords="466,157,585,184"/>
+<area shape="rect" id="node7" href="$d5/dec/classPlanet.html#a60f36a3e87d89c4467e3ee2854906a09" title="Planet::getView" alt="" coords="468,208,583,235"/>
+<area shape="rect" id="node8" href="$d4/dd8/classScrap.html#a68649c3864eb5b426df61a57114b10ff" title="Scrap::getView" alt="" coords="470,259,581,285"/>
+<area shape="rect" id="node9" href="$d5/da7/classSpacecraft.html#ada8aff4825d826f3b8ab6ef3b4430529" title="Spacecraft::getView" alt="" coords="455,309,595,336"/>
+<area shape="rect" id="node10" href="$d7/d2c/classSun.html#ae5833ea5166cf6bcd48958d05d37670e" title="Sun::getView" alt="" coords="475,360,575,387"/>
+</map>

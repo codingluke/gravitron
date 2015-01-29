@@ -1,0 +1,10 @@
+<map id="GameActor::dealDamage" name="GameActor::dealDamage">
+<area shape="rect" id="node2" href="$d7/d85/classAimMissile.html#aedbbc65c9b383913d3a401bfba40cd4e" title="AimMissile::handleCollision" alt="" coords="225,5,407,32"/>
+<area shape="rect" id="node3" href="$d6/d21/classAsteroid.html#ada68cafcbb9e41c90f3e372de1a4b0ba" title="Asteroid::handleCollision" alt="" coords="233,56,399,83"/>
+<area shape="rect" id="node4" href="$d5/db6/classLaser.html#a6c26eb024fd0ae01920c299d1af2679d" title="Laser::handleCollision" alt="" coords="241,107,391,133"/>
+<area shape="rect" id="node5" href="$df/d60/classMissile.html#a08f4b7e58d9382c46263677ac57c1efe" title="Missile::handleCollision" alt="" coords="237,157,395,184"/>
+<area shape="rect" id="node6" href="$d5/dec/classPlanet.html#a9dd66b259905d35fa4233bd469662627" title="Planet::handleCollision" alt="" coords="239,208,393,235"/>
+<area shape="rect" id="node7" href="$d4/dd8/classScrap.html#a6db3dbd17f6d653c17d3f17dfcd448c5" title="Scrap::handleCollision" alt="" coords="240,259,392,285"/>
+<area shape="rect" id="node8" href="$d5/da7/classSpacecraft.html#a52608575fde91a502be1621b348884ec" title="Spacecraft::handleCollision" alt="" coords="225,309,407,336"/>
+<area shape="rect" id="node9" href="$d7/d2c/classSun.html#a62d7b6c5a6089f29fc669240952a7362" title="Sun::handleCollision" alt="" coords="245,360,387,387"/>
+</map>

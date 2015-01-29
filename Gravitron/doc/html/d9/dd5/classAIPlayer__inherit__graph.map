@@ -1,0 +1,3 @@
+<map id="AIPlayer" name="AIPlayer">
+<area shape="rect" id="node2" href="$d2/d4b/classPlayer.html" title="{Player\n|# spacecraft\l# frag\l# roundsToRespawn\l# respawnCounter\l# name\l|+ Player()\l+ Player()\l+ ~Player()\l+ processInput()\l+ respawn()\l+ getWeapon()\l+ getHealth()\l+ getHealthPercentage()\l+ getRespawnCounter()\l+ getKillPoints()\land 7 more...\l}" alt="" coords="5,131,168,413"/>
+</map>

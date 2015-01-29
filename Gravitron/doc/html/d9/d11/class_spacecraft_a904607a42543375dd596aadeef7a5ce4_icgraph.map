@@ -1,0 +1,6 @@
+<map id="Spacecraft::shootLeft" name="Spacecraft::shootLeft">
+<area shape="rect" id="node2" href="$df/dba/class_human_network_player.html#a6faa3112587ecc9b16caa28782682976" title="HumanNetworkPlayer\l::execAction" alt="" coords="213,5,363,46"/>
+<area shape="rect" id="node4" href="$df/d74/class_human_player.html#a1fac561ab5995308892dd237b3b32645" title="HumanPlayer::execAction" alt="" coords="201,71,375,97"/>
+<area shape="rect" id="node3" href="$df/dba/class_human_network_player.html#a3914e46fec4bd007fff44ec984599d94" title="HumanNetworkPlayer\l::processInput" alt="" coords="441,5,591,46"/>
+<area shape="rect" id="node5" href="$df/d74/class_human_player.html#a4298cb4a77be8ef79cc289baec199602" title="HumanPlayer::processInput" alt="" coords="424,71,608,97"/>
+</map>

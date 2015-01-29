@@ -1,0 +1,6 @@
+<map id="Player" name="Player">
+<area shape="rect" id="node3" href="$d9/d11/class_spacecraft.html" title="Spacecraft" alt="" coords="100,203,185,229"/>
+<area shape="rect" id="node4" href="$d2/d79/class_game_actor.html" title="GameActor" alt="" coords="99,125,187,152"/>
+<area shape="rect" id="node5" href="$df/d9e/class_game_field.html" title="GameField" alt="" coords="53,5,139,32"/>
+<area shape="rect" id="node6" href="$d5/d58/class_vec3f.html" title="Vec3f" alt="" coords="163,5,217,32"/>
+</map>

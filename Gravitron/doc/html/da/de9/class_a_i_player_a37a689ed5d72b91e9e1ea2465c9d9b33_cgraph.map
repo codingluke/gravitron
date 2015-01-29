@@ -1,0 +1,7 @@
+<map id="AIPlayer::update" name="AIPlayer::update">
+<area shape="rect" id="node2" href="$d2/d79/class_game_actor.html#a3ac80ca433821d22e545285c04cf38a1" title="GameActor::isKilled" alt="" coords="365,5,504,32"/>
+<area shape="rect" id="node3" href="$d8/d53/class_player.html#a98fe6e2e7fa090a26a0afafb647e9710" title="Player::pollRespawn" alt="" coords="174,56,317,83"/>
+<area shape="rect" id="node4" href="$d9/d11/class_spacecraft.html#a42787ac2585d1826a3471fe38fdce9ae" title="Spacecraft::repair" alt="" coords="372,56,497,83"/>
+<area shape="rect" id="node5" href="$df/d9e/class_game_field.html#a4e64e71ba15b89734e6bbed36b8936a2" title="GameField::getWidth" alt="" coords="554,31,699,57"/>
+<area shape="rect" id="node6" href="$df/d9e/class_game_field.html#a7a551f2b02f8446903c636aa41c16341" title="GameField::getHeight" alt="" coords="552,81,701,108"/>
+</map>

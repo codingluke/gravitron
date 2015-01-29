@@ -1,0 +1,9 @@
+<map id="Plane::fromPoints" name="Plane::fromPoints">
+<area shape="rect" id="node2" href="$d2/d8d/class_plane.html#a30bc1a6f61d5b50fc156c920d96d4e8c" title="Plane::normalize" alt="" coords="214,5,333,32"/>
+<area shape="rect" id="node3" href="$d2/d8d/class_plane.html#a383c0b4578ecc7776797553dbd615409" title="Plane::fromPointAndNormal" alt="" coords="181,56,365,83"/>
+<area shape="rect" id="node4" href="$d5/d58/class_vec3f.html#a7532bd9c039aee160a7347e63ef07217" title="Vec3f::normalize" alt="" coords="413,31,533,57"/>
+<area shape="rect" id="node8" href="$d5/d58/class_vec3f.html#a4be996396b524f4f55c50a2cb2a80809" title="Vec3f::dot" alt="" coords="432,81,515,108"/>
+<area shape="rect" id="node5" href="$d5/d58/class_vec3f.html#af736ea593ed963c40c8776d4014d4e79" title="Vec3f::magnitude" alt="" coords="582,5,706,32"/>
+<area shape="rect" id="node7" href="$d5/d58/class_vec3f.html#af874d7517d0a628834c6d753aa516325" title="Vec3f::Vec3f" alt="" coords="595,56,693,83"/>
+<area shape="rect" id="node6" href="$d5/d58/class_vec3f.html#aa4cc7ae415806c6b831218fde0624598" title="Vec3f::magnitudeSquared" alt="" coords="755,5,927,32"/>
+</map>

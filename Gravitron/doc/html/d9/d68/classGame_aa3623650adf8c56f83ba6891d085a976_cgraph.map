@@ -1,0 +1,12 @@
+<map id="Game::connectGameloop" name="Game::connectGameloop">
+<area shape="rect" id="node2" href="$d9/d68/classGame.html#a645389b61e4d2fb43691208651c5a4e2" title="Game::render" alt="" coords="273,56,375,83"/>
+<area shape="rect" id="node3" href="$d9/d68/classGame.html#a59f88c64cc14f60ec2d7d3f94d1e00e7" title="Game::setInfoboxMessage" alt="" coords="472,5,651,32"/>
+<area shape="rect" id="node8" href="$d9/d68/classGame.html#a60ef32ef5040d639aaae74c74466e186" title="Game::setLifepoints" alt="" coords="255,107,393,133"/>
+<area shape="rect" id="node9" href="$d9/d68/classGame.html#a226a897819cb653c61868cbf96b90ad5" title="Game::setActiveWeapon" alt="" coords="240,157,408,184"/>
+<area shape="rect" id="node10" href="$d9/d68/classGame.html#a9955838a261e9c1aee21bc6746f11f4f" title="Game::setBackgroundPosition" alt="" coords="225,208,423,235"/>
+<area shape="rect" id="node11" href="$d9/d68/classGame.html#a8cbceafcfbb9fe7d67827c428f8f0ee6" title="Game::setFrag" alt="" coords="269,259,379,285"/>
+<area shape="rect" id="node4" href="$d9/d68/classGame.html#aa6666c9cd081e404f51b12d2bf512873" title="Game::clearScene" alt="" coords="496,56,627,83"/>
+<area shape="rect" id="node5" href="$d9/d68/classGame.html#a89bf428d2591ec987910d9ede1f9796a" title="Game::setRelativePosition" alt="" coords="472,107,651,133"/>
+<area shape="rect" id="node6" href="$d2/d33/classGameActorView.html#a36c37691a940aa339beb5aebec818933" title="GameActorView::getPropterty" alt="" coords="699,81,895,108"/>
+<area shape="rect" id="node7" href="$d2/d33/classGameActorView.html#a89d3c6c159128714e6780c4fda51fdcd" title="GameActorView::setProperty" alt="" coords="701,132,893,159"/>
+</map>

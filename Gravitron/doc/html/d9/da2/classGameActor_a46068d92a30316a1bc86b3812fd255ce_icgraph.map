@@ -1,0 +1,7 @@
+<map id="GameActor::getDistance" name="GameActor::getDistance">
+<area shape="rect" id="node2" href="$d7/d85/classAimMissile.html#ad506273a4b3f62c06ee7ad43972c3e62" title="AimMissile::setNearestTarget" alt="" coords="221,5,416,32"/>
+<area shape="rect" id="node4" href="$df/d27/classAIPlayer.html#a160d1cd58d9d2ce36ca0f18c8ddf3b05" title="AIPlayer::findTarget" alt="" coords="249,56,388,83"/>
+<area shape="rect" id="node3" href="$d7/d85/classAimMissile.html#a2723e6b87d30aa722b795e955a04ddfd" title="AimMissile::update" alt="" coords="464,5,597,32"/>
+<area shape="rect" id="node5" href="$df/d27/classAIPlayer.html#a80fe585fd3aa65aeeef5feb52fa76827" title="AIPlayer::AIPlayer" alt="" coords="465,56,596,83"/>
+<area shape="rect" id="node6" href="$df/d27/classAIPlayer.html#a37a689ed5d72b91e9e1ea2465c9d9b33" title="AIPlayer::update" alt="" coords="471,107,590,133"/>
+</map>

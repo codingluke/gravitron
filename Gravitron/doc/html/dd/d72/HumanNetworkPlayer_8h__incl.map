@@ -1,0 +1,18 @@
+<map id="src/headers/HumanNetworkPlayer.h" name="src/headers/HumanNetworkPlayer.h">
+<area shape="rect" id="node2" href="$d4/dd5/HumanPlayer_8h.html" title="HumanPlayer.h" alt="" coords="945,96,1056,123"/>
+<area shape="rect" id="node4" href="$dd/d53/Spacecraft_8h.html" title="Spacecraft.h" alt="" coords="1039,469,1135,496"/>
+<area shape="rect" id="node28" href="$d4/de1/TcpServer_8h.html" title="TcpServer.h" alt="" coords="275,395,368,421"/>
+<area shape="rect" id="node3" href="$da/dbf/Player_8h.html" title="Player.h" alt="" coords="1051,395,1121,421"/>
+<area shape="rect" id="node17" href="$df/dd5/GameLoop_8h.html" title="GameLoop.h" alt="" coords="789,171,885,197"/>
+<area shape="rect" id="node21" href="$df/d2f/InputHandler_8h.html" title="InputHandler.h" alt="" coords="475,320,581,347"/>
+<area shape="rect" id="node5" href="$d4/d8f/GameActor_8h.html" title="GameActor.h" alt="" coords="941,619,1040,645"/>
+<area shape="rect" id="node13" href="$db/d6a/GameField_8h.html" title="GameField.h" alt="" coords="1061,693,1157,720"/>
+<area shape="rect" id="node14" href="$d5/d7c/Projectile_8h.html" title="Projectile.h" alt="" coords="934,544,1020,571"/>
+<area shape="rect" id="node6" href="$dc/d4d/Vec3f_8h.html" title="Vec3f.h" alt="" coords="957,693,1024,720"/>
+<area shape="rect" id="node9" href="$d3/dde/GameActorView_8h.html" title="GameActorView.h" alt="" coords="352,693,480,720"/>
+<area shape="rect" id="node24" href="$d9/d60/GameGenerator_8h.html" title="GameGenerator.h" alt="" coords="875,245,1000,272"/>
+<area shape="rect" id="node27" href="$dc/d8d/AIPlayer_8h.html" title="AIPlayer.h" alt="" coords="1047,320,1128,347"/>
+<area shape="rect" id="node32" href="$d4/d1f/NetworkInputHandler_8h.html" title="NetworkInputHandler.h" alt="" coords="294,320,449,347"/>
+<area shape="rect" id="node25" href="$d9/d71/GravitronSettings_8h.html" title="GravitronSettings.h" alt="" coords="790,395,924,421"/>
+<area shape="rect" id="node33" href="$dc/dea/TcpClient_8h.html" title="TcpClient.h" alt="" coords="161,395,249,421"/>
+</map>

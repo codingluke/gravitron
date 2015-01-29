@@ -1,0 +1,7 @@
+<map id="Game::render" name="Game::render">
+<area shape="rect" id="node2" href="$d9/d68/classGame.html#a59f88c64cc14f60ec2d7d3f94d1e00e7" title="Game::setInfoboxMessage" alt="" coords="155,5,333,32"/>
+<area shape="rect" id="node3" href="$d9/d68/classGame.html#aa6666c9cd081e404f51b12d2bf512873" title="Game::clearScene" alt="" coords="179,56,309,83"/>
+<area shape="rect" id="node4" href="$d9/d68/classGame.html#a89bf428d2591ec987910d9ede1f9796a" title="Game::setRelativePosition" alt="" coords="155,107,333,133"/>
+<area shape="rect" id="node5" href="$d2/d33/classGameActorView.html#a36c37691a940aa339beb5aebec818933" title="GameActorView::getPropterty" alt="" coords="382,81,578,108"/>
+<area shape="rect" id="node6" href="$d2/d33/classGameActorView.html#a89d3c6c159128714e6780c4fda51fdcd" title="GameActorView::setProperty" alt="" coords="384,132,576,159"/>
+</map>

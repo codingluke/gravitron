@@ -1,0 +1,5 @@
+<map id="Sun::getView" name="Sun::getView">
+<area shape="rect" id="node2" href="$d2/d33/classGameActorView.html#a89d3c6c159128714e6780c4fda51fdcd" title="GameActorView::setProperty" alt="" coords="157,5,349,32"/>
+<area shape="rect" id="node3" href="$d9/da2/classGameActor.html#a9f520d6799654aefd20c7a73d6c00f12" title="GameActor::calculateRotation" alt="" coords="155,56,352,83"/>
+<area shape="rect" id="node4" href="$d9/da2/classGameActor.html#aee1a09ea167d0cb5d7c2e9c381611405" title="GameActor::radToDeg" alt="" coords="401,56,554,83"/>
+</map>

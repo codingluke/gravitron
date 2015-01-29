@@ -1,0 +1,8 @@
+<map id="AIPlayer::AIPlayer" name="AIPlayer::AIPlayer">
+<area shape="rect" id="node2" href="$df/d27/classAIPlayer.html#a160d1cd58d9d2ce36ca0f18c8ddf3b05" title="AIPlayer::findTarget" alt="" coords="184,31,323,57"/>
+<area shape="rect" id="node3" href="$d9/da2/classGameActor.html#a46068d92a30316a1bc86b3812fd255ce" title="GameActor::getDistance" alt="" coords="371,31,538,57"/>
+<area shape="rect" id="node4" href="$d4/d2d/classPhysics.html#a8ec16d945fc45ba929ffe4af0d36cdc2" title="Physics::distance" alt="" coords="605,5,731,32"/>
+<area shape="rect" id="node7" href="$d9/da2/classGameActor.html#a8a0ca1b6866225d66df2381649bdc601" title="GameActor::getPosition" alt="" coords="587,56,749,83"/>
+<area shape="rect" id="node5" href="$d1/db7/classVec3f.html#af736ea593ed963c40c8776d4014d4e79" title="Vec3f::magnitude" alt="" coords="798,5,922,32"/>
+<area shape="rect" id="node6" href="$d1/db7/classVec3f.html#aa4cc7ae415806c6b831218fde0624598" title="Vec3f::magnitudeSquared" alt="" coords="971,5,1143,32"/>
+</map>

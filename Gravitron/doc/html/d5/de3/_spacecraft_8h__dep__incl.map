@@ -1,0 +1,25 @@
+<map id="src/headers/Spacecraft.h" name="src/headers/Spacecraft.h">
+<area shape="rect" id="node2" href="$dd/dcd/_aim_missile_8cpp.html" title="src/AimMissile.cpp" alt="" coords="5,80,139,107"/>
+<area shape="rect" id="node3" href="$d1/d39/_player_8h.html" title="src/headers/Player.h" alt="" coords="614,80,756,107"/>
+<area shape="rect" id="node4" href="$d4/d21/_a_i_player_8h.html" title="src/headers/AIPlayer.h" alt="" coords="357,155,511,181"/>
+<area shape="rect" id="node11" href="$d6/da5/_human_player_8h.html" title="src/headers/HumanPlayer.h" alt="" coords="768,379,952,405"/>
+<area shape="rect" id="node12" href="$da/ddf/_game_generator_8cpp.html" title="src/GameGenerator.cpp" alt="" coords="197,544,357,571"/>
+<area shape="rect" id="node13" href="$d8/d5c/_human_network_player_8h.html" title="src/headers/HumanNetwork\lPlayer.h" alt="" coords="891,454,1076,495"/>
+<area shape="rect" id="node14" href="$d0/d41/_game_loop_8cpp.html" title="src/GameLoop.cpp" alt="" coords="1049,544,1180,571"/>
+<area shape="rect" id="node18" href="$df/dec/_input_handler_8h.html" title="src/headers/InputHandler.h" alt="" coords="827,229,1005,256"/>
+<area shape="rect" id="node20" href="$d2/d29/_laser_8cpp.html" title="src/Laser.cpp" alt="" coords="1240,80,1341,107"/>
+<area shape="rect" id="node21" href="$db/d51/_missile_8cpp.html" title="src/Missile.cpp" alt="" coords="1366,80,1476,107"/>
+<area shape="rect" id="node22" href="$d9/d26/_power_up_8cpp.html" title="src/PowerUp.cpp" alt="" coords="1501,80,1624,107"/>
+<area shape="rect" id="node23" href="$da/d43/_projectile_8cpp.html" title="src/Projectile.cpp" alt="" coords="1648,80,1771,107"/>
+<area shape="rect" id="node24" href="$d4/d3c/_spacecraft_8cpp.html" title="src/Spacecraft.cpp" alt="" coords="1795,80,1927,107"/>
+<area shape="rect" id="node6" href="$d5/d97/_game_generator_8h.html" title="src/headers/GameGenerator.h" alt="" coords="408,229,605,256"/>
+<area shape="rect" id="node7" href="$df/d64/_game_loop_8h.html" title="src/headers/GameLoop.h" alt="" coords="525,304,693,331"/>
+<area shape="rect" id="node17" href="$d2/d82/_player_8cpp.html" title="src/Player.cpp" alt="" coords="587,155,693,181"/>
+<area shape="rect" id="node5" href="$d1/df1/_a_i_player_8cpp.html" title="src/AIPlayer.cpp" alt="" coords="265,229,383,256"/>
+<area shape="rect" id="node8" href="$d9/dcd/_game_8h.html" title="src/headers/Game.h" alt="" coords="401,379,540,405"/>
+<area shape="rect" id="node10" href="$df/d0a/main_8cpp.html" title="src/main.cpp" alt="" coords="315,461,412,488"/>
+<area shape="rect" id="node15" href="$db/d1f/_human_network_player_8cpp.html" title="src/HumanNetworkPlayer.cpp" alt="" coords="605,544,803,571"/>
+<area shape="rect" id="node16" href="$dd/dad/_human_player_8cpp.html" title="src/HumanPlayer.cpp" alt="" coords="667,461,815,488"/>
+<area shape="rect" id="node9" href="$d7/db5/_game_8cpp.html" title="src/Game.cpp" alt="" coords="488,461,592,488"/>
+<area shape="rect" id="node19" href="$dd/dec/_input_handler_8cpp.html" title="src/InputHandler.cpp" alt="" coords="870,304,1012,331"/>
+</map>

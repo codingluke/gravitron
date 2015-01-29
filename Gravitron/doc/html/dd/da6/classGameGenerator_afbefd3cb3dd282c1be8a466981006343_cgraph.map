@@ -1,0 +1,5 @@
+<map id="GameGenerator::generateRandomPowerUps" name="GameGenerator::generateRandomPowerUps">
+<area shape="rect" id="node2" href="$d7/d95/classGameField.html#a4e64e71ba15b89734e6bbed36b8936a2" title="GameField::getWidth" alt="" coords="302,5,447,32"/>
+<area shape="rect" id="node3" href="$d7/d95/classGameField.html#a7a551f2b02f8446903c636aa41c16341" title="GameField::getHeight" alt="" coords="300,56,449,83"/>
+<area shape="rect" id="node4" href="$dd/da6/classGameGenerator.html#acd01e34ebb3653724b238c5e1fedc3ad" title="GameGenerator::generateNew\lPowerUp" alt="" coords="275,107,474,149"/>
+</map>

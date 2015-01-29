@@ -1,0 +1,3 @@
+<map id="Asteroid" name="Asteroid">
+<area shape="rect" id="node2" href="$d9/da2/classGameActor.html" title="{GameActor\n|# identifier\l# velocity\l# acceleration\l# position\l# mass\l# health\l# gravitationRange\l# killed\l# g\l# maxSpeed\l# field\l# actors\l# id\l|+ GameActor()\l+ GameActor()\l+ GameActor()\l+ GameActor()\l+ operator==()\l+ operator=()\l+ getPosition()\l+ getAcceleration()\l+ getVelocity()\l+ getMass()\land 24 more...\l# calculateRotation()\l# radToDeg()\l&#45; initialize()\l&#45; initialize()\l}" alt="" coords="5,5,147,464"/>
+</map>

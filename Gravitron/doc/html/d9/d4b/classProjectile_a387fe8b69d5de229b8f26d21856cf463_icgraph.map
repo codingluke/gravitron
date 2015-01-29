@@ -1,0 +1,5 @@
+<map id="Projectile::incKillPointsOfFriends" name="Projectile::incKillPointsOfFriends">
+<area shape="rect" id="node2" href="$d7/d85/classAimMissile.html#aedbbc65c9b383913d3a401bfba40cd4e" title="AimMissile::handleCollision" alt="" coords="211,5,394,32"/>
+<area shape="rect" id="node3" href="$d5/db6/classLaser.html#a6c26eb024fd0ae01920c299d1af2679d" title="Laser::handleCollision" alt="" coords="227,56,378,83"/>
+<area shape="rect" id="node4" href="$df/d60/classMissile.html#a08f4b7e58d9382c46263677ac57c1efe" title="Missile::handleCollision" alt="" coords="223,107,382,133"/>
+</map>

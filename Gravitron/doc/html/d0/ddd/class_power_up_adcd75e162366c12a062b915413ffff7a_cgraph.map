@@ -1,0 +1,6 @@
+<map id="PowerUp::handleCollision" name="PowerUp::handleCollision">
+<area shape="rect" id="node2" href="$d2/d79/class_game_actor.html#a3ac80ca433821d22e545285c04cf38a1" title="GameActor::isKilled" alt="" coords="251,5,389,32"/>
+<area shape="rect" id="node3" href="$d9/d11/class_spacecraft.html#a41213c1017029fb0ff4c5d9b62b1591f" title="Spacecraft::upgradeWeapon" alt="" coords="227,56,413,83"/>
+<area shape="rect" id="node4" href="$d2/d79/class_game_actor.html#a633b34eb69ad05477fd1d5b5de3c17b8" title="GameActor::kill" alt="" coords="264,107,376,133"/>
+<area shape="rect" id="node5" href="$d2/d79/class_game_actor.html#a00cdd692fae4de9fb4ce6b2748754744" title="GameActor::handleKill" alt="" coords="461,107,613,133"/>
+</map>

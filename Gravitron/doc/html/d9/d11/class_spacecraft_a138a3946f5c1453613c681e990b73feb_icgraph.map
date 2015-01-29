@@ -1,0 +1,6 @@
+<map id="Spacecraft::setName" name="Spacecraft::setName">
+<area shape="rect" id="node2" href="$d8/d53/class_player.html#af4f9da1b1dcb53008b915a83480c79c7" title="Player::Player" alt="" coords="227,5,331,32"/>
+<area shape="rect" id="node3" href="$d8/d53/class_player.html#a88887d3b662e42909bdd0d5d19898935" title="Player::setPlayerName" alt="" coords="200,56,357,83"/>
+<area shape="rect" id="node4" href="$df/dba/class_human_network_player.html#abb9b853fc256cb883f4b39df825eaba5" title="HumanNetworkPlayer\l::setNameFromNetwork" alt="" coords="405,49,568,90"/>
+<area shape="rect" id="node5" href="$df/dba/class_human_network_player.html#a03790acd1313ce8523dc2000e2405f13" title="HumanNetworkPlayer\l::HumanNetworkPlayer" alt="" coords="617,49,775,90"/>
+</map>

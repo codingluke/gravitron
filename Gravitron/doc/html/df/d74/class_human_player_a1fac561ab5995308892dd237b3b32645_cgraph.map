@@ -1,0 +1,12 @@
+<map id="HumanPlayer::execAction" name="HumanPlayer::execAction">
+<area shape="rect" id="node2" href="$d9/d11/class_spacecraft.html#a43ae565de6dbc6cc337f42e408ad363d" title="Spacecraft::forceLeft" alt="" coords="237,5,381,32"/>
+<area shape="rect" id="node4" href="$d9/d11/class_spacecraft.html#a9f5f90ddf116970b2e0c194a5504aa76" title="Spacecraft::forceAhead" alt="" coords="230,56,389,83"/>
+<area shape="rect" id="node5" href="$d9/d11/class_spacecraft.html#a6146562c8ee95b71070108f30afdfc1d" title="Spacecraft::forceRight" alt="" coords="233,107,386,133"/>
+<area shape="rect" id="node6" href="$d9/d11/class_spacecraft.html#ac425b3e98e397f522bed99559c88eac2" title="Spacecraft::forceBack" alt="" coords="233,157,385,184"/>
+<area shape="rect" id="node7" href="$d9/d11/class_spacecraft.html#a89125988749b1ee29bf1d3f186bc7dd6" title="Spacecraft::shootUp" alt="" coords="238,208,381,235"/>
+<area shape="rect" id="node9" href="$d9/d11/class_spacecraft.html#a611409c0d69415ada78ed98d187f0e34" title="Spacecraft::shootDown" alt="" coords="230,259,389,285"/>
+<area shape="rect" id="node10" href="$d9/d11/class_spacecraft.html#a904607a42543375dd596aadeef7a5ce4" title="Spacecraft::shootLeft" alt="" coords="236,309,383,336"/>
+<area shape="rect" id="node11" href="$d9/d11/class_spacecraft.html#a7c626770ca1f4aa24229e72756150f2d" title="Spacecraft::shootRight" alt="" coords="231,360,387,387"/>
+<area shape="rect" id="node3" href="$d2/d79/class_game_actor.html#ab7452d9bf99b4e6509ee96a717c992dd" title="GameActor::applyForce" alt="" coords="439,81,599,108"/>
+<area shape="rect" id="node8" href="$d2/d79/class_game_actor.html#a8a0ca1b6866225d66df2381649bdc601" title="GameActor::getPosition" alt="" coords="438,284,599,311"/>
+</map>

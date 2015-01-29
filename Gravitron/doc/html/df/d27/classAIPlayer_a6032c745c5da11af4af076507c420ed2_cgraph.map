@@ -1,0 +1,8 @@
+<map id="AIPlayer::followTarget" name="AIPlayer::followTarget">
+<area shape="rect" id="node2" href="$d9/da2/classGameActor.html#a8a0ca1b6866225d66df2381649bdc601" title="GameActor::getPosition" alt="" coords="206,5,367,32"/>
+<area shape="rect" id="node3" href="$d1/db7/classVec3f.html#a7532bd9c039aee160a7347e63ef07217" title="Vec3f::normalize" alt="" coords="227,56,347,83"/>
+<area shape="rect" id="node7" href="$d9/da2/classGameActor.html#ab7452d9bf99b4e6509ee96a717c992dd" title="GameActor::applyForce" alt="" coords="207,107,367,133"/>
+<area shape="rect" id="node4" href="$d1/db7/classVec3f.html#af736ea593ed963c40c8776d4014d4e79" title="Vec3f::magnitude" alt="" coords="417,31,541,57"/>
+<area shape="rect" id="node6" href="$d1/db7/classVec3f.html#af874d7517d0a628834c6d753aa516325" title="Vec3f::Vec3f" alt="" coords="429,81,528,108"/>
+<area shape="rect" id="node5" href="$d1/db7/classVec3f.html#aa4cc7ae415806c6b831218fde0624598" title="Vec3f::magnitudeSquared" alt="" coords="590,31,762,57"/>
+</map>

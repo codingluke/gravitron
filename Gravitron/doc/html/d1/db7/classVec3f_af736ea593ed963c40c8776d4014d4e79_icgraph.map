@@ -1,0 +1,27 @@
+<map id="Vec3f::magnitude" name="Vec3f::magnitude">
+<area shape="rect" id="node2" href="$d9/da2/classGameActor.html#ab70229c740251fb7c4222bf579c59393" title="GameActor::update" alt="" coords="402,461,537,488"/>
+<area shape="rect" id="node5" href="$d9/da2/classGameActor.html#a10bb2f607937d5b376c4e0d9bc304d1c" title="GameActor::toString" alt="" coords="181,613,323,640"/>
+<area shape="rect" id="node6" href="$d4/d2d/classPhysics.html#a30001777c807f6533981a747580e0571" title="Physics::calculateGravitation\lForce" alt="" coords="373,361,565,402"/>
+<area shape="rect" id="node9" href="$d4/d2d/classPhysics.html#a8ec16d945fc45ba929ffe4af0d36cdc2" title="Physics::distance" alt="" coords="189,271,315,297"/>
+<area shape="rect" id="node19" href="$d9/d4b/classProjectile.html#ac41ad56034b53e739619fabbd5e49652" title="Projectile::update" alt="" coords="408,731,531,757"/>
+<area shape="rect" id="node20" href="$d1/db7/classVec3f.html#a7532bd9c039aee160a7347e63ef07217" title="Vec3f::normalize" alt="" coords="192,512,312,539"/>
+<area shape="rect" id="node26" href="$d3/df8/classVec3F__Tests.html#a2c9692dcac44880d1ba6f66030eccf94" title="Vec3F_Tests::Vec3F\l_Test_Magnitude" alt="" coords="179,665,325,706"/>
+<area shape="rect" id="node3" href="$d9/da2/classGameActor.html#a2d3b93df5edf86dea7d65ab7dac0e3f7" title="GameActor::updateAll" alt="" coords="645,267,795,293"/>
+<area shape="rect" id="node4" href="$db/df6/classGameLoop.html#a1675362ab49b71a946cd7fefec664db0" title="GameLoop::update" alt="" coords="654,477,786,504"/>
+<area shape="rect" id="node7" href="$d8/d3f/classPhysics__tests.html#a976ba01007b2f2ab8cb78b68c609be56" title="Physics_tests::Physics\l_tests_calculateGravitationForce\l_gravitation" alt="" coords="613,317,827,373"/>
+<area shape="rect" id="node8" href="$d8/d3f/classPhysics__tests.html#a6fb2c813e18033b27ae6d37423bd0887" title="Physics_tests::Physics\l_tests_calculateGravitationForce\l_noGravitation" alt="" coords="613,397,827,453"/>
+<area shape="rect" id="node10" href="$d9/da2/classGameActor.html#a46068d92a30316a1bc86b3812fd255ce" title="GameActor::getDistance" alt="" coords="386,56,553,83"/>
+<area shape="rect" id="node16" href="$d4/d2d/classPhysics.html#af54aa8e22ae3ee8b8a4201e71df6cd63" title="Physics::collisionDetection" alt="" coords="379,235,559,261"/>
+<area shape="rect" id="node11" href="$d7/d85/classAimMissile.html#ad506273a4b3f62c06ee7ad43972c3e62" title="AimMissile::setNearestTarget" alt="" coords="623,56,817,83"/>
+<area shape="rect" id="node13" href="$df/d27/classAIPlayer.html#a160d1cd58d9d2ce36ca0f18c8ddf3b05" title="AIPlayer::findTarget" alt="" coords="651,5,789,32"/>
+<area shape="rect" id="node12" href="$d7/d85/classAimMissile.html#a2723e6b87d30aa722b795e955a04ddfd" title="AimMissile::update" alt="" coords="875,629,1008,656"/>
+<area shape="rect" id="node14" href="$df/d27/classAIPlayer.html#a80fe585fd3aa65aeeef5feb52fa76827" title="AIPlayer::AIPlayer" alt="" coords="876,5,1007,32"/>
+<area shape="rect" id="node15" href="$df/d27/classAIPlayer.html#a37a689ed5d72b91e9e1ea2465c9d9b33" title="AIPlayer::update" alt="" coords="882,317,1001,344"/>
+<area shape="rect" id="node17" href="$d8/d3f/classPhysics__tests.html#a2059ab20b93df566cc2cb626ea13eb87" title="Physics_tests::Physics\l_tests_collisionDetection\l_colliton" alt="" coords="636,107,804,163"/>
+<area shape="rect" id="node18" href="$d8/d3f/classPhysics__tests.html#a960fc97820570e7586bf62d9f0bb3481" title="Physics_tests::Physics\l_tests_collisionDetection\l_noCollition" alt="" coords="636,187,804,243"/>
+<area shape="rect" id="node21" href="$df/d27/classAIPlayer.html#a6032c745c5da11af4af076507c420ed2" title="AIPlayer::followTarget" alt="" coords="394,680,545,707"/>
+<area shape="rect" id="node22" href="$dc/d90/classPlane.html#a383c0b4578ecc7776797553dbd615409" title="Plane::fromPointAndNormal" alt="" coords="377,512,561,539"/>
+<area shape="rect" id="node25" href="$d3/df8/classVec3F__Tests.html#ad22cece86d8065c506677e214a67b92a" title="Vec3F_Tests::Vec3F\l_Test_Normaize" alt="" coords="396,563,543,605"/>
+<area shape="rect" id="node23" href="$dc/d90/classPlane.html#a65718dd8b39d7e06bcea656196e1d0f3" title="Plane::fromPointAndVectors" alt="" coords="627,579,813,605"/>
+<area shape="rect" id="node24" href="$dc/d90/classPlane.html#ab97792a6e6d912598945943c3d5468c4" title="Plane::fromPoints" alt="" coords="657,528,783,555"/>
+</map>

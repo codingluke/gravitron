@@ -1,0 +1,5 @@
+<map id="GameActor::getHealth" name="GameActor::getHealth">
+<area shape="rect" id="node2" href="$d9/da2/classGameActor.html#a9a8d567741b8120b48289897823d838e" title="GameActor::initialize" alt="" coords="229,5,371,32"/>
+<area shape="rect" id="node3" href="$d2/d4b/classPlayer.html#a3042adb49808b2629137f4d85b6b5fd3" title="Player::getHealth" alt="" coords="239,56,361,83"/>
+<area shape="rect" id="node4" href="$d2/d4b/classPlayer.html#a9f08c60ca4a4eae56edfc4bbadd63cef" title="Player::getHealthPercentage" alt="" coords="205,107,395,133"/>
+</map>

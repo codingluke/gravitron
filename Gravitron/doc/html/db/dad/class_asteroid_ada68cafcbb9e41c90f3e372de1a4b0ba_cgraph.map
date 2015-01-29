@@ -1,0 +1,5 @@
+<map id="Asteroid::handleCollision" name="Asteroid::handleCollision">
+<area shape="rect" id="node2" href="$d2/d79/class_game_actor.html#a168ddb4dda02a8dd734f35d61e325de9" title="GameActor::dealDamage" alt="" coords="222,5,391,32"/>
+<area shape="rect" id="node3" href="$d2/d79/class_game_actor.html#a633b34eb69ad05477fd1d5b5de3c17b8" title="GameActor::kill" alt="" coords="440,5,552,32"/>
+<area shape="rect" id="node4" href="$d2/d79/class_game_actor.html#a00cdd692fae4de9fb4ce6b2748754744" title="GameActor::handleKill" alt="" coords="600,5,752,32"/>
+</map>

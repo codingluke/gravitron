@@ -1,0 +1,16 @@
+<map id="Vec3f::normalize" name="Vec3f::normalize">
+<area shape="rect" id="node2" href="$d7/d85/classAimMissile.html#a2723e6b87d30aa722b795e955a04ddfd" title="AimMissile::update" alt="" coords="453,6,587,33"/>
+<area shape="rect" id="node3" href="$df/d27/classAIPlayer.html#a6032c745c5da11af4af076507c420ed2" title="AIPlayer::followTarget" alt="" coords="194,108,345,134"/>
+<area shape="rect" id="node5" href="$d9/da2/classGameActor.html#ab70229c740251fb7c4222bf579c59393" title="GameActor::update" alt="" coords="202,158,337,185"/>
+<area shape="rect" id="node8" href="$d4/d2d/classPhysics.html#a30001777c807f6533981a747580e0571" title="Physics::calculateGravitation\lForce" alt="" coords="173,212,365,254"/>
+<area shape="rect" id="node11" href="$dc/d90/classPlane.html#a383c0b4578ecc7776797553dbd615409" title="Plane::fromPointAndNormal" alt="" coords="177,325,361,352"/>
+<area shape="rect" id="node14" href="$d9/d4b/classProjectile.html#ac41ad56034b53e739619fabbd5e49652" title="Projectile::update" alt="" coords="208,57,331,84"/>
+<area shape="rect" id="node15" href="$d3/df8/classVec3F__Tests.html#ad22cece86d8065c506677e214a67b92a" title="Vec3F_Tests::Vec3F\l_Test_Normaize" alt="" coords="196,376,343,418"/>
+<area shape="rect" id="node4" href="$df/d27/classAIPlayer.html#a37a689ed5d72b91e9e1ea2465c9d9b33" title="AIPlayer::update" alt="" coords="461,57,579,84"/>
+<area shape="rect" id="node6" href="$d9/da2/classGameActor.html#a2d3b93df5edf86dea7d65ab7dac0e3f7" title="GameActor::updateAll" alt="" coords="445,158,595,185"/>
+<area shape="rect" id="node7" href="$db/df6/classGameLoop.html#a1675362ab49b71a946cd7fefec664db0" title="GameLoop::update" alt="" coords="454,108,586,134"/>
+<area shape="rect" id="node9" href="$d8/d3f/classPhysics__tests.html#a976ba01007b2f2ab8cb78b68c609be56" title="Physics_tests::Physics\l_tests_calculateGravitationForce\l_gravitation" alt="" coords="413,209,627,265"/>
+<area shape="rect" id="node10" href="$d8/d3f/classPhysics__tests.html#a6fb2c813e18033b27ae6d37423bd0887" title="Physics_tests::Physics\l_tests_calculateGravitationForce\l_noGravitation" alt="" coords="413,289,627,345"/>
+<area shape="rect" id="node12" href="$dc/d90/classPlane.html#a65718dd8b39d7e06bcea656196e1d0f3" title="Plane::fromPointAndVectors" alt="" coords="427,369,613,396"/>
+<area shape="rect" id="node13" href="$dc/d90/classPlane.html#ab97792a6e6d912598945943c3d5468c4" title="Plane::fromPoints" alt="" coords="457,420,583,446"/>
+</map>
