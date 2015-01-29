@@ -2,7 +2,6 @@
     <qresource prefix="/qml">
         <file>main.qml</file>
         <file>Game.qml</file>
-        <file alias="actor">actors/Actor.qml</file>
         <file alias="spacecraft">actors/Spacecraft.qml</file>
         <file>menus/constants.js</file>
         <file>menus/functions.js</file>

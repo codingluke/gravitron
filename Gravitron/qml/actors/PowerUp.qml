@@ -5,9 +5,10 @@ Rectangle {
     property real angle
     id: powerUp
     objectName: identifier
-    width: 55
-    height: 55
+    width: 37
+    height: 40
     color: "#00000000"
+
     Image {
         id: image1
         anchors.horizontalCenter: parent.horizontalCenter
@@ -23,11 +24,10 @@ Rectangle {
                  PropertyAnimation { to: 35 }
              }
         source: "qrc:/img/powerUp"
-    }
-
-    transform: Rotation { 
-      origin.x: width / 2; 
-      origin.y: height / 2 ; 
-      angle: powerUp.angle - 90
+        transform: Rotation {
+            origin.x: powerUp.width / 2
+            origin.y: powerUp.height / 2
+            angle: powerUp.angle - 90
+        }
     }
 }
