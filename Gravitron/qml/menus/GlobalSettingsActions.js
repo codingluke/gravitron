@@ -111,4 +111,6 @@ function btn_languageClicked() {
    } else if (currentLanguare == "en") {
         Settings.setLanguare("de");
    }
+   modelLoader.source = "";
+   modelLoader.source = "GlobalSettings.qml"
 }
