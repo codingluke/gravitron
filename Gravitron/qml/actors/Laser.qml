@@ -6,18 +6,22 @@ Rectangle {
     id: laser
     objectName: identifier
     color: "#00000000"
-    width: 21
-    height: 129
 
-    Image {
-        id: image1
-        anchors.horizontalCenter: parent.horizontalCenter
-        anchors.verticalCenter: parent.verticalCenter
-        source: "qrc:/img/laser"
-        transform: Rotation {
-          origin.x: laser.width / 2
-          origin.y: laser.height / 2
-          angle: laser.angle - 90
-        }
+    Item {
+      id: innerbox
+      width: 21
+      height: 129
+      anchors.centerIn: parent
+
+      Image {
+          id: image1
+          anchors.centerIn: parent
+          source: "qrc:/img/laser"
+          transform: Rotation {
+              origin.x: innerbox.width / 2
+              origin.y: innerbox.height / 2
+              angle: laser.angle - 90
+          }
+      }
     }
 }
