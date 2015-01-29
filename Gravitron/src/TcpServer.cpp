@@ -18,7 +18,6 @@ TcpServer::~TcpServer()
 
 void TcpServer::startListen(int port)
 {
-    qDebug() << "TcpServer: startListen";
     connect(&server, SIGNAL(newConnection()),
             this, SLOT(acceptConnection()));
     server.listen(QHostAddress::Any, port);
@@ -38,6 +37,8 @@ void TcpServer::transfer(QString message)
     if (client && client->state() == QAbstractSocket::ConnectedState) {
         client->write(message.toStdString().c_str(), message.length());
         client->flush();
+    } else {
+        qDebug() << "No connected client";
     }
 }
 

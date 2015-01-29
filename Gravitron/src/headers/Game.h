@@ -51,6 +51,7 @@ class Game: public QObject
     private:
         void clearScene(vector<GameActorView*> *views);
         void setRelativePosition(float anchor_x, float anchor_y, GameActorView *view);
+        void connectGameloop();
 };
 
 #endif

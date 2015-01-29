@@ -38,24 +38,12 @@ void Game::setQmlParent(QQuickItem *theQmlParent)
     field = new GameField(2000 * settings->playingFieldSize() , 1300 * settings->playingFieldSize());
     settings->setNetwork(false);
     gameLoop = new GameLoop(GameGenerator(settings, field));
-    connect(gameLoop, SIGNAL(renderObject(vector<GameActorView*>*)),
-        this, SLOT(render(vector<GameActorView*>*)));
-    connect(gameLoop, SIGNAL(activeWeaponGame(int)),
-        this, SLOT(setActiveWeapon(int)));
-    connect(gameLoop, SIGNAL(lifepoints(int)),
-        this, SLOT(setLifepoints(int)));
-    connect(gameLoop, SIGNAL(backgroundPos(float, float, float, float)),
-        this, SLOT(setBackgroundPosition(float, float, float, float)));
-    connect(gameLoop, SIGNAL(theWinnerIs(QString)),
-        this, SLOT(setInfoboxMessage(QString)));
-    connect(gameLoop, SIGNAL(fragStatus(int, int)),
-        this, SLOT(setFrag(int, int)));
+    connectGameloop();
     gameLoop->start();
 }
 
 void Game::startClient(TcpClient *client)
 {
-    qDebug() << "Game: start client";
     InputHandler *iHandler = new InputHandler();
     QCoreApplication::instance()->installEventFilter(iHandler);
 
@@ -67,15 +55,21 @@ void Game::startClient(TcpClient *client)
 
 void Game::startServer(TcpServer *server)
 {
-    qDebug() << "Game: start server";
-    field = new GameField(2000 * settings->playingFieldSize() , 1300 * settings->playingFieldSize());
+    field = new GameField(2000 * settings->playingFieldSize(),
+                          1300 * settings->playingFieldSize());
     settings->setNetwork(true);
     gameLoop = new GameLoop(GameGenerator(settings, field, server));
-
-    connect(gameLoop, SIGNAL(renderObject(vector<GameActorView*>*)),
-        this, SLOT(render(vector<GameActorView*>*)));
+    connectGameloop();
     connect(gameLoop, SIGNAL(sendViewlist(QString)),
         server, SLOT(transfer(QString)));
+    gameLoop->start();
+    gameLoop->setPriority(QThread::LowPriority);
+}
+
+void Game::connectGameloop()
+{
+    connect(gameLoop, SIGNAL(renderObject(vector<GameActorView*>*)),
+        this, SLOT(render(vector<GameActorView*>*)));
     connect(gameLoop, SIGNAL(lifepoints(int)),
         this, SLOT(setLifepoints(int)));
     connect(gameLoop, SIGNAL(activeWeaponGame(int)),
@@ -86,9 +80,6 @@ void Game::startServer(TcpServer *server)
         this, SLOT(setInfoboxMessage(QString)));
     connect(gameLoop, SIGNAL(fragStatus(int, int)),
         this, SLOT(setFrag(int, int)));
-
-    gameLoop->start();
-    gameLoop->setPriority(QThread::LowPriority);
 }
 
 void Game::stop()
@@ -143,7 +134,6 @@ Game::~Game()
  */
  void Game::renderRemote(QString serializedViewlist)
  {
-    // qDebug() << serializedViewlist << "\n";
     QStringList vList = serializedViewlist.split("\n", QString::SkipEmptyParts);
     for (int i = 0; i < vList.size(); ++i) {
         if (vList.at(i).startsWith("v")) {

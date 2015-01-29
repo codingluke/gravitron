@@ -21,7 +21,6 @@ TcpClient::~TcpClient()
 
 void TcpClient::start(QString address, quint16 port)
 {
-    qDebug() << "TcpClient: start";
     QHostAddress addr(address);
     client.connectToHost(addr, port);
 }
