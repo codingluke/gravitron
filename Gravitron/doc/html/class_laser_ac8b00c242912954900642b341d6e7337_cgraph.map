@@ -1,0 +1,4 @@
+<map id="Laser::Laser" name="Laser::Laser">
+<area shape="rect" id="node2" href="$class_game_actor.html#ab7452d9bf99b4e6509ee96a717c992dd" title="GameActor::applyForce" alt="" coords="149,5,311,31"/>
+<area shape="rect" id="node3" href="$class_game_actor.html#a1f624837eac0fe9fe80bcb54cfe8b1cf" title="GameActor::getVelocity" alt="" coords="150,55,310,80"/>
+</map>

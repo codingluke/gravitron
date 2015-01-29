@@ -1,0 +1,121 @@
+\hypertarget{class_asteroid}{\section{Asteroid Class Reference}
+\label{class_asteroid}\index{Asteroid@{Asteroid}}
+}
+
+
+{\ttfamily \#include $<$Asteroid.\+h$>$}
+
+
+
+Inheritance diagram for Asteroid\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=147pt]{class_asteroid__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Asteroid\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=231pt]{class_asteroid__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_asteroid_a603c2eb87a4ed26c5b3fb06e953d611c}{Asteroid} ()
+\item 
+\hyperlink{class_asteroid_a867c9432a4cff5133290762ef6948042}{Asteroid} (\hyperlink{class_vec3f}{Vec3f} \hyperlink{class_game_actor_aefed3c91bf32ad388d86657b3bb9ddfa}{position}, double \hyperlink{class_game_actor_a2111233f4f0216db4d172d5088ebeed4}{mass}, float \hyperlink{class_game_actor_a9c0ba51b08a3e617d9629c0ee8d309f2}{gravitation\+Range}, float \hyperlink{class_game_actor_a42ed4bef0d99cf053ff9a025c86d34d3}{g}, \hyperlink{class_game_field}{Game\+Field} \&\hyperlink{class_game_actor_a0224fbc502abd6b7579787aa234332d5}{field}, float \hyperlink{class_game_actor_a15b6abd006c52b21c569932f8b484eb0}{max\+Speed}, vector$<$ \hyperlink{class_game_actor}{Game\+Actor} $\ast$ $>$ $\ast$\hyperlink{class_game_actor_a2405618d895f5143b42ae9e94d20e693}{actors})
+\item 
+void \hyperlink{class_asteroid_ada68cafcbb9e41c90f3e372de1a4b0ba}{handle\+Collision} (\hyperlink{class_game_actor}{Game\+Actor} \&other)
+\item 
+\hyperlink{class_game_actor_view}{Game\+Actor\+View} $\ast$ \hyperlink{class_asteroid_a267c313e8759ca6091455616cc6c40f1}{get\+View} () const 
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_asteroid_a603c2eb87a4ed26c5b3fb06e953d611c}{\index{Asteroid@{Asteroid}!Asteroid@{Asteroid}}
+\index{Asteroid@{Asteroid}!Asteroid@{Asteroid}}
+\subsubsection[{Asteroid}]{\setlength{\rightskip}{0pt plus 5cm}Asteroid\+::\+Asteroid (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_asteroid_a603c2eb87a4ed26c5b3fb06e953d611c}
+\hypertarget{class_asteroid_a867c9432a4cff5133290762ef6948042}{\index{Asteroid@{Asteroid}!Asteroid@{Asteroid}}
+\index{Asteroid@{Asteroid}!Asteroid@{Asteroid}}
+\subsubsection[{Asteroid}]{\setlength{\rightskip}{0pt plus 5cm}Asteroid\+::\+Asteroid (
+\begin{DoxyParamCaption}
+\item[{{\bf Vec3f}}]{position, }
+\item[{double}]{mass, }
+\item[{float}]{gravitation\+Range, }
+\item[{float}]{g, }
+\item[{{\bf Game\+Field} \&}]{field, }
+\item[{float}]{max\+Speed, }
+\item[{vector$<$ {\bf Game\+Actor} $\ast$ $>$ $\ast$}]{actors}
+\end{DoxyParamCaption}
+)}}\label{class_asteroid_a867c9432a4cff5133290762ef6948042}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_asteroid_a267c313e8759ca6091455616cc6c40f1}{\index{Asteroid@{Asteroid}!get\+View@{get\+View}}
+\index{get\+View@{get\+View}!Asteroid@{Asteroid}}
+\subsubsection[{get\+View}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Game\+Actor\+View} $\ast$ Asteroid\+::get\+View (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_asteroid_a267c313e8759ca6091455616cc6c40f1}
+Creates and returns a \hyperlink{class_game_actor_view}{Game\+Actor\+View} of this instance of \hyperlink{class_game_actor}{Game\+Actor}. \begin{DoxyReturn}{Returns}
+the \hyperlink{class_game_actor_view}{Game\+Actor\+View} for this \hyperlink{class_game_actor}{Game\+Actor} 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{class_game_actor_ae63b522db0d88f56e3c7a8cfb60d31a6}{Game\+Actor}.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_asteroid_a267c313e8759ca6091455616cc6c40f1_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_asteroid_ada68cafcbb9e41c90f3e372de1a4b0ba}{\index{Asteroid@{Asteroid}!handle\+Collision@{handle\+Collision}}
+\index{handle\+Collision@{handle\+Collision}!Asteroid@{Asteroid}}
+\subsubsection[{handle\+Collision}]{\setlength{\rightskip}{0pt plus 5cm}void Asteroid\+::handle\+Collision (
+\begin{DoxyParamCaption}
+\item[{{\bf Game\+Actor} \&}]{other}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_asteroid_ada68cafcbb9e41c90f3e372de1a4b0ba}
+Determines what will happen if this \hyperlink{class_game_actor}{Game\+Actor} collides with another instance of \hyperlink{class_game_actor}{Game\+Actor}. 
+\begin{DoxyParams}{Parameters}
+{\em other} & the \hyperlink{class_game_actor}{Game\+Actor} colliding with this one \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{class_game_actor_aba8cfb1004bf6fc17681cd595b706ada}{Game\+Actor}.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_asteroid_ada68cafcbb9e41c90f3e372de1a4b0ba_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/headers/\hyperlink{_asteroid_8h}{Asteroid.\+h}\item 
+src/\hyperlink{_asteroid_8cpp}{Asteroid.\+cpp}\end{DoxyCompactItemize}

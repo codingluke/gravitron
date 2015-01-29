@@ -1,0 +1,12 @@
+<map id="src/headers/GameGenerator.h" name="src/headers/GameGenerator.h">
+<area shape="rect" id="node2" href="$_game_loop_8h.html" title="src/headers/GameLoop.h" alt="" coords="240,79,412,104"/>
+<area shape="rect" id="node3" href="$_game_8h.html" title="src/headers/Game.h" alt="" coords="91,152,233,177"/>
+<area shape="rect" id="node5" href="$main_8cpp.html" title="src/main.cpp" alt="" coords="5,232,102,257"/>
+<area shape="rect" id="node7" href="$_game_generator_8cpp.html" title="src/GameGenerator.cpp" alt="" coords="759,312,922,337"/>
+<area shape="rect" id="node6" href="$_human_player_8h.html" title="src/headers/HumanPlayer.h" alt="" coords="400,152,585,177"/>
+<area shape="rect" id="node9" href="$_game_loop_8cpp.html" title="src/GameLoop.cpp" alt="" coords="380,312,514,337"/>
+<area shape="rect" id="node10" href="$_human_network_player_8cpp.html" title="src/HumanNetworkPlayer.cpp" alt="" coords="538,312,735,337"/>
+<area shape="rect" id="node11" href="$_human_player_8cpp.html" title="src/HumanPlayer.cpp" alt="" coords="306,232,454,257"/>
+<area shape="rect" id="node4" href="$_game_8cpp.html" title="src/Game.cpp" alt="" coords="126,232,230,257"/>
+<area shape="rect" id="node8" href="$_human_network_player_8h.html" title="src/headers/HumanNetwork\lPlayer.h" alt="" coords="530,225,716,264"/>
+</map>

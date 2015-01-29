@@ -1,0 +1,13 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$class_game_actor.html" title="GameActor" alt="" coords="5,153,94,179"/>
+<area shape="rect" id="node2" href="$class_asteroid.html" title="Asteroid" alt="" coords="150,5,220,31"/>
+<area shape="rect" id="node3" href="$class_planet.html" title="Planet" alt="" coords="155,55,214,80"/>
+<area shape="rect" id="node4" href="$class_power_up.html" title="PowerUp" alt="" coords="147,104,223,129"/>
+<area shape="rect" id="node5" href="$class_projectile.html" title="Projectile" alt="" coords="147,153,223,179"/>
+<area shape="rect" id="node9" href="$class_scrap.html" title="Scrap" alt="" coords="157,203,213,228"/>
+<area shape="rect" id="node10" href="$class_spacecraft.html" title="Spacecraft" alt="" coords="142,252,227,277"/>
+<area shape="rect" id="node11" href="$class_sun.html" title="Sun" alt="" coords="162,301,207,327"/>
+<area shape="rect" id="node6" href="$class_laser.html" title="Laser" alt="" coords="279,129,334,155"/>
+<area shape="rect" id="node7" href="$class_missile.html" title="Missile" alt="" coords="275,179,337,204"/>
+<area shape="rect" id="node8" href="$class_aim_missile.html" title="AimMissile" alt="" coords="385,179,470,204"/>
+</map>

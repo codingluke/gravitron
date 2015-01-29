@@ -1,0 +1,4 @@
+<map id="TcpServer::acceptConnection" name="TcpServer::acceptConnection">
+<area shape="rect" id="node2" href="$class_tcp_server.html#aa265098a4a7e9bdcf624068f6640e0a5" title="TcpServer::startRead" alt="" coords="249,5,395,31"/>
+<area shape="rect" id="node3" href="$class_tcp_server.html#a3980ff848a8434857de6afac4971ada7" title="TcpServer::transfer" alt="" coords="255,55,389,80"/>
+</map>

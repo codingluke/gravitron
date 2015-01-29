@@ -1,0 +1,8 @@
+<map id="AimMissile::handleCollision" name="AimMissile::handleCollision">
+<area shape="rect" id="node2" href="$class_game_actor.html#a168ddb4dda02a8dd734f35d61e325de9" title="GameActor::dealDamage" alt="" coords="236,5,408,31"/>
+<area shape="rect" id="node3" href="$class_game_actor.html#a633b34eb69ad05477fd1d5b5de3c17b8" title="GameActor::kill" alt="" coords="482,31,594,56"/>
+<area shape="rect" id="node5" href="$class_game_actor.html#a3ac80ca433821d22e545285c04cf38a1" title="GameActor::isKilled" alt="" coords="253,107,391,132"/>
+<area shape="rect" id="node6" href="$class_projectile.html#a387fe8b69d5de229b8f26d21856cf463" title="Projectile::incKillPoints\lOfFriends" alt="" coords="244,156,400,195"/>
+<area shape="rect" id="node4" href="$class_game_actor.html#a00cdd692fae4de9fb4ce6b2748754744" title="GameActor::handleKill" alt="" coords="668,31,822,56"/>
+<area shape="rect" id="node7" href="$class_spacecraft.html#a47aa7a1409fbd782a9cc8fe172f9514b" title="Spacecraft::incKillPoints" alt="" coords="456,163,620,188"/>
+</map>

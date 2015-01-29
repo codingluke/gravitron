@@ -1,0 +1,704 @@
+\hypertarget{class_game_actor}{\section{Game\+Actor Class Reference}
+\label{class_game_actor}\index{Game\+Actor@{Game\+Actor}}
+}
+
+
+{\ttfamily \#include $<$Game\+Actor.\+h$>$}
+
+
+
+Inheritance diagram for Game\+Actor\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_actor__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Game\+Actor\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=231pt]{class_game_actor__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_game_actor_a15b04d8c6628c4d004573c3facfdb418}{Game\+Actor} ()
+\item 
+\hyperlink{class_game_actor_a8419e87ea13e15b82ed1564e477377ac}{Game\+Actor} (\hyperlink{class_vec3f}{Vec3f} \hyperlink{class_game_actor_aefed3c91bf32ad388d86657b3bb9ddfa}{position}, double \hyperlink{class_game_actor_a2111233f4f0216db4d172d5088ebeed4}{mass}, float \hyperlink{class_game_actor_a9c0ba51b08a3e617d9629c0ee8d309f2}{gravitation\+Range}, float \hyperlink{class_game_actor_a42ed4bef0d99cf053ff9a025c86d34d3}{g}, int \hyperlink{class_game_actor_a5d402a953140585fb7cc3f8a3a24a2a4}{health}, \hyperlink{class_game_field}{Game\+Field} \&\hyperlink{class_game_actor_a0224fbc502abd6b7579787aa234332d5}{field}, vector$<$ \hyperlink{class_game_actor}{Game\+Actor} $\ast$ $>$ $\ast$\hyperlink{class_game_actor_a2405618d895f5143b42ae9e94d20e693}{actors})
+\item 
+\hyperlink{class_game_actor_aad104099e725fa6224de80dbaf52f2b1}{Game\+Actor} (\hyperlink{class_vec3f}{Vec3f} \hyperlink{class_game_actor_aefed3c91bf32ad388d86657b3bb9ddfa}{position}, double \hyperlink{class_game_actor_a2111233f4f0216db4d172d5088ebeed4}{mass}, float \hyperlink{class_game_actor_a9c0ba51b08a3e617d9629c0ee8d309f2}{gravitation\+Range}, float \hyperlink{class_game_actor_a42ed4bef0d99cf053ff9a025c86d34d3}{g}, int \hyperlink{class_game_actor_a5d402a953140585fb7cc3f8a3a24a2a4}{health}, \hyperlink{class_game_field}{Game\+Field} \&\hyperlink{class_game_actor_a0224fbc502abd6b7579787aa234332d5}{field}, float \hyperlink{class_game_actor_a15b6abd006c52b21c569932f8b484eb0}{max\+Speed}, vector$<$ \hyperlink{class_game_actor}{Game\+Actor} $\ast$ $>$ $\ast$\hyperlink{class_game_actor_a2405618d895f5143b42ae9e94d20e693}{actors})
+\item 
+\hyperlink{class_game_actor_a305c6d8136305e8bfc72e2b64f44f549}{Game\+Actor} (const \hyperlink{class_game_actor}{Game\+Actor} \&actor)
+\item 
+bool \hyperlink{class_game_actor_a6052cc4a43b18dc72103a5a1abc521c2}{operator==} (\hyperlink{class_game_actor}{Game\+Actor} \&right)
+\item 
+\hyperlink{class_game_actor}{Game\+Actor} \& \hyperlink{class_game_actor_a806e4306d891e32c4e06b961cbf11702}{operator=} (const \hyperlink{class_game_actor}{Game\+Actor} \&right)
+\item 
+\hyperlink{class_vec3f}{Vec3f} \hyperlink{class_game_actor_a8a0ca1b6866225d66df2381649bdc601}{get\+Position} () const 
+\item 
+\hyperlink{class_vec3f}{Vec3f} \hyperlink{class_game_actor_aa50b1f399dc19a4dd62995641465cbd2}{get\+Acceleration} () const 
+\item 
+\hyperlink{class_vec3f}{Vec3f} \hyperlink{class_game_actor_a1f624837eac0fe9fe80bcb54cfe8b1cf}{get\+Velocity} () const 
+\item 
+float \hyperlink{class_game_actor_ac19034996d2c622f4f2fd5870d43c9cd}{get\+Mass} () const 
+\item 
+float \hyperlink{class_game_actor_adb2e41937471e0f7377a188f399684cf}{get\+Gravitation\+Range} () const 
+\item 
+float \hyperlink{class_game_actor_a7fafd913a7b0f93d66f7335c8e8417f9}{get\+G} () const 
+\item 
+void \hyperlink{class_game_actor_af3fbd8b984fdd0df93cc4c6f342caa5e}{set\+G} (float \hyperlink{class_game_actor_a42ed4bef0d99cf053ff9a025c86d34d3}{g})
+\item 
+float \hyperlink{class_game_actor_a13cec4e211c56989b4ef58ead7c31e17}{get\+Max\+Speed} () const 
+\item 
+void \hyperlink{class_game_actor_a33f79600c44e3372a23c3ca2ee880704}{set\+Max\+Speed} (float \hyperlink{class_game_actor_a15b6abd006c52b21c569932f8b484eb0}{max\+Speed})
+\item 
+int \hyperlink{class_game_actor_a0e29a446b3247da54893ef12faa9eaaa}{get\+Health} () const 
+\item 
+void \hyperlink{class_game_actor_ace7f2c9f95ac3c39acbb88a3c31240b4}{set\+Health} (int \hyperlink{class_game_actor_a5d402a953140585fb7cc3f8a3a24a2a4}{health})
+\item 
+void \hyperlink{class_game_actor_a168ddb4dda02a8dd734f35d61e325de9}{deal\+Damage} (int damage)
+\item 
+void \hyperlink{class_game_actor_a911133767a09fc1247b460b6431b7d3d}{add\+Health} (int \hyperlink{class_game_actor_a5d402a953140585fb7cc3f8a3a24a2a4}{health})
+\item 
+\hyperlink{class_game_field}{Game\+Field} $\ast$ \hyperlink{class_game_actor_a34e8fa1fcd5febba5f9c92817a24583d}{get\+Field} () const 
+\item 
+vector$<$ \hyperlink{class_game_actor}{Game\+Actor} $\ast$ $>$ $\ast$ \hyperlink{class_game_actor_ad5717fb691f64dbfd6d05d8ab62a0e44}{get\+Actors} () const 
+\item 
+void \hyperlink{class_game_actor_ab8d3dd08796d2459f7d377b143197bf0}{set\+Actors} (vector$<$ \hyperlink{class_game_actor}{Game\+Actor} $\ast$ $>$ $\ast$\hyperlink{class_game_actor_a2405618d895f5143b42ae9e94d20e693}{actors})
+\item 
+int \hyperlink{class_game_actor_a64691c7e8f9d2d528d06323284a1d40c}{get\+Identifier} () const 
+\item 
+float \hyperlink{class_game_actor_a46068d92a30316a1bc86b3812fd255ce}{get\+Distance} (\hyperlink{class_game_actor}{Game\+Actor} \&to) const 
+\item 
+void \hyperlink{class_game_actor_a633b34eb69ad05477fd1d5b5de3c17b8}{kill} ()
+\item 
+bool \hyperlink{class_game_actor_a3ac80ca433821d22e545285c04cf38a1}{is\+Killed} ()
+\item 
+virtual \hyperlink{class_game_actor_a7becf6889c14e7df17e31ba0a3329d32}{$\sim$\+Game\+Actor} ()
+\item 
+virtual void \hyperlink{class_game_actor_ab7452d9bf99b4e6509ee96a717c992dd}{apply\+Force} (\hyperlink{class_vec3f}{Vec3f} force)
+\item 
+virtual void \hyperlink{class_game_actor_ab70229c740251fb7c4222bf579c59393}{update} ()
+\item 
+virtual void \hyperlink{class_game_actor_a2d3b93df5edf86dea7d65ab7dac0e3f7}{update\+All} ()
+\item 
+virtual void \hyperlink{class_game_actor_aba8cfb1004bf6fc17681cd595b706ada}{handle\+Collision} (\hyperlink{class_game_actor}{Game\+Actor} \&other)
+\item 
+virtual void \hyperlink{class_game_actor_a00cdd692fae4de9fb4ce6b2748754744}{handle\+Kill} ()
+\item 
+virtual \hyperlink{class_game_actor_view}{Game\+Actor\+View} $\ast$ \hyperlink{class_game_actor_ae63b522db0d88f56e3c7a8cfb60d31a6}{get\+View} () const 
+\item 
+virtual std\+::string \hyperlink{class_game_actor_a10bb2f607937d5b376c4e0d9bc304d1c}{to\+String} () const 
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+float \hyperlink{class_game_actor_a9f520d6799654aefd20c7a73d6c00f12}{calculate\+Rotation} () const 
+\item 
+float \hyperlink{class_game_actor_aee1a09ea167d0cb5d7c2e9c381611405}{rad\+To\+Deg} (float radians) const 
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{class_game_actor_af0f1723601974c63c9df8a60a6ce7da7}{identifier}
+\item 
+\hyperlink{class_vec3f}{Vec3f} \hyperlink{class_game_actor_a95518bf01411eafe983df8815e8682d1}{velocity}
+\item 
+\hyperlink{class_vec3f}{Vec3f} \hyperlink{class_game_actor_aa62fdbdad09045bcd6f3a150c3a0038b}{acceleration}
+\item 
+\hyperlink{class_vec3f}{Vec3f} \hyperlink{class_game_actor_aefed3c91bf32ad388d86657b3bb9ddfa}{position}
+\item 
+float \hyperlink{class_game_actor_a2111233f4f0216db4d172d5088ebeed4}{mass}
+\item 
+int \hyperlink{class_game_actor_a5d402a953140585fb7cc3f8a3a24a2a4}{health}
+\item 
+float \hyperlink{class_game_actor_a9c0ba51b08a3e617d9629c0ee8d309f2}{gravitation\+Range}
+\item 
+bool \hyperlink{class_game_actor_a7f8bd5ef8278fda5db77a372d8bb6bb9}{killed}
+\item 
+float \hyperlink{class_game_actor_a42ed4bef0d99cf053ff9a025c86d34d3}{g}
+\item 
+float \hyperlink{class_game_actor_a15b6abd006c52b21c569932f8b484eb0}{max\+Speed}
+\item 
+\hyperlink{class_game_field}{Game\+Field} $\ast$ \hyperlink{class_game_actor_a0224fbc502abd6b7579787aa234332d5}{field}
+\item 
+vector$<$ \hyperlink{class_game_actor}{Game\+Actor} $\ast$ $>$ $\ast$ \hyperlink{class_game_actor_a2405618d895f5143b42ae9e94d20e693}{actors}
+\end{DoxyCompactItemize}
+\subsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static int \hyperlink{class_game_actor_a07be525e1e463a4f437dba30f0173b6c}{id} = 0
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This represents all objects within the game area. An Array\+List of all Game\+Actors will be handled by the main loop; adding, deleting and updating all actors individually. Each \hyperlink{class_game_actor}{Game\+Actor} has a pointer to that list, enabling it, to add new Game\+Actors on its own. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_game_actor_a15b04d8c6628c4d004573c3facfdb418}{\index{Game\+Actor@{Game\+Actor}!Game\+Actor@{Game\+Actor}}
+\index{Game\+Actor@{Game\+Actor}!Game\+Actor@{Game\+Actor}}
+\subsubsection[{Game\+Actor}]{\setlength{\rightskip}{0pt plus 5cm}Game\+Actor\+::\+Game\+Actor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_game_actor_a15b04d8c6628c4d004573c3facfdb418}
+The default constructor. \hypertarget{class_game_actor_a8419e87ea13e15b82ed1564e477377ac}{\index{Game\+Actor@{Game\+Actor}!Game\+Actor@{Game\+Actor}}
+\index{Game\+Actor@{Game\+Actor}!Game\+Actor@{Game\+Actor}}
+\subsubsection[{Game\+Actor}]{\setlength{\rightskip}{0pt plus 5cm}Game\+Actor\+::\+Game\+Actor (
+\begin{DoxyParamCaption}
+\item[{{\bf Vec3f}}]{position, }
+\item[{double}]{mass, }
+\item[{float}]{gravitation\+Range, }
+\item[{float}]{g, }
+\item[{int}]{health, }
+\item[{{\bf Game\+Field} \&}]{field, }
+\item[{vector$<$ {\bf Game\+Actor} $\ast$ $>$ $\ast$}]{actors}
+\end{DoxyParamCaption}
+)}}\label{class_game_actor_a8419e87ea13e15b82ed1564e477377ac}
+The constructor for a \hyperlink{class_game_actor}{Game\+Actor} without speed limitation. 
+\begin{DoxyParams}{Parameters}
+{\em position} & the position \\
+\hline
+{\em mass} & the mass \\
+\hline
+{\em gravitation\+Range} & the gravitational pull range \\
+\hline
+{\em g} & the gravitational force \\
+\hline
+{\em health} & the health \\
+\hline
+{\em field} & the game area \\
+\hline
+{\em actors} & the the other actors \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_game_actor_aad104099e725fa6224de80dbaf52f2b1}{\index{Game\+Actor@{Game\+Actor}!Game\+Actor@{Game\+Actor}}
+\index{Game\+Actor@{Game\+Actor}!Game\+Actor@{Game\+Actor}}
+\subsubsection[{Game\+Actor}]{\setlength{\rightskip}{0pt plus 5cm}Game\+Actor\+::\+Game\+Actor (
+\begin{DoxyParamCaption}
+\item[{{\bf Vec3f}}]{position, }
+\item[{double}]{mass, }
+\item[{float}]{gravitation\+Range, }
+\item[{float}]{g, }
+\item[{int}]{health, }
+\item[{{\bf Game\+Field} \&}]{field, }
+\item[{float}]{max\+Speed, }
+\item[{vector$<$ {\bf Game\+Actor} $\ast$ $>$ $\ast$}]{actors}
+\end{DoxyParamCaption}
+)}}\label{class_game_actor_aad104099e725fa6224de80dbaf52f2b1}
+The constructor. 
+\begin{DoxyParams}{Parameters}
+{\em position} & the position \\
+\hline
+{\em mass} & the mass \\
+\hline
+{\em gravitation\+Range} & the gravitational pull range \\
+\hline
+{\em g} & the gravitational force \\
+\hline
+{\em health} & the health \\
+\hline
+{\em field} & the game area \\
+\hline
+{\em max\+Speed} & the the maximum speed \\
+\hline
+{\em actors} & the the other actors \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_game_actor_a305c6d8136305e8bfc72e2b64f44f549}{\index{Game\+Actor@{Game\+Actor}!Game\+Actor@{Game\+Actor}}
+\index{Game\+Actor@{Game\+Actor}!Game\+Actor@{Game\+Actor}}
+\subsubsection[{Game\+Actor}]{\setlength{\rightskip}{0pt plus 5cm}Game\+Actor\+::\+Game\+Actor (
+\begin{DoxyParamCaption}
+\item[{const {\bf Game\+Actor} \&}]{actor}
+\end{DoxyParamCaption}
+)}}\label{class_game_actor_a305c6d8136305e8bfc72e2b64f44f549}
+\hypertarget{class_game_actor_a7becf6889c14e7df17e31ba0a3329d32}{\index{Game\+Actor@{Game\+Actor}!````~Game\+Actor@{$\sim$\+Game\+Actor}}
+\index{````~Game\+Actor@{$\sim$\+Game\+Actor}!Game\+Actor@{Game\+Actor}}
+\subsubsection[{$\sim$\+Game\+Actor}]{\setlength{\rightskip}{0pt plus 5cm}Game\+Actor\+::$\sim$\+Game\+Actor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_game_actor_a7becf6889c14e7df17e31ba0a3329d32}
+The destructor. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_game_actor_a911133767a09fc1247b460b6431b7d3d}{\index{Game\+Actor@{Game\+Actor}!add\+Health@{add\+Health}}
+\index{add\+Health@{add\+Health}!Game\+Actor@{Game\+Actor}}
+\subsubsection[{add\+Health}]{\setlength{\rightskip}{0pt plus 5cm}void Game\+Actor\+::add\+Health (
+\begin{DoxyParamCaption}
+\item[{int}]{health}
+\end{DoxyParamCaption}
+)}}\label{class_game_actor_a911133767a09fc1247b460b6431b7d3d}
+Adds the given value to the health of this \hyperlink{class_game_actor}{Game\+Actor}. 
+\begin{DoxyParams}{Parameters}
+{\em health} & the health to add \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_game_actor_ab7452d9bf99b4e6509ee96a717c992dd}{\index{Game\+Actor@{Game\+Actor}!apply\+Force@{apply\+Force}}
+\index{apply\+Force@{apply\+Force}!Game\+Actor@{Game\+Actor}}
+\subsubsection[{apply\+Force}]{\setlength{\rightskip}{0pt plus 5cm}void Game\+Actor\+::apply\+Force (
+\begin{DoxyParamCaption}
+\item[{{\bf Vec3f}}]{force}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_game_actor_ab7452d9bf99b4e6509ee96a717c992dd}
+This method will be used, to apply any kind of force to the \hyperlink{class_game_actor}{Game\+Actor}. Such would be gravitation, the trajectory analog to the user input, etc. After applying all forces for the current frame, update(radius) should be called. 
+\begin{DoxyParams}{Parameters}
+{\em force} & the force to apply to this \hyperlink{class_game_actor}{Game\+Actor} \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_game_actor_a9f520d6799654aefd20c7a73d6c00f12}{\index{Game\+Actor@{Game\+Actor}!calculate\+Rotation@{calculate\+Rotation}}
+\index{calculate\+Rotation@{calculate\+Rotation}!Game\+Actor@{Game\+Actor}}
+\subsubsection[{calculate\+Rotation}]{\setlength{\rightskip}{0pt plus 5cm}float Game\+Actor\+::calculate\+Rotation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_game_actor_a9f520d6799654aefd20c7a73d6c00f12}
+Calculates the rotation of this game actor and returns the rotation angle in degrees in mathematical positive direction, ranging from 0 to 360. \begin{DoxyReturn}{Returns}
+the rotation in degrees 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_actor_a9f520d6799654aefd20c7a73d6c00f12_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_game_actor_a168ddb4dda02a8dd734f35d61e325de9}{\index{Game\+Actor@{Game\+Actor}!deal\+Damage@{deal\+Damage}}
+\index{deal\+Damage@{deal\+Damage}!Game\+Actor@{Game\+Actor}}
+\subsubsection[{deal\+Damage}]{\setlength{\rightskip}{0pt plus 5cm}void Game\+Actor\+::deal\+Damage (
+\begin{DoxyParamCaption}
+\item[{int}]{damage}
+\end{DoxyParamCaption}
+)}}\label{class_game_actor_a168ddb4dda02a8dd734f35d61e325de9}
+Deals a given amount of damage to this \hyperlink{class_game_actor}{Game\+Actor} and determines whether this kills it. 
+\begin{DoxyParams}{Parameters}
+{\em damage} & the amount of damage to deal \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_actor_a168ddb4dda02a8dd734f35d61e325de9_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_game_actor_aa50b1f399dc19a4dd62995641465cbd2}{\index{Game\+Actor@{Game\+Actor}!get\+Acceleration@{get\+Acceleration}}
+\index{get\+Acceleration@{get\+Acceleration}!Game\+Actor@{Game\+Actor}}
+\subsubsection[{get\+Acceleration}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vec3f} Game\+Actor\+::get\+Acceleration (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_game_actor_aa50b1f399dc19a4dd62995641465cbd2}
+Determines the current acceleration. \begin{DoxyReturn}{Returns}
+the current acceleration 
+\end{DoxyReturn}
+\hypertarget{class_game_actor_ad5717fb691f64dbfd6d05d8ab62a0e44}{\index{Game\+Actor@{Game\+Actor}!get\+Actors@{get\+Actors}}
+\index{get\+Actors@{get\+Actors}!Game\+Actor@{Game\+Actor}}
+\subsubsection[{get\+Actors}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf Game\+Actor} $\ast$ $>$ $\ast$ Game\+Actor\+::get\+Actors (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_game_actor_ad5717fb691f64dbfd6d05d8ab62a0e44}
+Returns the \hyperlink{class_game_actor}{Game\+Actor} list of this \hyperlink{class_game_actor}{Game\+Actor}. \begin{DoxyReturn}{Returns}
+the \hyperlink{class_game_actor}{Game\+Actor} list of this \hyperlink{class_game_actor}{Game\+Actor} 
+\end{DoxyReturn}
+\hypertarget{class_game_actor_a46068d92a30316a1bc86b3812fd255ce}{\index{Game\+Actor@{Game\+Actor}!get\+Distance@{get\+Distance}}
+\index{get\+Distance@{get\+Distance}!Game\+Actor@{Game\+Actor}}
+\subsubsection[{get\+Distance}]{\setlength{\rightskip}{0pt plus 5cm}float Game\+Actor\+::get\+Distance (
+\begin{DoxyParamCaption}
+\item[{{\bf Game\+Actor} \&}]{to}
+\end{DoxyParamCaption}
+) const}}\label{class_game_actor_a46068d92a30316a1bc86b3812fd255ce}
+Determines the distance between this instance of \hyperlink{class_game_actor}{Game\+Actor} and a given one. 
+\begin{DoxyParams}{Parameters}
+{\em to} & the other \hyperlink{class_game_actor}{Game\+Actor} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the distance to the given \hyperlink{class_game_actor}{Game\+Actor} 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_actor_a46068d92a30316a1bc86b3812fd255ce_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_game_actor_a34e8fa1fcd5febba5f9c92817a24583d}{\index{Game\+Actor@{Game\+Actor}!get\+Field@{get\+Field}}
+\index{get\+Field@{get\+Field}!Game\+Actor@{Game\+Actor}}
+\subsubsection[{get\+Field}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Game\+Field} $\ast$ Game\+Actor\+::get\+Field (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_game_actor_a34e8fa1fcd5febba5f9c92817a24583d}
+Returns the \hyperlink{class_game_field}{Game\+Field} of this \hyperlink{class_game_actor}{Game\+Actor}. \begin{DoxyReturn}{Returns}
+the field 
+\end{DoxyReturn}
+\hypertarget{class_game_actor_a7fafd913a7b0f93d66f7335c8e8417f9}{\index{Game\+Actor@{Game\+Actor}!get\+G@{get\+G}}
+\index{get\+G@{get\+G}!Game\+Actor@{Game\+Actor}}
+\subsubsection[{get\+G}]{\setlength{\rightskip}{0pt plus 5cm}float Game\+Actor\+::get\+G (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_game_actor_a7fafd913a7b0f93d66f7335c8e8417f9}
+Determines the current gravitational force \begin{DoxyReturn}{Returns}
+the current gravitational force 
+\end{DoxyReturn}
+\hypertarget{class_game_actor_adb2e41937471e0f7377a188f399684cf}{\index{Game\+Actor@{Game\+Actor}!get\+Gravitation\+Range@{get\+Gravitation\+Range}}
+\index{get\+Gravitation\+Range@{get\+Gravitation\+Range}!Game\+Actor@{Game\+Actor}}
+\subsubsection[{get\+Gravitation\+Range}]{\setlength{\rightskip}{0pt plus 5cm}float Game\+Actor\+::get\+Gravitation\+Range (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_game_actor_adb2e41937471e0f7377a188f399684cf}
+Determines the current gravitational range \begin{DoxyReturn}{Returns}
+the current gravitational range 
+\end{DoxyReturn}
+\hypertarget{class_game_actor_a0e29a446b3247da54893ef12faa9eaaa}{\index{Game\+Actor@{Game\+Actor}!get\+Health@{get\+Health}}
+\index{get\+Health@{get\+Health}!Game\+Actor@{Game\+Actor}}
+\subsubsection[{get\+Health}]{\setlength{\rightskip}{0pt plus 5cm}int Game\+Actor\+::get\+Health (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_game_actor_a0e29a446b3247da54893ef12faa9eaaa}
+Determines the current amount of health. \begin{DoxyReturn}{Returns}
+the current health 
+\end{DoxyReturn}
+\hypertarget{class_game_actor_a64691c7e8f9d2d528d06323284a1d40c}{\index{Game\+Actor@{Game\+Actor}!get\+Identifier@{get\+Identifier}}
+\index{get\+Identifier@{get\+Identifier}!Game\+Actor@{Game\+Actor}}
+\subsubsection[{get\+Identifier}]{\setlength{\rightskip}{0pt plus 5cm}int Game\+Actor\+::get\+Identifier (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_game_actor_a64691c7e8f9d2d528d06323284a1d40c}
+Determines the current identifier \begin{DoxyReturn}{Returns}
+the current identifier 
+\end{DoxyReturn}
+\hypertarget{class_game_actor_ac19034996d2c622f4f2fd5870d43c9cd}{\index{Game\+Actor@{Game\+Actor}!get\+Mass@{get\+Mass}}
+\index{get\+Mass@{get\+Mass}!Game\+Actor@{Game\+Actor}}
+\subsubsection[{get\+Mass}]{\setlength{\rightskip}{0pt plus 5cm}float Game\+Actor\+::get\+Mass (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_game_actor_ac19034996d2c622f4f2fd5870d43c9cd}
+Determines the current mass \begin{DoxyReturn}{Returns}
+the current mass 
+\end{DoxyReturn}
+\hypertarget{class_game_actor_a13cec4e211c56989b4ef58ead7c31e17}{\index{Game\+Actor@{Game\+Actor}!get\+Max\+Speed@{get\+Max\+Speed}}
+\index{get\+Max\+Speed@{get\+Max\+Speed}!Game\+Actor@{Game\+Actor}}
+\subsubsection[{get\+Max\+Speed}]{\setlength{\rightskip}{0pt plus 5cm}float Game\+Actor\+::get\+Max\+Speed (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_game_actor_a13cec4e211c56989b4ef58ead7c31e17}
+Determines the maximum speed. \begin{DoxyReturn}{Returns}
+the maximum speed 
+\end{DoxyReturn}
+\hypertarget{class_game_actor_a8a0ca1b6866225d66df2381649bdc601}{\index{Game\+Actor@{Game\+Actor}!get\+Position@{get\+Position}}
+\index{get\+Position@{get\+Position}!Game\+Actor@{Game\+Actor}}
+\subsubsection[{get\+Position}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vec3f} Game\+Actor\+::get\+Position (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_game_actor_a8a0ca1b6866225d66df2381649bdc601}
+Determines the current position \begin{DoxyReturn}{Returns}
+the current position 
+\end{DoxyReturn}
+\hypertarget{class_game_actor_a1f624837eac0fe9fe80bcb54cfe8b1cf}{\index{Game\+Actor@{Game\+Actor}!get\+Velocity@{get\+Velocity}}
+\index{get\+Velocity@{get\+Velocity}!Game\+Actor@{Game\+Actor}}
+\subsubsection[{get\+Velocity}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vec3f} Game\+Actor\+::get\+Velocity (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_game_actor_a1f624837eac0fe9fe80bcb54cfe8b1cf}
+Determines the current velocity. \begin{DoxyReturn}{Returns}
+the current velocity 
+\end{DoxyReturn}
+\hypertarget{class_game_actor_ae63b522db0d88f56e3c7a8cfb60d31a6}{\index{Game\+Actor@{Game\+Actor}!get\+View@{get\+View}}
+\index{get\+View@{get\+View}!Game\+Actor@{Game\+Actor}}
+\subsubsection[{get\+View}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Game\+Actor\+View} $\ast$ Game\+Actor\+::get\+View (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_game_actor_ae63b522db0d88f56e3c7a8cfb60d31a6}
+Creates and returns a \hyperlink{class_game_actor_view}{Game\+Actor\+View} of this instance of \hyperlink{class_game_actor}{Game\+Actor}. \begin{DoxyReturn}{Returns}
+the \hyperlink{class_game_actor_view}{Game\+Actor\+View} for this \hyperlink{class_game_actor}{Game\+Actor} 
+\end{DoxyReturn}
+
+
+Reimplemented in \hyperlink{class_spacecraft_ada8aff4825d826f3b8ab6ef3b4430529}{Spacecraft}, \hyperlink{class_laser_af00728fe7cabd4f63cb5ce66f4c50e86}{Laser}, \hyperlink{class_missile_a4ff3f60f70f5b4f8cf8ab3f0f6f509b6}{Missile}, \hyperlink{class_asteroid_a267c313e8759ca6091455616cc6c40f1}{Asteroid}, \hyperlink{class_planet_a60f36a3e87d89c4467e3ee2854906a09}{Planet}, \hyperlink{class_power_up_a7e5b4f541e42f88c41d9f04faba4cc53}{Power\+Up}, \hyperlink{class_scrap_a68649c3864eb5b426df61a57114b10ff}{Scrap}, and \hyperlink{class_sun_ae5833ea5166cf6bcd48958d05d37670e}{Sun}.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_actor_ae63b522db0d88f56e3c7a8cfb60d31a6_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_game_actor_aba8cfb1004bf6fc17681cd595b706ada}{\index{Game\+Actor@{Game\+Actor}!handle\+Collision@{handle\+Collision}}
+\index{handle\+Collision@{handle\+Collision}!Game\+Actor@{Game\+Actor}}
+\subsubsection[{handle\+Collision}]{\setlength{\rightskip}{0pt plus 5cm}void Game\+Actor\+::handle\+Collision (
+\begin{DoxyParamCaption}
+\item[{{\bf Game\+Actor} \&}]{other}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_game_actor_aba8cfb1004bf6fc17681cd595b706ada}
+Determines what will happen if this \hyperlink{class_game_actor}{Game\+Actor} collides with another instance of \hyperlink{class_game_actor}{Game\+Actor}. 
+\begin{DoxyParams}{Parameters}
+{\em other} & the \hyperlink{class_game_actor}{Game\+Actor} colliding with this one \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \hyperlink{class_spacecraft_a52608575fde91a502be1621b348884ec}{Spacecraft}, \hyperlink{class_laser_a6c26eb024fd0ae01920c299d1af2679d}{Laser}, \hyperlink{class_missile_a08f4b7e58d9382c46263677ac57c1efe}{Missile}, \hyperlink{class_aim_missile_aedbbc65c9b383913d3a401bfba40cd4e}{Aim\+Missile}, \hyperlink{class_asteroid_ada68cafcbb9e41c90f3e372de1a4b0ba}{Asteroid}, \hyperlink{class_planet_a9dd66b259905d35fa4233bd469662627}{Planet}, \hyperlink{class_power_up_adcd75e162366c12a062b915413ffff7a}{Power\+Up}, \hyperlink{class_scrap_a6db3dbd17f6d653c17d3f17dfcd448c5}{Scrap}, and \hyperlink{class_sun_a62d7b6c5a6089f29fc669240952a7362}{Sun}.
+
+\hypertarget{class_game_actor_a00cdd692fae4de9fb4ce6b2748754744}{\index{Game\+Actor@{Game\+Actor}!handle\+Kill@{handle\+Kill}}
+\index{handle\+Kill@{handle\+Kill}!Game\+Actor@{Game\+Actor}}
+\subsubsection[{handle\+Kill}]{\setlength{\rightskip}{0pt plus 5cm}void Game\+Actor\+::handle\+Kill (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_game_actor_a00cdd692fae4de9fb4ce6b2748754744}
+Determines what will happen if this \hyperlink{class_game_actor}{Game\+Actor} is killed. 
+
+Reimplemented in \hyperlink{class_spacecraft_a4609f3428987bc61e490519a8d1b9ccb}{Spacecraft}, and \hyperlink{class_planet_aa2932c76f46038b77b427c08167018cc}{Planet}.
+
+\hypertarget{class_game_actor_a3ac80ca433821d22e545285c04cf38a1}{\index{Game\+Actor@{Game\+Actor}!is\+Killed@{is\+Killed}}
+\index{is\+Killed@{is\+Killed}!Game\+Actor@{Game\+Actor}}
+\subsubsection[{is\+Killed}]{\setlength{\rightskip}{0pt plus 5cm}bool Game\+Actor\+::is\+Killed (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_game_actor_a3ac80ca433821d22e545285c04cf38a1}
+Determines whether this \hyperlink{class_game_actor}{Game\+Actor} is killed or not. \begin{DoxyReturn}{Returns}
+true if this \hyperlink{class_game_actor}{Game\+Actor} is killed, false otherwise 
+\end{DoxyReturn}
+\hypertarget{class_game_actor_a633b34eb69ad05477fd1d5b5de3c17b8}{\index{Game\+Actor@{Game\+Actor}!kill@{kill}}
+\index{kill@{kill}!Game\+Actor@{Game\+Actor}}
+\subsubsection[{kill}]{\setlength{\rightskip}{0pt plus 5cm}void Game\+Actor\+::kill (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_game_actor_a633b34eb69ad05477fd1d5b5de3c17b8}
+Marks this \hyperlink{class_game_actor}{Game\+Actor} as killed and triggers kill handling. 
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=315pt]{class_game_actor_a633b34eb69ad05477fd1d5b5de3c17b8_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_game_actor_a806e4306d891e32c4e06b961cbf11702}{\index{Game\+Actor@{Game\+Actor}!operator=@{operator=}}
+\index{operator=@{operator=}!Game\+Actor@{Game\+Actor}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Game\+Actor} \& Game\+Actor\+::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Game\+Actor} \&}]{right}
+\end{DoxyParamCaption}
+)}}\label{class_game_actor_a806e4306d891e32c4e06b961cbf11702}
+Assigns a given \hyperlink{class_game_actor}{Game\+Actor} this one. \begin{DoxyReturn}{Returns}
+this \hyperlink{class_game_actor}{Game\+Actor} after assignment 
+\end{DoxyReturn}
+\hypertarget{class_game_actor_a6052cc4a43b18dc72103a5a1abc521c2}{\index{Game\+Actor@{Game\+Actor}!operator==@{operator==}}
+\index{operator==@{operator==}!Game\+Actor@{Game\+Actor}}
+\subsubsection[{operator==}]{\setlength{\rightskip}{0pt plus 5cm}bool Game\+Actor\+::operator== (
+\begin{DoxyParamCaption}
+\item[{{\bf Game\+Actor} \&}]{right}
+\end{DoxyParamCaption}
+)}}\label{class_game_actor_a6052cc4a43b18dc72103a5a1abc521c2}
+Determines whether to Game\+Actors are the same, in other words, whether they point to the same memory address. Other comparisons would be illogical since all vector based attributes of Game\+Actors could only be compared to a predestined degree of accuracy. \begin{DoxyReturn}{Returns}
+true if both Game\+Actors are the same, false otherwise 
+\end{DoxyReturn}
+\hypertarget{class_game_actor_aee1a09ea167d0cb5d7c2e9c381611405}{\index{Game\+Actor@{Game\+Actor}!rad\+To\+Deg@{rad\+To\+Deg}}
+\index{rad\+To\+Deg@{rad\+To\+Deg}!Game\+Actor@{Game\+Actor}}
+\subsubsection[{rad\+To\+Deg}]{\setlength{\rightskip}{0pt plus 5cm}float Game\+Actor\+::rad\+To\+Deg (
+\begin{DoxyParamCaption}
+\item[{float}]{radians}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_game_actor_aee1a09ea167d0cb5d7c2e9c381611405}
+Converts a given value in radians to degrees. 
+\begin{DoxyParams}{Parameters}
+{\em radians} & the radians value to convert \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the converted vlue 
+\end{DoxyReturn}
+\hypertarget{class_game_actor_ab8d3dd08796d2459f7d377b143197bf0}{\index{Game\+Actor@{Game\+Actor}!set\+Actors@{set\+Actors}}
+\index{set\+Actors@{set\+Actors}!Game\+Actor@{Game\+Actor}}
+\subsubsection[{set\+Actors}]{\setlength{\rightskip}{0pt plus 5cm}void Game\+Actor\+::set\+Actors (
+\begin{DoxyParamCaption}
+\item[{vector$<$ {\bf Game\+Actor} $\ast$ $>$ $\ast$}]{actors}
+\end{DoxyParamCaption}
+)}}\label{class_game_actor_ab8d3dd08796d2459f7d377b143197bf0}
+Replaces the \hyperlink{class_game_actor}{Game\+Actor} list of this instance with a given list. 
+\begin{DoxyParams}{Parameters}
+{\em actors} & a list (vector) with Game\+Actors which will interact with this instance of \hyperlink{class_game_actor}{Game\+Actor} \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_game_actor_af3fbd8b984fdd0df93cc4c6f342caa5e}{\index{Game\+Actor@{Game\+Actor}!set\+G@{set\+G}}
+\index{set\+G@{set\+G}!Game\+Actor@{Game\+Actor}}
+\subsubsection[{set\+G}]{\setlength{\rightskip}{0pt plus 5cm}void Game\+Actor\+::set\+G (
+\begin{DoxyParamCaption}
+\item[{float}]{g}
+\end{DoxyParamCaption}
+)}}\label{class_game_actor_af3fbd8b984fdd0df93cc4c6f342caa5e}
+Sets the gravitational force to a given value. 
+\begin{DoxyParams}{Parameters}
+{\em g} & the value to set \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_game_actor_ace7f2c9f95ac3c39acbb88a3c31240b4}{\index{Game\+Actor@{Game\+Actor}!set\+Health@{set\+Health}}
+\index{set\+Health@{set\+Health}!Game\+Actor@{Game\+Actor}}
+\subsubsection[{set\+Health}]{\setlength{\rightskip}{0pt plus 5cm}void Game\+Actor\+::set\+Health (
+\begin{DoxyParamCaption}
+\item[{int}]{health}
+\end{DoxyParamCaption}
+)}}\label{class_game_actor_ace7f2c9f95ac3c39acbb88a3c31240b4}
+Sets the to a given value. 
+\begin{DoxyParams}{Parameters}
+{\em g} & the value to set \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_game_actor_a33f79600c44e3372a23c3ca2ee880704}{\index{Game\+Actor@{Game\+Actor}!set\+Max\+Speed@{set\+Max\+Speed}}
+\index{set\+Max\+Speed@{set\+Max\+Speed}!Game\+Actor@{Game\+Actor}}
+\subsubsection[{set\+Max\+Speed}]{\setlength{\rightskip}{0pt plus 5cm}void Game\+Actor\+::set\+Max\+Speed (
+\begin{DoxyParamCaption}
+\item[{float}]{max\+Speed}
+\end{DoxyParamCaption}
+)}}\label{class_game_actor_a33f79600c44e3372a23c3ca2ee880704}
+Sets the maximum speed to a given value. 
+\begin{DoxyParams}{Parameters}
+{\em g} & the value to set \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_game_actor_a10bb2f607937d5b376c4e0d9bc304d1c}{\index{Game\+Actor@{Game\+Actor}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Game\+Actor@{Game\+Actor}}
+\subsubsection[{to\+String}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Game\+Actor\+::to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_game_actor_a10bb2f607937d5b376c4e0d9bc304d1c}
+Creates and returns a string representation of this \hyperlink{class_game_actor}{Game\+Actor}. \begin{DoxyReturn}{Returns}
+string representation of this \hyperlink{class_game_actor}{Game\+Actor} 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_actor_a10bb2f607937d5b376c4e0d9bc304d1c_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_game_actor_ab70229c740251fb7c4222bf579c59393}{\index{Game\+Actor@{Game\+Actor}!update@{update}}
+\index{update@{update}!Game\+Actor@{Game\+Actor}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}void Game\+Actor\+::update (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_game_actor_ab70229c740251fb7c4222bf579c59393}
+Updates the position and velocity of this \hyperlink{class_game_actor}{Game\+Actor}. With this implementation Game\+Actors will be bounced off the game field borders. 
+
+Reimplemented in \hyperlink{class_projectile_ac41ad56034b53e739619fabbd5e49652}{Projectile}, \hyperlink{class_aim_missile_a2723e6b87d30aa722b795e955a04ddfd}{Aim\+Missile}, \hyperlink{class_planet_a56f440c725e00a3b27e4fbd8da87813d}{Planet}, and \hyperlink{class_sun_ae6c8bd44775ae0207c59908b4abdb7f5}{Sun}.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_actor_ab70229c740251fb7c4222bf579c59393_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_game_actor_a2d3b93df5edf86dea7d65ab7dac0e3f7}{\index{Game\+Actor@{Game\+Actor}!update\+All@{update\+All}}
+\index{update\+All@{update\+All}!Game\+Actor@{Game\+Actor}}
+\subsubsection[{update\+All}]{\setlength{\rightskip}{0pt plus 5cm}void Game\+Actor\+::update\+All (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_game_actor_a2d3b93df5edf86dea7d65ab7dac0e3f7}
+Checks for collisions with other Game\+Actors, triggers collision handling as well as the calculation and application of the gravitational force towards all other Game\+Actors. 
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_actor_a2d3b93df5edf86dea7d65ab7dac0e3f7_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_game_actor_aa62fdbdad09045bcd6f3a150c3a0038b}{\index{Game\+Actor@{Game\+Actor}!acceleration@{acceleration}}
+\index{acceleration@{acceleration}!Game\+Actor@{Game\+Actor}}
+\subsubsection[{acceleration}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vec3f} Game\+Actor\+::acceleration\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_game_actor_aa62fdbdad09045bcd6f3a150c3a0038b}
+Acceleration is the force, that will be applied to the Game\+Actors velocity per frame. \hypertarget{class_game_actor_a2405618d895f5143b42ae9e94d20e693}{\index{Game\+Actor@{Game\+Actor}!actors@{actors}}
+\index{actors@{actors}!Game\+Actor@{Game\+Actor}}
+\subsubsection[{actors}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf Game\+Actor}$\ast$$>$$\ast$ Game\+Actor\+::actors\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_game_actor_a2405618d895f5143b42ae9e94d20e693}
+A list (vector) of all other Game\+Actors \hypertarget{class_game_actor_a0224fbc502abd6b7579787aa234332d5}{\index{Game\+Actor@{Game\+Actor}!field@{field}}
+\index{field@{field}!Game\+Actor@{Game\+Actor}}
+\subsubsection[{field}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Game\+Field}$\ast$ Game\+Actor\+::field\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_game_actor_a0224fbc502abd6b7579787aa234332d5}
+The game area. \hypertarget{class_game_actor_a42ed4bef0d99cf053ff9a025c86d34d3}{\index{Game\+Actor@{Game\+Actor}!g@{g}}
+\index{g@{g}!Game\+Actor@{Game\+Actor}}
+\subsubsection[{g}]{\setlength{\rightskip}{0pt plus 5cm}float Game\+Actor\+::g\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_game_actor_a42ed4bef0d99cf053ff9a025c86d34d3}
+The gravitational force or pull of this \hyperlink{class_game_actor}{Game\+Actor}. \hypertarget{class_game_actor_a9c0ba51b08a3e617d9629c0ee8d309f2}{\index{Game\+Actor@{Game\+Actor}!gravitation\+Range@{gravitation\+Range}}
+\index{gravitation\+Range@{gravitation\+Range}!Game\+Actor@{Game\+Actor}}
+\subsubsection[{gravitation\+Range}]{\setlength{\rightskip}{0pt plus 5cm}float Game\+Actor\+::gravitation\+Range\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_game_actor_a9c0ba51b08a3e617d9629c0ee8d309f2}
+The range over which this \hyperlink{class_game_actor}{Game\+Actor} can apply its own gravitational pull to other Game\+Actors. \hypertarget{class_game_actor_a5d402a953140585fb7cc3f8a3a24a2a4}{\index{Game\+Actor@{Game\+Actor}!health@{health}}
+\index{health@{health}!Game\+Actor@{Game\+Actor}}
+\subsubsection[{health}]{\setlength{\rightskip}{0pt plus 5cm}int Game\+Actor\+::health\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_game_actor_a5d402a953140585fb7cc3f8a3a24a2a4}
+The health points of this \hyperlink{class_game_actor}{Game\+Actor}, 0 indicating a dead \hyperlink{class_game_actor}{Game\+Actor} and -\/1 indicating an immortal \hyperlink{class_game_actor}{Game\+Actor}. \hypertarget{class_game_actor_a07be525e1e463a4f437dba30f0173b6c}{\index{Game\+Actor@{Game\+Actor}!id@{id}}
+\index{id@{id}!Game\+Actor@{Game\+Actor}}
+\subsubsection[{id}]{\setlength{\rightskip}{0pt plus 5cm}int Game\+Actor\+::id = 0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}}\label{class_game_actor_a07be525e1e463a4f437dba30f0173b6c}
+A global counter representing the number of all Game\+Actors. It will be increased, whenever a new \hyperlink{class_game_actor}{Game\+Actor} is instantiated. \hypertarget{class_game_actor_af0f1723601974c63c9df8a60a6ce7da7}{\index{Game\+Actor@{Game\+Actor}!identifier@{identifier}}
+\index{identifier@{identifier}!Game\+Actor@{Game\+Actor}}
+\subsubsection[{identifier}]{\setlength{\rightskip}{0pt plus 5cm}int Game\+Actor\+::identifier\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_game_actor_af0f1723601974c63c9df8a60a6ce7da7}
+The identifier of this \hyperlink{class_game_actor}{Game\+Actor}. Equals the id field at the time of instantiation of this very \hyperlink{class_game_actor}{Game\+Actor}. \hypertarget{class_game_actor_a7f8bd5ef8278fda5db77a372d8bb6bb9}{\index{Game\+Actor@{Game\+Actor}!killed@{killed}}
+\index{killed@{killed}!Game\+Actor@{Game\+Actor}}
+\subsubsection[{killed}]{\setlength{\rightskip}{0pt plus 5cm}bool Game\+Actor\+::killed\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_game_actor_a7f8bd5ef8278fda5db77a372d8bb6bb9}
+Defines whether this \hyperlink{class_game_actor}{Game\+Actor} counts as killed or not. This will have implications on both the effects of other Game\+Actors and the updating process. \hypertarget{class_game_actor_a2111233f4f0216db4d172d5088ebeed4}{\index{Game\+Actor@{Game\+Actor}!mass@{mass}}
+\index{mass@{mass}!Game\+Actor@{Game\+Actor}}
+\subsubsection[{mass}]{\setlength{\rightskip}{0pt plus 5cm}float Game\+Actor\+::mass\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_game_actor_a2111233f4f0216db4d172d5088ebeed4}
+The mass of the \hyperlink{class_game_actor}{Game\+Actor}, but actually a factor in relation to a preset normal mass. \hypertarget{class_game_actor_a15b6abd006c52b21c569932f8b484eb0}{\index{Game\+Actor@{Game\+Actor}!max\+Speed@{max\+Speed}}
+\index{max\+Speed@{max\+Speed}!Game\+Actor@{Game\+Actor}}
+\subsubsection[{max\+Speed}]{\setlength{\rightskip}{0pt plus 5cm}float Game\+Actor\+::max\+Speed\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_game_actor_a15b6abd006c52b21c569932f8b484eb0}
+The maximum speed this \hyperlink{class_game_actor}{Game\+Actor} can acquire. \hypertarget{class_game_actor_aefed3c91bf32ad388d86657b3bb9ddfa}{\index{Game\+Actor@{Game\+Actor}!position@{position}}
+\index{position@{position}!Game\+Actor@{Game\+Actor}}
+\subsubsection[{position}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vec3f} Game\+Actor\+::position\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_game_actor_aefed3c91bf32ad388d86657b3bb9ddfa}
+The current position of the \hyperlink{class_game_actor}{Game\+Actor} in a 3-\/dimensional Cartesian space. \hypertarget{class_game_actor_a95518bf01411eafe983df8815e8682d1}{\index{Game\+Actor@{Game\+Actor}!velocity@{velocity}}
+\index{velocity@{velocity}!Game\+Actor@{Game\+Actor}}
+\subsubsection[{velocity}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vec3f} Game\+Actor\+::velocity\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_game_actor_a95518bf01411eafe983df8815e8682d1}
+Velocity is the actual direction and speed for this \hyperlink{class_game_actor}{Game\+Actor}. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/headers/\hyperlink{_game_actor_8h}{Game\+Actor.\+h}\item 
+src/\hyperlink{_game_actor_8cpp}{Game\+Actor.\+cpp}\end{DoxyCompactItemize}

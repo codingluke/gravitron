@@ -1,0 +1,6 @@
+<map id="Projectile" name="Projectile">
+<area shape="rect" id="node3" href="$class_laser.html" title="Laser" alt="" coords="5,152,60,177"/>
+<area shape="rect" id="node4" href="$class_missile.html" title="Missile" alt="" coords="84,152,146,177"/>
+<area shape="rect" id="node2" href="$class_game_actor.html" title="GameActor" alt="" coords="30,5,118,31"/>
+<area shape="rect" id="node5" href="$class_aim_missile.html" title="AimMissile" alt="" coords="73,225,158,251"/>
+</map>

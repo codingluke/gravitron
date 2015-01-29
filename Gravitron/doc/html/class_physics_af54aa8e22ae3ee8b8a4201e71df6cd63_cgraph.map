@@ -1,0 +1,5 @@
+<map id="Physics::collisionDetection" name="Physics::collisionDetection">
+<area shape="rect" id="node2" href="$class_physics.html#a8ec16d945fc45ba929ffe4af0d36cdc2" title="Physics::distance" alt="" coords="232,5,356,31"/>
+<area shape="rect" id="node3" href="$class_vec3f.html#af736ea593ed963c40c8776d4014d4e79" title="Vec3f::magnitude" alt="" coords="404,5,528,31"/>
+<area shape="rect" id="node4" href="$class_vec3f.html#aa4cc7ae415806c6b831218fde0624598" title="Vec3f::magnitudeSquared" alt="" coords="576,5,751,31"/>
+</map>

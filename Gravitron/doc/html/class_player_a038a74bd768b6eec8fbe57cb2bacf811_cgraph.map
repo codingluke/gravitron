@@ -1,0 +1,5 @@
+<map id="Player::respawn" name="Player::respawn">
+<area shape="rect" id="node2" href="$class_spacecraft.html#a42787ac2585d1826a3471fe38fdce9ae" title="Spacecraft::repair" alt="" coords="170,31,297,56"/>
+<area shape="rect" id="node3" href="$class_game_field.html#a4e64e71ba15b89734e6bbed36b8936a2" title="GameField::getWidth" alt="" coords="347,5,494,31"/>
+<area shape="rect" id="node4" href="$class_game_field.html#a7a551f2b02f8446903c636aa41c16341" title="GameField::getHeight" alt="" coords="345,55,496,80"/>
+</map>

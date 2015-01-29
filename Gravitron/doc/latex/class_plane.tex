@@ -1,0 +1,207 @@
+\hypertarget{class_plane}{\section{Plane Class Reference}
+\label{class_plane}\index{Plane@{Plane}}
+}
+
+
+{\ttfamily \#include $<$Plane.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_plane_acac0d9c003e0ab10d07b146c3566a0c7}{Plane} ()
+\item 
+\hyperlink{class_plane_a39db0b1cb9fe03a791426b6c2e0f8f31}{Plane} (const \hyperlink{class_plane}{Plane} \&plane)
+\item 
+\hyperlink{class_plane_a9a1420228e8baa632c7e8ba66f27772f}{Plane} (float a, float b, float c, float d)
+\item 
+\hyperlink{class_plane_a08ae6ac6d070c695458f4322e9565fc0}{Plane} (const \hyperlink{class_vec3f}{Vec3f} \&normalized\+Normal, float d)
+\item 
+float \hyperlink{class_plane_a7ee99f03ecafc04a9a0f1bd20388eae0}{get\+Unsigned\+Distance} (const \hyperlink{class_vec3f}{Vec3f} \&point) const 
+\item 
+float \hyperlink{class_plane_a09af6617261774d144becb6a783e3ace}{get\+Signed\+Distance} (const \hyperlink{class_vec3f}{Vec3f} \&point) const 
+\item 
+\hyperlink{class_vec3f}{Vec3f} \hyperlink{class_plane_aeebad7347cc6e51cc6f98a22070c45c9}{get\+Closest\+Point} (const \hyperlink{class_vec3f}{Vec3f} \&Point)
+\item 
+\hyperlink{class_vec3f}{Vec3f} \hyperlink{class_plane_a1a6667a975990d138177b28578ddaee5}{get\+Intersecting\+Line} (const \hyperlink{class_vec3f}{Vec3f} \&vec1, const \hyperlink{class_vec3f}{Vec3f} \&vec2) const 
+\item 
+\hyperlink{class_vec3f}{Vec3f} \hyperlink{class_plane_ab14973049815c46e1d795498dc8a8ece}{get\+Normal} () const 
+\item 
+\hyperlink{class_plane}{Plane} \hyperlink{class_plane_a30bc1a6f61d5b50fc156c920d96d4e8c}{normalize} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{class_plane}{Plane} \hyperlink{class_plane_a383c0b4578ecc7776797553dbd615409}{from\+Point\+And\+Normal} (const \hyperlink{class_vec3f}{Vec3f} \&point, const \hyperlink{class_vec3f}{Vec3f} normal)
+\item 
+static \hyperlink{class_plane}{Plane} \hyperlink{class_plane_a65718dd8b39d7e06bcea656196e1d0f3}{from\+Point\+And\+Vectors} (const \hyperlink{class_vec3f}{Vec3f} \&point, const \hyperlink{class_vec3f}{Vec3f} \&vec1, const \hyperlink{class_vec3f}{Vec3f} \&vec2)
+\item 
+static \hyperlink{class_plane}{Plane} \hyperlink{class_plane_ab97792a6e6d912598945943c3d5468c4}{from\+Points} (const \hyperlink{class_vec3f}{Vec3f} \&point1, const \hyperlink{class_vec3f}{Vec3f} \&point2, const \hyperlink{class_vec3f}{Vec3f} \&point3)
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_plane_acac0d9c003e0ab10d07b146c3566a0c7}{\index{Plane@{Plane}!Plane@{Plane}}
+\index{Plane@{Plane}!Plane@{Plane}}
+\subsubsection[{Plane}]{\setlength{\rightskip}{0pt plus 5cm}Plane\+::\+Plane (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_plane_acac0d9c003e0ab10d07b146c3566a0c7}
+\hypertarget{class_plane_a39db0b1cb9fe03a791426b6c2e0f8f31}{\index{Plane@{Plane}!Plane@{Plane}}
+\index{Plane@{Plane}!Plane@{Plane}}
+\subsubsection[{Plane}]{\setlength{\rightskip}{0pt plus 5cm}Plane\+::\+Plane (
+\begin{DoxyParamCaption}
+\item[{const {\bf Plane} \&}]{plane}
+\end{DoxyParamCaption}
+)}}\label{class_plane_a39db0b1cb9fe03a791426b6c2e0f8f31}
+\hypertarget{class_plane_a9a1420228e8baa632c7e8ba66f27772f}{\index{Plane@{Plane}!Plane@{Plane}}
+\index{Plane@{Plane}!Plane@{Plane}}
+\subsubsection[{Plane}]{\setlength{\rightskip}{0pt plus 5cm}Plane\+::\+Plane (
+\begin{DoxyParamCaption}
+\item[{float}]{a, }
+\item[{float}]{b, }
+\item[{float}]{c, }
+\item[{float}]{d}
+\end{DoxyParamCaption}
+)}}\label{class_plane_a9a1420228e8baa632c7e8ba66f27772f}
+\hypertarget{class_plane_a08ae6ac6d070c695458f4322e9565fc0}{\index{Plane@{Plane}!Plane@{Plane}}
+\index{Plane@{Plane}!Plane@{Plane}}
+\subsubsection[{Plane}]{\setlength{\rightskip}{0pt plus 5cm}Plane\+::\+Plane (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vec3f} \&}]{normalized\+Normal, }
+\item[{float}]{d}
+\end{DoxyParamCaption}
+)}}\label{class_plane_a08ae6ac6d070c695458f4322e9565fc0}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_plane_a383c0b4578ecc7776797553dbd615409}{\index{Plane@{Plane}!from\+Point\+And\+Normal@{from\+Point\+And\+Normal}}
+\index{from\+Point\+And\+Normal@{from\+Point\+And\+Normal}!Plane@{Plane}}
+\subsubsection[{from\+Point\+And\+Normal}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Plane} Plane\+::from\+Point\+And\+Normal (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vec3f} \&}]{point, }
+\item[{const {\bf Vec3f}}]{normal}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_plane_a383c0b4578ecc7776797553dbd615409}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_plane_a383c0b4578ecc7776797553dbd615409_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_plane_a65718dd8b39d7e06bcea656196e1d0f3}{\index{Plane@{Plane}!from\+Point\+And\+Vectors@{from\+Point\+And\+Vectors}}
+\index{from\+Point\+And\+Vectors@{from\+Point\+And\+Vectors}!Plane@{Plane}}
+\subsubsection[{from\+Point\+And\+Vectors}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Plane} Plane\+::from\+Point\+And\+Vectors (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vec3f} \&}]{point, }
+\item[{const {\bf Vec3f} \&}]{vec1, }
+\item[{const {\bf Vec3f} \&}]{vec2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_plane_a65718dd8b39d7e06bcea656196e1d0f3}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_plane_a65718dd8b39d7e06bcea656196e1d0f3_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_plane_ab97792a6e6d912598945943c3d5468c4}{\index{Plane@{Plane}!from\+Points@{from\+Points}}
+\index{from\+Points@{from\+Points}!Plane@{Plane}}
+\subsubsection[{from\+Points}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Plane} Plane\+::from\+Points (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vec3f} \&}]{point1, }
+\item[{const {\bf Vec3f} \&}]{point2, }
+\item[{const {\bf Vec3f} \&}]{point3}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_plane_ab97792a6e6d912598945943c3d5468c4}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_plane_ab97792a6e6d912598945943c3d5468c4_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_plane_aeebad7347cc6e51cc6f98a22070c45c9}{\index{Plane@{Plane}!get\+Closest\+Point@{get\+Closest\+Point}}
+\index{get\+Closest\+Point@{get\+Closest\+Point}!Plane@{Plane}}
+\subsubsection[{get\+Closest\+Point}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vec3f} Plane\+::get\+Closest\+Point (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vec3f} \&}]{Point}
+\end{DoxyParamCaption}
+)}}\label{class_plane_aeebad7347cc6e51cc6f98a22070c45c9}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=326pt]{class_plane_aeebad7347cc6e51cc6f98a22070c45c9_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_plane_a1a6667a975990d138177b28578ddaee5}{\index{Plane@{Plane}!get\+Intersecting\+Line@{get\+Intersecting\+Line}}
+\index{get\+Intersecting\+Line@{get\+Intersecting\+Line}!Plane@{Plane}}
+\subsubsection[{get\+Intersecting\+Line}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vec3f} Plane\+::get\+Intersecting\+Line (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vec3f} \&}]{vec1, }
+\item[{const {\bf Vec3f} \&}]{vec2}
+\end{DoxyParamCaption}
+) const}}\label{class_plane_a1a6667a975990d138177b28578ddaee5}
+\hypertarget{class_plane_ab14973049815c46e1d795498dc8a8ece}{\index{Plane@{Plane}!get\+Normal@{get\+Normal}}
+\index{get\+Normal@{get\+Normal}!Plane@{Plane}}
+\subsubsection[{get\+Normal}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vec3f} Plane\+::get\+Normal (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_plane_ab14973049815c46e1d795498dc8a8ece}
+\hypertarget{class_plane_a09af6617261774d144becb6a783e3ace}{\index{Plane@{Plane}!get\+Signed\+Distance@{get\+Signed\+Distance}}
+\index{get\+Signed\+Distance@{get\+Signed\+Distance}!Plane@{Plane}}
+\subsubsection[{get\+Signed\+Distance}]{\setlength{\rightskip}{0pt plus 5cm}float Plane\+::get\+Signed\+Distance (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vec3f} \&}]{point}
+\end{DoxyParamCaption}
+) const}}\label{class_plane_a09af6617261774d144becb6a783e3ace}
+\hypertarget{class_plane_a7ee99f03ecafc04a9a0f1bd20388eae0}{\index{Plane@{Plane}!get\+Unsigned\+Distance@{get\+Unsigned\+Distance}}
+\index{get\+Unsigned\+Distance@{get\+Unsigned\+Distance}!Plane@{Plane}}
+\subsubsection[{get\+Unsigned\+Distance}]{\setlength{\rightskip}{0pt plus 5cm}float Plane\+::get\+Unsigned\+Distance (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vec3f} \&}]{point}
+\end{DoxyParamCaption}
+) const}}\label{class_plane_a7ee99f03ecafc04a9a0f1bd20388eae0}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_plane_a7ee99f03ecafc04a9a0f1bd20388eae0_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_plane_a30bc1a6f61d5b50fc156c920d96d4e8c}{\index{Plane@{Plane}!normalize@{normalize}}
+\index{normalize@{normalize}!Plane@{Plane}}
+\subsubsection[{normalize}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Plane} Plane\+::normalize (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_plane_a30bc1a6f61d5b50fc156c920d96d4e8c}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/headers/\hyperlink{_plane_8h}{Plane.\+h}\item 
+src/\hyperlink{_plane_8cpp}{Plane.\+cpp}\end{DoxyCompactItemize}
