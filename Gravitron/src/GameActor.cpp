@@ -162,16 +162,21 @@ void GameActor::update()
  */
 void GameActor::updateAll()
 {
-    for (GameActor* act : *actors) {
-    	if ((act != this) && (!act->isKilled())) {
+ GameActor *other;
+    for (unsigned int i = 0; i < actors->size(); i++) {
+        other = actors->at(i);
+        if (other != this && !other->isKilled()) {
+            // Collision Detection
             bool collision = Physics::collisionDetection(position, 20.0f,
-            act->getPosition(), 20.0f);
-            if (collision && !killed && !act->isKilled())
+                  other->getPosition(), 20.0f);
+            if (collision && !killed && !other->isKilled()) // no double kill; if kill generate new actors at the same position a killing loop starts
             {
-                act->handleCollision(*this);
+                other->handleCollision(*this);
+                //handleCollision(*other);
             }
-            Vec3f f = Physics::calculateGravitationForce(this, act);
-            act->applyForce(f);
+            // Update Gravitation
+            Vec3f f = Physics::calculateGravitationForce(this, actors->at(i));
+            other->applyForce(f);
         }
     }
     update();
