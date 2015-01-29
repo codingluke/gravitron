@@ -1,6 +1,6 @@
 TEMPLATE = app
 
-CONFIG += c++11 #debug
+CONFIG += c++11 debug
 
 QT += qml quick network testlib 
 
@@ -14,7 +14,6 @@ unix:!macx {
 
     QMAKE_LFLAGS_DEBUG += -fsanitize=address
 }
-
 
 
 HEADERS += src/headers/GameActor.h \
@@ -93,10 +92,14 @@ SOURCES += src/main.cpp \
 
 
 RESOURCES += assets/img/img.qrc \
-        assets/audio/audio.qrc \
         assets/text/text.qrc \
         qml/qml.qrc \
         translations.qrc
+
+
+# sound.files = assets/audio/*
+# sound.path = ../build/assets/audio
+# INSTALLS += target sound
 
 TRANSLATIONS = gravitron_de.ts \
                gravitron_en.ts

@@ -1,6 +1,7 @@
 import QtQuick 2.3
 import QtQuick.Controls 1.2
 import QtQuick.Controls.Styles 1.2
+import QtMultimedia 5.0
 
 import "constants.js" as Global
 import "functions.js" as Functions
