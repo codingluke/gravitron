@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import QtQuick.Controls 1.2
+import QtMultimedia 5.0
 
 import "menus/functions.js" as Functions
 
@@ -11,6 +12,17 @@ Rectangle {
     color: "black"
     z: 3
 
+
+
+    Audio {
+       id:game_audioPlayer
+       source: "file:" + applicationDirPath + "/assets/audio/edtijo__happy-8bit-pixel-adenture.wav"
+       autoLoad: true
+       autoPlay: true
+       loops: Audio.Infinite
+    }
+
+
     Button {
         z: 1000
         id: btn_stop
@@ -18,9 +30,12 @@ Rectangle {
         focus: true
         onClicked: {
             Functions.btn_backClicked();
+            game_audioPlayer.stop();
+            main_audioPlayer.play();
             Game.stop();
             scrollView.visible = true;
             loader.visible = false;
+
         }
     }
     

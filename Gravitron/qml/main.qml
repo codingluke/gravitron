@@ -12,20 +12,13 @@ Window {
     height: 1000
     visibility: (Settings.fullScreen === true) ? "FullScreen" : "Windowed";
     
-    //Image {
-        //id: img_backgrond
-        //source: "qrc:/img/menuBackgroundImage"
-        //height: parent.height
-        //width: parent.width
-    //}
-
-    //Audio {
-       //id:audioPlayer
-       //source: "qrc:/audio/menuBackgroundMusic"
-       //autoLoad: true
-       //autoPlay: true
-       //loops: Audio.Infinite
-    //}
+    Audio {
+       id:main_audioPlayer
+       source: "file:" + applicationDirPath + "/assets/audio/dambient__8-bit-loop.mp3"
+       autoLoad: true
+       autoPlay: true
+       loops: Audio.Infinite
+    }
 
     Rectangle {
       color: "#ccc"
