@@ -15,13 +15,13 @@ Spacecraft::Spacecraft() : GameActor()
 }
 
 Spacecraft::Spacecraft(Vec3f position, double mass, float gravitationRange, float g, GameField &field, vector<GameActor*> *actors) :
-    GameActor(position, mass, gravitationRange, g, SPACECRAFT_MAX_HEALTH, field, actors)
+    GameActor(position, mass, gravitationRange, g, ActConf::SPACECRAFT_MAX_HEALTH, field, actors)
 {
     init();
 }
 
 Spacecraft::Spacecraft(Vec3f position, double mass, float gravitationRange, float g, GameField &field, float maxSpeed, vector<GameActor*> *actors) :
-    GameActor(position, mass, gravitationRange, g, SPACECRAFT_MAX_HEALTH, field, maxSpeed, actors)
+    GameActor(position, mass, gravitationRange, g, ActConf::SPACECRAFT_MAX_HEALTH, field, maxSpeed, actors)
 {
     init();
 }
@@ -105,7 +105,7 @@ Projectile &Spacecraft::shootUp()
 void Spacecraft::repair()
 {
     position = Vec3f(rand() % field->getWidth(), rand() % field->getHeight(), 0);
-    health = SPACECRAFT_MAX_HEALTH;
+    health = ActConf::SPACECRAFT_MAX_HEALTH;
     killed = false;
 }
 
@@ -154,7 +154,7 @@ Projectile &Spacecraft::shootRight()
 void Spacecraft::handleCollision(GameActor &other)
 {
     if (dynamic_cast<Spacecraft*>(&other))
-        other.dealDamage(SPACECRAFT_COLLISION_DAMAGE);
+        other.dealDamage(ActConf::SPACECRAFT_COLLISION_DAMAGE);
 }
 
 void Spacecraft::upgradeWeapon() {
@@ -182,9 +182,9 @@ void Spacecraft::handleKill()
     int numberRadomScrap = (rand() % 5) + 1;
     for (int i = 0; i < numberRadomScrap; i++) {
         Vec3f pos(position);
-        float mass = fmod(rand(), SCRAP_MAX_MASS - (SCRAP_MIN_MASS - 1)) + SCRAP_MIN_MASS;
-        float g = fmod(rand(), SCRAP_MAX_G - (SCRAP_MIN_G - 1)) + SCRAP_MIN_G;
-        float gravitationRange = fmod(rand(), SCRAP_MAX_GRAVITATION_RANGE - (SCRAP_MIN_GRAVITATION_RANGE - 1)) +SCRAP_MIN_GRAVITATION_RANGE;
+        float mass = fmod(rand(), ActConf::SCRAP_MAX_MASS - (ActConf::SCRAP_MIN_MASS - 1)) + ActConf::SCRAP_MIN_MASS;
+        float g = fmod(rand(), ActConf::SCRAP_MAX_G - (ActConf::SCRAP_MIN_G - 1)) + ActConf::SCRAP_MIN_G;
+        float gravitationRange = fmod(rand(), ActConf::SCRAP_MAX_GRAVITATION_RANGE - (ActConf::SCRAP_MIN_GRAVITATION_RANGE - 1)) + ActConf::SCRAP_MIN_GRAVITATION_RANGE;
         actors->push_back(new Scrap(position, mass, gravitationRange, g, *field, actors));
     }
 

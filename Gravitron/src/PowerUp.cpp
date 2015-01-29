@@ -5,7 +5,7 @@
 #include <sstream>
 
 
-PowerUp::PowerUp(Vec3f position, GameField &field, vector<GameActor*> *actors) : GameActor(position, POWERUP_MAX_MASS, POWERUP_MAX_GRAVITATION_RANGE, POWERUP_MIN_G, POWERUP_MAX_HEALTH, field, actors)
+PowerUp::PowerUp(Vec3f position, GameField &field, vector<GameActor*> *actors) : GameActor(position, ActConf::POWERUP_MAX_MASS, ActConf::POWERUP_MAX_GRAVITATION_RANGE, ActConf::POWERUP_MIN_G, ActConf::POWERUP_MAX_HEALTH, field, actors)
 {
 }
 

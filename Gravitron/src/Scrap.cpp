@@ -20,7 +20,7 @@ Scrap::Scrap(Vec3f position, float mass, float gravitationRange, float g, GameFi
 
 void Scrap::handleCollision(GameActor &other)
 {
-    other.dealDamage(SCRAP_DAMAGE);
+    other.dealDamage(ActConf::SCRAP_DAMAGE);
 }
 
 GameActorView* Scrap::getView() const {

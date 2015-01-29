@@ -13,14 +13,14 @@ Missile::Missile(Vec3f position, Vec3f velocity, GameField &field, GameActor &fr
 Projectile(position, 0, 0, 0, 300, 1, field, friendly, actors)
 {
     applyForce(velocity);
-    this->maxSpeed = MISSILE_MAX_MAXSPEED;
+    this->maxSpeed = ActConf::MISSILE_MAX_MAXSPEED;
 }
 
 Missile::Missile(GameActor &actor, Vec3f velocity, GameField &field, GameActor &friendly, vector<GameActor*> *actors) :
 Projectile(actor.getPosition(), 0, 0, 0, 300, 1, field, friendly, actors)
 {
     applyForce(velocity);
-    this->maxSpeed = MISSILE_MAX_MAXSPEED;
+    this->maxSpeed = ActConf::MISSILE_MAX_MAXSPEED;
 }
 
 
@@ -28,7 +28,7 @@ Missile::Missile(GameActor &actor, GameField &field, GameActor &friendly, vector
 Projectile(actor.getPosition(), 0, 0, 0, 300, 1, field, friendly, actors)
 {
     applyForce(actor.getVelocity());
-    this->maxSpeed = MISSILE_MAX_MAXSPEED;
+    this->maxSpeed = ActConf::MISSILE_MAX_MAXSPEED;
 }
 
 Missile::Missile(const Missile &projectile) :
@@ -51,7 +51,7 @@ void Missile::handleCollision(GameActor &other)
             otherIsFriendly = true;
     }
     if (!otherIsFriendly) {
-        other.dealDamage(MISSILE_DAMAGE);
+        other.dealDamage(ActConf::MISSILE_DAMAGE);
         if (other.isKilled() && dynamic_cast<Spacecraft*>(&other)) {
             incKillPointsOfFriends();
         }

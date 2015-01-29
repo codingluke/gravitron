@@ -68,7 +68,7 @@ int Player::getHealthPercentage() const
     if (spacecraft->isKilled()) {
         percent = (roundsToRespawn - respawnCounter) * 100 / roundsToRespawn;
     } else {
-        percent = spacecraft->getHealth() * 100 / SPACECRAFT_MAX_HEALTH;
+        percent = spacecraft->getHealth() * 100 / ActConf::SPACECRAFT_MAX_HEALTH;
     }
     return percent;
 }

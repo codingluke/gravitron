@@ -22,5 +22,5 @@ GameActorView* Asteroid::getView() const {
 
 void Asteroid::handleCollision(GameActor &other)
 {
-    other.dealDamage(ASTEROID_DAMAGE);
+    other.dealDamage(ActConf::ASTEROID_DAMAGE);
 }

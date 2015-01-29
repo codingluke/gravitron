@@ -48,7 +48,7 @@ void AimMissile::handleCollision(GameActor &other)
     }
     if (!otherIsFriendly && !killed)
     {
-        other.dealDamage(AIM_MISSILE_DAMAGE);
+        other.dealDamage(ActConf::AIM_MISSILE_DAMAGE);
         if (other.isKilled() && dynamic_cast<Spacecraft*>(&other)) {
             incKillPointsOfFriends();
         }
@@ -104,26 +104,29 @@ void AimMissile::setNearestTarget()
         float minDistance = -1;
         for (GameActor* act : *actors)
         {
-            bool otherIsFriendly = false;
-            for (GameActor* fr : friendly)
+            if (dynamic_cast<Spacecraft*>(act))
             {
-                if (fr == act)
-                    otherIsFriendly = true;
-            }
-            if (!otherIsFriendly && (act != this))
-            {
-                if (minDistance != -1)
+                bool otherIsFriendly = false;
+                for (GameActor* fr : friendly)
                 {
-                    if (this->getDistance(*act) < minDistance)
+                    if (fr == act)
+                        otherIsFriendly = true;
+                }
+                if (!otherIsFriendly && (act != this))
+                {
+                    if (minDistance != -1)
+                    {
+                        if (this->getDistance(*act) < minDistance)
+                        {
+                            candidate = act;
+                            minDistance = this->getDistance(*act);
+                        }
+                    }
+                    else
                     {
                         candidate = act;
                         minDistance = this->getDistance(*act);
                     }
-                }
-                else
-                {
-                    candidate = act;
-                    minDistance = this->getDistance(*act);
                 }
             }
         }
