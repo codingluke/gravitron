@@ -48,7 +48,6 @@ class Spacecraft : public GameActor
         Projectile &shootRight();
         void repair();
         void upgradeWeapon();
-        void handleKill();
 };
 
 #endif // SPACECRAFT_H

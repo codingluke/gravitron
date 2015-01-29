@@ -158,13 +158,6 @@ void Spacecraft::handleCollision(GameActor &other)
         other.dealDamage(SPACECRAFT_COLLISION_DAMAGE);
 }
 
-void Spacecraft::handleKill()
-{
-    velocity = Vec3f();
-    acceleration = Vec3f();
-    weapon = 1;
-}
-
 void Spacecraft::upgradeWeapon() {
     if (weapon < 3) {
         this->weapon++;
@@ -183,6 +176,10 @@ int Spacecraft::getControllingPlayer() const
 
 void Spacecraft::handleKill()
 {
+    velocity = Vec3f();
+    acceleration = Vec3f();
+    weapon = 1;
+
     int numberRadomScrap = (rand() % 5) + 1;
     for (int i = 0; i < numberRadomScrap; i++) {
         Vec3f pos(position);
