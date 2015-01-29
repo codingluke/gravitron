@@ -25,8 +25,8 @@ Game::Game(QQmlApplicationEngine *theEngine, GravitronSettings *theSettings)
  *
  * @param theQmlParent
  */
- void Game::setQmlParent(QQuickItem *theQmlParent)
- {
+void Game::setQmlParent(QQuickItem *theQmlParent)
+{
     qmlParent = theQmlParent;
 }
 
@@ -48,6 +48,8 @@ Game::Game(QQmlApplicationEngine *theEngine, GravitronSettings *theSettings)
         this, SLOT(setBackgroundPosition(float, float, float, float)));
     connect(gameLoop, SIGNAL(theWinnerIs(QString)),
         this, SLOT(setInfoboxMessage(QString)));
+    connect(gameLoop, SIGNAL(fragStatus(int, int)),
+        this, SLOT(setFrag(int, int)));
     gameLoop->start();
 }
 
@@ -82,6 +84,8 @@ void Game::startServer(TcpServer *server)
         this, SLOT(setBackgroundPosition(float, float, float, float)));
     connect(gameLoop, SIGNAL(theWinnerIs(QString)),
         this, SLOT(setInfoboxMessage(QString)));
+    connect(gameLoop, SIGNAL(fragStatus(int, int)),
+        this, SLOT(setFrag(int, int)));
 
     gameLoop->start();
     gameLoop->setPriority(QThread::LowPriority);
@@ -164,6 +168,10 @@ Game::~Game()
         } else if (vList.at(i).startsWith("cwinner")) {
             QStringList vL = vList.at(i).split(":", QString::SkipEmptyParts);
             setInfoboxMessage(vL.at(vL.size() - 1));
+        } else if (vList.at(i).startsWith("cfrag")) {
+            QStringList vL = vList.at(i).split(":", QString::SkipEmptyParts);
+            vL = vL.at(vL.size() - 1).split(",", QString::SkipEmptyParts);
+            setFrag(vL.at(0).toInt(), vL.at(1).toInt());
         }
     }
 }
@@ -210,6 +218,14 @@ Game::~Game()
         delete (*it);
     }
     delete views;
+}
+
+
+void Game::setFrag(int must, int have)
+{
+    QQuickItem *fragStatus = qmlParent->findChild<QQuickItem*>("fragStatus");
+    fragStatus->setProperty("must", must);
+    fragStatus->setProperty("have", have);
 }
 
 void Game::setBackgroundPosition(float x, float y, float fieldWidth, float fieldHeight)

@@ -31,6 +31,7 @@ class Player : public QObject
         void pollRespawn();
         bool isWinner() const;
         int getKillPoints() const;
+        int getFrag() const;
         QString getPlayerName() const;
         Spacecraft* getSpacecraft() const;
 };

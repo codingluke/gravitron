@@ -188,11 +188,16 @@ void GameLoop::render()
                 emit backgroundPos(bgrndX, bgrndY, field->getWidth(), field->getHeight());
                 emit renderObject(viewlist);
                 emit activeWeaponGame((*playit)->getWeapon());
+                emit fragStatus((*playit)->getFrag(), (*playit)->getKillPoints());
             } else {
                 serializedViewlist += "clifepoints:" +
                                       QString::number((*playit)->getHealthPercentage()) + "\n";
                 serializedViewlist += "cweapon:" +
                                       QString::number((*playit)->getWeapon()) + "\n";
+                serializedViewlist += "cfrag:" +
+                                      QString::number((*playit)->getFrag()) + "," +
+                                      QString::number((*playit)->getKillPoints()) +
+                                      "\n";
                 serializedViewlist += "cbackgroundPos:" + QString::number(bgrndX) +
                                         ":" + QString::number(bgrndY) +
                                         ":" + QString::number(field->getWidth()) +

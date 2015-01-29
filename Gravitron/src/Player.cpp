@@ -87,3 +87,8 @@ int Player::getKillPoints() const
 {
     return spacecraft->getKillPoints();
 }
+
+int Player::getFrag() const
+{
+    return frag;
+}

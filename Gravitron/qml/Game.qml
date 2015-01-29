@@ -23,6 +23,45 @@ Rectangle {
             loader.visible = false;
         }
     }
+    
+    Rectangle {
+        property int must: 0
+        property int have: 0
+
+        id: fragStatus
+        objectName: "fragStatus"
+        z: 1000
+        width: gameStatus.height
+        height: gameStatus.height
+        color: "white"
+        radius: 25
+        anchors.verticalCenter: gameStatus.verticalCenter
+        anchors.rightMargin: 5
+        anchors.right: gameStatus.left
+        
+        Text {
+            anchors.centerIn: parent
+            font.bold: true
+            font.pixelSize: 18
+            text: fragStatus.have
+        }
+
+        Rectangle {
+            width: 30
+            height: 30
+            color: "gray"
+            radius: 20
+            anchors.right: parent.horizontalCenter
+            anchors.rightMargin: 10
+            anchors.topMargin: 10
+            Text {
+                anchors.centerIn: parent
+                text: fragStatus.must
+                color: "#ffffff"
+            }
+        }
+
+    }
 
     Rectangle {
         property int identity: -1;
@@ -39,10 +78,11 @@ Rectangle {
         anchors.top: parent.top;
         anchors.right: parent.right;
 
+
         Rectangle {
             width: (parent.lifepoints * parent.lengthFactor)
             height: (parent.height - 2)
-            color: "lightgreen"
+            color: "green"
             anchors.verticalCenter: parent.verticalCenter
             anchors.rightMargin: 1
             anchors.right: parent.right

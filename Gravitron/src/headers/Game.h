@@ -46,6 +46,7 @@ class Game: public QObject
         void setLifepoints(int lifepoints);
         void setBackgroundPosition(float x, float y, float fieldWidth, float fieldHeight);
         void setInfoboxMessage(QString message);
+        void setFrag(int must, int have);
 
     private:
         void clearScene(vector<GameActorView*> *views);

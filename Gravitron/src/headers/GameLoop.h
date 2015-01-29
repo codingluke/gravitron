@@ -70,6 +70,7 @@ class GameLoop : public QThread
         void lifepoints(int lifepoints);
         void backgroundPos(float x, float y, float fieldWidth, float fieldHeight);
         void theWinnerIs(QString winnerName);
+        void fragStatus(int must, int have);
 };
 
 #endif
