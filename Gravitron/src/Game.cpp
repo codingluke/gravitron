@@ -35,7 +35,7 @@ Game::Game(QQmlApplicationEngine *theEngine, GravitronSettings *theSettings)
  */
  void Game::start()
  {
-    field = new GameField(2000 , 1300);
+    field = new GameField(2000 * settings->playingFieldSize() , 1300 * settings->playingFieldSize());
     settings->setNetwork(false);
     gameLoop = new GameLoop(GameGenerator(settings, field));
     connect(gameLoop, SIGNAL(renderObject(vector<GameActorView*>*)),
@@ -66,7 +66,7 @@ void Game::startClient(TcpClient *client)
 void Game::startServer(TcpServer *server)
 {
     qDebug() << "Game: start server";
-    field = new GameField(2000 , 1300);
+    field = new GameField(2000 * settings->playingFieldSize() , 1300 * settings->playingFieldSize());
     settings->setNetwork(true);
     gameLoop = new GameLoop(GameGenerator(settings, field, server));
 
