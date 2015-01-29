@@ -88,7 +88,6 @@ void GameActor::update()
             }
         }
 
-      //add velocity limitation
       position += velocity;
       // if (position.v[0] > field->getWidth())
       //     position.v[0] = position.v[0] - field->getWidth();

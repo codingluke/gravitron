@@ -10,24 +10,24 @@
  * space Debris and temporary area effects. To avoid a cluttering of the
  * game area, most projectiles should have a limited timeToLive.
  */
-Projectile::Projectile() : GameActor()
-{
+ Projectile::Projectile() : GameActor()
+ {
     this->timeToLive = -1;
     g = 0;
 }
 
 Projectile::Projectile(Vec3f position, double mass, float gravitationRange, float g, int timeToLive, int health, GameField &field, GameActor &friendly, vector<GameActor*> *actors) :
-    GameActor(position, mass, gravitationRange, g, health, field, actors)
-    {
-        this->timeToLive = timeToLive;
-        this->friendly.push_back(&friendly);
-    }
+GameActor(position, mass, gravitationRange, g, health, field, actors)
+{
+    this->timeToLive = timeToLive;
+    this->friendly.push_back(&friendly);
+}
 
 Projectile::Projectile(Vec3f position, double mass, float gravitationRange, float g, int timeToLive, int health, GameField &field, vector<GameActor*> *actors) :
-    GameActor(position, mass, gravitationRange, g, health, field, actors)
-    {
-        this->timeToLive = timeToLive;
-    }
+GameActor(position, mass, gravitationRange, g, health, field, actors)
+{
+    this->timeToLive = timeToLive;
+}
 
 Projectile::Projectile(const Projectile &projectile) : GameActor(projectile)
 {
@@ -60,13 +60,34 @@ void Projectile::incKillPointsOfFriends()
  * equals 0, the Projectile will die. Projectiles with a TTL of
  * -1 are considered "immortal".
  */
-void Projectile::update()
-{
-    GameActor::update();
-    if (timeToLive == 0)
+ void Projectile::update()
+ {
+    if (!isKilled()) {
+      velocity += acceleration;
+      if (maxSpeed != -1) {
+        if (velocity.magnitude() > maxSpeed) {
+            velocity = velocity.normalize() * maxSpeed;
+            acceleration = acceleration.normalize() * maxSpeed;
+        }
+    }
+
+    position += velocity;
+    if (position.v[0] > field->getWidth())
         kill();
-    else if (timeToLive != -1 && !isKilled())
-        timeToLive--;
+    if (position.v[0] < 0)
+        kill();
+    if (position.v[1] > field->getHeight())
+        kill();
+    if (position.v[1] < 0)
+        kill();
+    if (!isKilled())
+    {
+        if (timeToLive == 0)
+            kill();
+        else if (timeToLive != -1 && !isKilled())
+            timeToLive--;
+    }
+}
 }
 
 void Projectile::handleCollision(GameActor &other)

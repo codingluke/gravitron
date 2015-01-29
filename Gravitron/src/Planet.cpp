@@ -7,7 +7,7 @@
 #include <iostream>
 
 Planet::Planet(Vec3f pos, float mass, float gravitationRange, float g, GameField &field, vector<GameActor*> *actors) :
-    GameActor(pos, mass, gravitationRange, g, 100, field, actors)
+    GameActor(pos, mass, gravitationRange, g, ActConf::PLANET_MAX_HEALTH, field, actors)
 {
 }
 
@@ -25,16 +25,16 @@ void Planet::update() {
 
 void Planet::handleCollision(GameActor &other)
 {
-    other.dealDamage(PLANET_DAMAGE);
+    other.dealDamage(ActConf::PLANET_DAMAGE);
 }
 
 void Planet::handleKill()
 {
     for(int i = 0; i < 3; i++) {
          Vec3f pos(position);
-         float mass = fmod(rand(), ASTEROID_MAX_MASS - (ASTEROID_MIN_MASS - 1)) + ASTEROID_MIN_MASS;
-         float g = fmod(rand(), ASTEROID_MAX_G - (ASTEROID_MIN_G - 1)) + ASTEROID_MIN_G;
-         float gravitationRange = fmod(rand(), ASTEROID_MAX_GRAVITATION_RANGE - (ASTEROID_MIN_GRAVITATION_RANGE - 1)) + ASTEROID_MIN_GRAVITATION_RANGE;
+         float mass = fmod(rand(), ActConf::ASTEROID_MAX_MASS - (ActConf::ASTEROID_MIN_MASS - 1)) + ActConf::ASTEROID_MIN_MASS;
+         float g = fmod(rand(), ActConf::ASTEROID_MAX_G - (ActConf::ASTEROID_MIN_G - 1)) + ActConf::ASTEROID_MIN_G;
+         float gravitationRange = fmod(rand(), ActConf::ASTEROID_MAX_GRAVITATION_RANGE - (ActConf::ASTEROID_MIN_GRAVITATION_RANGE - 1)) + ActConf::ASTEROID_MIN_GRAVITATION_RANGE;
          actors->push_back(new Asteroid(pos, mass, gravitationRange, g, *field, 7, actors));
     }
 }

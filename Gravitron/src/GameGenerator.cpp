@@ -93,8 +93,8 @@ void GameGenerator::generatePlayer() {
 
 Spacecraft* GameGenerator::generateNewSpacecraft() {
     Vec3f position(rand() % field->getWidth(),rand() % field->getHeight(), 0);
-    float mass = fmod(rand(), SPACECRAFT_MAX_MASS - (SPACECRAFT_MIN_MASS - 1)) + SPACECRAFT_MIN_MASS;
-    return new Spacecraft(position, mass, 0, 0, *field, SPACECRAFT_MAX_MAXSPEED, actors);
+    float mass = fmod(rand(), ActConf::SPACECRAFT_MAX_MASS - (ActConf::SPACECRAFT_MIN_MASS - 1)) + ActConf::SPACECRAFT_MIN_MASS;
+    return new Spacecraft(position, mass, 0, 0, *field, ActConf::SPACECRAFT_MAX_MAXSPEED, actors);
 }
 
 
@@ -102,9 +102,9 @@ Spacecraft* GameGenerator::generateNewSpacecraft() {
 void GameGenerator::generatePlanets() {
     for(int i = 0; i < settings->planetCount(); i++) {
         Vec3f position(rand() % field->getWidth(),rand() % field->getHeight(), 0);
-        float mass = fmod(rand(), PLANET_MAX_MASS - (PLANET_MIN_MASS - 1)) + PLANET_MIN_MASS;
-        float g = fmod(rand(), PLANET_MAX_G - (PLANET_MIN_G - 1)) + PLANET_MIN_G;
-        float gravitationRange = fmod(rand(), PLANET_MAX_GRAVITATION_RANGE - (PLANET_MIN_GRAVITATION_RANGE - 1)) + PLANET_MIN_GRAVITATION_RANGE;
+        float mass = fmod(rand(), ActConf::PLANET_MAX_MASS - (ActConf::PLANET_MIN_MASS - 1)) + ActConf::PLANET_MIN_MASS;
+        float g = fmod(rand(), ActConf::PLANET_MAX_G - (ActConf::PLANET_MIN_G - 1)) + ActConf::PLANET_MIN_G;
+        float gravitationRange = fmod(rand(), ActConf::PLANET_MAX_GRAVITATION_RANGE - (ActConf::PLANET_MIN_GRAVITATION_RANGE - 1)) + ActConf::PLANET_MIN_GRAVITATION_RANGE;
         actors->push_back(new Planet(position, mass, gravitationRange, g, *field, actors));
     }
 }
@@ -112,9 +112,9 @@ void GameGenerator::generatePlanets() {
 void GameGenerator::generateAstroids() {
     for(int i = 0; i < settings->astroidCount(); i++) {
         Vec3f position(rand() % field->getWidth(),rand() % field->getHeight(), 0);
-        float mass = fmod(rand(), ASTEROID_MAX_MASS - (ASTEROID_MIN_MASS - 1)) + ASTEROID_MIN_MASS;
-        float g = fmod(rand(), ASTEROID_MAX_G - (ASTEROID_MIN_G - 1)) + ASTEROID_MIN_G;
-        float gravitationRange = fmod(rand(), ASTEROID_MAX_GRAVITATION_RANGE - (ASTEROID_MIN_GRAVITATION_RANGE - 1)) + ASTEROID_MIN_GRAVITATION_RANGE;
+        float mass = fmod(rand(), ActConf::ASTEROID_MAX_MASS - (ActConf::ASTEROID_MIN_MASS - 1)) + ActConf::ASTEROID_MIN_MASS;
+        float g = fmod(rand(), ActConf::ASTEROID_MAX_G - (ActConf::ASTEROID_MIN_G - 1)) + ActConf::ASTEROID_MIN_G;
+        float gravitationRange = fmod(rand(), ActConf::ASTEROID_MAX_GRAVITATION_RANGE - (ActConf::ASTEROID_MIN_GRAVITATION_RANGE - 1)) + ActConf::ASTEROID_MIN_GRAVITATION_RANGE;
         actors->push_back(new Asteroid(position, mass, gravitationRange, g, *field, 7, actors));
     }
 }
@@ -152,16 +152,16 @@ void GameGenerator::generateRandomScrap() {
 }
 
 GameActor* GameGenerator::generateNewScrap(Vec3f position) {
-    float mass = fmod(rand(), SCRAP_MAX_MASS - (SCRAP_MIN_MASS - 1)) + SCRAP_MIN_MASS;
-    float g = fmod(rand(), SCRAP_MAX_G - (SCRAP_MIN_G - 1)) + SCRAP_MIN_G;
-    float gravitationRange = fmod(rand(), SCRAP_MAX_GRAVITATION_RANGE - (SCRAP_MIN_GRAVITATION_RANGE - 1)) +SCRAP_MIN_GRAVITATION_RANGE;
+    float mass = fmod(rand(), ActConf::SCRAP_MAX_MASS - (ActConf::SCRAP_MIN_MASS - 1)) + ActConf::SCRAP_MIN_MASS;
+    float g = fmod(rand(), ActConf::SCRAP_MAX_G - (ActConf::SCRAP_MIN_G - 1)) + ActConf::SCRAP_MIN_G;
+    float gravitationRange = fmod(rand(), ActConf::SCRAP_MAX_GRAVITATION_RANGE - (ActConf::SCRAP_MIN_GRAVITATION_RANGE - 1)) + ActConf::SCRAP_MIN_GRAVITATION_RANGE;
     return new Scrap(position, mass, gravitationRange, g, *field, actors);
 }
 
 void GameGenerator::generateSun() {
     Vec3f position(rand() % field->getWidth(),rand() % field->getHeight(), 0);
-    float mass = fmod(rand(), SUN_MAX_MASS - (SUN_MIN_MASS - 1)) + SUN_MIN_MASS;
-    float g = fmod(rand(), SUN_MAX_G - (SUN_MIN_G - 1)) + SUN_MIN_G;
-    float gravitationRange = fmod(rand(), SUN_MAX_GRAVITATION_RANGE - (SUN_MIN_GRAVITATION_RANGE - 1)) + SUN_MIN_GRAVITATION_RANGE;
+    float mass = fmod(rand(), ActConf::SUN_MAX_MASS - (ActConf::SUN_MIN_MASS - 1)) + ActConf::SUN_MIN_MASS;
+    float g = fmod(rand(), ActConf::SUN_MAX_G - (ActConf::SUN_MIN_G - 1)) + ActConf::SUN_MIN_G;
+    float gravitationRange = fmod(rand(), ActConf::SUN_MAX_GRAVITATION_RANGE - (ActConf::SUN_MIN_GRAVITATION_RANGE - 1)) + ActConf::SUN_MIN_GRAVITATION_RANGE;
     actors->push_back(new Sun(position, mass, gravitationRange, g, *field, actors));
 }

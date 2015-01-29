@@ -10,7 +10,7 @@ Sun::Sun(Vec3f position, float mass, float gravitationRange, float g, GameField&
 
 void Sun::handleCollision(GameActor &other)
 {
-    other.dealDamage(SUN_DAMAGE);
+    other.dealDamage(ActConf::SUN_DAMAGE);
 }
 
 GameActorView* Sun::getView() const {
