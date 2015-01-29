@@ -25,4 +25,5 @@
         <file alias="missile">actors/Missile.qml</file>
         <file alias="laser">actors/Laser.qml</file>
     </qresource>
+    <qresource prefix="/"/>
 </RCC>

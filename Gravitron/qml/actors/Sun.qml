@@ -7,10 +7,14 @@ Rectangle {
     color: "#00000000"
     objectName: identifier
 
-    Image {
-        id: image1
-        anchors.horizontalCenter: parent.horizontalCenter
-        anchors.verticalCenter: parent.verticalCenter
-        source: "qrc:/img/sun"
+    Item {
+        id: innerbox
+        anchors.centerIn: parent
+
+        Image {
+            id: image1
+            anchors.centerIn: parent
+            source: "qrc:/img/sun"
+        }
     }
 }
