@@ -1,5 +1,0 @@
-<map id="Game::startServer" name="Game::startServer">
-<area shape="rect" id="node2" href="$dc/dc9/class_gravitron_settings.html#a27abb8747f90faa675cf875962a4cb17" title="GravitronSettings::\lsetNetwork" alt="" coords="187,5,317,46"/>
-<area shape="rect" id="node4" href="$d7/dbb/class_tcp_server.html#a3980ff848a8434857de6afac4971ada7" title="TcpServer::transfer" alt="" coords="185,71,319,97"/>
-<area shape="rect" id="node3" href="$dc/dc9/class_gravitron_settings.html#a058ae43b2b186753956a8f9e4c54234b" title="GravitronSettings::save" alt="" coords="369,12,527,39"/>
-</map>

@@ -1,4 +1,0 @@
-<map id="GameGenerator::generateNewSpacecraft" name="GameGenerator::generateNewSpacecraft">
-<area shape="rect" id="node2" href="$d7/d95/classGameField.html#a4e64e71ba15b89734e6bbed36b8936a2" title="GameField::getWidth" alt="" coords="255,5,401,32"/>
-<area shape="rect" id="node3" href="$d7/d95/classGameField.html#a7a551f2b02f8446903c636aa41c16341" title="GameField::getHeight" alt="" coords="253,56,403,83"/>
-</map>

@@ -1,6 +1,0 @@
-<map id="GameGenerator::generateGame" name="GameGenerator::generateGame">
-<area shape="rect" id="node2" href="$d2/de5/class_game_loop.html#aef2bffc387feba32401fb222d2893213" title="GameLoop::setBots" alt="" coords="287,5,425,32"/>
-<area shape="rect" id="node3" href="$d2/de5/class_game_loop.html#aa9cac681fffdcfde5df8b259409dd0ab" title="GameLoop::setPlayer" alt="" coords="282,56,430,83"/>
-<area shape="rect" id="node4" href="$d2/de5/class_game_loop.html#ae32109f8170985968acce0525f71f015" title="GameLoop::setRespawTime" alt="" coords="262,107,450,133"/>
-<area shape="rect" id="node5" href="$d2/de5/class_game_loop.html#afa580dfac60d3a821ff1320c0da1cd56" title="GameLoop::setGameField" alt="" coords="269,157,443,184"/>
-</map>

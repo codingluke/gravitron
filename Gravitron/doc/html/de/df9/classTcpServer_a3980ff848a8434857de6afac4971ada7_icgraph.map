@@ -1,5 +1,0 @@
-<map id="TcpServer::transfer" name="TcpServer::transfer">
-<area shape="rect" id="node2" href="$d9/d68/classGame.html#aed51d3d3760d9c052cdf33144ead0fba" title="Game::startServer" alt="" coords="222,5,351,32"/>
-<area shape="rect" id="node3" href="$de/df9/classTcpServer.html#a28472f8ff11060cf40b49ad95f0af775" title="TcpServer::acceptConnection" alt="" coords="189,56,384,83"/>
-<area shape="rect" id="node4" href="$de/df9/classTcpServer.html#acd34450fe8cd7174163d7b670a71f2ef" title="TcpServer::startListen" alt="" coords="433,56,583,83"/>
-</map>

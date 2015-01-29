@@ -16,13 +16,6 @@ Projectile(position, 0, 0, 0, 90, 1, field, friendly, actors)
     this->maxSpeed = ActConf::LASER_MAX_MAXSPEED;
 }
 
-Laser::Laser(Vec3f position, Vec3f velocity, GameField &field, vector<GameActor*> *actors) :
-Projectile(position, 0, 0, 0, 90, 1, field, actors)
-{
-    applyForce(velocity);
-    this->maxSpeed = ActConf::LASER_MAX_MAXSPEED;
-}
-
 Laser::Laser(GameActor &actor, Vec3f velocity, GameField &field, GameActor &friendly, vector<GameActor*> *actors) :
 Projectile(actor.getPosition(), 0, 0, 0, 90, 1, field, friendly, actors)
 {

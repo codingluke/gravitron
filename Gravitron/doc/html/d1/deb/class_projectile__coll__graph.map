@@ -1,5 +1,0 @@
-<map id="Projectile" name="Projectile">
-<area shape="rect" id="node2" href="$d2/d79/class_game_actor.html" title="GameActor" alt="" coords="51,125,139,152"/>
-<area shape="rect" id="node3" href="$df/d9e/class_game_field.html" title="GameField" alt="" coords="5,5,91,32"/>
-<area shape="rect" id="node4" href="$d5/d58/class_vec3f.html" title="Vec3f" alt="" coords="115,5,169,32"/>
-</map>

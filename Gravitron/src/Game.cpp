@@ -134,7 +134,7 @@ Game::~Game()
  * Deserializes the serialized Views, generates a viewlist and sends them
  * to the render method.
  *
- * @param Qstring of the serializedViewlist over the network.
+ * @param serializedViewlist Qstring of the serializedViewlist over the network.
  */
  void Game::renderRemote(QString serializedViewlist)
  {

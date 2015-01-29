@@ -1,5 +1,6 @@
 # Doxyfile 1.8.6
 
+<<<<<<< HEAD
 # This file describes the settings to be used by the documentation system
 # doxygen (www.doxygen.org) for a project.
 #
@@ -2341,3 +2342,7 @@ GENERATE_LEGEND        = YES
 # This tag requires that the tag HAVE_DOT is set to YES.
 
 DOT_CLEANUP            = YES
+=======
+GENERATE_LATEX = NO
+
+>>>>>>> ea3b092054794abf42b1c74842e8fd3471fb87d7

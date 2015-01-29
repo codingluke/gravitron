@@ -1,5 +1,0 @@
-<map id="GameGenerator::generateRandomScrap" name="GameGenerator::generateRandomScrap">
-<area shape="rect" id="node2" href="$d7/d95/classGameField.html#a4e64e71ba15b89734e6bbed36b8936a2" title="GameField::getWidth" alt="" coords="302,5,447,32"/>
-<area shape="rect" id="node3" href="$d7/d95/classGameField.html#a7a551f2b02f8446903c636aa41c16341" title="GameField::getHeight" alt="" coords="300,56,449,83"/>
-<area shape="rect" id="node4" href="$dd/da6/classGameGenerator.html#a8b44d635c748aaf630afb41ad21a368e" title="GameGenerator::generateNew\lScrap" alt="" coords="275,107,474,149"/>
-</map>

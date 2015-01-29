@@ -10,25 +10,25 @@ Missile::Missile() : Projectile()
 }
 
 Missile::Missile(Vec3f position, Vec3f velocity, GameField &field, GameActor &friendly, vector<GameActor*> *actors) :
-Projectile(position, 0, 0, 0, 300, 1, field, friendly, actors)
+Projectile(position, ActConf::MISSILE_MASS, ActConf::MISSILE_GRAVITATION_RANGE, ActConf::MISSILE_G, ActConf::MISSILE_TIME_TO_LIVE, ActConf::MISSILE_HEALTH, field, friendly, actors)
 {
     applyForce(velocity);
-    this->maxSpeed = ActConf::MISSILE_MAX_MAXSPEED;
+    this->maxSpeed = ActConf::MISSILE_MAXSPEED;
 }
 
 Missile::Missile(GameActor &actor, Vec3f velocity, GameField &field, GameActor &friendly, vector<GameActor*> *actors) :
-Projectile(actor.getPosition(), 0, 0, 0, 300, 1, field, friendly, actors)
+Projectile(actor.getPosition(), ActConf::MISSILE_MASS, ActConf::MISSILE_GRAVITATION_RANGE, ActConf::MISSILE_G, ActConf::MISSILE_TIME_TO_LIVE, ActConf::MISSILE_HEALTH, field, friendly, actors)
 {
     applyForce(velocity);
-    this->maxSpeed = ActConf::MISSILE_MAX_MAXSPEED;
+    this->maxSpeed = ActConf::MISSILE_MAXSPEED;
 }
 
 
 Missile::Missile(GameActor &actor, GameField &field, GameActor &friendly, vector<GameActor*> *actors) :
-Projectile(actor.getPosition(), 0, 0, 0, 300, 1, field, friendly, actors)
+Projectile(actor.getPosition(), ActConf::MISSILE_MASS, ActConf::MISSILE_GRAVITATION_RANGE, ActConf::MISSILE_G, ActConf::MISSILE_TIME_TO_LIVE, ActConf::MISSILE_HEALTH, field, friendly, actors)
 {
     applyForce(actor.getVelocity());
-    this->maxSpeed = ActConf::MISSILE_MAX_MAXSPEED;
+    this->maxSpeed = ActConf::MISSILE_MAXSPEED;
 }
 
 Missile::Missile(const Missile &projectile) :

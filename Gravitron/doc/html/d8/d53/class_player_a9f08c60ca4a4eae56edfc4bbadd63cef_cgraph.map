@@ -1,4 +1,0 @@
-<map id="Player::getHealthPercentage" name="Player::getHealthPercentage">
-<area shape="rect" id="node2" href="$d2/d79/class_game_actor.html#a3ac80ca433821d22e545285c04cf38a1" title="GameActor::isKilled" alt="" coords="249,5,388,32"/>
-<area shape="rect" id="node3" href="$d2/d79/class_game_actor.html#a0e29a446b3247da54893ef12faa9eaaa" title="GameActor::getHealth" alt="" coords="243,56,395,83"/>
-</map>

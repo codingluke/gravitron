@@ -1,12 +1,12 @@
-#ifndef GAMEACTOR_HEADER
-#define GAMEACTOR_HEADER
+#ifndef GAMEACTOR_H
+#define GAMEACTOR_H
 #include "Vec3f.h"
 #include "GameActorView.h"
 #include <vector>
 #include "GameField.h"
 
 /**
- * This represents all objects within the game area. An ArrayList of
+ * This (abstract) class represents all objects within the game area. An ArrayList of
  * all GameActors will be handled by the main loop; adding, deleting
  * and updating all actors individually. Each GameActor has a pointer
  * to that list, enabling it, to add new GameActors on its own.

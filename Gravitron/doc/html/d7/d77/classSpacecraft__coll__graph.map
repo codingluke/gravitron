@@ -1,5 +1,0 @@
-<map id="Spacecraft" name="Spacecraft">
-<area shape="rect" id="node2" href="$d9/da2/classGameActor.html" title="{GameActor\n|# identifier\l# mass\l# health\l# gravitationRange\l# killed\l# g\l# maxSpeed\l# actors\l# id\l|+ GameActor()\l+ GameActor()\l+ GameActor()\l+ GameActor()\l+ operator==()\l+ operator=()\l+ getPosition()\l+ getAcceleration()\l+ getVelocity()\l+ getMass()\land 24 more...\l# calculateRotation()\l# radToDeg()\l&#45; initialize()\l&#45; initialize()\l}" alt="" coords="51,339,193,739"/>
-<area shape="rect" id="node3" href="$d7/d95/classGameField.html" title="{GameField\n|&#45; height\l&#45; width\l|+ GameField()\l+ GameField()\l+ setWidth()\l+ setHeight()\l+ getHeight()\l+ getWidth()\l}" alt="" coords="5,43,109,208"/>
-<area shape="rect" id="node4" href="$d1/db7/classVec3f.html" title="{Vec3f\n|+ v\l+ precision\l|+ Vec3f()\l+ Vec3f()\l+ operator[]()\l+ operator[]()\l+ operator*()\l+ operator/()\l+ operator+()\l+ operator&#45;()\l+ operator&#45;()\l+ operator*=()\land 11 more...\l}" alt="" coords="135,6,241,245"/>
-</map>

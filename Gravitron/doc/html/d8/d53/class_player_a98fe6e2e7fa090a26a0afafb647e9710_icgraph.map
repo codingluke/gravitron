@@ -1,5 +1,0 @@
-<map id="Player::pollRespawn" name="Player::pollRespawn">
-<area shape="rect" id="node2" href="$da/de9/class_a_i_player.html#a37a689ed5d72b91e9e1ea2465c9d9b33" title="AIPlayer::update" alt="" coords="230,5,349,32"/>
-<area shape="rect" id="node3" href="$df/dba/class_human_network_player.html#a3914e46fec4bd007fff44ec984599d94" title="HumanNetworkPlayer\l::processInput" alt="" coords="214,57,365,98"/>
-<area shape="rect" id="node4" href="$df/d74/class_human_player.html#a4298cb4a77be8ef79cc289baec199602" title="HumanPlayer::processInput" alt="" coords="197,123,381,149"/>
-</map>

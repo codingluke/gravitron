@@ -1,5 +1,0 @@
-<map id="Spacecraft::getView" name="Spacecraft::getView">
-<area shape="rect" id="node2" href="$d2/d33/classGameActorView.html#a89d3c6c159128714e6780c4fda51fdcd" title="GameActorView::setProperty" alt="" coords="197,5,389,32"/>
-<area shape="rect" id="node3" href="$d9/da2/classGameActor.html#a9f520d6799654aefd20c7a73d6c00f12" title="GameActor::calculateRotation" alt="" coords="195,56,392,83"/>
-<area shape="rect" id="node4" href="$d9/da2/classGameActor.html#aee1a09ea167d0cb5d7c2e9c381611405" title="GameActor::radToDeg" alt="" coords="441,56,594,83"/>
-</map>

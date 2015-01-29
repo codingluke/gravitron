@@ -1,5 +1,0 @@
-<map id="GameActor::getVelocity" name="GameActor::getVelocity">
-<area shape="rect" id="node2" href="$d9/da2/classGameActor.html#a9a8d567741b8120b48289897823d838e" title="GameActor::initialize" alt="" coords="217,5,359,32"/>
-<area shape="rect" id="node3" href="$d5/db6/classLaser.html#ac8b00c242912954900642b341d6e7337" title="Laser::Laser" alt="" coords="241,56,335,83"/>
-<area shape="rect" id="node4" href="$df/d60/classMissile.html#a5c947ed3d527a4ceed534a8280d2be5d" title="Missile::Missile" alt="" coords="232,107,344,133"/>
-</map>

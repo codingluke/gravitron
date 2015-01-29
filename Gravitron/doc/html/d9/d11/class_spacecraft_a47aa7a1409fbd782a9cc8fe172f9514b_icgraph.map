@@ -1,6 +1,0 @@
-<map id="Spacecraft::incKillPoints" name="Spacecraft::incKillPoints">
-<area shape="rect" id="node2" href="$db/dbe/class_projectile.html#a387fe8b69d5de229b8f26d21856cf463" title="Projectile::incKillPoints\lOfFriends" alt="" coords="219,49,375,90"/>
-<area shape="rect" id="node3" href="$d2/d4c/class_aim_missile.html#aedbbc65c9b383913d3a401bfba40cd4e" title="AimMissile::handleCollision" alt="" coords="425,5,607,32"/>
-<area shape="rect" id="node4" href="$d9/d89/class_laser.html#a6c26eb024fd0ae01920c299d1af2679d" title="Laser::handleCollision" alt="" coords="441,56,591,83"/>
-<area shape="rect" id="node5" href="$d5/ded/class_missile.html#a08f4b7e58d9382c46263677ac57c1efe" title="Missile::handleCollision" alt="" coords="437,107,595,133"/>
-</map>

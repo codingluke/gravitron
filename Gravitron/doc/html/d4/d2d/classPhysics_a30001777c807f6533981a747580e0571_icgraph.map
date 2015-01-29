@@ -1,5 +1,0 @@
-<map id="Physics::calculateGravitationForce" name="Physics::calculateGravitationForce">
-<area shape="rect" id="node2" href="$d9/da2/classGameActor.html#a2d3b93df5edf86dea7d65ab7dac0e3f7" title="GameActor::updateAll" alt="" coords="277,5,427,32"/>
-<area shape="rect" id="node3" href="$d8/d3f/classPhysics__tests.html#a976ba01007b2f2ab8cb78b68c609be56" title="Physics_tests::Physics\l_tests_calculateGravitationForce\l_gravitation" alt="" coords="245,56,459,112"/>
-<area shape="rect" id="node4" href="$d8/d3f/classPhysics__tests.html#a6fb2c813e18033b27ae6d37423bd0887" title="Physics_tests::Physics\l_tests_calculateGravitationForce\l_noGravitation" alt="" coords="245,136,459,192"/>
-</map>

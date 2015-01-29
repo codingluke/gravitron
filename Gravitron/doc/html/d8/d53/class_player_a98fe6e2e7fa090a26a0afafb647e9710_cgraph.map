@@ -1,6 +1,0 @@
-<map id="Player::pollRespawn" name="Player::pollRespawn">
-<area shape="rect" id="node2" href="$d9/d11/class_spacecraft.html#a42787ac2585d1826a3471fe38fdce9ae" title="Spacecraft::repair" alt="" coords="204,31,329,57"/>
-<area shape="rect" id="node5" href="$d2/d79/class_game_actor.html#a3ac80ca433821d22e545285c04cf38a1" title="GameActor::isKilled" alt="" coords="197,81,336,108"/>
-<area shape="rect" id="node3" href="$df/d9e/class_game_field.html#a4e64e71ba15b89734e6bbed36b8936a2" title="GameField::getWidth" alt="" coords="386,5,531,32"/>
-<area shape="rect" id="node4" href="$df/d9e/class_game_field.html#a7a551f2b02f8446903c636aa41c16341" title="GameField::getHeight" alt="" coords="384,56,533,83"/>
-</map>

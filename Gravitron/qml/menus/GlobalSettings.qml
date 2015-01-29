@@ -73,7 +73,7 @@ Column {
 
     Button {
         id: btn_language
-        text: SettingsFunctions.getLanguare()
+        text: SettingsFunctions.getLanguage()
         width: Global.buttonWidth
         height: Global.buttonHeight
         onClicked: SettingsFunctions.btn_languageClicked()

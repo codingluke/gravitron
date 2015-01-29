@@ -1,7 +1,0 @@
-<map id="Spacecraft::repair" name="Spacecraft::repair">
-<area shape="rect" id="node2" href="$d8/d53/class_player.html#a98fe6e2e7fa090a26a0afafb647e9710" title="Player::pollRespawn" alt="" coords="179,64,322,91"/>
-<area shape="rect" id="node6" href="$d8/d53/class_player.html#a038a74bd768b6eec8fbe57cb2bacf811" title="Player::respawn" alt="" coords="193,115,309,141"/>
-<area shape="rect" id="node3" href="$da/de9/class_a_i_player.html#a37a689ed5d72b91e9e1ea2465c9d9b33" title="AIPlayer::update" alt="" coords="403,5,522,32"/>
-<area shape="rect" id="node4" href="$df/dba/class_human_network_player.html#a3914e46fec4bd007fff44ec984599d94" title="HumanNetworkPlayer\l::processInput" alt="" coords="387,57,538,98"/>
-<area shape="rect" id="node5" href="$df/d74/class_human_player.html#a4298cb4a77be8ef79cc289baec199602" title="HumanPlayer::processInput" alt="" coords="371,123,555,149"/>
-</map>

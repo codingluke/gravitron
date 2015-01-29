@@ -1,5 +1,0 @@
-<map id="Physics::collisionDetection" name="Physics::collisionDetection">
-<area shape="rect" id="node2" href="$d9/da2/classGameActor.html#a2d3b93df5edf86dea7d65ab7dac0e3f7" title="GameActor::updateAll" alt="" coords="243,5,394,32"/>
-<area shape="rect" id="node3" href="$d8/d3f/classPhysics__tests.html#a2059ab20b93df566cc2cb626ea13eb87" title="Physics_tests::Physics\l_tests_collisionDetection\l_colliton" alt="" coords="235,56,403,112"/>
-<area shape="rect" id="node4" href="$d8/d3f/classPhysics__tests.html#a960fc97820570e7586bf62d9f0bb3481" title="Physics_tests::Physics\l_tests_collisionDetection\l_noCollition" alt="" coords="235,136,403,192"/>
-</map>

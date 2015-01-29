@@ -1,6 +1,0 @@
-<map id="Physics::distance" name="Physics::distance">
-<area shape="rect" id="node2" href="$d2/d79/class_game_actor.html#a46068d92a30316a1bc86b3812fd255ce" title="GameActor::getDistance" alt="" coords="194,5,361,32"/>
-<area shape="rect" id="node3" href="$dd/dda/class_physics.html#a30001777c807f6533981a747580e0571" title="Physics::calculateGravitation\lForce" alt="" coords="181,57,373,98"/>
-<area shape="rect" id="node5" href="$dd/dda/class_physics.html#af54aa8e22ae3ee8b8a4201e71df6cd63" title="Physics::collisionDetection" alt="" coords="187,123,367,149"/>
-<area shape="rect" id="node4" href="$d2/d79/class_game_actor.html#a2d3b93df5edf86dea7d65ab7dac0e3f7" title="GameActor::updateAll" alt="" coords="422,93,573,120"/>
-</map>

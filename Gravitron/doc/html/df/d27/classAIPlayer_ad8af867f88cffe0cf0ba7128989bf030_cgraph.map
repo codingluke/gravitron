@@ -1,7 +1,0 @@
-<map id="AIPlayer::shoot" name="AIPlayer::shoot">
-<area shape="rect" id="node2" href="$d5/da7/classSpacecraft.html#a611409c0d69415ada78ed98d187f0e34" title="Spacecraft::shootDown" alt="" coords="166,5,325,32"/>
-<area shape="rect" id="node4" href="$d5/da7/classSpacecraft.html#a904607a42543375dd596aadeef7a5ce4" title="Spacecraft::shootLeft" alt="" coords="172,56,319,83"/>
-<area shape="rect" id="node5" href="$d5/da7/classSpacecraft.html#a7c626770ca1f4aa24229e72756150f2d" title="Spacecraft::shootRight" alt="" coords="167,107,323,133"/>
-<area shape="rect" id="node6" href="$d5/da7/classSpacecraft.html#a89125988749b1ee29bf1d3f186bc7dd6" title="Spacecraft::shootUp" alt="" coords="174,157,317,184"/>
-<area shape="rect" id="node3" href="$d9/da2/classGameActor.html#a8a0ca1b6866225d66df2381649bdc601" title="GameActor::getPosition" alt="" coords="374,81,535,108"/>
-</map>

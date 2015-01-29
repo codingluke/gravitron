@@ -62,22 +62,14 @@ public:
 	static constexpr float SPACECRAFT_MIN_HEALTH = 300;
 	static constexpr float SPACECRAFT_COLLISION_DAMAGE = 10;
 
-	static constexpr float MISSILE_MAX_MASS = 0.5;
-	static constexpr float MISSILE_MIN_MASS = 0.5;
-	static constexpr float MISSILE_MAX_G = 0;
-	static constexpr float MISSILE_MIN_G = 0;
-	static constexpr float MISSILE_MAX_GRAVITATION_RANGE = 0;
-	static constexpr float MISSILE_MIN_GRAVITATION_RANGE = 0;
-	static constexpr float MISSILE_MAX_MAXSPEED = 15;
-	static constexpr float MISSILE_MIN_MAXSPEED = 15;
-	static constexpr float MISSILE_MAX_RADIUS = 10;
-	static constexpr float MISSILE_MIN_RADIUS = 10;
-	static constexpr float MISSILE_MAX_HEALTH = 40;
-	static constexpr float MISSILE_MIN_HEALTH = 40;
-	static constexpr float MISSILE_MAX_POWER = 70;
-	static constexpr float MISSILE_MIN_POWER = 70;
-	static constexpr float MISSILE_DAMAGE = 50;
-
+	static constexpr float MISSILE_MASS = 1;
+	static constexpr float MISSILE_G = 0;
+	static constexpr float MISSILE_GRAVITATION_RANGE = 0;
+	static constexpr float MISSILE_MAXSPEED = 15;
+	static constexpr float MISSILE_RADIUS = 10;
+	static constexpr float MISSILE_HEALTH = 5;
+	static constexpr float MISSILE_DAMAGE = 20;
+	static constexpr float MISSILE_TIME_TO_LIVE = 300;
 
 	static constexpr float AIM_MISSILE_MAX_MASS = 0.5;
 	static constexpr float AIM_MISSILE_MIN_MASS = 0.5;

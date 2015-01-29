@@ -1,5 +1,0 @@
-<map id="TcpClient::transfer" name="TcpClient::transfer">
-<area shape="rect" id="node2" href="$dd/d1f/class_game.html#aab513bbe5db45b1f9dba205d0ddec74e" title="Game::renderRemote" alt="" coords="184,5,331,32"/>
-<area shape="rect" id="node4" href="$d3/d4d/class_tcp_client.html#ac893e0e784ed793d6d86447a8d63a193" title="TcpClient::transfer" alt="" coords="192,56,323,83"/>
-<area shape="rect" id="node3" href="$dd/d1f/class_game.html#a25c97b9eb158946f4b10993dfc3cf6f3" title="Game::startClient" alt="" coords="379,5,504,32"/>
-</map>

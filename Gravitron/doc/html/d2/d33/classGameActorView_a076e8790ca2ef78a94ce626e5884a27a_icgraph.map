@@ -1,5 +1,0 @@
-<map id="GameActorView::split" name="GameActorView::split">
-<area shape="rect" id="node2" href="$d2/d33/classGameActorView.html#a36cb82690cbaf53296a1b24d32a36140" title="GameActorView::fromString" alt="" coords="203,5,389,32"/>
-<area shape="rect" id="node3" href="$d9/d68/classGame.html#aab513bbe5db45b1f9dba205d0ddec74e" title="Game::renderRemote" alt="" coords="437,5,584,32"/>
-<area shape="rect" id="node4" href="$d9/d68/classGame.html#a25c97b9eb158946f4b10993dfc3cf6f3" title="Game::startClient" alt="" coords="632,5,757,32"/>
-</map>

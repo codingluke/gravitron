@@ -24,7 +24,7 @@ QDataStream& operator<< (QDataStream& stream, const GravitronSettings& settings)
     stream << settings.mAstroidCount;
     stream << settings.mFrag;
     stream << settings.mRespawTime;
-    stream << settings.mLanguare;
+    stream << settings.mLanguage;
     stream << settings.mNetwork;
     return stream;
 }
@@ -43,7 +43,7 @@ QDataStream& operator>> (QDataStream& stream, GravitronSettings& settings)
     stream >> settings.mAstroidCount;
     stream >> settings.mFrag;
     stream >> settings.mRespawTime;
-    stream >> settings.mLanguare;
+    stream >> settings.mLanguage;
     stream >> settings.mNetwork;
     return stream;
 }
@@ -74,7 +74,7 @@ void GravitronSettings::setDefaultSettings() {
     mAstroidCount = 10;
     mFrag = 3;
     mRespawTime = 30;
-    mLanguare = "en";
+    mLanguage = "en";
     mNetwork = false;
 }
 
@@ -209,14 +209,14 @@ void GravitronSettings::setRespawTime(const int& source) {
     emit respawTimeChanged(source);
 }
 
-QString GravitronSettings::languare() const {
-    return mLanguare;
+QString GravitronSettings::language() const {
+    return mLanguage;
 }
 
-void GravitronSettings::setLanguare(const QString& source) {
-    mLanguare = source;
+void GravitronSettings::setLanguage(const QString& source) {
+    mLanguage = source;
     save();
-    emit languareChanged(source);
+    emit languageChanged(source);
 }
 
 bool GravitronSettings::network() const {

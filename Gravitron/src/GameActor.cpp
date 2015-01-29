@@ -304,7 +304,7 @@ void GameActor::setG(float g)
 
 /**
  * Sets the maximum speed to a given value.
- * @param g the value to set
+ * @param maxSpeed the value to set
  */
 void GameActor::setMaxSpeed(float maxSpeed)
 {
@@ -321,8 +321,8 @@ int GameActor::getHealth() const
 }
 
 /**
- * Sets the  to a given value.
- * @param g the value to set
+ * Sets the health to a given value.
+ * @param health the value to set
  */
 void GameActor::setHealth(int health)
 {

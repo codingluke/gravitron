@@ -1,24 +1,24 @@
-#include "headers/Locater.h"
+#include "headers/Locator.h"
 #include <QTranslator>
 #include <QLocale>
 #include <QString>
 
-Locater::Locater(GravitronSettings& _settings, QGuiApplication& _app):settings(_settings),app(_app) {
-    connect(&settings, SIGNAL(languareChanged(const QString&)), this, SLOT(loadLanguare(const QString&)));
+Locator::Locator(GravitronSettings& _settings, QGuiApplication& _app):settings(_settings),app(_app) {
+    connect(&settings, SIGNAL(languageChanged(const QString&)), this, SLOT(loadLanguage(const QString&)));
     this->translator = new QTranslator();
 }
 
-Locater::~Locater() {
+Locator::~Locator() {
     delete translator;
 }
 
-void Locater::loadLanguare(const QString& source) {
+void Locator::loadLanguage(const QString& source) {
     QString locale = "gravitron_" + source;
     app.removeTranslator(translator);
     if(translator->load(locale, ":/translations")) {
         app.installTranslator(translator);
     } else {
-        translator->load("gravitron_"+settings.languare(), ":/translations");
+        translator->load("gravitron_"+settings.language(), ":/translations");
         app.installTranslator(translator);
     }
 }

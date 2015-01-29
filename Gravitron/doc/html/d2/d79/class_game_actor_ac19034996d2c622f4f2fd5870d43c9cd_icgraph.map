@@ -1,4 +1,0 @@
-<map id="GameActor::getMass" name="GameActor::getMass">
-<area shape="rect" id="node2" href="$dd/dda/class_physics.html#a30001777c807f6533981a747580e0571" title="Physics::calculateGravitation\lForce" alt="" coords="200,5,392,46"/>
-<area shape="rect" id="node3" href="$d2/d79/class_game_actor.html#a2d3b93df5edf86dea7d65ab7dac0e3f7" title="GameActor::updateAll" alt="" coords="441,12,591,39"/>
-</map>
