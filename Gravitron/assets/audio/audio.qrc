@@ -1,5 +1,0 @@
-<RCC>
-    <qresource prefix="/audio">
-        <file alias="menuBackgroundMusic">zagi2_strings_loop_3.wav</file>
-    </qresource>
-</RCC>

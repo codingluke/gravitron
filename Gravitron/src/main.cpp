@@ -40,10 +40,12 @@ int main(int argc, char *argv[])
     MenuListener mListener(&settings); // = MenuListener(&settings);
     engine.rootContext()->setContextProperty("Settings", &settings);
     engine.rootContext()->setContextProperty("MListener", &mListener);
+    engine.rootContext()->setContextProperty("applicationDirPath", QGuiApplication::applicationDirPath());
 
     // Add Game
     Game game(&engine, &settings);
     engine.rootContext()->setContextProperty("Game", &game);
+
 
     // Add TCP
     TcpServer server;

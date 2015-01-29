@@ -3,6 +3,7 @@ function btn_newGameClicked(){
 }
 
 function btn_startGameClicked() {
+    main_audioPlayer.stop();
     scrollView.visible = false;
     loader.visible = true;
     loader.source = "../Game.qml";
@@ -12,6 +13,7 @@ function btn_startGameClicked() {
 
 function btn_startMultiplayerGameClicked() {
     console.log("start game");
+    main_audioPlayer.stop();
     scrollView.visible = false;
     loader.visible = true;
     loader.source = "../Game.qml";
@@ -21,6 +23,7 @@ function btn_startMultiplayerGameClicked() {
 
 function btn_joinMultiplayerGameClicked() {
     console.log("join game");
+    main_audioPlayer.stop();
     scrollView.visible = false;
     loader.visible = true;
     loader.source = "../Game.qml";
