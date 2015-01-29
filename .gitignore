@@ -7,4 +7,4 @@ settings.save
 .DS_Store
 Gravitron/.DS_Store
 Gravitron/src/.DS_Store
-Gravitron/doc/
+Gravitron/doc/html
