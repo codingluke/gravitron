@@ -10,6 +10,7 @@ Window {
     visible: true
     width: 1000
     height: 1000
+    visibility: (Settings.fullScreen === true) ? "FullScreen" : "Windowed";
     
     //Image {
         //id: img_backgrond
@@ -29,7 +30,6 @@ Window {
     Rectangle {
       color: "#ccc"
       width: parent.width
-      //anchors.top: parent
       height: 60
       z: 2
 

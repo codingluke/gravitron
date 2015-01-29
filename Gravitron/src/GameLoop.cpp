@@ -104,7 +104,7 @@ void GameLoop::run()
         checkWinner();
     }
 }
- 
+
 void GameLoop::stop()
 {
     running = false;
@@ -113,6 +113,14 @@ void GameLoop::stop()
 void GameLoop::checkWinner()
 {
     for (Player* p : player) {
+        if (p->isWinner()) {
+            emit theWinnerIs("The Winner is " + p->getPlayerName());
+            emit sendViewlist("cwinner:The Winner Is " + p->getPlayerName() + "\n");
+            QThread::msleep(10);
+            stop();
+        }
+    }
+    for (Player* p : bots) {
         if (p->isWinner()) {
             emit theWinnerIs("The Winner is " + p->getPlayerName());
             emit sendViewlist("cwinner:The Winner Is " + p->getPlayerName() + "\n");
