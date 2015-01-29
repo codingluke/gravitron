@@ -1,9 +1,0 @@
-<map id="src/InputHandler.cpp" name="src/InputHandler.cpp">
-<area shape="rect" id="node2" href="$_input_handler_8h.html" title="headers/InputHandler.h" alt="" coords="92,79,252,104"/>
-<area shape="rect" id="node6" href="$_spacecraft_8h.html" title="Spacecraft.h" alt="" coords="255,152,351,177"/>
-<area shape="rect" id="node7" href="$_game_actor_8h.html" title="GameActor.h" alt="" coords="204,299,303,324"/>
-<area shape="rect" id="node15" href="$_game_field_8h.html" title="GameField.h" alt="" coords="377,372,475,397"/>
-<area shape="rect" id="node16" href="$_projectile_8h.html" title="Projectile.h" alt="" coords="178,225,265,251"/>
-<area shape="rect" id="node8" href="$_vec3f_8h.html" title="Vec3f.h" alt="" coords="288,372,353,397"/>
-<area shape="rect" id="node11" href="$_game_actor_view_8h.html" title="GameActorView.h" alt="" coords="135,372,263,397"/>
-</map>

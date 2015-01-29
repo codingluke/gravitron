@@ -1,20 +1,7 @@
 var searchData=
 [
-  ['_7eaimmissile',['~AimMissile',['../class_aim_missile.html#af79533845bd96620371edc6b97c4963f',1,'AimMissile']]],
-  ['_7egame',['~Game',['../class_game.html#ae3d112ca6e0e55150d2fdbc704474530',1,'Game']]],
-  ['_7egameactor',['~GameActor',['../class_game_actor.html#a7becf6889c14e7df17e31ba0a3329d32',1,'GameActor']]],
-  ['_7egamegenerator',['~GameGenerator',['../class_game_generator.html#a2376a3b5b93faf7c1c592cb70297fd7c',1,'GameGenerator']]],
-  ['_7egameloop',['~GameLoop',['../class_game_loop.html#ae6c558d0d751a068dbafe2cae465ec1f',1,'GameLoop']]],
-  ['_7ehumannetworkplayer',['~HumanNetworkPlayer',['../class_human_network_player.html#ab8d3f49f7ab1c7157efdd0b949a52045',1,'HumanNetworkPlayer']]],
-  ['_7ehumanplayer',['~HumanPlayer',['../class_human_player.html#abdeb9d120fc74c8d82ec0c688883f16f',1,'HumanPlayer']]],
-  ['_7ekinetworkplayer',['~KiNetworkPlayer',['../class_ki_network_player.html#a17b29f3b7e63969d96ab0e5328c932c9',1,'KiNetworkPlayer']]],
-  ['_7ekiplayer',['~KiPlayer',['../class_ki_player.html#a39d044891328faf5729f51da98a243da',1,'KiPlayer']]],
-  ['_7elaser',['~Laser',['../class_laser.html#aa9baee5ed9775426e0b1d563c4687711',1,'Laser']]],
-  ['_7elocater',['~Locater',['../class_locater.html#a53011545ad9a0d05c3ec5c615b4c8ad3',1,'Locater']]],
-  ['_7emissile',['~Missile',['../class_missile.html#ad42379e48a46ec3556056f98ce8bd912',1,'Missile']]],
-  ['_7eplayer',['~Player',['../class_player.html#a749d2c00e1fe0f5c2746f7505a58c062',1,'Player']]],
-  ['_7eprojectile',['~Projectile',['../class_projectile.html#a94903e021fa2edab60ba3836ca0b937d',1,'Projectile']]],
-  ['_7espacecraft',['~Spacecraft',['../class_spacecraft.html#ac0e87c9c8fae261371f401895e428f96',1,'Spacecraft']]],
-  ['_7etcpclient',['~TcpClient',['../class_tcp_client.html#a125d2277f401cbdebadb9689a5933e18',1,'TcpClient']]],
-  ['_7etcpserver',['~TcpServer',['../class_tcp_server.html#a728a9e31c53cf86887f1f6149b1c46dd',1,'TcpServer']]]
+  ['weapon',['weapon',['../d5/da7/classSpacecraft.html#ac719ce92df077e6c2d96a4cb6119b201',1,'Spacecraft']]],
+  ['width',['width',['../d7/d95/classGameField.html#a5f1d70878b9622a29bc35644667a1f16',1,'GameField']]],
+  ['window_5fheight',['window_height',['../d9/d68/classGame.html#a82eb5c8d91ae25eeed125235b74cd9d4',1,'Game']]],
+  ['window_5fwidth',['window_width',['../d9/d68/classGame.html#a188280bfadd2017647f5dd404c52d589',1,'Game']]]
 ];

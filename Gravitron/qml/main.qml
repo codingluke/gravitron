@@ -17,6 +17,7 @@ Window {
        source: "file:" + applicationDirPath + "/assets/audio/dambient__8-bit-loop.mp3"
        autoLoad: true
        autoPlay: true
+       volume: Settings.musicSoundVolume
        loops: Audio.Infinite
     }
 

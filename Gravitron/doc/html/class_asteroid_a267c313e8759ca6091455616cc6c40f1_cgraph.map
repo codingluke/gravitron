@@ -1,5 +1,0 @@
-<map id="Asteroid::getView" name="Asteroid::getView">
-<area shape="rect" id="node2" href="$class_game_actor_view.html#a89d3c6c159128714e6780c4fda51fdcd" title="GameActorView::setProperty" alt="" coords="181,5,374,31"/>
-<area shape="rect" id="node3" href="$class_game_actor.html#a9f520d6799654aefd20c7a73d6c00f12" title="GameActor::calculateRotation" alt="" coords="178,55,377,80"/>
-<area shape="rect" id="node4" href="$class_game_actor.html#aee1a09ea167d0cb5d7c2e9c381611405" title="GameActor::radToDeg" alt="" coords="425,55,579,80"/>
-</map>

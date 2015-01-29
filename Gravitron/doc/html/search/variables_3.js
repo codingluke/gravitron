@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['g',['g',['../class_game_actor.html#a42ed4bef0d99cf053ff9a025c86d34d3',1,'GameActor']]],
-  ['gravitationrange',['gravitationRange',['../class_game_actor.html#a9c0ba51b08a3e617d9629c0ee8d309f2',1,'GameActor']]]
+  ['d',['d',['../dc/d90/classPlane.html#a61fc789fce8fbe72914f5397f1bbed44',1,'Plane']]],
+  ['difficulty',['difficulty',['../df/d27/classAIPlayer.html#ae4bc7d7fef8e20ac68867af09b365e21',1,'AIPlayer']]]
 ];

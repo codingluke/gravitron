@@ -1,7 +1,0 @@
-<map id="src/headers/Spacecraft.h" name="src/headers/Spacecraft.h">
-<area shape="rect" id="node2" href="$_game_actor_8h.html" title="GameActor.h" alt="" coords="137,152,236,177"/>
-<area shape="rect" id="node10" href="$_game_field_8h.html" title="GameField.h" alt="" coords="329,225,427,251"/>
-<area shape="rect" id="node11" href="$_projectile_8h.html" title="Projectile.h" alt="" coords="101,79,188,104"/>
-<area shape="rect" id="node3" href="$_vec3f_8h.html" title="Vec3f.h" alt="" coords="240,225,306,251"/>
-<area shape="rect" id="node6" href="$_game_actor_view_8h.html" title="GameActorView.h" alt="" coords="88,225,215,251"/>
-</map>

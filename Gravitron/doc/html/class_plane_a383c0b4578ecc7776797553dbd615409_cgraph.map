@@ -1,7 +1,0 @@
-<map id="Plane::fromPointAndNormal" name="Plane::fromPointAndNormal">
-<area shape="rect" id="node2" href="$class_vec3f.html#a7532bd9c039aee160a7347e63ef07217" title="Vec3f::normalize" alt="" coords="240,29,360,55"/>
-<area shape="rect" id="node6" href="$class_vec3f.html#a4be996396b524f4f55c50a2cb2a80809" title="Vec3f::dot" alt="" coords="260,79,340,104"/>
-<area shape="rect" id="node3" href="$class_vec3f.html#af736ea593ed963c40c8776d4014d4e79" title="Vec3f::magnitude" alt="" coords="408,5,532,31"/>
-<area shape="rect" id="node5" href="$class_vec3f.html#af874d7517d0a628834c6d753aa516325" title="Vec3f::Vec3f" alt="" coords="422,55,518,80"/>
-<area shape="rect" id="node4" href="$class_vec3f.html#aa4cc7ae415806c6b831218fde0624598" title="Vec3f::magnitudeSquared" alt="" coords="580,5,755,31"/>
-</map>

@@ -1,9 +1,0 @@
-<map id="GameActor::update" name="GameActor::update">
-<area shape="rect" id="node2" href="$class_game_actor.html#a3ac80ca433821d22e545285c04cf38a1" title="GameActor::isKilled" alt="" coords="197,5,335,31"/>
-<area shape="rect" id="node3" href="$class_vec3f.html#af736ea593ed963c40c8776d4014d4e79" title="Vec3f::magnitude" alt="" coords="389,57,514,83"/>
-<area shape="rect" id="node5" href="$class_vec3f.html#a7532bd9c039aee160a7347e63ef07217" title="Vec3f::normalize" alt="" coords="206,107,326,132"/>
-<area shape="rect" id="node7" href="$class_game_field.html#a4e64e71ba15b89734e6bbed36b8936a2" title="GameField::getWidth" alt="" coords="193,156,339,181"/>
-<area shape="rect" id="node8" href="$class_game_field.html#a7a551f2b02f8446903c636aa41c16341" title="GameField::getHeight" alt="" coords="190,205,341,231"/>
-<area shape="rect" id="node4" href="$class_vec3f.html#aa4cc7ae415806c6b831218fde0624598" title="Vec3f::magnitudeSquared" alt="" coords="562,57,736,83"/>
-<area shape="rect" id="node6" href="$class_vec3f.html#af874d7517d0a628834c6d753aa516325" title="Vec3f::Vec3f" alt="" coords="404,107,499,132"/>
-</map>

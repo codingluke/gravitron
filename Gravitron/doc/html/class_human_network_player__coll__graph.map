@@ -1,8 +1,0 @@
-<map id="HumanNetworkPlayer" name="HumanNetworkPlayer">
-<area shape="rect" id="node2" href="$class_human_player.html" title="HumanPlayer" alt="" coords="30,355,132,380"/>
-<area shape="rect" id="node3" href="$class_player.html" title="Player" alt="" coords="51,280,110,305"/>
-<area shape="rect" id="node5" href="$class_spacecraft.html" title="Spacecraft" alt="" coords="104,193,189,219"/>
-<area shape="rect" id="node6" href="$class_game_actor.html" title="GameActor" alt="" coords="102,119,191,144"/>
-<area shape="rect" id="node7" href="$class_game_field.html" title="GameField" alt="" coords="56,5,143,31"/>
-<area shape="rect" id="node8" href="$class_vec3f.html" title="Vec3f" alt="" coords="167,5,222,31"/>
-</map>

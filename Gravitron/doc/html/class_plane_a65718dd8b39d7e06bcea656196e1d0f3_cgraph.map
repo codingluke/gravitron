@@ -1,9 +1,0 @@
-<map id="Plane::fromPointAndVectors" name="Plane::fromPointAndVectors">
-<area shape="rect" id="node2" href="$class_vec3f.html#adf78d471e54893a6ef8031f1dfb83dff" title="Vec3f::cross" alt="" coords="288,5,382,31"/>
-<area shape="rect" id="node4" href="$class_plane.html#a383c0b4578ecc7776797553dbd615409" title="Plane::fromPointAndNormal" alt="" coords="241,55,428,80"/>
-<area shape="rect" id="node3" href="$class_vec3f.html#af874d7517d0a628834c6d753aa516325" title="Vec3f::Vec3f" alt="" coords="658,5,754,31"/>
-<area shape="rect" id="node5" href="$class_vec3f.html#a7532bd9c039aee160a7347e63ef07217" title="Vec3f::normalize" alt="" coords="476,55,596,80"/>
-<area shape="rect" id="node8" href="$class_vec3f.html#a4be996396b524f4f55c50a2cb2a80809" title="Vec3f::dot" alt="" coords="496,104,576,129"/>
-<area shape="rect" id="node6" href="$class_vec3f.html#af736ea593ed963c40c8776d4014d4e79" title="Vec3f::magnitude" alt="" coords="644,55,768,80"/>
-<area shape="rect" id="node7" href="$class_vec3f.html#aa4cc7ae415806c6b831218fde0624598" title="Vec3f::magnitudeSquared" alt="" coords="816,55,991,80"/>
-</map>

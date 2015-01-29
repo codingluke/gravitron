@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['inputhandler',['InputHandler',['../class_input_handler.html',1,'']]]
+  ['inputhandler',['InputHandler',['../db/df6/classInputHandler.html',1,'']]]
 ];

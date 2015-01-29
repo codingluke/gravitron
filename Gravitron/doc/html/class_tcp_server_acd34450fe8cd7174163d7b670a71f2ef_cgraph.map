@@ -1,5 +1,0 @@
-<map id="TcpServer::startListen" name="TcpServer::startListen">
-<area shape="rect" id="node2" href="$class_tcp_server.html#a28472f8ff11060cf40b49ad95f0af775" title="TcpServer::acceptConnection" alt="" coords="204,31,399,56"/>
-<area shape="rect" id="node3" href="$class_tcp_server.html#aa265098a4a7e9bdcf624068f6640e0a5" title="TcpServer::startRead" alt="" coords="447,5,594,31"/>
-<area shape="rect" id="node4" href="$class_tcp_server.html#a3980ff848a8434857de6afac4971ada7" title="TcpServer::transfer" alt="" coords="453,55,587,80"/>
-</map>

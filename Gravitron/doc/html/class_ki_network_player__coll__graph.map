@@ -1,8 +1,0 @@
-<map id="KiNetworkPlayer" name="KiNetworkPlayer">
-<area shape="rect" id="node2" href="$class_ki_player.html" title="KiPlayer" alt="" coords="154,355,225,380"/>
-<area shape="rect" id="node3" href="$class_player.html" title="Player" alt="" coords="96,280,155,305"/>
-<area shape="rect" id="node5" href="$class_spacecraft.html" title="Spacecraft" alt="" coords="99,193,184,219"/>
-<area shape="rect" id="node6" href="$class_game_actor.html" title="GameActor" alt="" coords="157,119,246,144"/>
-<area shape="rect" id="node7" href="$class_game_field.html" title="GameField" alt="" coords="112,5,198,31"/>
-<area shape="rect" id="node8" href="$class_vec3f.html" title="Vec3f" alt="" coords="222,5,277,31"/>
-</map>

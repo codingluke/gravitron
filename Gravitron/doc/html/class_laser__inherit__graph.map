@@ -1,4 +1,0 @@
-<map id="Laser" name="Laser">
-<area shape="rect" id="node2" href="$class_projectile.html" title="Projectile" alt="" coords="12,79,88,104"/>
-<area shape="rect" id="node3" href="$class_game_actor.html" title="GameActor" alt="" coords="5,5,94,31"/>
-</map>

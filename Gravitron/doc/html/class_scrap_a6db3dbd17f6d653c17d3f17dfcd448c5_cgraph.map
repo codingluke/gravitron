@@ -1,5 +1,0 @@
-<map id="Scrap::handleCollision" name="Scrap::handleCollision">
-<area shape="rect" id="node2" href="$class_game_actor.html#a168ddb4dda02a8dd734f35d61e325de9" title="GameActor::dealDamage" alt="" coords="207,5,379,31"/>
-<area shape="rect" id="node3" href="$class_game_actor.html#a633b34eb69ad05477fd1d5b5de3c17b8" title="GameActor::kill" alt="" coords="427,5,539,31"/>
-<area shape="rect" id="node4" href="$class_game_actor.html#a00cdd692fae4de9fb4ce6b2748754744" title="GameActor::handleKill" alt="" coords="587,5,741,31"/>
-</map>

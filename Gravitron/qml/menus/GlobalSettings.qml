@@ -54,30 +54,12 @@ Column {
         width: Global.sliderWidth
         height: Global.sliderHeight
         tickmarksEnabled: false
-        stepSize: 1
+        stepSize: 0.05
         activeFocusOnPress: true
         minimumValue: 0
         value: SettingsFunctions.getSlideMusicSoundVolumeVlaue()
-        maximumValue: 100
+        maximumValue: 1
         onPressedChanged: SettingsFunctions.slide_musicSoundVolumeChanged()
-    }
-
-    Button {
-        id: btn_playMusic
-        width: Global.buttonWidth
-        height: Global.buttonHeight
-        text: SettingsFunctions.getBtnPlayMusicText()
-        onClicked: SettingsFunctions.btn_playMusicClicked()
-        style: BtnStyle { text: btn_playMusic.text }
-    }
-
-    Button {
-        id: btn_playSounds
-        width: Global.buttonWidth
-        height: Global.buttonHeight
-        text: SettingsFunctions.getBtnPlaySoundsText()
-        onClicked: SettingsFunctions.btn_playSoundsClicked()
-        style: BtnStyle { text: btn_playSounds.text }
     }
 
     TextField {

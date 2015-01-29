@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['target',['target',['../class_ki_player.html#ade46a263a1242d7fa6e20d72008437ab',1,'KiPlayer']]]
+  ['name',['name',['../d2/d4b/classPlayer.html#ac41b72814d9c41222dac999bc874280b',1,'Player::name()'],['../d5/da7/classSpacecraft.html#ad8bf0a82c4ce80dc74de8c3f4ff06c06',1,'Spacecraft::name()']]]
 ];

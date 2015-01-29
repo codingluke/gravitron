@@ -19,7 +19,7 @@ class GravitronSettings : public QObject
            WRITE setFullScreen
            NOTIFY fullScreenChanged)
 
-    Q_PROPERTY(int musicSoundVolume
+    Q_PROPERTY(float musicSoundVolume
            READ musicSoundVolume
            WRITE setMusicSoundVolume
            NOTIFY musicSoundVolumeChanged)
@@ -85,8 +85,8 @@ class GravitronSettings : public QObject
         Q_INVOKABLE void setDifficulty(const int& source);
         Q_INVOKABLE int fullScreen() const;
         Q_INVOKABLE void setFullScreen(const bool& source);
-        Q_INVOKABLE int musicSoundVolume() const;
-        Q_INVOKABLE void setMusicSoundVolume(const int& source);
+        Q_INVOKABLE float musicSoundVolume() const;
+        Q_INVOKABLE void setMusicSoundVolume(const float& source);
         Q_INVOKABLE bool playMusic() const;
         Q_INVOKABLE void setPlayMusic(const bool& source);
         Q_INVOKABLE bool playSounds() const;
@@ -121,7 +121,7 @@ class GravitronSettings : public QObject
     signals:
         void difficultyChanged(const int& source);
         void fullScreenChanged(const bool& source);
-        void musicSoundVolumeChanged(const int& source);
+        void musicSoundVolumeChanged(const float& source);
         void playMusicChanged(const bool& source);
         void playSoundsChanged(const bool& source);
         void playerNameChanged(const QString& source);
@@ -137,7 +137,7 @@ class GravitronSettings : public QObject
     private:
         int mDifficulty;
         bool mFullScreen;
-        int mMusicSoundVolume;
+        float mMusicSoundVolume;
         bool mPlayMusic;
         bool mPlaySounds;
         QString mPlayerName;

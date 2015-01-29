@@ -109,11 +109,11 @@ void GravitronSettings::setFullScreen(const bool& source){
     emit fullScreenChanged(source);
 }
 
-int GravitronSettings::musicSoundVolume() const{
+float GravitronSettings::musicSoundVolume() const{
     return mMusicSoundVolume;
 }
 
-void GravitronSettings::setMusicSoundVolume(const int& source){
+void GravitronSettings::setMusicSoundVolume(const float& source){
     mMusicSoundVolume = source;
     save();
     emit musicSoundVolumeChanged(source);

@@ -19,6 +19,7 @@ Rectangle {
        source: "file:" + applicationDirPath + "/assets/audio/edtijo__happy-8bit-pixel-adenture.wav"
        autoLoad: true
        autoPlay: true
+       volume: Settings.musicSoundVolume
        loops: Audio.Infinite
     }
 
