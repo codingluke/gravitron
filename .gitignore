@@ -8,3 +8,4 @@ settings.save
 Gravitron/.DS_Store
 Gravitron/src/.DS_Store
 Gravitron/doc/html
+Gravitron/doc/*.pdf
