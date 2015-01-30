@@ -2,19 +2,24 @@
 % Lukas Hodel; Robert Kasseck; Richard Remus
 % 29. Januar 2015
 
-#Idee
-Um die Größe unserer Projektgruppe zu legitimieren, galt es ein Projekt mit hinreichender Komplexität zu finden. Bald hatten wir uns für ein selbst gestaltetes Spiel entschieden. Da wir uns bis zu diesem Zeitpunkt noch nicht mit Echtzeitspielen beschäftigt hatten, fanden wir diesen Bereich recht interessant. Auch wollten wir ein bisschen Physik in den Spielablauf einbringen. Wir einigten uns bald darauf, einen 2d-Weltraum-Shooter zu entwickeln. Darin sollte es darum gehen gegnerische in einem Spielfeld zu bekämpfen, in welchem Planeten und Sonnen die Schussbahn der Projektile beeinflussen können. Ziel des Spiels sollte es sein, als erster einen zuvor vereinbarte Zahl von Abschüssen zu erreichen. Zusätzlich sollte das Spiel über das Netzwerk spielbar sein und auch über optionale, vom Computer gesteuerte Gegner beinhalten.
+#Vorbereitung des Projektes
 
-#Anforderungen
+##Idee
+Um die Größe unserer Projektgruppe zu legitimieren, galt es ein Projekt mit hinreichender Komplexität zu finden. Bald hatten wir uns für ein selbst gestaltetes Spiel entschieden. Da wir uns bis zu diesem Zeitpunkt noch nicht mit Echtzeitspielen beschäftigt hatten, fanden wir diesen Bereich recht interessant. Auch wollten wir ein bisschen Physik in den Spielablauf einbringen. Wir einigten uns bald darauf, einen 2d-Weltraum-Shooter zu entwickeln. Darin sollte es darum gehen gegnerische in einem Spielfeld zu bekämpfen, in welchem Planeten und Sonnen die Schussbahn der Projektile beeinflussen können. Ziel des Spiels sollte es sein, als erster einen zuvor vereinbarte Zahl von Abschüssen zu erreichen. Zusätzlich sollte das Spiel über das Netzwerk spielbar sein und auch über optionale, vom Computer gesteuerte Gegner beinhalten. Wichtig war uns auch, die Logik und die GUI stark zu entkoppeln. 
 
-#Einarbeitung
+##Anforderungen
 
-##GameDesignPatters
+##Einarbeitung
+Wir wollten unser Projekt so gut und professionell wie möglich umsetzen. Dementsprechend einigten wir uns darauf, nicht gleich los zu programmieren, sondern hinreichend viel Zeit zunächst in Recherche und anschließend in durchdachtes Design zu investieren. 
+Wir informierten uns über ähnliche Spiele, versuchten deren Designentscheidungen zu verstehen. Auch beschäftigten wir uns mit der allgemeinen Theorie der Spielentwicklung und stießen so auf das Buch _Game Programming Patterns_ von Robert Nystrom. Dieses Buch sollte für uns bald eine wichtige Inspiration und Wissensquelle werden. 
+Für die Umsetzung physikalischer Gesetzmäßigkeiten bedienten wir uns dem Buch _The Nature of Code_ von Daniel Shiffman, in welchem die Umsetzung von Naturgesetzen mithilfe von in __Processing__ geschriebenen Codebeispielen zu erläutern.
+Auch ging einige Zeit in das gedankliche durchdringen des Qt-Frameworks im Bereich GUI. Die Projektwebsite bot dabei immerhin in den meisten Fällen Hilfe und Beispiele. Ein gelegentliches Anecken an der Logik von Qt und auch entsetztes Unverständnis derer ließen sich jedoch manchmal nicht Vermeiden.
+Darüber hinaus nutzten wir auch eine kurze Zeit um unserer Kenntnisse von C++ ein wenig aufzufrischen.
 
-##Qt/Qml 
+#Qt/Qml 
 Als GUI sprache haben wir uns für QML und gegen die QWidgets entschieden. Dies weil durch QML eine saubere trennung von Code und Design möglich ist und weil es in Zukunft der Standard von QT sein wird.
 
-### Scene Management
+## Scene Management
 Das erste Problem stellte sich mit der Menüführung. Wie ist es möglich in QML zwischen verschiedenen Views zu switchen? Zuerst versuchten wir es indem wir die einzelnen Ebenen mit einfach mit dem Visibility parameter sichtbar und unsichtbar machten. Diese Lösung fühlte sich jedoch nicht sehr elegant an.
 Da viele die QML verwenden nicht das standard qml verwenden, sonder bereits GUI Libraries von Firmen wie Blackberry oder Nokia, gibt es nicht all zu viel Hilfe im Internet. Es gibt sozusagen keine best practices.
 
@@ -48,7 +53,7 @@ Wir haben am Ende eine Lösung gefunden, inder wir im main.qml eine __ScrollView
     }
 ```
 
-### Property Binding
+## Property Binding
 Ein weiteres Problem bestand darin QML controls an C++ objekte zu "binden". Dafür muss man zuerst ein C++ objekt auf QML Eebene verfügbar machen. Eine Möglichkeit ist es indem man beim Laden des QMLs, dem Kontekt Referenzen zu C++ objekten registriert. Dies scheint nicht sehr elegant, ist jedoch ziemlich Effizient.
 
 ```javascript    
@@ -75,8 +80,6 @@ TextField {
 
 Es muss dabei beachtet werden, dass keine Loops entstehen. Wenn wir z.B.
 die setPlayerName methode nicht bei onEditingFinished sonder bei onTextChanged aufrufen, hätten wir einen Loop.
-
-##Projektstrukturen
 
 #Spiellogik
 
