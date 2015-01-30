@@ -9,6 +9,53 @@ Um die Größe unserer Projektgruppe zu legitimieren, galt es ein Projekt mit hi
 
 ##Anforderungen
 
+### Ziel
+Implementierung eines Mehrspieler-Weltraum-Shooters (Gravitron) in C++.
+
+### Basic Features
+- (5) Objekte verfügen über eine Gravitation relativ zu ihrer Masse.
+- (5) Das Spiel soll über das Netzwerk im Multiplayer spielbar sein, wobei ein spieler der Host ist.
+- (0) Es soll eine KI mit 3 Schwierigkeitsstufen beinhalten.
+- (2) Spieler settings werden presistent gespeichert
+- (10) Jedem Spieler wird die sicht relativ zu seinem Raumschiff gerendert.
+
+### Gameplay
+
+### Spielfeld
+(5) Das Spielfeld ist eine Fläche. jeder Spieler steuert sein eigenes Schiff und bewegt sich auf der Fläche.
+
+### Spielmodus
+(5) Es handelt sich um ein klassisches Deathmatch, d.h. jeder Spieler erzielt Punkte durch das abschiessen gegnerischer Schiffe.
+Wer auf diese Weise eine vorher definierte Punktzahl erreicht, gewinnt und das Spiel wird beendet. 
+
+### Gravitationssystem
+Alle im Spielfeld befindlichen Objekte (Raumschiffe, Planeten, Schwarze Löcher...) besitzen eine Gravitation relativ zu ihrer Masse. Diese beeinflusst die Flugbahn von Geschossen und Schiffen.  Die Nicht-Spieler-Objekte sollen sich zunächst nicht gegenseitig beeinflussen.
+
+### Nicht-Spieler-Objekte
+(5)
+- Planeten
+- Schrott
+- Asteroiden
+
+### Kollisionen
+Es wird für alle möglichen Kollisionen eine eine spezifische Behandlung
+definiert. 
+
+Beispielsweise führt die Kollision mit einem Planeten zu höheren zerstörung des Schiffes, als die Kollision mit einem Asteroiden.
+
+### PowerUps
+(5) Das Raumschiff eines abgeschossenen Spielers wird zu einem PowerUp, welches von allen Spielern aufgesammelt werden kann. 
+
+### Mögliche Arten von PowerUps:
+(1) Waffen Upgrade!
+- Waffen
+
+## Plattformen
+(1)
+(- Windows)
+- Linux
+- OSX
+
 ##Einarbeitung
 Wir wollten unser Projekt so gut und professionell wie möglich umsetzen. Dementsprechend einigten wir uns darauf, nicht gleich los zu programmieren, sondern hinreichend viel Zeit zunächst in Recherche und anschließend in durchdachtes Design zu investieren. 
 Wir informierten uns über ähnliche Spiele, versuchten deren Designentscheidungen zu verstehen. Auch beschäftigten wir uns mit der allgemeinen Theorie der Spielentwicklung und stießen so auf das Buch _Game Programming Patterns_ von Robert Nystrom. Dieses Buch sollte für uns bald eine wichtige Inspiration und Wissensquelle werden. 
@@ -26,56 +73,57 @@ Da viele die QML verwenden nicht das standard qml verwenden, sonder bereits GUI 
 Wir haben am Ende eine Lösung gefunden, inder wir im main.qml eine __ScrollView__ element haben welches eine __ListView__ beinhaltet. Dieser List view wiederum geben wir als Model ein __VisualItemModel__. Ein VisualItemModel kann wiederum andere QML objekte beinhalten. Dabei nutzen wir nun in dem VisualItemModel eine __Loader__ objekt, welches QML objekte nachladen kann. Wenn wir nun also in der Menustruktur in eine andere ebene gelangen, müssen wir nur noch dem __Loader__ eine neue _source_ (Pfad zu einer QML-Datei) geben. Mit dieser Struktur können wir nun ziemlich elegant geschachtelte Menus erstellen.
 
 ```javascript
-    VisualItemModel {
-        id: theModel
-        Column {
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.verticalCenter: parent.verticalCenter
-            Loader { 
-                id: modelLoader
-                source: "menus/Main.qml" 
-            }
-        }
-    }
+  VisualItemModel {
+      id: theModel
+      Column {
+          anchors.horizontalCenter: parent.horizontalCenter
+          anchors.verticalCenter: parent.verticalCenter
+          Loader { 
+              id: modelLoader
+              source: "menus/Main.qml" 
+          }
+      }
+  }
 
-    ScrollView {
-        z: 1
-        id: scrollView
-        anchors.fill: parent
+  ScrollView {
+      z: 1
+      id: scrollView
+      anchors.fill: parent
 
-        ListView {
-            id: main_list
-            model: theModel
-            header: Item { height: 70 }
-            footer: Item { height: 50 }
-            anchors.fill: parent
-        }
-    }
+      ListView {
+          id: main_list
+          model: theModel
+          header: Item { height: 70 }
+          footer: Item { height: 50 }
+          anchors.fill: parent
+      }
+  }
 ```
 
 ## Property Binding
 Ein weiteres Problem bestand darin QML controls an C++ objekte zu "binden". Dafür muss man zuerst ein C++ objekt auf QML Eebene verfügbar machen. Eine Möglichkeit ist es indem man beim Laden des QMLs, dem Kontekt Referenzen zu C++ objekten registriert. Dies scheint nicht sehr elegant, ist jedoch ziemlich Effizient.
 
 ```javascript    
-// Hier wird ein settins objekt unter dem Namen "Settings" in QML verfügbar gemacht.
-GravitronSettings settings;
-engine.rootContext()->setContextProperty("Settings", &settings);
+  // Hier wird ein settins objekt unter dem 
+  // Namen "Settings" in QML verfügbar gemacht.
+  GravitronSettings settings;
+  engine.rootContext()->setContextProperty("Settings", &settings);
 ```
 
 Sobald man dies gemacht hat, kann überal im QML auf das Settings objekt zugegriffen werden. So können nun auch QML-Controlls gebunden werden:
 
 ```javascript
-// Hier wird der playerName von den registrierten Settings geholt.
-// sobald der Benutzer den Focus vom Feld weg nimmt, wird 
-// ebenfalls über dasSettings Objekt der neue Spielername gesetzt.
-TextField {
-    id: txt_playerName
-    height: Global.textFieldHeight
-    width: Global.textFieldWidth
-    placeholderText: qsTr("Name")
-    text: Settings.playerName
-    onEditingFinished: Settings.setPlayerName(txt_playerName.text)
-}
+  // Hier wird der playerName von den registrierten Settings geholt.
+  // sobald der Benutzer den Focus vom Feld weg nimmt, wird 
+  // ebenfalls über dasSettings Objekt der neue Spielername gesetzt.
+  TextField {
+      id: txt_playerName
+      height: Global.textFieldHeight
+      width: Global.textFieldWidth
+      placeholderText: qsTr("Name")
+      text: Settings.playerName
+      onEditingFinished: Settings.setPlayerName(txt_playerName.text)
+  }
 ```
 
 Es muss dabei beachtet werden, dass keine Loops entstehen. Wenn wir z.B.
@@ -106,17 +154,17 @@ Dabei sind wir auf den GameLoop gestossen. http://gameprogrammingpatterns.com/ga
 ## GameLoop
 
 Dabei haben wir uns vorallem auf folgende implementierung geeinigt:
-```c++
-while (true)
-{
-  double start = getCurrentTime();
-  processInput();
-  update();
-  render();
-  sleep(start + MS_PER_FRAME - getCurrentTime());
-}
-```
 
+```javascript
+  while (true)
+  {
+    double start = getCurrentTime();
+    processInput();
+    update();
+    render();
+    sleep(start + MS_PER_FRAME - getCurrentTime());
+  }
+```
 
 Es wird sequenziell zuerst den Benutzerinput verarbeitet (processInput), dabei handelt es sich um Keyborad input über das lokale keyboard oder übers netzwerk.
 Dann wird der spielstatus neu berechnet indem alle Aktoren sich aktuallisieren (update). Wenn der neue Spielstand berechnet wurde, wird dann alles gerendert.
@@ -133,26 +181,28 @@ In unserem Fall werden diese GameActorViews im Game.cpp von der methode Game::re
 
 Der Schwierige Punkt in diesem Szenario war, wie man aus C++ heraus QML Objekte generieren kann:
 
-```c++
-// Zuerst muss der QML Pfad vom GameActorView gelesen werden. Dieser
-// definiert welche .qml Datei für den View verwendet werden soll.
-QString path = QString::fromStdString((*view)->getQmlPath());
+```javascript
+  // Zuerst muss der QML Pfad vom GameActorView gelesen werden. 
+  // Dieser definiert welche .qml Datei für 
+  // den View verwendet werden soll.
+  QString path = QString::fromStdString((*view)->getQmlPath());
 
-// Dann wird eine neue Komponente davo erstellte davo erstellt
-QQmlComponent component(engine, QUrl(path));
-QQuickItem *childItem = qobject_cast<QQuickItem*>(component.create());
+  // Dann wird eine neue Komponente davo erstellte davo erstellt
+  QQmlComponent component(engine, QUrl(path));
+  QQuickItem *childItem = qobject_cast<QQuickItem*>(component.create());
 
-// Dieser muss dann einen Parent gegeben werden. In unserem Fall ist 
-// der qmlParent dem Game.cpp objekt bekannt.
-childItem->setParent(qmlParent);
-childItem->setParentItem(qmlParent);
+  // Dieser muss dann einen Parent gegeben werden. In unserem Fall ist 
+  // der qmlParent dem Game.cpp objekt bekannt.
+  childItem->setParent(qmlParent);
+  childItem->setParentItem(qmlParent);
 
-...
+  ...
 
-// Dann können die einzelnen Eigenschaften dem QQuickItem übergeben werden.
-for(pit = props.begin(); pit != props.end(); pit++) {
-    childItem->setProperty(pit->first.c_str(), pit->second.c_str());
-}
+  // Dann können die einzelnen Eigenschaften dem QQuickItem 
+  // übergeben werden.
+  for(pit = props.begin(); pit != props.end(); pit++) {
+      childItem->setProperty(pit->first.c_str(), pit->second.c_str());
+  }
 ```
 
 ##Updates
@@ -183,11 +233,20 @@ Grundsätzlich Enden alle Pakete mit einer _newline_. Dies da wir das Problem ha
 Da wir bereits das Rendern komplett vom Gameloop getrennt haben, können wir nun den Render mechanismus relativ einfach netzwerkfähig machen. Um das zu machen, können wir den TcpClient mit einer remoteRender methode verbinden.
 Diese remoteRender Methode überprüft nun, ob das erhaltene Paket einen view ist. Startet mit "v". Wenn dies der fall ist, generiert die Methode daraus wieder eine liste von GameActorViews und ruft die gleiche render methode auf wie der Server. Die render Methode rendert nun aus den GameActorView wieder QML objetke und zeigt sie an.
 
+### Remote Inputs
+Um die Inputs des Netzwerkspilers zu empfangen, wird auf der Seite des Netzwerkspielers einen Inputhandler erstellt wie bereits für den Lokalen spieler. Dabei wird nun aber die inputliste serialisiert über das Netzwerk versendet. Jedes mal wenn sie sich ändert.
+Auf der Serverseite ist nun ein __NetworkInputHandler__ per signals/slots an den server tcp socket gebunden. Dieser hört auf jedes erhaltene Paket, ob es sich um inputs handelt (starten mit "i"). Wenn dies der Fall ist, wird das paket deserialisiert und analog zum InputHandler in ein durch mutex geschützen inputs vektor gespeichert. Dieser kann nun vom NetzwerkPlayer objekt bei jedem durchlauf des Gameloops nach inputs überprüft werden.
+
 ##Player
 
 ###HumanPlayer
 
 ###HumanNetworkPlayer
+Der __NumanNetworkPlayer__ unterscheidets sich nur durch den Typ des InputHandlers vom HumanPlayer. Der netzwerk Player
+überprüft in der processInput Methode den Inputs vektor des __NetworkInputHandler__. Dieser connected er in seinem construktor
+mit den serverevents.
+
+Ebenfalls wird auf das Paket "cname" connected. Ganz am anfang vom Spiel schickt der Netzwerkspieler seinen Namen übers netzwerk. Der __HumanNetworkPlayer__ hört darauf und setzt seinen namen neu.
 
 ###AIPlayer
 
