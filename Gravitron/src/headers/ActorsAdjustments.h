@@ -1,6 +1,13 @@
 #ifndef ACTORSADJUSTMENTS_H
 #define ACTORSADJUSTMENTS_H
-
+/**
+ * Class that holds a bunch of adjustment variables for each gameactor type.
+ * It is designed so that each GameActor property can be in a range between
+ * the maxiaml and minimal value.
+ *
+ * The static members of the class are self explaining and do not need further
+ * documentation.
+ */
 class ActConf {
 
 public:

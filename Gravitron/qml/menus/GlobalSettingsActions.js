@@ -41,23 +41,6 @@ function btn_fullScreenClicked() {
     Settings.setFullScreen(!Settings.fullScreen);
 }
 
-function getBtnPlayMusicText() {
-    //: Text of the music button
-    var text = qsTr("Music") + ": ";
-    if(Settings.playMusic === true) {
-        //: music on
-        text += qsTr("on")
-    } else {
-        //: music off
-        text += qsTr("off");
-    }
-    return text;
-}
-
-function btn_playMusicClicked() {
-    Settings.setPlayMusic(!Settings.playMusic);
-}
-
 function getSlideMusicSoundVolumeVlaue() {
     return Settings.musicSoundVolume
 }
