@@ -148,6 +148,23 @@ Um heraus zufinden, welche Keys gerade alle gedrückt werden, kann nun einfach d
 ### Mutex für thread savety
 Da der GameLoop in einem eigenen Thread existiert, die Inputs aber vom Hauptthread kommen, verwenden wir beim schreiben und lesen der Input liste einen Mutex. So kann der GameLoop von der Liste lesen und der Hauptthread schreiben ohne dass es zu kollisionen kommt.
 
+## Netzwerk
+Um das Netzwerk zu ermöglichen haben wir eine TcpServer und TcpClient Klasse geschrieben. Diese werden am anfang beim Programmstart initialisiert. Es besitzen allso alle Spieler einen Server und einen Client, egal ob sie der Server oder Client im Spiel sind.
+
+Dann war es wichtig zu definieren, was für verschiedene Pakete wir übermitteln wollen. So zusagen ein eigenes Protokoll. Dabei sind wir auch folgende Typen gekommen.
+
+Die __Views__ sind die zu übertragenen GameActorViews, welche vom Client gerendert werden sollen. Pakete welche view sind, starten immer mit einem "v" und enden mit einem _newline_
+
+Die __Inputs__ sind die Keyboad inputs vom Netzwerkspieler welcher auf dem Server sein Spacecraft steuern möchte. Input Pakete starten immer mit einem "i" und enden mit einer _newline_
+
+Die __Controls__ sind steuerbefehle vom Server zu client. z.B. dass das spiel begonnen hat, oder setzen des Lebensbalken, Hintergrund usw. Diese Pakete starten immer mit einem "c" und enden mit einem _newline_
+
+Grundsätzlich Enden alle Pakete mit einer _newline_. Dies da wir das Problem hatten, dass Pakete gesplitted versendet wurden und zum Absturtz des Spiels führten. Nun können wir auf der Ebene des TCP Sockets überprüfen ob ein Packet vollständig angekommen ist. Wenn dies nicht der Fall ist (newline fehlt) buffern wir das Packet und fügen es mit dem nächsten Paket zusammen, bis es wieder vollständig ist.
+
+### Remote Rendering
+Da wir bereits das Rendern komplett vom Gameloop getrennt haben, können wir nun den Render mechanismus relativ einfach netzwerkfähig machen. Um das zu machen, können wir den TcpClient mit einer remoteRender methode verbinden.
+Diese remoteRender Methode überprüft nun, ob das erhaltene Paket einen view ist. Startet mit "v". Wenn dies der fall ist, generiert die Methode daraus wieder eine liste von GameActorViews und ruft die gleiche render methode auf wie der Server. Die render Methode rendert nun aus den GameActorView wieder QML objetke und zeigt sie an.
+
 ##Player
 
 ###HumanPlayer
