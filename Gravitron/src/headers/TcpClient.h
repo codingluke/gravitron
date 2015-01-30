@@ -20,14 +20,10 @@ class TcpClient: public QObject
     Q_OBJECT
 
     private:
-        /**
-         * QTcpSocket for the connection.
-         */
+        /** QTcpSocket for the connection. */
         QTcpSocket client;
 
-        /**
-         * A buffer to merge splitted packages.
-         */
+        /** A buffer to merge splitted packages. */
         QString buffer;
 
     public:
