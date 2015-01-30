@@ -3,7 +3,6 @@ import QtQuick.Controls 1.2
 
 import "constants.js" as Global
 import "functions.js" as Functions
-import "GameSettingsActions.js" as GameSettings
 
 Column {
     spacing: 10
@@ -24,11 +23,11 @@ Column {
         width: Global.sliderWidth
         height: Global.sliderHeigt
         stepSize: 0.1
-        value: Settings.playingFieldSize
+        value: Settings.playingFieldSacleFactor
         minimumValue: 1
         maximumValue: 5
         onPressedChanged: {
-            Settings.setPlayingFieldSize(slide_playingFieldSize.value)
+            Settings.setPlayingFieldScaleFactor(slide_playingFieldSize.value)
         }
     }
 
@@ -41,9 +40,9 @@ Column {
         stepSize: 1
         maximumValue: 8
         minimumValue: 1
-        value: Settings.botsCount
+        value: Settings.numberOfBots
         onPressedChanged: {
-            Settings.setBotsCount(slide_botsCount.value)
+            Settings.setNumberOfBots(slide_botsCount.value)
         }
     }
 
@@ -53,9 +52,9 @@ Column {
         width: Global.sliderWidth
         height: Global.sliderHeigt
         stepSize: 1
-        value: Settings.planetCount
+        value: Settings.numberOfPlanets
         onPressedChanged: {
-            Settings.setPlanetCount(slide_planetCount.value)
+            Settings.setNumberOfPlanets(slide_planetCount.value)
         }
         minimumValue: 1
         maximumValue: 20
@@ -67,9 +66,9 @@ Column {
         width: Global.sliderWidth
         height: Global.sliderHeigt
         stepSize: 1
-        value: Settings.astroidCount
+        value: Settings.numberOfAstroids
         onPressedChanged: {
-            Settings.setAstroidCount(slide_astroidCount.value)
+            Settings.setNumberOfAstroids(slide_astroidCount.value)
         }
         minimumValue: 1
         maximumValue: 20
@@ -97,9 +96,9 @@ Column {
         stepSize: 1
         minimumValue: 3
         maximumValue: 12
-        value: Settings.respawTime
+        value: Settings.respawnTime
         onPressedChanged: {
-            Settings.setRespawTime(slide_respawTime.value)
+            Settings.setRespawnTime(slide_respawTime.value)
         }
     }
 

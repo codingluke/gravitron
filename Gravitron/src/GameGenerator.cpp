@@ -23,8 +23,8 @@ GameGenerator::GameGenerator(QObject *parent) :
 
 /**
  * The constructor for an singlepalyer game.
- * @param settings The @see GravitronSettings.
- * @param field The @see GameField.
+ * @param settings The GravitronSettings.
+ * @param field The GameField.
  */
 GameGenerator::GameGenerator(GravitronSettings *settings, GameField* field)
 {
@@ -34,9 +34,9 @@ GameGenerator::GameGenerator(GravitronSettings *settings, GameField* field)
 
 /**
  * The constructor for an multipalyer game.
- * @param settings The @see GravitronSettings.
- * @param field The @see GameField.
- * @param server The @see TcpServer.
+ * @param settings The GravitronSettings.
+ * @param field The GameField.
+ * @param server The TcpServer.
  */
 GameGenerator::GameGenerator(GravitronSettings *settings, GameField* field, TcpServer *server)
 {
@@ -84,17 +84,18 @@ void GameGenerator::generateGame(GameLoop* g) {
     generatePlayer();
 
     g->setBots(bots);
+    //g->setRespawTime(settings->respawnTime());
     g->setPlayers(humanPlayer);
     g->setGameField(field);
 }
 
 /**
- * Generate the AIPlayer s (aka bots) depending on the count of bots in
+ * Generate the AIPlayers (aka bots) depending on the count of bots in
  * the GravitronSettings.
  */
 void GameGenerator::generateBots()
 {
-    for(int i = 0; i < settings->botsCount(); i++) {
+    for(int i = 0; i < settings->numberOfBots(); i++) {
         Spacecraft* sc = generateNewSpacecraft();
         actors->push_back(sc);
         bots.push_back(new AIPlayer(
@@ -109,7 +110,7 @@ void GameGenerator::generateBots()
  * game and a HumanPlayer and a HumanNetworkPlayer is generated.
  */
 void GameGenerator::generatePlayer() {
-    if (settings->network()) {
+    if (settings->multiplayer()) {
         Spacecraft* sc = generateNewSpacecraft();
         Spacecraft* sc2 = generateNewSpacecraft();
         actors->push_back(sc);
@@ -141,12 +142,12 @@ Spacecraft* GameGenerator::generateNewSpacecraft() {
 }
 
 /**
- * Generate the Planet s with a random position and rondom mass, g and gravitationRange in the
- * borders that deffined in the ActConf class. The number of Planet s is defind in the
- * GravitronSettings. All Planet s are added to the list of actros.
+ * Generate the Planets with a random position and rondom mass, g and gravitationRange in the
+ * borders that deffined in the ActConf class. The number of Planets is defind in the
+ * GravitronSettings. All Planets are added to the list of actros.
  */
 void GameGenerator::generatePlanets() {
-    for(int i = 0; i < settings->planetCount(); i++) {
+    for(int i = 0; i < settings->numberOfPlanets(); i++) {
         Vec3f position(rand() % field->getWidth(),rand() % field->getHeight(), 0);
         float mass = fmod(rand(), ActConf::PLANET_MAX_MASS - (ActConf::PLANET_MIN_MASS - 1)) + ActConf::PLANET_MIN_MASS;
         float g = fmod(rand(), ActConf::PLANET_MAX_G - (ActConf::PLANET_MIN_G - 1)) + ActConf::PLANET_MIN_G;
@@ -156,12 +157,12 @@ void GameGenerator::generatePlanets() {
 }
 
 /**
- * Generate the Asteroid s with a random position and rondom mass, g and gravitationRange in the
- * borders that deffined in the ActConf class. The number of Asteroid s is defind in the
- * GravitronSettings. All Asteroid s are added to the list of actros.
+ * Generate the Asteroids with a random position and rondom mass, g and gravitationRange in the
+ * borders that deffined in the ActConf class. The number of Asteroids is defind in the
+ * GravitronSettings. All Asteroids are added to the list of actros.
  */
 void GameGenerator::generateAstroids() {
-    for(int i = 0; i < settings->astroidCount(); i++) {
+    for(int i = 0; i < settings->numberOfAstroids(); i++) {
         Vec3f position(rand() % field->getWidth(),rand() % field->getHeight(), 0);
         float mass = fmod(rand(), ActConf::ASTEROID_MAX_MASS - (ActConf::ASTEROID_MIN_MASS - 1)) + ActConf::ASTEROID_MIN_MASS;
         float g = fmod(rand(), ActConf::ASTEROID_MAX_G - (ActConf::ASTEROID_MIN_G - 1)) + ActConf::ASTEROID_MIN_G;
@@ -171,9 +172,9 @@ void GameGenerator::generateAstroids() {
 }
 
 /**
- * Generate the PowerUp s. The number of PowerUp s is random depaning on the
+ * Generate the PowerUps. The number of PowerUps is random depaning on the
  * difficulty. On easy 0 betwenn 10, on middle 0 between 10 and on hard no are generated.
- * All genreated PowerUp s are add to list of actors.
+ * All genreated PowerUps are add to list of actors.
  */
 void GameGenerator::generateRandomPowerUps() {
     int numberRadomPowerUps = 0;
