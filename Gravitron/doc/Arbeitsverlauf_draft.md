@@ -54,7 +54,6 @@ Ein weiteres Problem bestand darin QML controls an C++ objekte zu "binden". Daf�
 
 Sobald man dies gemacht hat, kann überal im QML auf das Settings objekt zugegriffen werden. So können nun auch QML-Controlls gebunden werden:
 
-
     // Hier wird der playerName von den registrierten Settings geholt.
     // sobald der Benutzer den Focus vom Feld weg nimmt, wird 
     // ebenfalls über dasSettings Objekt der neue Spielername gesetzt.
@@ -140,7 +139,14 @@ Der Schwierige Punkt in diesem Scenario war, wie man aus C++ heraus QML Objekte 
 
 ##Updates
 
-##InputHandling	
+## Multi-Key InputHandling	
+Beim input handling handelt es sich um Keyboard inputs des spielers.
+Das erste Problem hatten wir um auch mehrere Keys parallel zu erkennen. Wenn man einfach auf den KeyDown input Event hört kommen die paralel gedrückte Tasten hintereinander. Und noch viel schlimmer ist, wenn man die Taste gedrückt hält blockiert eine Taste die anderen.
+Um dieses Problem zu lösen hören wir nicht nur auf den KeyDown event sonder auch auf den KeyUp event. Dabei Haben wir einen input vector, welcher bei KeyDown den Keycode speichert. Bei KeyUp vom gleichen code wir er wider von der liste gelöscht.
+Um heraus zufinden, welche Keys gerade alle gedrückt werden, kann nun einfach die input liste durchiteriert werden. Egal ob eine Taste die anderen Blockiert. Eine Taste ist gedrück, bis ein KeyUp event der gleichen taste wieder kommt.
+
+### Mutex für thread savety
+Da der GameLoop in einem eigenen Thread existiert, die Inputs aber vom Hauptthread kommen, verwenden wir beim schreiben und lesen der Input liste einen Mutex. So kann der GameLoop von der Liste lesen und der Hauptthread schreiben ohne dass es zu kollisionen kommt.
 
 ##Player
 
