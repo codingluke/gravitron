@@ -127,7 +127,7 @@ Jeder GameActor, kann nun einen GameActorView von sich und seinem aktuellen stat
 
 In unserem Fall werden diese GameActorViews im Game.cpp von der methode Game::render gelesen. Dann werden für jeden View ein QQuickItem generiert. Welche QML Datei verwendet werden soll, wird ebenfalls im GameActorView definiert. So kann einfach pro GameActor eine GameActor.qml erstellt werden.
 
-Der Schwierige Punkt in diesem Scenario war, wie man aus C++ heraus QML Objekte generieren kann:
+Der Schwierige Punkt in diesem Szenario war, wie man aus C++ heraus QML Objekte generieren kann:
 
 ```c++
 // Zuerst muss der QML Pfad vom GameActorView gelesen werden. Dieser
@@ -153,7 +153,14 @@ for(pit = props.begin(); pit != props.end(); pit++) {
 
 ##Updates
 
-##InputHandling	
+## Multi-Key InputHandling	
+Beim input handling handelt es sich um die Aufnahme und Verarbeitung von Keyboard-Inputs durch den Spieler.
+Das erste Problem stellte sich in diesem Bereich darin auch mehrere Keys parallel zu erkennen. Wenn man einfach auf den KeyDown input Event hört kommen die parallel gedrückte Tasten hintereinander. Und noch viel schlimmer ist, dass das Drücken der einen Taste, die anderen Tasten blockiert.
+Um dieses Problem zu lösen hören wir nicht nur auf den KeyDown event sondern auch auf den KeyUp event. Dabei Haben wir einen input vector, welcher bei KeyDown den Keycode speichert. Bei KeyUp vom gleichen code wird dieser wieder von der Liste gelöscht.
+Um herauszufinden, welche Keys gerade gleichzeitig gedrückt werden, kann nun einfach über die input-Liste iteriert werden, egal ob eine Taste die anderen Blockiert. Eine Taste ist gedrückt, bis ein KeyUp event der gleichen taste wieder kommt.
+
+### Mutex für thread savety
+Da der GameLoop in einem eigenen Thread existiert, die Inputs aber vom Hauptthread kommen, verwenden wir beim schreiben und lesen der Input liste einen Mutex. So kann der GameLoop von der Liste lesen und der Hauptthread schreiben ohne dass es zu kollisionen kommt.
 
 ##Player
 
@@ -183,3 +190,4 @@ for(pit = props.begin(); pit != props.end(); pit++) {
 #Ergebnisse und Einschätzung
 
 #Fazit
+Dieses Projekt war für uns gleichermaßen eine große Herausforderung und eine äußerst lehrreiche Erfahrung die wir nicht missen wollen. 
