@@ -1,6 +1,6 @@
 % Projekt im Kurs "Entwicklung von Multimediasystemen"
 % Lukas Hodel; Robert Kasseck; Richard Remus
-% 29. Januar 2015
+% 30. Januar 2015
 
 #Vorbereitung des Projektes
 
@@ -13,9 +13,9 @@ Um die Größe unserer Projektgruppe zu legitimieren, galt es ein Projekt mit hi
 Implementierung eines Mehrspieler-Weltraum-Shooters (Gravitron) in C++.
 
 ### Basic Features
-- (5) Objekte verfügen über eine Gravitation relativ zu ihrer Masse.
+- (3) Objekte verfügen über eine Gravitation relativ zu ihrer Masse.
 - (5) Das Spiel soll über das Netzwerk im Multiplayer spielbar sein, wobei ein Spieler der Host ist.
-- (5) Es soll eine KI mit 3 Schwierigkeitsstufen beinhalten.
+- (4) Es soll eine KI mit 3 Schwierigkeitsstufen beinhalten.
 - (2) Einstellungen werden lokal persistent gespeichert.
 - (2) Jedem Spieler wird die Sicht relativ zu seinem Raumschiff gerendert.
 - (3) Es soll zwischen den Sprachen Englisch und Deutsch gewechselt werden können.
@@ -36,8 +36,8 @@ Wer auf diese Weise eine vorher definierte Punktzahl erreicht, gewinnt und das S
 - (1) Asteroiden 
 
 ### Arten von Waffen
-- (2) Laser
-- (2) Rakete
+- (1) Laser
+- (1) Rakete
 - (3) Zielsuchende Rakete
 
 ### Kollisionen
@@ -45,7 +45,7 @@ Wer auf diese Weise eine vorher definierte Punktzahl erreicht, gewinnt und das S
 definiert. Beispielsweise führt die Kollision mit einem Planeten zu einer stärkeren Beschädigung des Schiffes, als die Kollision mit einem Asteroiden.
 
 ### PowerUps
-(3) Das Abschießen eines gegnerischen Schiffes kann ein PowerUp erzeugen, welches von allen Spielern aufgesammelt werden kann. 
+(2) Das Abschießen eines gegnerischen Schiffes kann ein PowerUp erzeugen, welches von allen Spielern aufgesammelt werden kann. 
 
 ### Mögliche Arten von PowerUps:
 (1) Waffenaufwertung
@@ -132,7 +132,7 @@ die __setPlayerName()__-Methode nicht bei __onEditingFinished__, sondern bei __o
 
 #Spiellogik
 
-Ein sehr kritischer Teil des Projektes bestand in der inneren Spiellogik. Sie bestimmt die Regeln, den Ablauf und auch jeden möglichen Zustand des Spiels. Ihre Aufgabe ist es auch, den Zustand der einzelnen Akteure des Spiels konsistent zu halten. Um die Umsetzung der Logik unabhängig von Qt zu halten, haben wir uns entschieden die Spiellogik völlig von den anderen Bestandteilen des Spiels zu entkoppeln. 
+Ein sehr kritischer Teil des Projektes bestand in der inneren Spiellogik. Sie bestimmt die Regeln, den Ablauf und auch jeden möglichen Zustand des Spiels. Ihre Aufgabe ist es auch, den Zustand der einzelnen Akteure des Spiels konsistent zu halten. Um die Umsetzung der Logik unabhängig von Qt zu halten, haben wir uns entschieden die Spiellogik völlig von den anderen Bestandteilen des Spiels zu entkoppeln. Im folgenden werden wir auf die wichtigsten und interessantesten Bestandteile der Spiellogik eingehen.
 
 ##GameActor
 Die Klasse GameActor repräsentiert jedes denkbare Objekt, das Teil des Spielgeschehens ist. Dazu zählen die Raumschiffe der Spieler, Planeten, Sonnen, Weltraumschrott, Asteroiden aber auch jegliche Geschosse der Waffen über die die Schiffe verfügen. 
@@ -142,9 +142,17 @@ Die Klasse GameActor repräsentiert jedes denkbare Objekt, das Teil des Spielges
 Die wichtigsten Eigenschaften eines GameActors sind seine Position, Geschwindigkeit, Beschleunigung, Masse, Lebenspunkte, Gravitationskraft sowie die Reichweite, über welche seine Gravitation andere GameActors beeinflussen kann. Seine Positionierung und Bewegung werden mit elementarer Vektorrechnung realisiert. Wann immer eine Kraft auf einen GamActor wirken soll, wird die Methode __applyForce()__ mit einem  entsprechenden Kraftvektor verwendet. Die angewendete Kraft wirkt sich zunächst nur auf seinen Beschleunigungsvektor addiert, erst beim Aktualisieren des GameActors über __update()__ wird der Beschleunigungsvektor mit dem Geschwindigkeitsvektor verrechnet und mit diesem dann schließlich die neue Position bestimmt.
 Falls GameActors miteinander Kollidieren wird dies mithilfe der __collisionDetection()__ aus der __Physics__-Bibliothek ermittelt. Durch Implementation der virtuellen Methode __handleCollision()__ kann festgelegt werden, wie der jeweilige GameActor mit einem Zusammenstoß umgehen soll. Sollte er schaden nehmen, kann dies mit __dealDamage()__ realisiert werden, diese Methode bestimmt dabei auch, ob der zugewiesene Schaden die maximale Zahl von Lebenspunkten überschreitet und aktualisiert das Feld __killed__ dementsprechend. __addHealth()__ agiert in analog entgegengesetzter Weise zu __dealDamage()__ wobei wir jedoch davon ausgehen, dass ein getöteter oder zerstörter GameActor nicht "wiederbelebt" werden sollte. Dies sollte, falls nötig über einen anderen Weg geregelt werden. Zusätzlich definieren wir mit einer Lebenspunktzahl von -1 einen GameActor, der nicht durch das Zuteilen von Schaden durch __dealDamage()__ sterben kann. Falls ein GameActor durch seinen Tod einen Effekt auf das Spielgeschehen haben, zum Beispiel eine Explosion oder das setzen eines PowerUps, kann dies in der virtuellen Methode __handleKill()__ definiert werden. 
 
+###Spacecraft
+Das Raumschiff ist ein spezieller GameActor, welcher von einem Spieler oder dem Computer gesteuert wird. Ihm haben wir spezielle Methoden zur Umsetzung der Inputs des Spielers beigefügt, die __shoot__- und __force__-Methoden. Darüber hinaus gaben wir dem Spacecraft einen Counter für die erfolgreichen Abschüsse anderer Schiffe durch den Spieler. Auch verfügt das Spacecraft über das Feld __weapon__, welches die gerade ausgerüstete Waffe beschreibt.
+
 ##Projectile
 Mit Projectile sollen alle möglichen Arten von Geschossen realisiert werden. Das könnten Laser und Raketen, aber auch Bomben, Minen oder andere Dinge sein, welche durch eine Waffe im Spielfeld platziert werden können. Projectile erbt von GameActor, bringt aber ein paar Erweiterungen. Zum einen kann es den Punktestand von befreundeten Raumschiffen beeinflussen, wobei "befreundet" bedeutet, dass dieses Projectile sie nicht in negativer weise beeinflussen kann. Zum anderen kann für jedes Projectile eine maximale Lebensdauer (time to live), gemessen in Update-Zyklen. Dadurch soll simuliert werden, dass die meisten Geschosse keine unendliche Reichweite haben, eine Rakete könnte zum Beispiel eine begrenzte Menge Treibstoff haben. Erreicht ein Projectile eine __timeToLive__ von null, wird es als __killed__ behandelt. In analoger Weise zu den Lebenspunkten des GameActors definieren wir, dass ein Projectile unbegrenzte Lebenszeit hat, wenn es eine __timeToLive__ von -1 hat.
 Darüber hinaus gehorcht das Projectile allen durch GameActor definierten Regeln, sofern diese nicht überschrieben werden.
+
+###AimMissile
+Die Implementierung der Zielsuchrakete war besonders interessant, da ein Algorithmus gefunden werden musste, der ein sinnvolles Ziel für die Rakete selektiert. Dabei muss geprüft werden, ob das Ziel ein feindlicher GameActor ist und auch ob es ein Spacecraft ist. Zeitweise erlaubten wir der Rakete auch GameActors zu wählen, die keine Raumschiffe sind, jedoch hat sich die Waffe dann sehr unpräzise angefühlt. Die Zielsuchrakete sollte einen höheren Wert als die anderen Waffen haben, und so entschieden wir uns, dass sie nur andere Spacecrafts angreifen darf. 
+Zusätzlich haben wir auch eine Methode implementiert, welche ein zufälliges Ziel wählt. Dies könnte zum Beispiel eine Wirkung eines eingesammelten PowerUps sein, ein Störsender beispielsweise.
+Der Zielwahlalgorithmus der Zielsuchrakete wurde in teilen bei der Implementation der KI wiederverwendet.  
 
 #Programmlogik 	
 
@@ -205,8 +213,6 @@ Der Schwierige Punkt in diesem Szenario war, wie man aus C++ heraus QML-Objekte 
   }
 ```
 
-##Updates
-
 ## Multi-Key InputHandling	
 Beim _Inputhandling_ handelt es sich um die Aufnahme und Verarbeitung von Keyboard-Inputs durch den Spieler.
 Das erste Problem stellte sich in diesem Bereich darin auch mehrere Keys parallel zu erkennen. Wenn man einfach auf den KeyDown Input-Event hört kommen die parallel gedrückte Tasten hintereinander. Und noch viel schlimmer ist, dass das Drücken der einen Taste, die anderen Tasten blockiert.
@@ -238,6 +244,7 @@ Um die Inputs des Netzwerkspielers zu empfangen, wird auf der Seite des Netzwerk
 Auf der Serverseite ist nun ein __NetworkInputHandler__ über _signals_ und _slots_ an den TCP-Socket der Servers gebunden. Dieser hört auf jedes erhaltene Paket und prüft ob es sich dabei um Inputs handelt. Wenn dies der Fall ist, wird das Paket deserialisiert und analog zum InputHandler in einem durch Mutex geschützten Inputvektor gespeichert. Dieser kann nun vom NetworkPlayer-Objekt bei jedem Durchlauf des Gameloops auf Inputs überprüft werden.
 
 ##Player
+Die Klasse Player ist die Vorlage für die Implementation der Repräsentanten für menschliche Spieler sowie die KI. Sie beinhaltet alle Information über die Spieler die nach außen weitergegeben werden müssen, wie z.B. der Punktestand des Spielers, die Lebenspunkte seines Raumschiffes oder auch die Zeit für die der Spieler aussetzen muss, nachdem sein Schiff zerstört wurde.  
 
 ###HumanPlayer
 Der __HumanPlayer__ besitzt einen Inputhandler mit dessen Hilfe er die aktuellen eingaben lesen kann und so das __Spacecraft__ gesteuert wird.
@@ -250,8 +257,9 @@ mit den Server-Events.
 Ebenfalls wird auf das Paket "cname" connected. Zu Beginn des Spiels schickt der Netzwerkspieler seinen Namen übers Netzwerk. Der __HumanNetworkPlayer__ hört darauf und setzt seinen Namen dementsprechend.
 
 ###AIPlayer
-
-###AINetworkPlayer
+Der AIPlayer oder auch die KI war entgegen der Erwartung in kurzer Zeit umsetzbar, da wir Teile der Logik der Zielsuchrakete wiederverwenden konnten. So sucht sich die KI recht zuverlässig ein Schiff oder ein PowerUp zum Ziel und verfolgt dieses. 
+Jedoch schießt die KI, zum Zeitpunkt des Verfassens, in zufällige Richtungen. 
+Die KI haben wir eher als ein _proof of concept_ betrachtet und daher keine Zeit in ein sinnvolles Kampfverhalten oder Taktiken gesteckt. Im aktuellen Zustand schießt die zufällig, in gelegentlichen Testspielen haben haben wir die KI aber doch auch alles andere als wehrlos empfunden.  
 
 #Tests
 Für die Tests schrieben wir eine eigene Klasse. Diese führt die Tests mithilfe des QT-Testframeworks durch. Die beiden Klassen Physics und Vec3f bilden die Grundlage jeder Bewegung im Spiel. Dementsprechend war es von hoher Bedeutung, dass diese beiden Kassen auch immer wie erwartet arbeiten.
@@ -292,12 +300,17 @@ Um nun die Übersetzungen zu erzeugen sind die drei folgenden Schritte notwendig
 
 Bei Programmausführung werden die Übersetzungen mit der Klasse __Locator__ geladen.
 
-#Probleme beim Entwicklungsprozesses
-##Qt verstehen
+#Ergebnisse und Fazit
+Nach den ersten paar Wochen der Entwicklung, nagte der Gedanke, dass wir uns vielleicht ein wenig zu viel vorgenommen hatten. Obwohl schon schon viel Code erzeugt worden war, blieben haptische Ergebnisse doch aus. Dazu gab es einige Probleme, welche sich hauptsächlich in den Eigenarten von QML begründeten und auch die persistente Speicherung der Settings war ein größeres Problem. Zusätzlich forderten die anderen Kurse des Semesters ihren Tribut.
 
-##Settings persistent speichern
+Die Feiertage und das Jahresende brachten jedoch die Wendung. Nach und nach klickten die einzelnen Bausteine ineinander, aus vielen Teilen wurde ein Ganzes und plötzlich steuerten wir ein gelbes Quadrat in einem kleinen Fenster und konnten mit diesem andere blaue Quadrate verschießen. Das mag für einen äußeren Betrachter nicht nach viel klingen, doch für uns war klar: Die Engine stand. Unsere Architektur war sinnvoll und funktionierte.
 
-#Ergebnisse und Einschätzung
+Diese Erkenntnis brachte einen Prozess ins rollen, der sich zurückblickend, am besten als eine Flut von Eindrücken und Erfahrungen beschreiben lässt. Wir machten immer mehr Fortschritte und das Projekt näherte sich mit großen Schritten unseren Vorstellungen. Die erdachte Struktur erwies sich gleichermaßen als flexibel und robust, sodass, wann immer sich ein Problem ergab, dieses schnell gelöst werden konnte. Auch neue Features ließen sich leichter umsetzen als gedacht. Das Spiel wurde täglich deutlich verbessert und die regelmäßigen Commits im Git führten zu einem gesunden gegenseitigen anstacheln.
 
-#Fazit
+Es sei auch auf die verwendeten Tools verwiesen, gut, dass Git eine gute Idee ist, braucht hier nun nicht betont werden, jedoch fanden wir großen Nutzen in unseren anderen Tool. Zum einen Trello, mit dem  wir ein sehr simples Kanban angelegt haben. Dies hat die Aufgabenverteilung erheblich vereinfacht. Außerdem konnte man gut ablesen, welches Teammitglied gerade welches Feature bearbeitet.
+Zum anderen lief die restliche (digitale) Kommunikation über Slack. Das aufgeräumte Design und vor allem die Einbindung des Gits und des Trellos über Plugins empfanden wir als angenehm und hilfreich.
+
+Wenn wir nun das Ergebnis betrachten, sehen wir, dass wir fast alles geschafft haben, was wir uns zum Ziel setzten. Die KI hat zum Beispiel keine regulierbaren Schwierigkeitsgrade, dieses Feature blieb aus Zeitgründen aus. Auch haben wir nur ein einziges PowerUp implementiert, aber wir denken, dass seine Existenz ein Indikator für ein funktionierendes Konzept sind. 
+Wenn wir unsere Architektur betrachten, sehen wir, dass sich neue PowerUps, Waffen und andere Dinge und Effekte wie z.B. ein schwarzes Loch oder ein Sonnensturm leicht implementieren lassen. Das Spiel lässt sich von diesem Punkt an gut erweitern und zu größerem ausbauen. Alles in allem sind wir sehr zufrieden. 
+
 Dieses Projekt war für uns gleichermaßen eine große Herausforderung und eine äußerst lehrreiche Erfahrung die wir nicht missen wollen. 
