@@ -102,6 +102,7 @@ RESOURCES += assets/img/img.qrc \
 TRANSLATIONS = gravitron_de.ts \
                gravitron_en.ts
 
+
 lupdate_only {
     SOURCES = qml/*.qml \
               qml/menus/*.qml \
