@@ -1,5 +1,6 @@
 #include "headers/HumanNetworkPlayer.h"
 #include "headers/GameLoop.h"
+#include "headers/NetworkInputHandler.h"
 
 HumanNetworkPlayer::HumanNetworkPlayer(Spacecraft* spacecraft, int frag,
                                        TcpServer *server, QString name)

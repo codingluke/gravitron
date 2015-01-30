@@ -6,18 +6,12 @@
 #include "headers/QmlFileReader.h"
 #include "headers/GravitronSettings.h"
 #include "headers/Game.h"
-#include "headers/MenuListener.h"
 #include "headers/Locator.h"
 #include "headers/TcpClient.h"
 #include "headers/TcpServer.h"
-#include "headers/GameGenerator.h"
-#include "headers/NetworkInputHandler.h"
 
 #include "headers/vec3f_tests.h"
 #include "headers/physics_tests.h"
-
-#include <string>
-#include <QDebug>
 
 using namespace std;
 
@@ -37,12 +31,8 @@ int main(int argc, char *argv[])
 
     QQmlApplicationEngine engine;
     GravitronSettings settings;
-    MenuListener mListener(&settings); // = MenuListener(&settings);
     engine.rootContext()->setContextProperty("Settings", &settings);
-    engine.rootContext()->setContextProperty("MListener", &mListener);
     engine.rootContext()->setContextProperty("applicationDirPath", QGuiApplication::applicationDirPath());
-
-
 
     // Add TCP
     TcpServer server;

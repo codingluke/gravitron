@@ -1,13 +1,17 @@
 #include "headers/TcpServer.h"
-#include <iostream>
-#include <QDebug>
 
-using namespace std;
-
+/**
+ * Default constructor.
+ *
+ * @param parent    The parent QObject
+ */
 TcpServer::TcpServer(QObject* parent): QObject(parent)
 {
 }
 
+/**
+ * Destructor. Closes the server and the client if existent.
+ */
 TcpServer::~TcpServer()
 {
     server.close();
@@ -16,6 +20,12 @@ TcpServer::~TcpServer()
     }
 }
 
+/**
+ * Lets the server listen to a port and connects the signal for
+ * new connections to acceptConnections.
+ *
+ * @param port  the port to listen to.
+ */
 void TcpServer::startListen(int port)
 {
     connect(&server, SIGNAL(newConnection()),
@@ -23,15 +33,23 @@ void TcpServer::startListen(int port)
     server.listen(QHostAddress::Any, port);
 }
 
+/**
+ * Accepts a connections, gets the connected client and connects the clients
+ * signal readyRead to the own startRead slot. Emits the signal clientConnected.
+ */
 void TcpServer::acceptConnection()
 {
     client = server.nextPendingConnection();
     connect(client, SIGNAL(readyRead()),
             this, SLOT(startRead()));
     emit clientConnected();
-    transfer("helloclient\n");
 }
 
+/**
+ * Starts to transfer a string message to the client.
+ *
+ * @param message to transfer.
+ */
 void TcpServer::transfer(QString message)
 {
     if (client && client->state() == QAbstractSocket::ConnectedState) {
@@ -42,6 +60,12 @@ void TcpServer::transfer(QString message)
     }
 }
 
+/**
+ * Entrypoint of Network inputs. Reads the received message.
+ * When it ends with a newline \n it emitts the signal received.
+ * When it ends not with a newline it just writes the message into to buffer.
+ * the buffer gets concatinated with the new received input unitl a newline is here.
+ */
 void TcpServer::startRead()
 {
     buffer += client->readAll();
