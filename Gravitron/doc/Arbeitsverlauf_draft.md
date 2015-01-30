@@ -240,6 +240,7 @@ Auf der Serverseite ist nun ein __NetworkInputHandler__ über _signals_ und _slo
 ##Player
 
 ###HumanPlayer
+Der __HumanPlayer__ besitzt einen Inputhandler mit dessen Hilfe er die aktuellen eingaben lesen kann und so das __Spacecraft__ gesteuert wird.
 
 ###HumanNetworkPlayer
 Der __NumanNetworkPlayer__ unterscheidet sich nur durch den Typen des InputHandlers vom HumanPlayer. Der NetworkPlayer
@@ -253,14 +254,43 @@ Ebenfalls wird auf das Paket "cname" connected. Zu Beginn des Spiels schickt der
 ###AINetworkPlayer
 
 #Tests
+Für die Tests schrieben wir eine eigene Klasse. Diese führt die Tests mithilfe des QT-Testframeworks durch. Die beiden Klassen Physics und Vec3f bilden die Grundlage jeder Bewegung im Spiel. Dementsprechend war es von hoher Bedeutung, dass diese beiden Kassen auch immer wie erwartet arbeiten.
 
 ##Physics
+Für alle Test wurde zuerst einmal ein einheitlicher Ausgangszustand geschaffen in dem zwei GameActors auf eine feste Postion gesetzt wurden. Ausgehend von diesen Positionen und Gravitationseigenschaften wurde ein erwarteter Wert errechnet und dann in dem Test für alle Methoden der Physics-Klasse geprüft ob auch diese Werte ausgerechnet werden.
 
 ##Vec3f
+Analog zu den Tests der Physics-Klasse, wurde auch hier ein einheitlicher Ausgangsvektor geschaffen. Auch das weitere Vorgehen war wie bei der Phyics-Klasse.
 
 #Speichertests
+Das Projet wurde in C++ geschrieben und so ist es wichtig Speicherzugriffsfehler und Memoryleaks zu finden und zu beheben. Zunächst probierten wir das Tool __valgrind__ zu verwenden. Allerdings gab es einige Probleme, die die Analyse der Fehler unmöglich machten. Ein vermutliche Ursache ist die Speicheroptimierung von QT. Das Testen mit __sanitize__ war deutlich erfolgreicher.
 
 ##Sanitize
+Der Speichertest mit __sanitize__ ist mit ein paar einfachen Compiler- und Linker-Kommandos zu nutzen. Die entsprechenden Flags wurden über die QT-Projektdatei dem Compiler und Linker übergeben:
+
+```bash
+QMAKE_CXXFLAGS_DEBUG += -fsanitize=address -O1 -fno-omit-frame-pointer
+QMAKE_LFLAGS_DEBUG += -fsanitize=address
+```
+
+Der Vorteil den wir bei Gegenüberstellung von __sanitize__ und __valgrind__ war, dass __sanitize__ die Programmausführung bei einem Fehler abbricht. Dies hatte zur Folge, dass das Programm immer ohne Speicherfehler ist. Auch lief die Programmausführung mit __sanitize__ wesentlich schneller als mit __valgind__.
+
+#Übersetzungen
+Um das Programm in mehreren Sprachen zur Verfügung zu stellen, haben wir die QT-Translation-Tools benutzt. Der Text der in mehreren Sprachen angezeigt werden sollte, musste in die Funktion __qsTr()__ gesetzt werden. In der Projektdatei mussten wir angeben, für welche Sprachen es eine Übersetzungen geben soll:
+
+```bash
+TRANSLATIONS = gravitron_de.ts \
+               gravitron_en.ts
+```
+
+Der Name der Übersetzungsdateien kann beliebig sein, da eine Zuordnung manuell vorgenommen werden muss. 
+Um nun die Übersetzungen zu erzeugen sind die drei folgenden Schritte notwendig:
+    1. __lupdate__ in Gravitron.pro: Es werden alle Dateien nach der __qsTr()__-Funktion durchsucht und als _offene_ Übersetzung registriert.
+    2. Die Übersetzungsdateien können nun mit QT Linguist geöffnet und übersetzt werden.
+    3. __lrelease__: Erzeugt die fertigen Übersetzungsdateien mit der Endung _.qm_.
+
+
+Bei Programmausführung werden die Übersetzungen mit der Klasse __Locator__ geladen.
 
 #Probleme beim Entwicklungsprozesses
 ##Qt verstehen
