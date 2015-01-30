@@ -146,8 +146,7 @@ Der Schwierige Punkt in diesem Szenario war, wie man aus C++ heraus QML Objekte 
     // Dann können die einzelnen Eigenschaften dem QQuickItem 
     // übergeben werden.
     for(pit = props.begin(); pit != props.end(); pit++) {
-        childItem->setProperty(pit->first.c_str(), 
-                               pit->second.c_str());
+        childItem->setProperty(pit->first.c_str(), pit->second.c_str());
     }
 
 ##Updates
@@ -178,11 +177,20 @@ Grundsätzlich Enden alle Pakete mit einer _newline_. Dies da wir das Problem ha
 Da wir bereits das Rendern komplett vom Gameloop getrennt haben, können wir nun den Render mechanismus relativ einfach netzwerkfähig machen. Um das zu machen, können wir den TcpClient mit einer remoteRender methode verbinden.
 Diese remoteRender Methode überprüft nun, ob das erhaltene Paket einen view ist. Startet mit "v". Wenn dies der fall ist, generiert die Methode daraus wieder eine liste von GameActorViews und ruft die gleiche render methode auf wie der Server. Die render Methode rendert nun aus den GameActorView wieder QML objetke und zeigt sie an.
 
+### Remote Inputs
+Um die Inputs des Netzwerkspilers zu empfangen, wird auf der Seite des Netzwerkspielers einen Inputhandler erstellt wie bereits für den Lokalen spieler. Dabei wird nun aber die inputliste serialisiert über das Netzwerk versendet. Jedes mal wenn sie sich ändert.
+Auf der Serverseite ist nun ein __NetworkInputHandler__ per signals/slots an den server tcp socket gebunden. Dieser hört auf jedes erhaltene Paket, ob es sich um inputs handelt (starten mit "i"). Wenn dies der Fall ist, wird das paket deserialisiert und analog zum InputHandler in ein durch mutex geschützen inputs vektor gespeichert. Dieser kann nun vom NetzwerkPlayer objekt bei jedem durchlauf des Gameloops nach inputs überprüft werden.
+
 ##Player
 
 ###HumanPlayer
 
 ###HumanNetworkPlayer
+Der __NumanNetworkPlayer__ unterscheidets sich nur durch den Typ des InputHandlers vom HumanPlayer. Der netzwerk Player
+überprüft in der processInput Methode den Inputs vektor des __NetworkInputHandler__. Dieser connected er in seinem construktor
+mit den serverevents.
+
+Ebenfalls wird auf das Paket "cname" connected. Ganz am anfang vom Spiel schickt der Netzwerkspieler seinen Namen übers netzwerk. Der __HumanNetworkPlayer__ hört darauf und setzt seinen namen neu.
 
 ###AIPlayer
 
