@@ -68,7 +68,7 @@ Projectile::Projectile(const Projectile &projectile) : GameActor(projectile)
 Projectile::~Projectile() {}
 
 /**
- * Determines the current time to live (in rendering cycles).
+ * Determines the current time to live (in update cycles).
  * @return current time to live
  */
 int Projectile::getTimeToLive() const
