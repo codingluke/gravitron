@@ -49,14 +49,22 @@ function slide_musicSoundVolumeChanged() {
     Settings.setMusicSoundVolume(slide_musicSoundVolume.value);
 }
 
-function getTxtPlayerNameText() {
-    return Settings.playerName;
+function getBtnPlaySoundsText() {
+    //: Text of the sounds button
+    var text = qsTr("Sounds") + ": ";
+    if(Settings.playSounds === true) {
+        //: sound on
+        text += qsTr("on")
+    } else {
+        //: sound off
+        text += qsTr("off");
+    }
+    return text;
 }
 
-function txt_playerNameChanged() {
-   Settings.setPlayerName(txt_playerName.text)
+function btn_playSoundsClicked() {
+    Settings.setPlaySounds(!Settings.playSounds);
 }
-
 
 var currentLanguage;
 function getLanguage() {

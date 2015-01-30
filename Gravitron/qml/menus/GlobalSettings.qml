@@ -67,8 +67,8 @@ Column {
         height: Global.textFieldHeight
         width: Global.textFieldWidth
         placeholderText: qsTr("Name")
-        text: SettingsFunctions.getTxtPlayerNameText()
-        onEditingFinished: SettingsFunctions.txt_playerNameChanged()
+        text: Settings.playerName
+        onEditingFinished: Settings.setPlayerName(txt_playerName.text)
     }
 
     Button {
