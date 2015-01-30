@@ -68,9 +68,9 @@ GameGenerator::~GameGenerator()
 }
 
 /**
- * Generate the \see GameActor, \see AIPlayer and \see HumanPlayer for the given
- * \see GameLoop.
- * @param g The \see GameLoop.
+ * Generate the GameActor, AIPlayer and HumanPlayer for the given
+ * GameLoop.
+ * @param g The GameLoop.
  */
 void GameGenerator::generateGame(GameLoop* g) {
     this->actors = &(g->actors);
@@ -90,8 +90,8 @@ void GameGenerator::generateGame(GameLoop* g) {
 }
 
 /**
- * Generate the \see AIPlayer s (aka bots) depending on the count of bots in
- * the \see GravitronSettings.
+ * Generate the AIPlayer s (aka bots) depending on the count of bots in
+ * the GravitronSettings.
  */
 void GameGenerator::generateBots()
 {
@@ -105,9 +105,9 @@ void GameGenerator::generateBots()
 }
 
 /**
- * Generate \see HumanPlayer or/and \see HumanNetworkPlayer. If the game is a
- * singelplayer game one \see HumanPlayer is generated else the game is a multiplayer
- * game and a \see HumanPlayer and a \see HumanNetworkPlayer is generated.
+ * Generate HumanPlayer or/and HumanNetworkPlayer. If the game is a
+ * singelplayer game one HumanPlayer is generated else the game is a multiplayer
+ * game and a HumanPlayer and a HumanNetworkPlayer is generated.
  */
 void GameGenerator::generatePlayer() {
     if (settings->network()) {
@@ -131,9 +131,9 @@ void GameGenerator::generatePlayer() {
 }
 
 /**
- * Generate a \see Spacecraft with a random position and rondom mass, g and gravitationRange in the
- * borders that deffined in the \see ActConf class. The \see Spacecraft is added to the actors list.
- * @return The \see Spacecraft.
+ * Generate a Spacecraft with a random position and rondom mass, g and gravitationRange in the
+ * borders that deffined in the ActConf class. The Spacecraft is added to the actors list.
+ * @return The Spacecraft.
  */
 Spacecraft* GameGenerator::generateNewSpacecraft() {
     Vec3f position(rand() % field->getWidth(),rand() % field->getHeight(), 0);
@@ -142,9 +142,9 @@ Spacecraft* GameGenerator::generateNewSpacecraft() {
 }
 
 /**
- * Generate the \see Planet s with a random position and rondom mass, g and gravitationRange in the
- * borders that deffined in the \see ActConf class. The number of \see Planet s is defind in the
- * \see GravitronSettings. All \see Planet s are added to the list of actros.
+ * Generate the Planet s with a random position and rondom mass, g and gravitationRange in the
+ * borders that deffined in the ActConf class. The number of Planet s is defind in the
+ * GravitronSettings. All Planet s are added to the list of actros.
  */
 void GameGenerator::generatePlanets() {
     for(int i = 0; i < settings->planetCount(); i++) {
@@ -157,9 +157,9 @@ void GameGenerator::generatePlanets() {
 }
 
 /**
- * Generate the \see Asteroid s with a random position and rondom mass, g and gravitationRange in the
- * borders that deffined in the \see ActConf class. The number of \see Asteroid s is defind in the
- * \see GravitronSettings. All \see Asteroid s are added to the list of actros.
+ * Generate the Asteroid s with a random position and rondom mass, g and gravitationRange in the
+ * borders that deffined in the ActConf class. The number of Asteroid s is defind in the
+ * GravitronSettings. All Asteroid s are added to the list of actros.
  */
 void GameGenerator::generateAstroids() {
     for(int i = 0; i < settings->astroidCount(); i++) {
@@ -172,9 +172,9 @@ void GameGenerator::generateAstroids() {
 }
 
 /**
- * Generate the \see PowerUp s. The number of \see PowerUp s is random depaning on the
+ * Generate the PowerUp s. The number of PowerUp s is random depaning on the
  * difficulty. On easy 0 betwenn 10, on middle 0 between 10 and on hard no are generated.
- * All genreated \see PowerUp s are add to list of actors.
+ * All genreated PowerUp s are add to list of actors.
  */
 void GameGenerator::generateRandomPowerUps() {
     int numberRadomPowerUps = 0;
@@ -191,19 +191,19 @@ void GameGenerator::generateRandomPowerUps() {
 }
 
 /**
- * Generate a new \see PowerUp at the given position.
+ * Generate a new PowerUp at the given position.
  * @param position The position.
- * @return The \see PowerUp.
+ * @return The PowerUp.
  */
 GameActor* GameGenerator::generateNewPowerUp(Vec3f position) {
     return new PowerUp(position, *field, actors);
 }
 
 /**
- * Generate the \see Scrap. The number of \see Scrap is random depaning on the
+ * Generate the Scrap. The number of Scrap is random depaning on the
  * difficulty. On easy there is nothing generate, on middle 0 between 10, on hard
  * 0 between 30.
- * All genreated \see Scrap are add to list of actors.
+ * All genreated Scrap are add to list of actors.
  */
 void GameGenerator::generateRandomScrap() {
     int numberRadomScrap = 0;
@@ -220,8 +220,8 @@ void GameGenerator::generateRandomScrap() {
 }
 
 /**
- * Generate a \see Scrap with the given position and rondom mass, g and gravitationRange in the
- * borders that deffined in the \see ActConf class.
+ * Generate a Scrap with the given position and rondom mass, g and gravitationRange in the
+ * borders that deffined in the ActConf class.
  * @param position The position.
  * @return The generated scrap.
  */
@@ -233,8 +233,8 @@ GameActor* GameGenerator::generateNewScrap(Vec3f position) {
 }
 
 /**
- * Generate the \see Sun with a random position and rondom mass, g and gravitationRange in the
- * borders that deffined in the \see ActConf class. The \see Sun is added to the actors list.
+ * Generate the Sun with a random position and rondom mass, g and gravitationRange in the
+ * borders that deffined in the ActConf class. The Sun is added to the actors list.
  */
 void GameGenerator::generateSun() {
     Vec3f position(rand() % field->getWidth(),rand() % field->getHeight(), 0);

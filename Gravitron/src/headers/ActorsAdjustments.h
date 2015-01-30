@@ -32,7 +32,6 @@ public:
 	static constexpr float PLANET_MAX_HEALTH = 3000;
 	static constexpr float PLANET_MIN_HEALTH = 2000;
 
-
 	static constexpr float ASTEROID_MAX_MASS = 2;
 	static constexpr float ASTEROID_MIN_MASS = 0.5;
 	static constexpr float ASTEROID_MAX_G = 0.7;
@@ -46,7 +45,6 @@ public:
 	static constexpr float ASTEROID_DAMAGE = 2;
 	static constexpr float ASTEROID_MAX_HEALTH = 150;
 	static constexpr float ASTEROID_MIN_HEALTH = 20;
-
 
 	static constexpr float SPACECRAFT_MAX_MASS = 0.5;
 	static constexpr float SPACECRAFT_MIN_MASS = 0.5;
@@ -62,32 +60,6 @@ public:
 	static constexpr float SPACECRAFT_MIN_HEALTH = 300;
 	static constexpr float SPACECRAFT_COLLISION_DAMAGE = 10;
 
-	static constexpr float MISSILE_MASS = 1;
-	static constexpr float MISSILE_G = 0;
-	static constexpr float MISSILE_GRAVITATION_RANGE = 0;
-	static constexpr float MISSILE_MAXSPEED = 15;
-	static constexpr float MISSILE_RADIUS = 10;
-	static constexpr float MISSILE_HEALTH = 5;
-	static constexpr float MISSILE_DAMAGE = 20;
-	static constexpr float MISSILE_TIME_TO_LIVE = 300;
-
-	static constexpr float AIM_MISSILE_MAX_MASS = 0.5;
-	static constexpr float AIM_MISSILE_MIN_MASS = 0.5;
-	static constexpr float AIM_MISSILE_MAX_G = 0;
-	static constexpr float AIM_MISSILE_MIN_G = 0;
-	static constexpr float AIM_MISSILE_MAX_GRAVITATION_RANGE = 0;
-	static constexpr float AIM_MISSILE_MIN_GRAVITATION_RANGE = 0;
-	static constexpr float AIM_MISSILE_MAX_MAXSPEED = 13;
-	static constexpr float AIM_MISSILE_MIN_MAXSPEED = 13;
-	static constexpr float AIM_MISSILE_MAX_RADIUS = 10;
-	static constexpr float AIM_MISSILE_MIN_RADIUS = 10;
-	static constexpr float AIM_MISSILE_MAX_HEALTH = 40;
-	static constexpr float AIM_MISSILE_MIN_HEALTH = 40;
-	static constexpr float AIM_MISSILE_MAX_POWER = 50;
-	static constexpr float AIM_MISSILE_MIN_POWER = 50;
-	static constexpr float AIM_MISSILE_DAMAGE = 40;
-
-
 	static constexpr float SCRAP_MAX_MASS = 0.2;
 	static constexpr float SCRAP_MIN_MASS = 0.05;
 	static constexpr float SCRAP_MAX_G = 0;
@@ -102,22 +74,6 @@ public:
 	static constexpr float SCRAP_MAX_HEALTH = 5;
 	static constexpr float SCRAP_MIN_HEALTH = 1;
 
-
-	static constexpr float LASER_MAX_MASS = 0;
-	static constexpr float LASER_MIN_MASS = 0;
-	static constexpr float LASER_MAX_G = 0;
-	static constexpr float LASER_MIN_G = 0;
-	static constexpr float LASER_MAX_GRAVITATION_RANGE = 0;
-	static constexpr float LASER_MIN_GRAVITATION_RANGE = 0;
-	static constexpr float LASER_MAX_MAXSPEED = 25;
-	static constexpr float LASER_MIN_MAXSPEED = 25;
-	static constexpr float LASER_MAX_RADIUS = 10;
-	static constexpr float LASER_MIN_RADIUS = 10;
-	static constexpr float LASER_MAX_HEALTH = 80; 
-	static constexpr float LASER_MIN_HEALTH = 80; 
-	static constexpr float LASER_DAMAGE = 20;
-
-
 	static constexpr float POWERUP_MAX_MASS = 0;
 	static constexpr float POWERUP_MIN_MASS = 0;
 	static constexpr float POWERUP_MAX_G = 0;
@@ -130,6 +86,25 @@ public:
 	static constexpr float POWERUP_MIN_RADIUS = 10;
 	static constexpr float POWERUP_MAX_HEALTH = -1;
 	static constexpr float POWERUP_MIN_HEALTH = -1;
+
+	static constexpr float LASER_MASS = 0;
+	static constexpr float LASER_G = 0;
+	static constexpr float LASER_GRAVITATION_RANGE = 0;
+	static constexpr float LASER_MAXSPEED = 25;
+	static constexpr float LASER_RADIUS = 10;
+	static constexpr float LASER_HEALTH = 80; 
+	static constexpr float LASER_DAMAGE = 10;
+	static constexpr float LASER_TIME_TO_LIVE = 90;
+
+	static constexpr float MISSILE_MASS = 1;
+	static constexpr float MISSILE_G = 0;
+	static constexpr float MISSILE_GRAVITATION_RANGE = 0;
+	static constexpr float MISSILE_MAXSPEED = 15;
+	static constexpr float MISSILE_RADIUS = 10;
+	static constexpr float MISSILE_HEALTH = 5;
+	static constexpr float MISSILE_DAMAGE = 20;
+	static constexpr float MISSILE_TIME_TO_LIVE = 300;
+
 };
 
 #endif // ACTORSADJUSTMENTS_H
