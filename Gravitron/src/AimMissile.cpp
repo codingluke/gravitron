@@ -48,7 +48,7 @@ void AimMissile::handleCollision(GameActor &other)
     }
     if (!otherIsFriendly && !killed)
     {
-        other.dealDamage(ActConf::AIM_MISSILE_DAMAGE);
+        other.dealDamage(ActConf::MISSILE_DAMAGE);
         if (other.isKilled() && dynamic_cast<Spacecraft*>(&other)) {
             incKillPointsOfFriends();
         }

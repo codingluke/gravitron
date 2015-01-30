@@ -12,11 +12,11 @@
 class GameLoop; // <<== Forward declare the class. Because of circular definitions.
 
 /**
- * This is to generate all \see GameActor for the Game. Depending on the current
- * \see GravitronSettings a differen number of Actors of all kinds are generate.
- * All actors will generated with random values with the help of the \see ActConf
- * class and placed randomly on the \see GameField.
- * The GameGenerator just works for the \see GameLoop.
+ * This is to generate all GameActor for the Game. Depending on the current
+ * GravitronSettings a differen number of Actors of all kinds are generate.
+ * All actors will generated with random values with the help of the ActConf
+ * class and placed randomly on the GameField.
+ * The GameGenerator just works for the GameLoop.
  *
  * Important: All created heab objects not will be delete by the GameGenerator.
  */
@@ -25,17 +25,17 @@ class GameGenerator : public QObject
     Q_OBJECT
     private:
         /**
-         * The \see GravitronSettings .
+         * The GravitronSettings .
          */
         GravitronSettings *settings;
 
         /**
-         * The \see GameField
+         * The GameField
          */
         GameField* field;
 
         /**
-         * The @TcpServer.
+         * The TcpServer.
          */
         TcpServer* server;
 
@@ -45,12 +45,12 @@ class GameGenerator : public QObject
         std::vector<GameActor*> *actors;
 
         /**
-         * The list of generated \see AIPlayer.
+         * The list of generated AIPlayer.
          */
         std::vector<AIPlayer*> bots;
 
         /**
-         * The list of \see Player.
+         * The list of Player.
          */
         std::vector<Player*> humanPlayer;
 

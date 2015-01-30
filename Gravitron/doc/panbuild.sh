@@ -1,0 +1,1 @@
+pandoc --toc -s -N --include-in-header titlesec.tex -o Arbeitsverlauf_draft.pdf Arbeitsverlauf_draft.md
