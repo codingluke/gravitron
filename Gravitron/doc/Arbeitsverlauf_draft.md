@@ -15,9 +15,10 @@ Implementierung eines Mehrspieler-Weltraum-Shooters (Gravitron) in C++.
 ### Basic Features
 - (5) Objekte verfügen über eine Gravitation relativ zu ihrer Masse.
 - (5) Das Spiel soll über das Netzwerk im Multiplayer spielbar sein, wobei ein spieler der Host ist.
-- (0) Es soll eine KI mit 3 Schwierigkeitsstufen beinhalten.
+- (7) Es soll eine KI mit 3 Schwierigkeitsstufen beinhalten.
 - (2) Spieler settings werden presistent gespeichert
-- (10) Jedem Spieler wird die sicht relativ zu seinem Raumschiff gerendert.
+- (5) Jedem Spieler wird die sicht relativ zu seinem Raumschiff gerendert.
+- (3) Es soll zwischen den Sprachen Entlisch und Deutsch gewechselt werden können.
 
 ### Gameplay
 
@@ -25,30 +26,31 @@ Implementierung eines Mehrspieler-Weltraum-Shooters (Gravitron) in C++.
 (5) Das Spielfeld ist eine Fläche. jeder Spieler steuert sein eigenes Schiff und bewegt sich auf der Fläche.
 
 ### Spielmodus
-(5) Es handelt sich um ein klassisches Deathmatch, d.h. jeder Spieler erzielt Punkte durch das abschiessen gegnerischer Schiffe.
+(2) Es handelt sich um ein klassisches Deathmatch, d.h. jeder Spieler erzielt Punkte durch das abschiessen gegnerischer Schiffe.
 Wer auf diese Weise eine vorher definierte Punktzahl erreicht, gewinnt und das Spiel wird beendet. 
 
 ### Gravitationssystem
-Alle im Spielfeld befindlichen Objekte (Raumschiffe, Planeten, Schwarze Löcher...) besitzen eine Gravitation relativ zu ihrer Masse. Diese beeinflusst die Flugbahn von Geschossen und Schiffen.  Die Nicht-Spieler-Objekte sollen sich zunächst nicht gegenseitig beeinflussen.
+(5) Alle im Spielfeld befindlichen Objekte (Raumschiffe, Planeten, Schwarze Löcher...) besitzen eine Gravitation relativ zu ihrer Masse. Diese beeinflusst die Flugbahn von Geschossen und Schiffen.  Die Nicht-Spieler-Objekte sollen sich zunächst nicht gegenseitig beeinflussen.
 
 ### Nicht-Spieler-Objekte
-(5)
-- Planeten
-- Schrott
-- Asteroiden
+- (2) Planeten, 
+- (1) Schrott, 
+- (1) Asteroiden 
+
+### Arten von Waffen
+- (2) Laser
+- (2) Rakete
+- (3) Zielsuchende Rackete
 
 ### Kollisionen
-Es wird für alle möglichen Kollisionen eine eine spezifische Behandlung
-definiert. 
-
-Beispielsweise führt die Kollision mit einem Planeten zu höheren zerstörung des Schiffes, als die Kollision mit einem Asteroiden.
+(2) Es wird für alle möglichen Kollisionen eine eine spezifische Behandlung
+definiert. Beispielsweise führt die Kollision mit einem Planeten zu höheren zerstörung des Schiffes, als die Kollision mit einem Asteroiden.
 
 ### PowerUps
-(5) Das Raumschiff eines abgeschossenen Spielers wird zu einem PowerUp, welches von allen Spielern aufgesammelt werden kann. 
+(3) Das Raumschiff eines abgeschossenen Spielers wird zu einem PowerUp, welches von allen Spielern aufgesammelt werden kann. 
 
 ### Mögliche Arten von PowerUps:
 (1) Waffen Upgrade!
-- Waffen
 
 ## Plattformen
 (1)
