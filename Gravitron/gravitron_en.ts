@@ -142,16 +142,12 @@
         <source>on</source>
         <extracomment>fullscreen on
 ----------
-music on
-----------
 sound on</extracomment>
         <translation>on</translation>
     </message>
     <message>
         <source>off</source>
         <extracomment>fullscreen off
-----------
-music off
 ----------
 sound off</extracomment>
         <translation>off</translation>
@@ -202,7 +198,7 @@ sound off</extracomment>
     <message>
         <source>Music</source>
         <extracomment>Text of the music button</extracomment>
-        <translation>Music</translation>
+        <translation type="obsolete">Music</translation>
     </message>
     <message>
         <source>Sounds</source>
