@@ -83,15 +83,6 @@ function btn_playSoundsClicked() {
     Settings.setPlaySounds(!Settings.playSounds);
 }
 
-function getTxtPlayerNameText() {
-    return Settings.playerName;
-}
-
-function txt_playerNameChanged() {
-   Settings.setPlayerName(txt_playerName.text)
-}
-
-
 var currentLanguage;
 function getLanguage() {
     var language = Settings.language;
