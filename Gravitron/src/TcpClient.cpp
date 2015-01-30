@@ -58,7 +58,7 @@ void TcpClient::transfer(QString message)
  * Transfers a set of input codes to the server.
  * This could be done somewhere else, cause of convenience its in this class.
  *
- * @param message   Set of input codes to deliver.
+ * @param inputs   Set of input codes to deliver.
  */
 void TcpClient::transfer(set<int> inputs)
 {
