@@ -1,6 +1,10 @@
 #ifndef GAMEFIELD_HEADER
 #define GAMEFIELD_HEADER
 
+/**
+ * GameField represents the area in which the game plays out. 
+ * More precisly, it defines the arenas dimensions.
+ */
 class GameField
 {
 private:

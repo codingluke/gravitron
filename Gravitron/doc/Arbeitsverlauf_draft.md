@@ -19,6 +19,7 @@ Da viele die QML verwenden nicht das standard qml verwenden, sonder bereits GUI 
 
 Wir haben am Ende eine Lösung gefunden, inder wir im main.qml eine __ScrollView__ element haben welches eine __ListView__ beinhaltet. Dieser List view wiederum geben wir als Model ein __VisualItemModel__. Ein VisualItemModel kann wiederum andere QML objekte beinhalten. Dabei nutzen wir nun in dem VisualItemModel eine __Loader__ objekt, welches QML objekte nachladen kann. Wenn wir nun also in der Menustruktur in eine andere ebene gelangen, müssen wir nur noch dem __Loader__ eine neue _source_ (Pfad zu einer QML-Datei) geben. Mit dieser Struktur können wir nun ziemlich elegant geschachtelte Menus erstellen.
 
+```javascript
     VisualItemModel {
         id: theModel
         Column {
@@ -44,27 +45,32 @@ Wir haben am Ende eine Lösung gefunden, inder wir im main.qml eine __ScrollView
             anchors.fill: parent
         }
     }
+```
 
 ### Property Binding
 Ein weiteres Problem bestand darin QML controls an C++ objekte zu "binden". Dafür muss man zuerst ein C++ objekt auf QML Eebene verfügbar machen. Eine Möglichkeit ist es indem man beim Laden des QMLs, dem Kontekt Referenzen zu C++ objekten registriert. Dies scheint nicht sehr elegant, ist jedoch ziemlich Effizient.
-    
-    // Hier wird ein settins objekt unter dem Namen "Settings" in QML verfügbar gemacht.
-    GravitronSettings settings;
-    engine.rootContext()->setContextProperty("Settings", &settings);
+
+```javascript    
+// Hier wird ein settins objekt unter dem Namen "Settings" in QML verfügbar gemacht.
+GravitronSettings settings;
+engine.rootContext()->setContextProperty("Settings", &settings);
+```
 
 Sobald man dies gemacht hat, kann überal im QML auf das Settings objekt zugegriffen werden. So können nun auch QML-Controlls gebunden werden:
 
-    // Hier wird der playerName von den registrierten Settings geholt.
-    // sobald der Benutzer den Focus vom Feld weg nimmt, wird 
-    // ebenfalls über dasSettings Objekt der neue Spielername gesetzt.
-    TextField {
-        id: txt_playerName
-        height: Global.textFieldHeight
-        width: Global.textFieldWidth
-        placeholderText: qsTr("Name")
-        text: Settings.playerName
-        onEditingFinished: Settings.setPlayerName(txt_playerName.text)
-    }
+```javascript
+// Hier wird der playerName von den registrierten Settings geholt.
+// sobald der Benutzer den Focus vom Feld weg nimmt, wird 
+// ebenfalls über dasSettings Objekt der neue Spielername gesetzt.
+TextField {
+    id: txt_playerName
+    height: Global.textFieldHeight
+    width: Global.textFieldWidth
+    placeholderText: qsTr("Name")
+    text: Settings.playerName
+    onEditingFinished: Settings.setPlayerName(txt_playerName.text)
+}
+```
 
 Es muss dabei beachtet werden, dass keine Loops entstehen. Wenn wir z.B.
 die setPlayerName methode nicht bei onEditingFinished sonder bei onTextChanged aufrufen, hätten wir einen Loop.
@@ -76,11 +82,16 @@ die setPlayerName methode nicht bei onEditingFinished sonder bei onTextChanged a
 Ein sehr kritischer Teil des Projektes besteht in der inneren Spiellogik. Sie bestimmt die Regeln, den Ablauf und auch jeden möglichen Zustand des Spiels. Ihre Aufgabe ist es auch, den Zustand der einzelnen Akteure des Spiels konsistent zu halten. Um die Umsetzung der Logik unabhängig von Qt zu halten, haben wir uns entschieden die Spiellogik völlig von den anderen Bestandteilen des Spiels zu entkoppeln. 
 
 ##GameActor
-Die Klasse GameActor repräsentiert jedes denkbare Objekt, das Teil des Spielgeschehens ist. Dazu zählen die Raumschiffe der Spieler, Planeten, Sonnen, Weltraumschrott, Asteroiden aber auch jegliche Geschosse der Waffen über die die Schiffe verfügen. Die wichtigsten Eigenschaften eines GameActors sind seine Position, Geschwindigkeit, Beschleunigung, Masse, Lebenspunkte, Gravitationskraft sowie die Reichweite, über welche seine Gravitation andere GameActors beeinflussen kann. Seine Positionierung und Bewegung werden mit elementarer Vektorrechnung realisiert. Wann immer eine Kraft auf einen GamActor wirken soll, wird die Methode __applyForce()__ mit einem  entsprechenden Kraftvektor verwendet. Die angewendete Kraft wirkt sich zunächst nur auf seinen Beschleunigungsvektor addiert, erst beim Aktualisieren des GameActors über __update()__ wird der Beschleunigungsvektor mit dem Geschwindigkeitsvektor verrechnet und mit diesem dann schließlich die neue Position bestimmt.
-Falls GameActors miteinander Kollidieren wird dies mithilfe der __collisionDetection()__ aus der __Physics__-Bibliothek ermittelt. Durch Implementation der virtuellen Methode __handleCollision()__ kann festgelegt werden, wie der jeweilige GameActor mit einem Zusammenstoß umgehen soll. Sollte er schaden nehmen, kann dies mit __dealDamage()__ realisiert werden, diese Methode bestimmt dabei auch, ob der zugewiesene Schaden die maximale Zahl von Lebenspunkten überschreitet und aktualisiert das Feld __killed__ dementsprechend. __addHealth()__ agiert in analog entgegengesetzter Weise zu __dealDamage()__ wobei wir jedoch davon ausgehen, dass ein getöteter oder zerstörter GameActor nicht "wiederbelebt" werden sollte. Dies sollte, falls nötig über einen anderen Weg geregelt werden. Falls ein GameActor durch seinen Tod einen Effekt auf das Spielgeschehen haben, zum Beispiel eine Explosion oder das setzen eines PowerUps, kann dies in der virtuellen Methode __handleKill()__ definiert werden. 
+Die Klasse GameActor repräsentiert jedes denkbare Objekt, das Teil des Spielgeschehens ist. Dazu zählen die Raumschiffe der Spieler, Planeten, Sonnen, Weltraumschrott, Asteroiden aber auch jegliche Geschosse der Waffen über die die Schiffe verfügen. 
+
+![GameActor Klassenhierarchie](img/class_game_actor__inherit__graph.png)
+
+Die wichtigsten Eigenschaften eines GameActors sind seine Position, Geschwindigkeit, Beschleunigung, Masse, Lebenspunkte, Gravitationskraft sowie die Reichweite, über welche seine Gravitation andere GameActors beeinflussen kann. Seine Positionierung und Bewegung werden mit elementarer Vektorrechnung realisiert. Wann immer eine Kraft auf einen GamActor wirken soll, wird die Methode __applyForce()__ mit einem  entsprechenden Kraftvektor verwendet. Die angewendete Kraft wirkt sich zunächst nur auf seinen Beschleunigungsvektor addiert, erst beim Aktualisieren des GameActors über __update()__ wird der Beschleunigungsvektor mit dem Geschwindigkeitsvektor verrechnet und mit diesem dann schließlich die neue Position bestimmt.
+Falls GameActors miteinander Kollidieren wird dies mithilfe der __collisionDetection()__ aus der __Physics__-Bibliothek ermittelt. Durch Implementation der virtuellen Methode __handleCollision()__ kann festgelegt werden, wie der jeweilige GameActor mit einem Zusammenstoß umgehen soll. Sollte er schaden nehmen, kann dies mit __dealDamage()__ realisiert werden, diese Methode bestimmt dabei auch, ob der zugewiesene Schaden die maximale Zahl von Lebenspunkten überschreitet und aktualisiert das Feld __killed__ dementsprechend. __addHealth()__ agiert in analog entgegengesetzter Weise zu __dealDamage()__ wobei wir jedoch davon ausgehen, dass ein getöteter oder zerstörter GameActor nicht "wiederbelebt" werden sollte. Dies sollte, falls nötig über einen anderen Weg geregelt werden. Zusätzlich definieren wir mit einer Lebenspunktzahl von -1 einen GameActor, der nicht durch das Zuteilen von Schaden durch __dealDamage()__ sterben kann. Falls ein GameActor durch seinen Tod einen Effekt auf das Spielgeschehen haben, zum Beispiel eine Explosion oder das setzen eines PowerUps, kann dies in der virtuellen Methode __handleKill()__ definiert werden. 
 
 ##Projectile
-Mit Projectile sollen alle möglichen Arten von Geschossen realisiert werden.  
+Mit Projectile sollen alle möglichen Arten von Geschossen realisiert werden. Das könnten Laser und Raketen, aber auch Bomben, Minen oder andere Dinge sein, welche durch eine Waffe im Spielfeld platziert werden können. Projectile erbt von GameActor, bringt aber ein paar Erweiterungen. Zum einen kann es den Punktestand von befreundeten Raumschiffen beeinflussen, wobei "befreundet" bedeutet, dass dieses Projectile sie nicht in negativer weise beeinflussen kann. Zum anderen kann für jedes Projectile eine maximale Lebensdauer (time to live), gemessen in Update-Zyklen. Dadurch soll simuliert werden, dass die meisten Geschosse keine unendliche Reichweite haben, eine Rakete könnte zum Beispiel eine begrenzte Menge Treibstoff haben. Erreicht ein Projectile eine __timeToLive__ von null, wird es als __killed__ behandelt. In analoger Weise zu den Lebenspunkten des GameActors definieren wir, dass ein Projectile unbegrenzte Lebenszeit hat, wenn es eine __timeToLive__ von -1 hat.
+Darüber hinaus gehorcht das Projectile allen durch GameActor definierten Regeln, sofern diese nicht überschrieben werden.
 
 #Programmlogik 	
 
@@ -91,15 +102,17 @@ Dabei sind wir auf den GameLoop gestossen. http://gameprogrammingpatterns.com/ga
 ## GameLoop
 
 Dabei haben wir uns vorallem auf folgende implementierung geeinigt:
+```c++
+while (true)
+{
+  double start = getCurrentTime();
+  processInput();
+  update();
+  render();
+  sleep(start + MS_PER_FRAME - getCurrentTime());
+}
+```
 
-    while (true)
-    {
-      double start = getCurrentTime();
-      processInput();
-      update();
-      render();
-      sleep(start + MS_PER_FRAME - getCurrentTime());
-    }
 
 Es wird sequenziell zuerst den Benutzerinput verarbeitet (processInput), dabei handelt es sich um Keyborad input über das lokale keyboard oder übers netzwerk.
 Dann wird der spielstatus neu berechnet indem alle Aktoren sich aktuallisieren (update). Wenn der neue Spielstand berechnet wurde, wird dann alles gerendert.
@@ -114,36 +127,37 @@ Jeder GameActor, kann nun einen GameActorView von sich und seinem aktuellen stat
 
 In unserem Fall werden diese GameActorViews im Game.cpp von der methode Game::render gelesen. Dann werden für jeden View ein QQuickItem generiert. Welche QML Datei verwendet werden soll, wird ebenfalls im GameActorView definiert. So kann einfach pro GameActor eine GameActor.qml erstellt werden.
 
-Der Schwierige Punkt in diesem Scenario war, wie man aus C++ heraus QML Objekte generieren kann:
+Der Schwierige Punkt in diesem Szenario war, wie man aus C++ heraus QML Objekte generieren kann:
 
-    // Zuerst muss der QML Pfad vom GameActorView gelesen werden. Dieser
-    // definiert welche .qml Datei für den View verwendet werden soll.
-    QString path = QString::fromStdString((*view)->getQmlPath());
+```c++
+// Zuerst muss der QML Pfad vom GameActorView gelesen werden. Dieser
+// definiert welche .qml Datei für den View verwendet werden soll.
+QString path = QString::fromStdString((*view)->getQmlPath());
 
-    // Dann wird eine neue Komponente davo erstellte davo erstellt
-    QQmlComponent component(engine, QUrl(path));
-    QQuickItem *childItem = qobject_cast<QQuickItem*>(component.create());
+// Dann wird eine neue Komponente davo erstellte davo erstellt
+QQmlComponent component(engine, QUrl(path));
+QQuickItem *childItem = qobject_cast<QQuickItem*>(component.create());
 
-    // Dieser muss dann einen Parent gegeben werden. In unserem Fall ist 
-    // der qmlParent dem Game.cpp objekt bekannt.
-    childItem->setParent(qmlParent);
-    childItem->setParentItem(qmlParent);
+// Dieser muss dann einen Parent gegeben werden. In unserem Fall ist 
+// der qmlParent dem Game.cpp objekt bekannt.
+childItem->setParent(qmlParent);
+childItem->setParentItem(qmlParent);
 
-    ...
-    
-    // Dann können die einzelnen Eigenschaften dem QQuickItem übergeben werden.
-    for(pit = props.begin(); pit != props.end(); pit++) {
-        childItem->setProperty(pit->first.c_str(), pit->second.c_str());
-    }
+...
 
+// Dann können die einzelnen Eigenschaften dem QQuickItem übergeben werden.
+for(pit = props.begin(); pit != props.end(); pit++) {
+    childItem->setProperty(pit->first.c_str(), pit->second.c_str());
+}
+```
 
 ##Updates
 
 ## Multi-Key InputHandling	
-Beim input handling handelt es sich um Keyboard inputs des spielers.
-Das erste Problem hatten wir um auch mehrere Keys parallel zu erkennen. Wenn man einfach auf den KeyDown input Event hört kommen die paralel gedrückte Tasten hintereinander. Und noch viel schlimmer ist, wenn man die Taste gedrückt hält blockiert eine Taste die anderen.
-Um dieses Problem zu lösen hören wir nicht nur auf den KeyDown event sonder auch auf den KeyUp event. Dabei Haben wir einen input vector, welcher bei KeyDown den Keycode speichert. Bei KeyUp vom gleichen code wir er wider von der liste gelöscht.
-Um heraus zufinden, welche Keys gerade alle gedrückt werden, kann nun einfach die input liste durchiteriert werden. Egal ob eine Taste die anderen Blockiert. Eine Taste ist gedrück, bis ein KeyUp event der gleichen taste wieder kommt.
+Beim input handling handelt es sich um die Aufnahme und Verarbeitung von Keyboard-Inputs durch den Spieler.
+Das erste Problem stellte sich in diesem Bereich darin auch mehrere Keys parallel zu erkennen. Wenn man einfach auf den KeyDown input Event hört kommen die parallel gedrückte Tasten hintereinander. Und noch viel schlimmer ist, dass das Drücken der einen Taste, die anderen Tasten blockiert.
+Um dieses Problem zu lösen hören wir nicht nur auf den KeyDown event sondern auch auf den KeyUp event. Dabei Haben wir einen input vector, welcher bei KeyDown den Keycode speichert. Bei KeyUp vom gleichen code wird dieser wieder von der Liste gelöscht.
+Um herauszufinden, welche Keys gerade gleichzeitig gedrückt werden, kann nun einfach über die input-Liste iteriert werden, egal ob eine Taste die anderen Blockiert. Eine Taste ist gedrückt, bis ein KeyUp event der gleichen taste wieder kommt.
 
 ### Mutex für thread savety
 Da der GameLoop in einem eigenen Thread existiert, die Inputs aber vom Hauptthread kommen, verwenden wir beim schreiben und lesen der Input liste einen Mutex. So kann der GameLoop von der Liste lesen und der Hauptthread schreiben ohne dass es zu kollisionen kommt.
@@ -193,3 +207,4 @@ Diese remoteRender Methode überprüft nun, ob das erhaltene Paket einen view is
 #Ergebnisse und Einschätzung
 
 #Fazit
+Dieses Projekt war für uns gleichermaßen eine große Herausforderung und eine äußerst lehrreiche Erfahrung die wir nicht missen wollen. 
