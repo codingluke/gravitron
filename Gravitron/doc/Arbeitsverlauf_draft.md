@@ -102,17 +102,15 @@ Dabei sind wir auf den GameLoop gestossen. http://gameprogrammingpatterns.com/ga
 ## GameLoop
 
 Dabei haben wir uns vorallem auf folgende implementierung geeinigt:
-```c++
-while (true)
-{
-  double start = getCurrentTime();
-  processInput();
-  update();
-  render();
-  sleep(start + MS_PER_FRAME - getCurrentTime());
-}
-```
 
+    while (true)
+    {
+      double start = getCurrentTime();
+      processInput();
+      update();
+      render();
+      sleep(start + MS_PER_FRAME - getCurrentTime());
+    }
 
 Es wird sequenziell zuerst den Benutzerinput verarbeitet (processInput), dabei handelt es sich um Keyborad input über das lokale keyboard oder übers netzwerk.
 Dann wird der spielstatus neu berechnet indem alle Aktoren sich aktuallisieren (update). Wenn der neue Spielstand berechnet wurde, wird dann alles gerendert.
@@ -129,27 +127,28 @@ In unserem Fall werden diese GameActorViews im Game.cpp von der methode Game::re
 
 Der Schwierige Punkt in diesem Szenario war, wie man aus C++ heraus QML Objekte generieren kann:
 
-```c++
-// Zuerst muss der QML Pfad vom GameActorView gelesen werden. Dieser
-// definiert welche .qml Datei für den View verwendet werden soll.
-QString path = QString::fromStdString((*view)->getQmlPath());
+    // Zuerst muss der QML Pfad vom GameActorView gelesen werden. 
+    // Dieser definiert welche .qml Datei für 
+    // den View verwendet werden soll.
+    QString path = QString::fromStdString((*view)->getQmlPath());
 
-// Dann wird eine neue Komponente davo erstellte davo erstellt
-QQmlComponent component(engine, QUrl(path));
-QQuickItem *childItem = qobject_cast<QQuickItem*>(component.create());
+    // Dann wird eine neue Komponente davo erstellte davo erstellt
+    QQmlComponent component(engine, QUrl(path));
+    QQuickItem *childItem = qobject_cast<QQuickItem*>(component.create());
 
-// Dieser muss dann einen Parent gegeben werden. In unserem Fall ist 
-// der qmlParent dem Game.cpp objekt bekannt.
-childItem->setParent(qmlParent);
-childItem->setParentItem(qmlParent);
+    // Dieser muss dann einen Parent gegeben werden. In unserem Fall ist 
+    // der qmlParent dem Game.cpp objekt bekannt.
+    childItem->setParent(qmlParent);
+    childItem->setParentItem(qmlParent);
 
-...
+    ...
 
-// Dann können die einzelnen Eigenschaften dem QQuickItem übergeben werden.
-for(pit = props.begin(); pit != props.end(); pit++) {
-    childItem->setProperty(pit->first.c_str(), pit->second.c_str());
-}
-```
+    // Dann können die einzelnen Eigenschaften dem QQuickItem 
+    // übergeben werden.
+    for(pit = props.begin(); pit != props.end(); pit++) {
+        childItem->setProperty(pit->first.c_str(), 
+                               pit->second.c_str());
+    }
 
 ##Updates
 
