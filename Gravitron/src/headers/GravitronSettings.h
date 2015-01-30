@@ -6,9 +6,15 @@
 #include <iostream>
 #include <QTextStream>
 
+/**
+ * The class manage the settings for the game. The settings saved persistent for each
+ * instance of the programm. It is desigend to set the values via qml gui.
+ */
 class GravitronSettings : public QObject
 {
+    /** QT stuff */
     Q_OBJECT
+
     Q_PROPERTY(int difficulty
            READ difficulty
            WRITE setDifficulty
@@ -24,59 +30,49 @@ class GravitronSettings : public QObject
            WRITE setMusicSoundVolume
            NOTIFY musicSoundVolumeChanged)
 
-    Q_PROPERTY(bool playMusic
-           READ playMusic
-           WRITE setPlayMusic
-           NOTIFY playMusicChanged)
-
-    Q_PROPERTY(bool playSounds
-           READ playSounds
-           WRITE setPlaySounds
-           NOTIFY playSoundsChanged)
-
     Q_PROPERTY(QString playerName
            READ playerName
            WRITE setPlayerName
            NOTIFY playerNameChanged)
 
-    Q_PROPERTY(int playingFieldSize
-           READ playingFieldSize
-           WRITE setPlayingFieldSize
-           NOTIFY playingFieldSizeChanged)
+    Q_PROPERTY(int playingFieldSacleFactor
+           READ playingFieldSacleFactor
+           WRITE setPlayingFieldScaleFactor
+           NOTIFY playingFieldScaleFactorChanged)
 
-    Q_PROPERTY(int botsCount
-       READ botsCount
-       WRITE setBotsCount
-       NOTIFY botsCountChanged)
+    Q_PROPERTY(int numberOfBots
+       READ numberOfBots
+       WRITE setNumberOfBots
+       NOTIFY numberOfBotsChanged)
 
-    Q_PROPERTY(int planetCount
-       READ planetCount
-       WRITE setPlanetCount
-       NOTIFY planetCountChanged)
+    Q_PROPERTY(int numberOfPlanets
+       READ numberOfPlanets
+       WRITE setNumberOfPlanets
+       NOTIFY numberOfPlanetsChanged)
 
-    Q_PROPERTY(int astroidCount
-       READ astroidCount
-       WRITE setAstroidCount
-       NOTIFY astroidCountChanged)
+    Q_PROPERTY(int numberOfAstroids
+       READ numberOfAstroids
+       WRITE setNumberOfAstroids
+       NOTIFY numberOfAstroidsChanged)
 
     Q_PROPERTY(int frag
        READ frag
        WRITE setFrag
        NOTIFY fragChanged)
 
-    Q_PROPERTY(int respawTime
-       READ respawTime
-       WRITE setRespawTime
-       NOTIFY respawTimeChanged)
+    Q_PROPERTY(int respawnTime
+       READ respawnTime
+       WRITE setRespawnTime
+       NOTIFY respawnTimeChanged)
 
     Q_PROPERTY(QString language
        READ language
        WRITE setLanguage
        NOTIFY languageChanged)
 
-    Q_PROPERTY(bool network
-       READ network
-       WRITE setNetwork)
+    Q_PROPERTY(bool multiplayer
+       READ multiplayer
+       WRITE setMultiplayer)
 
     public:
         explicit GravitronSettings(QObject *parent = 0);
@@ -87,28 +83,24 @@ class GravitronSettings : public QObject
         Q_INVOKABLE void setFullScreen(const bool& source);
         Q_INVOKABLE float musicSoundVolume() const;
         Q_INVOKABLE void setMusicSoundVolume(const float& source);
-        Q_INVOKABLE bool playMusic() const;
-        Q_INVOKABLE void setPlayMusic(const bool& source);
-        Q_INVOKABLE bool playSounds() const;
-        Q_INVOKABLE void setPlaySounds(const bool& source);
         Q_INVOKABLE QString playerName() const;
         Q_INVOKABLE void setPlayerName(const QString& source);
-        Q_INVOKABLE int playingFieldSize() const;
-        Q_INVOKABLE void setPlayingFieldSize(const int& source);
-        Q_INVOKABLE int botsCount() const;
-        Q_INVOKABLE void setBotsCount(const int& source);
-        Q_INVOKABLE int planetCount() const;
-        Q_INVOKABLE void setPlanetCount(const int& source);
-        Q_INVOKABLE int astroidCount() const;
-        Q_INVOKABLE void setAstroidCount(const int& source);
+        Q_INVOKABLE int playingFieldSacleFactor() const;
+        Q_INVOKABLE void setPlayingFieldScaleFactor(const int& source);
+        Q_INVOKABLE int numberOfBots() const;
+        Q_INVOKABLE void setNumberOfBots(const int& source);
+        Q_INVOKABLE int numberOfPlanets() const;
+        Q_INVOKABLE void setNumberOfPlanets(const int& source);
+        Q_INVOKABLE int numberOfAstroids() const;
+        Q_INVOKABLE void setNumberOfAstroids(const int& source);
         Q_INVOKABLE int frag() const;
         Q_INVOKABLE void setFrag(const int& source);
-        Q_INVOKABLE int respawTime() const;
-        Q_INVOKABLE void setRespawTime(const int& source);
+        Q_INVOKABLE int respawnTime() const;
+        Q_INVOKABLE void setRespawnTime(const int& source);
         Q_INVOKABLE QString language() const;
         Q_INVOKABLE void setLanguage(const QString& source);
-        Q_INVOKABLE bool network() const;
-        Q_INVOKABLE void setNetwork(const bool& source);
+        Q_INVOKABLE bool multiplayer() const;
+        Q_INVOKABLE void setMultiplayer(const bool& source);
 
         void save();
         void load();
@@ -122,33 +114,78 @@ class GravitronSettings : public QObject
         void difficultyChanged(const int& source);
         void fullScreenChanged(const bool& source);
         void musicSoundVolumeChanged(const float& source);
-        void playMusicChanged(const bool& source);
-        void playSoundsChanged(const bool& source);
         void playerNameChanged(const QString& source);
-        void playingFieldSizeChanged(const int& source);
-        void botsCountChanged(const int& source);
-        void planetCountChanged(const int& source);
-        void astroidCountChanged(const int& source);
+        void playingFieldScaleFactorChanged(const int& source);
+        void numberOfBotsChanged(const int& source);
+        void numberOfPlanetsChanged(const int& source);
+        void numberOfAstroidsChanged(const int& source);
         void fragChanged(const int& source);
-        void respawTimeChanged(const int& source);
+        void respawnTimeChanged(const int& source);
         void languageChanged(const QString& source);
         void error(const QString& msg);
 
     private:
+        /**
+         * The difficulty of the game.
+         */
         int mDifficulty;
+
+        /**
+         * The switch for fullscreen on or off.
+         */
         bool mFullScreen;
+
+        /**
+         * The volume of the music and sounds.
+         * 0 means off.
+         * 1 means 100% volume.
+         */
         float mMusicSoundVolume;
-        bool mPlayMusic;
-        bool mPlaySounds;
+
+        /**
+         * The name of the local player.
+         */
         QString mPlayerName;
-        int mPlayingFieldSize;
-        int mBotsCount;
-        int mPlanetCount;
-        int mAstroidCount;
+
+        /**
+         * The factor the GameField is scaled with.
+         */
+        int mPlayingFieldScaleFactro;
+
+        /**
+         * The number of bots.
+         */
+        int mNumberOfBots;
+
+        /**
+         * The number of Planet.
+         */
+        int mNumberOfPlanets;
+
+        /**
+         * The number of Astroids.
+         */
+        int mNumberOfAstroids;
+
+        /**
+         * The number of kills thats need to win the game.
+         */
         int mFrag;
-        int mRespawTime;
+
+        /**
+         * The time to respawn the palyer.
+         */
+        int mRespawnTime;
+
+        /**
+         * The language.
+         */
         QString mLanguage;
-        bool mNetwork;
+
+        /**
+         * Switch for Multiplayer on or off.
+         */
+        bool mMultiplayer;
 };
 
 

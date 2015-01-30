@@ -38,8 +38,8 @@ void Game::setQmlParent(QQuickItem *theQmlParent)
  */
  void Game::start()
  {
-    field = new GameField(2000 * settings->playingFieldSize() , 1300 * settings->playingFieldSize());
-    settings->setNetwork(false);
+    field = new GameField(2000 * settings->playingFieldSacleFactor() , 1300 * settings->playingFieldSacleFactor());
+    settings->setMultiplayer(false);
     gameLoop = new GameLoop(GameGenerator(settings, field));
     connectGameloop();
     gameLoop->start();
@@ -58,9 +58,9 @@ void Game::startClient()
 
 void Game::startServer()
 {
-    field = new GameField(2000 * settings->playingFieldSize(),
-                          1300 * settings->playingFieldSize());
-    settings->setNetwork(true);
+    field = new GameField(2000 * settings->playingFieldSacleFactor(),
+                          1300 * settings->playingFieldSacleFactor());
+    settings->setMultiplayer(true);
     gameLoop = new GameLoop(GameGenerator(settings, field, server));
     connectGameloop();
     connect(gameLoop, SIGNAL(sendViewlist(QString)),
