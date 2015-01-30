@@ -2,49 +2,58 @@
 #define GAME_LOOP_H
 
 #include <QThread>
-#include <string>
 #include <QString>
-#include <QQmlApplicationEngine>
+#include <vector>
 #include "GameActor.h"
 #include "GameActorView.h"
-#include <QKeyEvent>
 #include "GameField.h"
-#include "InputHandler.h"
 #include "GameGenerator.h"
 #include "Player.h"
 #include "AIPlayer.h"
-#include "NetworkInputHandler.h"
 
 class GameGenerator; // <<== Forward declare the class. Because of circular definitions.
 
 using namespace std;
 
+/**
+ * Definition of the Gameloop. The GameLoop is the Heartbeat of the game.
+ * It orchestrates the Processes to handle the game.
+ */
 class GameLoop : public QThread
 {
     Q_OBJECT
 
     private:
+        /**
+         * Shows if the GameLoop is running.
+         */
         bool running;
-        int ms_per_update;
-        QObject *game;
-        QQmlApplicationEngine *engine;
+
+        /**
+         * List of all the AI bots.
+         */
         vector<AIPlayer*> bots;
-        vector<Player*> player;
-        int respawnTime;
-        GameField *field;
+
+        /**
+         * List of the Human Players.
+         */
+        vector<Player*> players;
+
+        /**
+         * Pointer to the GameField.
+         */
+        GameField *field = NULL;
 
     public:
-        std::vector<GameActor*> actors;
+        vector<GameActor*> actors;
 
         GameLoop(GameGenerator gGenerator);
-
         virtual ~GameLoop();
 
         void setBots(vector<AIPlayer*> bots);
-        void setPlayer(vector<Player*> player);
+        void setPlayers(vector<Player*> players);
         void setActors(vector<GameActor*> actors);
         void setGameField(GameField* newField);
-        void setRespawTime(int respawnTime);
         void stop();
 
     public slots:
@@ -54,9 +63,8 @@ class GameLoop : public QThread
         void processInput();
         void update();
         void render();
-        void execLocalPlayerAction(int code);
         void deleteBots();
-        void deletePlayer();
+        void deletePlayers();
         void deleteActors();
         void remapActorsReferences();
         float getRelativePositionX(Spacecraft &anchor, GameActor &other) const;

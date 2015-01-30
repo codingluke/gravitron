@@ -1,6 +1,6 @@
 TEMPLATE = app
 
-CONFIG += c++11 debug
+CONFIG += c++11 #debug
 
 QT += qml quick network testlib 
 
@@ -23,7 +23,6 @@ HEADERS += src/headers/GameActor.h \
     src/headers/GameLoop.h \
     src/headers/Game.h \
     src/headers/GameActorView.h \
-    src/headers/MenuListener.h \ 
     src/headers/Locator.h \
     src/headers/Physics.h \
     src/headers/Spacecraft.h \
@@ -64,7 +63,6 @@ SOURCES += src/main.cpp \
     src/GravitronSettings.cpp \
     src/QmlFileReader.cpp \
     src/GameActorView.cpp \
-    src/MenuListener.cpp \
     src/Locator.cpp \
     src/Physics.cpp \
     src/Spacecraft.cpp \

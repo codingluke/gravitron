@@ -1,6 +1,6 @@
 #include "headers/HumanPlayer.h"
 #include "headers/GameLoop.h"
-#include <QDebug>
+#include <QCoreApplication>
 
 HumanPlayer::HumanPlayer(Spacecraft *spacecraft, int frag, QString name)
   : Player(spacecraft, frag, name)

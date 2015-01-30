@@ -1,13 +1,10 @@
 #ifndef TCP_SERVER_H
 #define TCP_SERVER_H
 
-#include <QtNetwork>
 #include <QObject>
 #include <QTcpServer>
 #include <QTcpSocket>
 #include <QString>
-#include <vector>
-#include "GameActorView.h"
 
 class TcpServer: public QObject
 {

@@ -5,10 +5,19 @@
 
 using namespace std;
 
+/**
+ * Default constructor.
+ */
 InputHandler::InputHandler()
 {
 }
 
+/**
+ * Returns a copy of the actual inputs list.
+ * The inputs are saved though a mutex.
+ *
+ * @return copy of the actual inputs lists.
+ */
 set<int> InputHandler::getInputs()
 {
     mutex.lock();
@@ -17,6 +26,12 @@ set<int> InputHandler::getInputs()
     return copy;
 }
 
+/**
+ * Inserts a new code into the list.
+ * The insertion is threadsave by a mutex.
+ *
+ * @param code  Code to insert.
+ */
 void InputHandler::insertInputCode(int code)
 {
     mutex.lock();
@@ -27,6 +42,12 @@ void InputHandler::insertInputCode(int code)
     mutex.unlock();
 }
 
+/**
+ * Removes a code form the list.
+ * The mutation of the list is threadsave by a mutex.
+ *
+ * @param code to remove.
+ */
 void InputHandler::removeInputCode(int code)
 {
     mutex.lock();
@@ -36,6 +57,15 @@ void InputHandler::removeInputCode(int code)
     mutex.unlock();
 }
 
+/**
+ * The Event Filter for the QCoreApplication. Filters out just
+ * the keyUp and KeyDown events.
+ *
+ * @param obj   QObject which the event has fired.
+ * @param event The QEvent which as been fired.
+ *
+ * @return always false.
+ */
 bool InputHandler::eventFilter(QObject *obj, QEvent *event)
 {
   if (event->type() == QEvent::KeyPress && obj) {

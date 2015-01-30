@@ -1,6 +1,4 @@
 #include "headers/TcpServer.h"
-#include <iostream>
-#include <QDebug>
 
 using namespace std;
 

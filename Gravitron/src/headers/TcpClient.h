@@ -9,12 +9,25 @@
 
 using namespace std;
 
+
+/**
+ * TcpClient Definition. Holds a QTcpSocket and can start
+ * a connection with a server.
+ * Has slots to send and receive messages.
+ */
 class TcpClient: public QObject
 {
     Q_OBJECT
 
     private:
+        /**
+         * QTcpSocket for the connection.
+         */
         QTcpSocket client;
+
+        /**
+         * A buffer to merge splitted packages.
+         */
         QString buffer;
 
     public:
@@ -24,7 +37,6 @@ class TcpClient: public QObject
         Q_INVOKABLE void start(QString address, quint16 port);
 
     public slots:
-        void startTransfer();
         void startRead();
         Q_INVOKABLE void transfer(QString message);
         Q_INVOKABLE void transfer(set<int> inputs);
