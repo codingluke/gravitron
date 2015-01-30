@@ -14,65 +14,64 @@ Implementierung eines Mehrspieler-Weltraum-Shooters (Gravitron) in C++.
 
 ### Basic Features
 - (5) Objekte verfügen über eine Gravitation relativ zu ihrer Masse.
-- (5) Das Spiel soll über das Netzwerk im Multiplayer spielbar sein, wobei ein spieler der Host ist.
-- (7) Es soll eine KI mit 3 Schwierigkeitsstufen beinhalten.
-- (2) Spieler settings werden presistent gespeichert
-- (5) Jedem Spieler wird die sicht relativ zu seinem Raumschiff gerendert.
-- (3) Es soll zwischen den Sprachen Entlisch und Deutsch gewechselt werden können.
-
-### Gameplay
+- (5) Das Spiel soll über das Netzwerk im Multiplayer spielbar sein, wobei ein Spieler der Host ist.
+- (5) Es soll eine KI mit 3 Schwierigkeitsstufen beinhalten.
+- (2) Einstellungen werden lokal persistent gespeichert.
+- (2) Jedem Spieler wird die Sicht relativ zu seinem Raumschiff gerendert.
+- (3) Es soll zwischen den Sprachen Englisch und Deutsch gewechselt werden können.
 
 ### Spielfeld
 (5) Das Spielfeld ist eine Fläche. jeder Spieler steuert sein eigenes Schiff und bewegt sich auf der Fläche.
 
 ### Spielmodus
-(2) Es handelt sich um ein klassisches Deathmatch, d.h. jeder Spieler erzielt Punkte durch das abschiessen gegnerischer Schiffe.
+(2) Es handelt sich um ein klassisches Deathmatch, d.h. jeder Spieler erzielt Punkte durch das Abschießen gegnerischer Schiffe.
 Wer auf diese Weise eine vorher definierte Punktzahl erreicht, gewinnt und das Spiel wird beendet. 
 
 ### Gravitationssystem
-(5) Alle im Spielfeld befindlichen Objekte (Raumschiffe, Planeten, Schwarze Löcher...) besitzen eine Gravitation relativ zu ihrer Masse. Diese beeinflusst die Flugbahn von Geschossen und Schiffen.  Die Nicht-Spieler-Objekte sollen sich zunächst nicht gegenseitig beeinflussen.
+(5) Alle im Spielfeld befindlichen Objekte (Raumschiffe, Planeten, Schwarze Löcher...) besitzen eine Gravitation relativ zu ihrer Masse. Diese beeinflusst die Flugbahn von Geschossen und Schiffen.
 
 ### Nicht-Spieler-Objekte
-- (2) Planeten, 
-- (1) Schrott, 
+- (1) Planeten
+- (1) Schrott
 - (1) Asteroiden 
 
 ### Arten von Waffen
 - (2) Laser
 - (2) Rakete
-- (3) Zielsuchende Rackete
+- (3) Zielsuchende Rakete
 
 ### Kollisionen
 (2) Es wird für alle möglichen Kollisionen eine eine spezifische Behandlung
-definiert. Beispielsweise führt die Kollision mit einem Planeten zu höheren zerstörung des Schiffes, als die Kollision mit einem Asteroiden.
+definiert. Beispielsweise führt die Kollision mit einem Planeten zu einer stärkeren Beschädigung des Schiffes, als die Kollision mit einem Asteroiden.
 
 ### PowerUps
-(3) Das Raumschiff eines abgeschossenen Spielers wird zu einem PowerUp, welches von allen Spielern aufgesammelt werden kann. 
+(3) Das Abschießen eines gegnerischen Schiffes kann ein PowerUp erzeugen, welches von allen Spielern aufgesammelt werden kann. 
 
 ### Mögliche Arten von PowerUps:
-(1) Waffen Upgrade!
+(1) Waffenaufwertung
 
 ## Plattformen
-(1)
-(- Windows)
-- Linux
-- OSX
+(1) Linux, OSX, Windows
 
 ##Einarbeitung
 Wir wollten unser Projekt so gut und professionell wie möglich umsetzen. Dementsprechend einigten wir uns darauf, nicht gleich los zu programmieren, sondern hinreichend viel Zeit zunächst in Recherche und anschließend in durchdachtes Design zu investieren. 
+
 Wir informierten uns über ähnliche Spiele, versuchten deren Designentscheidungen zu verstehen. Auch beschäftigten wir uns mit der allgemeinen Theorie der Spielentwicklung und stießen so auf das Buch _Game Programming Patterns_ von Robert Nystrom. Dieses Buch sollte für uns bald eine wichtige Inspiration und Wissensquelle werden. 
+
 Für die Umsetzung physikalischer Gesetzmäßigkeiten bedienten wir uns dem Buch _The Nature of Code_ von Daniel Shiffman, in welchem die Umsetzung von Naturgesetzen mithilfe von in __Processing__ geschriebenen Codebeispielen zu erläutern.
+
 Auch ging einige Zeit in das gedankliche durchdringen des Qt-Frameworks im Bereich GUI. Die Projektwebsite bot dabei immerhin in den meisten Fällen Hilfe und Beispiele. Ein gelegentliches Anecken an der Logik von Qt und auch entsetztes Unverständnis derer ließen sich jedoch manchmal nicht Vermeiden.
+
 Darüber hinaus nutzten wir auch eine kurze Zeit um unserer Kenntnisse von C++ ein wenig aufzufrischen.
 
 #Qt/Qml 
-Als GUI sprache haben wir uns für QML und gegen die QWidgets entschieden. Dies weil durch QML eine saubere trennung von Code und Design möglich ist und weil es in Zukunft der Standard von QT sein wird.
+Als GUI-Sprache haben wir uns für QML und gegen die QWidgets entschieden, weil durch QML eine saubere Trennung von Code und Design möglich ist und weil es in Zukunft der Standard von QT sein wird.
 
 ## Scene Management
-Das erste Problem stellte sich mit der Menüführung. Wie ist es möglich in QML zwischen verschiedenen Views zu switchen? Zuerst versuchten wir es indem wir die einzelnen Ebenen mit einfach mit dem Visibility parameter sichtbar und unsichtbar machten. Diese Lösung fühlte sich jedoch nicht sehr elegant an.
-Da viele die QML verwenden nicht das standard qml verwenden, sonder bereits GUI Libraries von Firmen wie Blackberry oder Nokia, gibt es nicht all zu viel Hilfe im Internet. Es gibt sozusagen keine best practices.
+Das erste Problem stellte sich in der Menüführung. Wie ist es möglich in QML zwischen verschiedenen Views zu schalten? Zuerst versuchten wir es indem wir die einzelnen Ebenen einfach mit dem Visibility-Parameter sichtbar und unsichtbar machten. Diese Lösung fühlte sich jedoch nicht sehr elegant an.
+Da in den meisten Fällen in denen QML verwendet wird, nicht das Standard-QML verwendet wird, sondern GUI-Libraries von Firmen wie Blackberry oder Nokia, gibt es nicht all zu viel Hilfe im Internet. Es gibt sozusagen keine _best practices_.
 
-Wir haben am Ende eine Lösung gefunden, inder wir im main.qml eine __ScrollView__ element haben welches eine __ListView__ beinhaltet. Dieser List view wiederum geben wir als Model ein __VisualItemModel__. Ein VisualItemModel kann wiederum andere QML objekte beinhalten. Dabei nutzen wir nun in dem VisualItemModel eine __Loader__ objekt, welches QML objekte nachladen kann. Wenn wir nun also in der Menustruktur in eine andere ebene gelangen, müssen wir nur noch dem __Loader__ eine neue _source_ (Pfad zu einer QML-Datei) geben. Mit dieser Struktur können wir nun ziemlich elegant geschachtelte Menus erstellen.
+Wir haben am Ende eine Lösung gefunden, in der wir im __main.qml__ ein __ScrollView__-Element einfügten, welches eine __ListView__ beinhaltet. Dieser ListView wiederum geben wir als Model ein __VisualItemModel__. Ein VisualItemModel kann wiederum andere QML-Objekte beinhalten. Dabei nutzen wir nun in dem VisualItemModel ein __Loader__-Objekt, welches QML-Objekte nachladen kann. Wenn wir nun also in der Menüstruktur in eine andere Ebene gelangen, müssen wir nur noch dem __Loader__ eine neue _source_ (Pfad zu einer QML-Datei) geben. Mit dieser Struktur können wir nun ziemlich elegant geschachtelte Menüs erstellen.
 
 ```javascript
   VisualItemModel {
@@ -103,21 +102,21 @@ Wir haben am Ende eine Lösung gefunden, inder wir im main.qml eine __ScrollView
 ```
 
 ## Property Binding
-Ein weiteres Problem bestand darin QML controls an C++ objekte zu "binden". Dafür muss man zuerst ein C++ objekt auf QML Eebene verfügbar machen. Eine Möglichkeit ist es indem man beim Laden des QMLs, dem Kontekt Referenzen zu C++ objekten registriert. Dies scheint nicht sehr elegant, ist jedoch ziemlich Effizient.
+Ein weiteres Problem bestand darin QML-Controls an C++-Objekte zu _binden_. Dafür muss man zuerst ein C++-Objekt auf QML-Ebene verfügbar machen. Eine Möglichkeit ist es, beim Laden des QMLs, dem Objekt Referenzen zu C++-Objekten registrieren. Dies scheint nicht sehr elegant, ist jedoch ziemlich Effizient.
 
 ```javascript    
-  // Hier wird ein settins objekt unter dem 
+  // Hier wird ein Settins-Objekt unter dem 
   // Namen "Settings" in QML verfügbar gemacht.
   GravitronSettings settings;
   engine.rootContext()->setContextProperty("Settings", &settings);
 ```
 
-Sobald man dies gemacht hat, kann überal im QML auf das Settings objekt zugegriffen werden. So können nun auch QML-Controlls gebunden werden:
+Sobald man dies gemacht hat, kann überall im QML auf das Settings-Objekt zugegriffen werden. So können nun auch QML-Controls gebunden werden:
 
 ```javascript
   // Hier wird der playerName von den registrierten Settings geholt.
   // sobald der Benutzer den Focus vom Feld weg nimmt, wird 
-  // ebenfalls über dasSettings Objekt der neue Spielername gesetzt.
+  // ebenfalls über das Settings-Objekt der neue Spielername gesetzt.
   TextField {
       id: txt_playerName
       height: Global.textFieldHeight
@@ -129,16 +128,16 @@ Sobald man dies gemacht hat, kann überal im QML auf das Settings objekt zugegri
 ```
 
 Es muss dabei beachtet werden, dass keine Loops entstehen. Wenn wir z.B.
-die setPlayerName methode nicht bei onEditingFinished sonder bei onTextChanged aufrufen, hätten wir einen Loop.
+die __setPlayerName()__-Methode nicht bei __onEditingFinished__, sondern bei __onTextChanged__ aufrufen, würde ein solcher Loop entstehen.
 
 #Spiellogik
 
-Ein sehr kritischer Teil des Projektes besteht in der inneren Spiellogik. Sie bestimmt die Regeln, den Ablauf und auch jeden möglichen Zustand des Spiels. Ihre Aufgabe ist es auch, den Zustand der einzelnen Akteure des Spiels konsistent zu halten. Um die Umsetzung der Logik unabhängig von Qt zu halten, haben wir uns entschieden die Spiellogik völlig von den anderen Bestandteilen des Spiels zu entkoppeln. 
+Ein sehr kritischer Teil des Projektes bestand in der inneren Spiellogik. Sie bestimmt die Regeln, den Ablauf und auch jeden möglichen Zustand des Spiels. Ihre Aufgabe ist es auch, den Zustand der einzelnen Akteure des Spiels konsistent zu halten. Um die Umsetzung der Logik unabhängig von Qt zu halten, haben wir uns entschieden die Spiellogik völlig von den anderen Bestandteilen des Spiels zu entkoppeln. 
 
 ##GameActor
 Die Klasse GameActor repräsentiert jedes denkbare Objekt, das Teil des Spielgeschehens ist. Dazu zählen die Raumschiffe der Spieler, Planeten, Sonnen, Weltraumschrott, Asteroiden aber auch jegliche Geschosse der Waffen über die die Schiffe verfügen. 
 
-![GameActor Klassenhierarchie](img/class_game_actor__inherit__graph.png)
+![GameActor-Klassenhierarchie](img/class_game_actor__inherit__graph.png)
 
 Die wichtigsten Eigenschaften eines GameActors sind seine Position, Geschwindigkeit, Beschleunigung, Masse, Lebenspunkte, Gravitationskraft sowie die Reichweite, über welche seine Gravitation andere GameActors beeinflussen kann. Seine Positionierung und Bewegung werden mit elementarer Vektorrechnung realisiert. Wann immer eine Kraft auf einen GamActor wirken soll, wird die Methode __applyForce()__ mit einem  entsprechenden Kraftvektor verwendet. Die angewendete Kraft wirkt sich zunächst nur auf seinen Beschleunigungsvektor addiert, erst beim Aktualisieren des GameActors über __update()__ wird der Beschleunigungsvektor mit dem Geschwindigkeitsvektor verrechnet und mit diesem dann schließlich die neue Position bestimmt.
 Falls GameActors miteinander Kollidieren wird dies mithilfe der __collisionDetection()__ aus der __Physics__-Bibliothek ermittelt. Durch Implementation der virtuellen Methode __handleCollision()__ kann festgelegt werden, wie der jeweilige GameActor mit einem Zusammenstoß umgehen soll. Sollte er schaden nehmen, kann dies mit __dealDamage()__ realisiert werden, diese Methode bestimmt dabei auch, ob der zugewiesene Schaden die maximale Zahl von Lebenspunkten überschreitet und aktualisiert das Feld __killed__ dementsprechend. __addHealth()__ agiert in analog entgegengesetzter Weise zu __dealDamage()__ wobei wir jedoch davon ausgehen, dass ein getöteter oder zerstörter GameActor nicht "wiederbelebt" werden sollte. Dies sollte, falls nötig über einen anderen Weg geregelt werden. Zusätzlich definieren wir mit einer Lebenspunktzahl von -1 einen GameActor, der nicht durch das Zuteilen von Schaden durch __dealDamage()__ sterben kann. Falls ein GameActor durch seinen Tod einen Effekt auf das Spielgeschehen haben, zum Beispiel eine Explosion oder das setzen eines PowerUps, kann dies in der virtuellen Methode __handleKill()__ definiert werden. 
@@ -150,12 +149,11 @@ Darüber hinaus gehorcht das Projectile allen durch GameActor definierten Regeln
 #Programmlogik 	
 
 ##Game
-Am Anfang des Projektes war es zu erst mal wichtig herauszufinden wie ein Echtzeit spiel überhaupt aufgebaut ist. Um einwehnig das Gefühl dafür zu erhalten haben wir das Buch www.gameprogrammingpatterns.com "duchgelesen".
-Dabei sind wir auf den GameLoop gestossen. http://gameprogrammingpatterns.com/game-loop.html.
+Wie schon erwähnt, fanden wir im Rahmen der Recherche das Buch _Game Programming Patters_. Dies gab uns ein gutes Verständnis der Umsetzung und Aufbau eines Echtzeitspieles. In ihm stießen wir auch auf eine Vorlage unseres GameLoops.
 
 ## GameLoop
 
-Dabei haben wir uns vorallem auf folgende implementierung geeinigt:
+Für die Umsetzung des GameLoops einigten wir uns auf die folgende Implementierung:
 
 ```javascript
   while (true)
@@ -168,33 +166,33 @@ Dabei haben wir uns vorallem auf folgende implementierung geeinigt:
   }
 ```
 
-Es wird sequenziell zuerst den Benutzerinput verarbeitet (processInput), dabei handelt es sich um Keyborad input über das lokale keyboard oder übers netzwerk.
-Dann wird der spielstatus neu berechnet indem alle Aktoren sich aktuallisieren (update). Wenn der neue Spielstand berechnet wurde, wird dann alles gerendert.
-Wenn dann noch zeit überig blieb, wird diese geschlaffen. So garantieren wir eine konstante spielgeschwindigkeit, egal ob ein rechner schneller ist oder nicht.
+Es wird sequenziell zuerst den Benutzerinput verarbeitet (__processInput()__), dabei handelt es sich um Inputs über das lokale Keyboard oder über auch über das Netzwerk.
+Anschließend wird der Spielstatus neu berechnet indem alle GameActors aktualisiert werden (__update()__). Wenn der neue Spielstand berechnet wurde, wird der View gerendert.
+Wenn dann noch Zeit übrig bleibt, wird diese wird der Prozess schlafen gelegt. So garantieren wir eine konstante Spielgeschwindigkeit, unabhängig von der Hardware des jeweiligen Systems. 
 
-### Rendern in einem anderen thread.
-Der GameLoop ist ein eigener Thread, das effektive rendern wird nicht im GameLoop gemacht. Im GameLoop werden nur die Daten vorbereitet, damit sie universell gerendert werden können. Dabei werden die vorbereiteten Views über QT eigene Signale weitergereicht.
+### Rendern in einem anderen Thread.
+Der GameLoop ist ein eigener Thread, das tatsächliche rendern wird nicht im GameLoop bewerkstelligt. Dort werden lediglich die Daten vorbereitet, damit sie universell gerendert werden können. Dabei werden die vorbereiteten Views über QTs eigene Signale weitergereicht.
 
-### c++ Qml Mapping
-Um den Spielstand universell rendern zu können und somit die Logik vom Design zu trennen, mussten wir ein Datenobjekt erstellen, welches die Eigenschaften eines Spielobjektes einfach darstellen kann. Dabei haben wir den GameActorView entwickelt. Der GameActorView ist streng genommen nur eine Key-Value liste. Er beinhaltet die Eigenschaften als Keys, und deren Values.
-Jeder GameActor, kann nun einen GameActorView von sich und seinem aktuellen status erstellen. Dieser view kann dann serialisiert werden und an einer beliebigen anderen stelle wieder gelesen werden. Ob dann aus dem View ein QML objekt generiert wird oder mit OpenGL ein objekt gerendert wird ist egal.
+### C++ Qml Mapping
+Um den Spielstand universell rendern zu können und somit die Logik vom Design zu trennen, mussten wir ein Datenobjekt erstellen, welches die Eigenschaften eines Spielobjektes einfach darstellen kann. Dabei haben wir den GameActorView entwickelt. Der GameActorView ist streng genommen nur eine Liste mit _Key-Value-Pairs_. Er speichert die Eigenschaften als Keys und deren Values.
+Jeder GameActor, kann nun einen GameActorView von sich und seinem aktuellen Status erstellen. Dieser View kann dann serialisiert werden und an einer beliebigen anderen Stelle wieder gelesen werden. Ob dann aus dem View ein QML-Objekt generiert wird oder mit OpenGL ein Objekt gerendert wird ist egal.
 
-In unserem Fall werden diese GameActorViews im Game.cpp von der methode Game::render gelesen. Dann werden für jeden View ein QQuickItem generiert. Welche QML Datei verwendet werden soll, wird ebenfalls im GameActorView definiert. So kann einfach pro GameActor eine GameActor.qml erstellt werden.
+In unserem Fall werden diese GameActorViews im __Game.cpp__ von der Methode __render()__ gelesen. Dann wird für jeden View ein QQuickItem generiert. Welche QML-Datei verwendet werden soll, wird ebenfalls im GameActorView definiert. So kann einfach für jeden GameActor eine eigen GameActor.qml erstellt werden.
 
-Der Schwierige Punkt in diesem Szenario war, wie man aus C++ heraus QML Objekte generieren kann:
+Der Schwierige Punkt in diesem Szenario war, wie man aus C++ heraus QML-Objekte generieren kann:
 
 ```javascript
-  // Zuerst muss der QML Pfad vom GameActorView gelesen werden. 
-  // Dieser definiert welche .qml Datei für 
+  // Zuerst muss der QML-Pfad vom GameActorView gelesen werden. 
+  // Dieser definiert welche .qml-Datei für 
   // den View verwendet werden soll.
   QString path = QString::fromStdString((*view)->getQmlPath());
 
-  // Dann wird eine neue Komponente davo erstellte davo erstellt
+  // Dann wird eine neue Komponente davon erstellt
   QQmlComponent component(engine, QUrl(path));
   QQuickItem *childItem = qobject_cast<QQuickItem*>(component.create());
 
-  // Dieser muss dann einen Parent gegeben werden. In unserem Fall ist 
-  // der qmlParent dem Game.cpp objekt bekannt.
+  // Dieser muss dann ein Parent gegeben werden. In unserem Fall ist 
+  // der qmlParent dem Game-Objekt bekannt.
   childItem->setParent(qmlParent);
   childItem->setParentItem(qmlParent);
 
@@ -210,45 +208,45 @@ Der Schwierige Punkt in diesem Szenario war, wie man aus C++ heraus QML Objekte 
 ##Updates
 
 ## Multi-Key InputHandling	
-Beim input handling handelt es sich um die Aufnahme und Verarbeitung von Keyboard-Inputs durch den Spieler.
-Das erste Problem stellte sich in diesem Bereich darin auch mehrere Keys parallel zu erkennen. Wenn man einfach auf den KeyDown input Event hört kommen die parallel gedrückte Tasten hintereinander. Und noch viel schlimmer ist, dass das Drücken der einen Taste, die anderen Tasten blockiert.
-Um dieses Problem zu lösen hören wir nicht nur auf den KeyDown event sondern auch auf den KeyUp event. Dabei Haben wir einen input vector, welcher bei KeyDown den Keycode speichert. Bei KeyUp vom gleichen code wird dieser wieder von der Liste gelöscht.
-Um herauszufinden, welche Keys gerade gleichzeitig gedrückt werden, kann nun einfach über die input-Liste iteriert werden, egal ob eine Taste die anderen Blockiert. Eine Taste ist gedrückt, bis ein KeyUp event der gleichen taste wieder kommt.
+Beim _Inputhandling_ handelt es sich um die Aufnahme und Verarbeitung von Keyboard-Inputs durch den Spieler.
+Das erste Problem stellte sich in diesem Bereich darin auch mehrere Keys parallel zu erkennen. Wenn man einfach auf den KeyDown Input-Event hört kommen die parallel gedrückte Tasten hintereinander. Und noch viel schlimmer ist, dass das Drücken der einen Taste, die anderen Tasten blockiert.
+Um dieses Problem zu lösen hören wir nicht nur auf den KeyDown-Event sondern auch auf den KeyUp-Event. Dazu nutzen wir einen Input-Liste (eigentlich ein Vektorobjekt), welcher bei KeyDown den Keycode speichert. Bei KeyUp vom gleichen Code wird dieser wieder von der Liste gelöscht.
+Um herauszufinden, welche Keys gerade gleichzeitig gedrückt werden, kann nun einfach über die input-Liste iteriert werden, egal ob eine Taste die anderen blockiert. Eine Taste ist gedrückt, bis ein KeyUp-Event der gleichen taste wieder kommt.
 
-### Mutex für thread savety
-Da der GameLoop in einem eigenen Thread existiert, die Inputs aber vom Hauptthread kommen, verwenden wir beim schreiben und lesen der Input liste einen Mutex. So kann der GameLoop von der Liste lesen und der Hauptthread schreiben ohne dass es zu kollisionen kommt.
+### Mutex für Thread Safety
+Da der GameLoop in einem eigenen Thread existiert, die Inputs aber vom Hauptthread kommen, verwenden wir beim schreiben und lesen der Input-Liste einen Mutex. So kann der GameLoop von der Liste lesen und der Hauptthread schreiben ohne dass es zu Kollisionen kommt.
 
 ## Netzwerk
-Um das Netzwerk zu ermöglichen haben wir eine TcpServer und TcpClient Klasse geschrieben. Diese werden am anfang beim Programmstart initialisiert. Es besitzen allso alle Spieler einen Server und einen Client, egal ob sie der Server oder Client im Spiel sind.
+Um das Netzwerk zu ermöglichen haben wir eine __TcpServer__- und __TcpClient__-Klasse geschrieben. Diese werden beim Programmstart initialisiert. Es besitzen also alle Spieler einen Server und einen Client, egal ob sie der Server oder Client im Spiel sind.
 
-Dann war es wichtig zu definieren, was für verschiedene Pakete wir übermitteln wollen. So zusagen ein eigenes Protokoll. Dabei sind wir auch folgende Typen gekommen.
+Auch war es wichtig zu definieren, welche verschiedenen Pakete wir übermitteln wollen. Sozusagen ein eigenes Protokoll. Dabei sind wir auf folgende Typen gekommen.
 
-Die __Views__ sind die zu übertragenen GameActorViews, welche vom Client gerendert werden sollen. Pakete welche view sind, starten immer mit einem "v" und enden mit einem _newline_
+Die __Views__ sind die zu übertragenen GameActorViews, welche vom Client gerendert werden sollen. Pakete welche Views sind, starten immer mit einem _v_ und enden mit einer _newline_.
 
-Die __Inputs__ sind die Keyboad inputs vom Netzwerkspieler welcher auf dem Server sein Spacecraft steuern möchte. Input Pakete starten immer mit einem "i" und enden mit einer _newline_
+Die __Inputs__ sind die Keyboadinputs vom Netzwerkspieler welcher auf dem Server sein Raumschiff steuern möchte. Input-Pakete starten immer mit einem _i_ und enden mit einer _newline_.
 
-Die __Controls__ sind steuerbefehle vom Server zu client. z.B. dass das spiel begonnen hat, oder setzen des Lebensbalken, Hintergrund usw. Diese Pakete starten immer mit einem "c" und enden mit einem _newline_
+Die __Controls__ sind Steuerbefehle vom Server zum Client. z.B. der Spielbeginn , das Aktualisieren des Lebensbalkens, die Position des Hintergrundbildes usw. Diese Pakete starten immer mit einem _c_ und enden mit einer _newline_.
 
-Grundsätzlich Enden alle Pakete mit einer _newline_. Dies da wir das Problem hatten, dass Pakete gesplitted versendet wurden und zum Absturtz des Spiels führten. Nun können wir auf der Ebene des TCP Sockets überprüfen ob ein Packet vollständig angekommen ist. Wenn dies nicht der Fall ist (newline fehlt) buffern wir das Packet und fügen es mit dem nächsten Paket zusammen, bis es wieder vollständig ist.
+Grundsätzlich Enden alle Pakete mit einer _newline_. Dieser Entscheidung liegt die Tatsache zugrunde, dass wir das Problem hatten, dass Pakete _gesplitted_ versendet wurden und so zum Absturz des Spiels führten. Mit dieser Lösung können wir auf der Ebene des TCP-Sockets überprüfen ob ein Paket vollständig angekommen ist. Wenn dies nicht der Fall ist (_newline_ fehlt) buffern wir das Packet und fügen es mit dem nächsten Paket zusammen, bis es wieder vollständig ist.
 
 ### Remote Rendering
-Da wir bereits das Rendern komplett vom Gameloop getrennt haben, können wir nun den Render mechanismus relativ einfach netzwerkfähig machen. Um das zu machen, können wir den TcpClient mit einer remoteRender methode verbinden.
-Diese remoteRender Methode überprüft nun, ob das erhaltene Paket einen view ist. Startet mit "v". Wenn dies der fall ist, generiert die Methode daraus wieder eine liste von GameActorViews und ruft die gleiche render methode auf wie der Server. Die render Methode rendert nun aus den GameActorView wieder QML objetke und zeigt sie an.
+Da wir bereits das Rendern komplett vom Gameloop getrennt hatten, konnten wir nun den Rendermechanismus relativ einfach netzwerkfähig machen. Um das zu realisieren, haben wir den TcpClient mit einer __remoteRender()__-Methode verbunden.
+Diese __remoteRender()__-Methode überprüft, ob das erhaltene Paket einen View beinhaltet, also mit _v_ beginnt. Wenn dies der Fall ist, generiert die Methode daraus wieder eine liste von GameActorViews und ruft die gleiche __render()__-Methode auf wie der Server. Diese Methode rendert nun aus den GameActorViews wieder QML-Objekte und zeigt sie an.
 
 ### Remote Inputs
-Um die Inputs des Netzwerkspilers zu empfangen, wird auf der Seite des Netzwerkspielers einen Inputhandler erstellt wie bereits für den Lokalen spieler. Dabei wird nun aber die inputliste serialisiert über das Netzwerk versendet. Jedes mal wenn sie sich ändert.
-Auf der Serverseite ist nun ein __NetworkInputHandler__ per signals/slots an den server tcp socket gebunden. Dieser hört auf jedes erhaltene Paket, ob es sich um inputs handelt (starten mit "i"). Wenn dies der Fall ist, wird das paket deserialisiert und analog zum InputHandler in ein durch mutex geschützen inputs vektor gespeichert. Dieser kann nun vom NetzwerkPlayer objekt bei jedem durchlauf des Gameloops nach inputs überprüft werden.
+Um die Inputs des Netzwerkspielers zu empfangen, wird auf der Seite des Netzwerkspielers ein _Inputhandler_ erstellt wie auch für den lokalen Spieler. Dabei wird nun aber die Inputliste serialisiert über das Netzwerk versendet, sobald diese sich ändert.
+Auf der Serverseite ist nun ein __NetworkInputHandler__ über _signals_ und _slots_ an den TCP-Socket der Servers gebunden. Dieser hört auf jedes erhaltene Paket und prüft ob es sich dabei um Inputs handelt. Wenn dies der Fall ist, wird das Paket deserialisiert und analog zum InputHandler in einem durch Mutex geschützten Inputvektor gespeichert. Dieser kann nun vom NetworkPlayer-Objekt bei jedem Durchlauf des Gameloops auf Inputs überprüft werden.
 
 ##Player
 
 ###HumanPlayer
 
 ###HumanNetworkPlayer
-Der __NumanNetworkPlayer__ unterscheidets sich nur durch den Typ des InputHandlers vom HumanPlayer. Der netzwerk Player
-überprüft in der processInput Methode den Inputs vektor des __NetworkInputHandler__. Dieser connected er in seinem construktor
-mit den serverevents.
+Der __NumanNetworkPlayer__ unterscheidet sich nur durch den Typen des InputHandlers vom HumanPlayer. Der NetworkPlayer
+überprüft in der __processInput()__-Methode den Inputvektor des __NetworkInputHandler__s. Diese connected er in seinem Konstruktor
+mit den Server-Events.
 
-Ebenfalls wird auf das Paket "cname" connected. Ganz am anfang vom Spiel schickt der Netzwerkspieler seinen Namen übers netzwerk. Der __HumanNetworkPlayer__ hört darauf und setzt seinen namen neu.
+Ebenfalls wird auf das Paket "cname" connected. Zu Beginn des Spiels schickt der Netzwerkspieler seinen Namen übers Netzwerk. Der __HumanNetworkPlayer__ hört darauf und setzt seinen Namen dementsprechend.
 
 ###AIPlayer
 
