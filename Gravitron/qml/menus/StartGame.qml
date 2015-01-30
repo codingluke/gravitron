@@ -3,7 +3,6 @@ import QtQuick.Controls 1.2
 
 import "constants.js" as Global
 import "functions.js" as Functions
-import "GameSettingsActions.js" as GameSettings
 
 Column {
     spacing: 10
@@ -97,7 +96,7 @@ Column {
         stepSize: 1
         minimumValue: 3
         maximumValue: 12
-        value: Settings.respawTime
+        value: Settings.respawnTime
         onPressedChanged: {
             Settings.setRespawnTime(slide_respawTime.value)
         }

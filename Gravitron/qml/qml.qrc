@@ -6,7 +6,6 @@
         <file>menus/constants.js</file>
         <file>menus/functions.js</file>
         <file>menus/GlobalSettingsActions.js</file>
-        <file>menus/GameSettingsActions.js</file>
         <file>menus/Main.qml</file>
         <file>menus/NewGame.qml</file>
         <file>menus/Credits.qml</file>
@@ -25,5 +24,4 @@
         <file alias="missile">actors/Missile.qml</file>
         <file alias="laser">actors/Laser.qml</file>
     </qresource>
-    <qresource prefix="/"/>
 </RCC>

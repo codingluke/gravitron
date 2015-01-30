@@ -150,7 +150,7 @@ class GravitronSettings : public QObject
         /**
          * The factor the GameField is scaled with.
          */
-        int mPlayingFieldScaleFactro;
+        int mPlayingFieldScaleFactor;
 
         /**
          * The number of bots.

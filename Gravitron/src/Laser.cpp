@@ -10,24 +10,24 @@ Laser::Laser() : Projectile()
 }
 
 Laser::Laser(Vec3f position, Vec3f velocity, GameField &field, GameActor &friendly, vector<GameActor*> *actors) :
-Projectile(position, 0, 0, 0, 90, 1, field, friendly, actors)
+Projectile(position, ActConf::LASER_MASS, ActConf::LASER_GRAVITATION_RANGE, ActConf::LASER_G, ActConf::LASER_TIME_TO_LIVE, ActConf::LASER_HEALTH, field, friendly, actors)
 {
     applyForce(velocity);
-    this->maxSpeed = ActConf::LASER_MAX_MAXSPEED;
+    this->maxSpeed = ActConf::LASER_MAXSPEED;
 }
 
 Laser::Laser(GameActor &actor, Vec3f velocity, GameField &field, GameActor &friendly, vector<GameActor*> *actors) :
-Projectile(actor.getPosition(), 0, 0, 0, 90, 1, field, friendly, actors)
+Projectile(actor.getPosition(), ActConf::LASER_MASS, ActConf::LASER_GRAVITATION_RANGE, ActConf::LASER_G, ActConf::LASER_TIME_TO_LIVE, ActConf::LASER_HEALTH, field, friendly, actors)
 {
     applyForce(velocity);
-    this->maxSpeed = ActConf::LASER_MAX_MAXSPEED;
+    this->maxSpeed = ActConf::LASER_MAXSPEED;
 }
 
 Laser::Laser(GameActor &actor, GameField &field, GameActor &friendly, vector<GameActor*> *actors) :
-Projectile(actor.getPosition(), 0, 0, 0, 90, 1, field, friendly, actors)
+Projectile(actor.getPosition(), ActConf::LASER_MASS, ActConf::LASER_GRAVITATION_RANGE, ActConf::LASER_G, ActConf::LASER_TIME_TO_LIVE, ActConf::LASER_HEALTH, field, friendly, actors)
 {
     applyForce(actor.getVelocity());
-    this->maxSpeed = ActConf::LASER_MAX_MAXSPEED;
+    this->maxSpeed = ActConf::LASER_MAXSPEED;
 }
 
 Laser::Laser(const Laser &projectile) :

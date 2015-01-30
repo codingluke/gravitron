@@ -7,10 +7,22 @@
 
 using namespace std;
 
+/**
+ * Definition of a GameActorView. It is a general representation of the properties
+ * of a GameActor. The GameActorView can be serialized. It is specially designed
+ * to be rendered through QML.
+ */
 class GameActorView
 {
     private:
+      /**
+       * Path of the QML File.
+       */
       string qmlPath;
+
+      /**
+       * Key/Value map of properties.
+       */
       map<string, string> properties;
 
     public:

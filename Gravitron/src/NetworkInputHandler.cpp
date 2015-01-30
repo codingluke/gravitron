@@ -1,15 +1,20 @@
 #include "headers/NetworkInputHandler.h"
-#include <QDebug>
-#include <QEvent>
-#include <QKeyEvent>
-#include <iostream>
+#include <QStringList>
 
 using namespace std;
 
+/**
+ * Default constructor.
+ */
 NetworkInputHandler::NetworkInputHandler()
 {
 }
 
+/**
+ * Returns a copy of the actual input list.
+ *
+ * @return copy of the actoal input list.
+ */
 set<int> NetworkInputHandler::getInputs()
 {
     mutex.lock();
@@ -18,6 +23,11 @@ set<int> NetworkInputHandler::getInputs()
     return copy;
 }
 
+/**
+ * Sets inputs by a serialized input list.
+ *
+ * @param inputsStr serialized codes for the input list.
+ */
 void NetworkInputHandler::setInputsFromString(QString inputsStr)
 {
     set<int> tmp;
@@ -30,6 +40,11 @@ void NetworkInputHandler::setInputsFromString(QString inputsStr)
     setInputs(tmp);
 }
 
+/**
+ * Sets inputs by a new inputs set.
+ *
+ * @param newInputs  set of new input codes.
+ */
 void NetworkInputHandler::setInputs(set<int> newInputs)
 {
     mutex.lock();
@@ -37,6 +52,11 @@ void NetworkInputHandler::setInputs(set<int> newInputs)
     mutex.unlock();
 }
 
+/**
+ * Removes a code form the list.
+ *
+ * @param code code to remove
+ */
 void NetworkInputHandler::removeInputCode(int code)
 {
     mutex.lock();
@@ -44,6 +64,14 @@ void NetworkInputHandler::removeInputCode(int code)
     mutex.unlock();
 }
 
+/**
+ * Slot to receive messages which should be serialized (commaseperated) codes.
+ * Comes from the Network in this application.
+ *
+ * Example: 12334,12334545,2432\n
+ *
+ * @param message the serialized code list.
+ */
 void NetworkInputHandler::receive(QString message)
 {
     set<int> codes;

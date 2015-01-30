@@ -27,7 +27,7 @@ QDataStream& operator<< (QDataStream& stream, const GravitronSettings& settings)
     stream << settings.mFullScreen;
     stream << settings.mMusicSoundVolume;
     stream << settings.mPlayerName;
-    stream << settings.mPlayingFieldScaleFactro;
+    stream << settings.mPlayingFieldScaleFactor;
     stream << settings.mNumberOfBots;
     stream << settings.mNumberOfPlanets;
     stream << settings.mNumberOfAstroids;
@@ -52,7 +52,7 @@ QDataStream& operator>> (QDataStream& stream, GravitronSettings& settings)
     stream >> settings.mFullScreen;
     stream >> settings.mMusicSoundVolume;
     stream >> settings.mPlayerName;
-    stream >> settings.mPlayingFieldScaleFactro;
+    stream >> settings.mPlayingFieldScaleFactor;
     stream >> settings.mNumberOfBots;
     stream >> settings.mNumberOfPlanets;
     stream >> settings.mNumberOfAstroids;
@@ -86,10 +86,10 @@ void GravitronSettings::load() {
 void GravitronSettings::setDefaultSettings() {
     mDifficulty = 2;
     mFullScreen = false;
-    mMusicSoundVolume = 50;
+    mMusicSoundVolume = 0.5;
     mPlayerName = "Player1";
-    mPlayingFieldScaleFactro = 500;
-    mNumberOfBots = 0;
+    mPlayingFieldScaleFactor = 5;
+    mNumberOfBots = 5;
     mNumberOfPlanets = 3;
     mNumberOfAstroids = 10;
     mFrag = 3;
@@ -190,7 +190,7 @@ void GravitronSettings::setPlayerName(const QString& source){
  * @return The scale factor.
  */
 int GravitronSettings::playingFieldSacleFactor() const{
-    return mPlayingFieldScaleFactro;
+    return mPlayingFieldScaleFactor;
 }
 
 /**
@@ -198,7 +198,7 @@ int GravitronSettings::playingFieldSacleFactor() const{
  * @param source The new factor.
  */
 void GravitronSettings::setPlayingFieldScaleFactor(const int& source) {
-    mPlayingFieldScaleFactro = source;
+    mPlayingFieldScaleFactor = source;
     save();
     emit playingFieldScaleFactorChanged(source);
 }

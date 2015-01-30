@@ -35,7 +35,7 @@ class GameGenerator : public QObject
         GameField* field;
 
         /**
-         * The @TcpServer.
+         * The TcpServer.
          */
         TcpServer* server;
 
