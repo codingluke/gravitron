@@ -114,6 +114,7 @@ lupdate_only {
 
 unix:!macx {
     QMAKE_POST_LINK += doxygen && cp -r assets ../build/assets
+    #QMAKE_POST_LINK += cp -r ../Gravitron/assets assets && doxygen ../Gravitron/Doxyfile
 }
 
 macx {
