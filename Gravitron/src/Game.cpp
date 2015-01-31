@@ -45,6 +45,10 @@ void Game::setQmlParent(QQuickItem *theQmlParent)
     gameLoop->start();
 }
 
+/**
+ * Starts the client. The Inputhandler signals are connected to the tcp socket. and
+ * the tcp inputs are connected to the renderRemote Action
+ */
 void Game::startClient()
 {
     InputHandler *iHandler = new InputHandler();
@@ -56,6 +60,12 @@ void Game::startClient()
         this, SLOT(renderRemote(QString)));
 }
 
+/**
+ * starts the Server. A Gamefield and the GameLoop is instatiated.
+ * All the necessary signals are connected from the gameloop to the game.
+ * It signals to the client, that the game has started, so that the client
+ * can send his username.
+ */
 void Game::startServer()
 {
     field = new GameField(2000 * settings->playingFieldSacleFactor(),
@@ -70,6 +80,9 @@ void Game::startServer()
     server->transfer("cstart\n");
 }
 
+/**
+ * Connects all the necessary signals from the gameloop to the game.
+ */
 void Game::connectGameloop()
 {
     connect(gameLoop, SIGNAL(renderObject(vector<GameActorView*>*)),
@@ -86,6 +99,9 @@ void Game::connectGameloop()
         this, SLOT(setFrag(int, int)));
 }
 
+/**
+ * Stops the gameloop and deletes also the field.
+ */
 void Game::stop()
 {
     if (gameLoop) {
@@ -97,6 +113,9 @@ void Game::stop()
     }
 }
 
+/**
+ * Destructor, stops the current game.
+ */
 Game::~Game()
 {
     stop();
@@ -217,6 +236,12 @@ Game::~Game()
 }
 
 
+/**
+ * Sets the Frag status in the QML GUI.
+ *
+ * @param must  Must frag level
+ * @param have  Have frag level
+ */
 void Game::setFrag(int must, int have)
 {
     QQuickItem *fragStatus = qmlParent->findChild<QQuickItem*>("fragStatus");
@@ -224,6 +249,14 @@ void Game::setFrag(int must, int have)
     fragStatus->setProperty("have", have);
 }
 
+/**
+ * Sets the Backgroundposition new, according to the spaceship of the player.
+ *
+ * @param x             x position of the field
+ * @param y             y position of the field
+ * @param fieldWidth    width of the field
+ * @param fieldHeight   height of the field
+ */
 void Game::setBackgroundPosition(float x, float y, float fieldWidth, float fieldHeight)
 {
     QQuickItem *background = qmlParent->findChild<QQuickItem*>("background");
@@ -233,12 +266,22 @@ void Game::setBackgroundPosition(float x, float y, float fieldWidth, float field
     background->setProperty("height", fieldHeight);
 }
 
+/**
+ * Sets the lifepoints in the QML GUI.
+ *
+ * @param lifepoints  Lifepoints in percentage
+ */
 void Game::setLifepoints(int lifepoints)
 {
     QQuickItem *statusBar = qmlParent->findChild<QQuickItem*>("gameStatus");
     statusBar->setProperty("lifepoints", lifepoints);
 }
 
+/**
+ * Shows a infomessage in the QMO Gui.
+ *
+ * @param message   Message to be shown.
+ */
 void Game::setInfoboxMessage(QString message)
 {
     QObject *infoBox = qmlParent->findChild<QQuickItem*>("Infobox");
@@ -250,6 +293,11 @@ void Game::setInfoboxMessage(QString message)
     }
 }
 
+/**
+ * Sets the active Weapon in the QML Gui.
+ *
+ * @param weaponNumber number of the Weapon.
+ */
 void Game::setActiveWeapon(int weaponNumber)
 {
     if(weaponNumber == 1) {
@@ -276,6 +324,14 @@ void Game::setActiveWeapon(int weaponNumber)
     }
 }
 
+/**
+ * Helper method to find out a relative position of a GameActorView according
+ * an anchor.
+ *
+ * @param anchor_x    x anchor
+ * @param anchor_y    y anchor
+ * @param view        GameActorView to calculate the relative position
+ */
 void Game::setRelativePosition(float anchor_x, float anchor_y, GameActorView *view)
 {
     float x;
