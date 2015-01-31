@@ -1,1 +1,1 @@
-pandoc --toc -s -N -V geometry:margin=1in --include-in-header titlesec.tex -o Arbeitsverlauf_draft.pdf Arbeitsverlauf_draft.md
+pandoc --toc -s -N -V geometry:margin=1in --include-in-header titlesec.tex -o Projekt_Gravitron.pdf Projekt_Gravitron.md
