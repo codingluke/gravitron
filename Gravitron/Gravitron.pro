@@ -112,7 +112,13 @@ lupdate_only {
               qml/actors/*.js
 }
 
-QMAKE_POST_LINK += doxygen
+unix:!macx {
+    QMAKE_POST_LINK += doxygen && cp -r assets ../build/assets
+}
+
+macx {
+    QMAKE_POST_LINK += doxygen && mkdir ../build/Gravitron.app/Contents/MacOS/assets && cp -r assets/ ../build/Gravitron.app/Contents/MacOS/assets
+}
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
 # QML_IMPORT_PATH =
